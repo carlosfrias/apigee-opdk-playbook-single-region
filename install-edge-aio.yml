@@ -8,7 +8,7 @@
 - name: Install and configure Apigee pre-requisites
   include: apigee-pre-requisites.yml
 
-- name: Configure Cassandra & Zookeeper in DC-1
+- name: Install and configure Apigee Edge AIO
   hosts: planet
   gather_facts: no
   serial: 1
@@ -25,9 +25,9 @@
   - { role: apigee-opdk-setup-validate, tags: ['validate'] }
   - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate','validate-cleanup'] }
 
-- name: Download logs and configs from DC-1-DS
-  include: apigee-log-config-files.yml
+- name: Download logs and configs
   tags: ['logs']
+  include: apigee-log-config-files.yml
   vars:
     hosts: planet
 
