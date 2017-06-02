@@ -1,0 +1,37 @@
+---
+- name: Update planet cache
+  include: apigee-planet-cache.yml
+
+- name: Install and configure OS pre-requisites
+  include: apigee-os-pre-requisites.yml
+
+- name: Install and configure Apigee pre-requisites
+  include: apigee-pre-requisites.yml
+
+- name: Configure Cassandra & Zookeeper in DC-1
+  hosts: planet
+  gather_facts: no
+  serial: 1
+  vars_files:
+  - ~/.apigee/credentials.yml
+  roles:
+  - { role: apigee-opdk-setup-component-installer, tags: ['apigee-component', 'installer'] }
+  - { role: apigee-opdk-setup-component, profile: 'aio', tags: ['apigee-component'] }
+  - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
+  - { role: apigee-opdk-setup-status, tags: ['status'] }
+  - { role: apigee-opdk-setup-org-config, tags: ['org'] }
+  - { role: apigee-opdk-setup-org, tags: ['org'] }
+  - { role: apigee-opdk-server-self, server_types: ['mp'] }
+  - { role: apigee-opdk-setup-validate, tags: ['validate'] }
+  - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate','validate-cleanup'] }
+
+- name: Download logs and configs from DC-1-DS
+  include: apigee-log-config-files.yml
+  tags: ['logs']
+  vars:
+    hosts: planet
+
+
+
+
+
