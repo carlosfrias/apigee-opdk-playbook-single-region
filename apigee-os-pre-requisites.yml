@@ -12,14 +12,29 @@
       state: started
       delay: "{{ start_check_delay | d(15) }}"
       timeout: '{{ server_restart_timeout | d(45) }}'
+
+#  - name: Create the apigee folder under /apps/opt
+#    tags: ['links']
+#    file:
+#      path: /apps/opt/apigee
+#      state: directory
+
+#  - name: Symlink /opt/apigee to /apps/opt/apigee
+#    tags: ['links']
+#    file:
+#      dest: /opt/apigee
+#      src: /apps/opt/apigee
+#      state: link
+
   roles:
   - { role: apigee-opdk-ssh-user, tags: ['root'], user: 'root' }
   - { role: apigee-opdk-setup-os-minimum }
-  - { role: apigee-opdk-setup-apigee-user}
+  - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user'] }
   - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
-  - { role: apigee-opdk-setup-selinux-disable }
-  - { role: apigee-opdk-shutdown-iptables }
+  - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
+  - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
   - { role: apigee-server-restart, tags: ['restart-server'], when: (selinux_disabled is defined and not selinux_disabled) or (iptables_disabled is defined and not iptables_disabled) }
+  - { role: apigee-server-setup-target-links, tags: ['links'], when: target_links is defined }
   - { role: apigee-opdk-setup-os-common }
   - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
 
