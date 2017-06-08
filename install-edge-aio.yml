@@ -12,9 +12,8 @@
   hosts: planet
   gather_facts: no
   serial: 1
-  vars_files:
-  - ~/.apigee/credentials.yml
   roles:
+
   - { role: apigee-opdk-setup-component-installer, tags: ['apigee-component', 'installer'] }
   - { role: apigee-opdk-setup-component, profile: 'aio', tags: ['apigee-component'] }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }

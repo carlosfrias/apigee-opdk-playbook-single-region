@@ -11,7 +11,7 @@
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
   - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
   - { role: apigee-server-restart, tags: ['restart-server'], when: (selinux_disabled is defined and not selinux_disabled) or (iptables_disabled is defined and not iptables_disabled) }
-  - { role: apigee-server-setup-target-links, tags: ['links'], when: target_links is defined }
+  - { role: apigee-opdk-setup-target-links, tags: ['links'], when: target_links is defined }
   - { role: apigee-opdk-setup-os-common }
   - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
 

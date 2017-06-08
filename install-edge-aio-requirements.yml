@@ -55,6 +55,8 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-modules
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-target-links
+
 - src: https://github.com/carlosfrias/apigee-opdk-temporary-remove-targets
 
 - src: https://github.com/carlosfrias/apigee-opdk-temporary-restore-targets
