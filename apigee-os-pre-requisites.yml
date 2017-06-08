@@ -3,15 +3,6 @@
   hosts: planet
   gather_facts: no
   tags: ['os-pre-req']
-  pre_tasks:
-  - name: Wait until the node is available
-    become: no
-    delegate_to: 127.0.0.1
-    wait_for:
-      host: '{{ ansible_host }}'
-      state: started
-      delay: "{{ start_check_delay | d(15) }}"
-      timeout: '{{ server_restart_timeout | d(45) }}'
   roles:
   - { role: apigee-opdk-ssh-user, tags: ['root'], user: 'root' }
   - { role: apigee-opdk-setup-os-minimum }
