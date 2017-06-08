@@ -9,13 +9,9 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-java-home
-
 - src: https://github.com/carlosfrias/apigee-opdk-time-sync
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-openjdk
-
-- src: https://github.com/carlosfrias/apigee-opdk-setup-java-home
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap
 
