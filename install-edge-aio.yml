@@ -16,9 +16,9 @@
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets', 'installer'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-component-installer, tags: ['apigee-component', 'installer'] }
   - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets', 'installer'], when: temporary_move is defined }
-  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets', 'installer'], when: temporary_move is defined }
+  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets', 'apigee-component'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-component, profile: 'aio', tags: ['apigee-component'] }
-  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets', 'installer'], when: temporary_move is defined }
+  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets', 'apigee-component'], when: temporary_move is defined }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
   - { role: apigee-opdk-setup-org-config, tags: ['org'] }
