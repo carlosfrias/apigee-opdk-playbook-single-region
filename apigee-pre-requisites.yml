@@ -10,4 +10,3 @@
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
   - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['apigee-silent-config'] }
-  - { role: apigee-opdk-setup-component-installer, tags: ['installer'] }
