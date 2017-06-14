@@ -5,18 +5,18 @@
   tags: ['os-pre-req']
   roles:
   - { role: apigee-opdk-ssh-user, tags: ['root'], user: 'root' }
-  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets', 'apigee-component', 'installer'], when: temporary_move is defined }
-  - { role: apigee-opdk-setup-os-minimum }
-  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets', 'apigee-component', 'installer'], when: temporary_move is defined }
+  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets','os-minimum'], when: temporary_move is defined }
+  - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
+  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets','os-minimum'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user'] }
   - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
   - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
   - { role: apigee-server-restart, tags: ['restart-server'], when: (selinux_disabled is defined and not selinux_disabled) or (iptables_disabled is defined and not iptables_disabled) }
   - { role: apigee-opdk-setup-target-links, tags: ['links'], when: target_links is defined }
-  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets', 'apigee-component', 'installer'], when: temporary_move is defined }
+  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets','os-common'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-os-common, tags: ['os-common'] }
-  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets', 'apigee-component', 'installer'], when: temporary_move is defined }
+  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets','os-common'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
 
 - name: Update Postgres master nodes with OS pre-requisites
