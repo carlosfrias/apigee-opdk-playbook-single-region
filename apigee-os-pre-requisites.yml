@@ -5,7 +5,9 @@
   tags: ['os-pre-req']
   roles:
   - { role: apigee-opdk-ssh-user, tags: ['root'], user: 'root' }
+  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets', 'apigee-component', 'installer'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-os-minimum }
+  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets', 'apigee-component', 'installer'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user'] }
   - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
