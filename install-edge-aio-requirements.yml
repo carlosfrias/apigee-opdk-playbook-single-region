@@ -62,3 +62,6 @@
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cache-update.git
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-ssh-user.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-server-restart.git
+
