@@ -58,3 +58,5 @@
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-temporary-remove-targets.git
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-temporary-restore-targets.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cache-update.git
