@@ -65,3 +65,5 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-server-restart.git
 
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-start-components.git
+
