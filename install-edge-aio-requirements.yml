@@ -1,62 +1,71 @@
 ---
-- src: https://github.com/carlosfrias/apigee-opdk-setup-apigee-user
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-apigee-user.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-os-common
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-common.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-os-ds
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-minimum.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-os-minimum
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-default-settings.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-java-home.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-java-home
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-time-sync.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-time-sync
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-openjdk.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-openjdk
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-limits.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-os-limits
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-silent-installation-config.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-silent-installation-config
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-component
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component-installer.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-component-installer
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-selinux-disable.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-selinux-disable
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-shutdown-iptables.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-shutdown-iptables
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-org-config.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-org-config
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-org.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-org
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-validate.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-validate
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-validate-cleanup.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-validate-cleanup
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-fetch-files.git
 
-- src: https://github.com/carlosfrias/apigee-fetch-files
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-enable-swap.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-enable-swap
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-config.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-config
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-master.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-master
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-standby.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-standby
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-postgres.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-os-postgres
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-status.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-status
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap-rollback.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-rollback
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-modules.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-modules
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-target-links.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-target-links
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-temporary-remove-targets.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-temporary-remove-targets
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-temporary-restore-targets.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-temporary-restore-targets
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cache-update.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-ssh-user.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-server-restart.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-server-self.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-start-components.git
+
