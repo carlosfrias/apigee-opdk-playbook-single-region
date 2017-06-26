@@ -5,6 +5,6 @@
   become: no
   tags: ['cache']
   vars_files:
-  - /tmp/apigee-workspace/apigee/credentials.yml
+  - ~/apigee-workspace/apigee/credentials.yml
   roles:
   - { role: apigee-opdk-setup-default-settings }
