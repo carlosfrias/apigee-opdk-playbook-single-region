@@ -11,7 +11,6 @@
 - name: Install and configure Apigee Edge AIO
   hosts: planet
   gather_facts: no
-  become_flags: beroot
   serial: 1
   roles:
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets', 'apigee-component', 'installer'], when: temporary_move is defined }
