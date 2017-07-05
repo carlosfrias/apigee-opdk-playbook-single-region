@@ -1,6 +1,7 @@
 ---
 - name: Update nodes with common OS pre-requisites
   hosts: planet
+  become_flags: beroot
   gather_facts: no
   tags: ['os-pre-req']
   roles:
