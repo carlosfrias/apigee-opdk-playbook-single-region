@@ -69,3 +69,21 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-start-components.git
 
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-stop-components.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-set-reachable.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-backup.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-restore.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-update-component.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-iptables-flush.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-iptables-port-block.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cwc-update.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-db-upgrade.git
+
