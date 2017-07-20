@@ -1,7 +1,6 @@
-Apigee OPDK Installation of a Single Data Center
-================================================
+# Apigee OPDK Installation of a Single Data Center
 
-# Ansible Roles
+## Ansible Roles that support Apigee OPDK Installation
 
 The following ansible roles will be installed with the requirements.yml file:
 
