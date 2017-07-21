@@ -15,7 +15,7 @@
   - { role: apigee-server-restart, tags: ['restart-server'], when: (selinux_disabled is defined and not selinux_disabled) or (iptables_disabled is defined and not iptables_disabled) }
   - { role: apigee-opdk-setup-target-links, tags: ['links'], when: target_links is defined }
 #  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets','os-common'], when: temporary_move is defined }
-  - { role: apigee-opdk-setup-os-common, tags: ['os-common'] }   
+#  - { role: apigee-opdk-setup-os-common, tags: ['os-common'] }
 #  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets','os-common'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
 
