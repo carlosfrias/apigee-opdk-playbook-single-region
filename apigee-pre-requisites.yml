@@ -6,7 +6,6 @@
   tags: ['apigee-pre-req']
   roles:
   - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
-  - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets'], when: temporary_move is defined }
   - { role: apigee-opdk-yum-repository, tags: ['yum-repository'], yum_repositories_enabled: false, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
