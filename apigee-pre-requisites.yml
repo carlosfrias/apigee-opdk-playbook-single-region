@@ -6,6 +6,7 @@
   tags: ['apigee-pre-req']
   roles:
   - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
+  - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
   - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets'], when: temporary_move is defined }
