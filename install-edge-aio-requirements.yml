@@ -87,5 +87,7 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-db-upgrade.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-yum-repository.git
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-yum-repository-enabled.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-yum-repository-proxy-config.git
 
