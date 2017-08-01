@@ -24,7 +24,7 @@
       vg: vgroot
       lv: /dev/vgroot/lvvar
       pvs: /dev/xvga
-      size: 10G
+      size: +10G
 
 
 
