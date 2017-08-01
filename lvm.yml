@@ -11,7 +11,7 @@
       state: present
 
   - name: Create partition from available space
-    shell: |
+    command: |
       /usr/sbin/gdisk /dev/xvga <<-EOF
       n
       \n
