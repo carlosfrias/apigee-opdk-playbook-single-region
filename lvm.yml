@@ -14,10 +14,10 @@
     shell: |
       gdisk /dev/xvga << EOF
       n
-
-
-
-
+      \n
+      \n
+      \n
+      \n
       w
       EOF
 
