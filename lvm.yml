@@ -1,34 +1,7 @@
 ---
 - name: Added available space to instance
-  hosts: planet
+  hosts: "{{ hosts }}"
   gather_facts: no
 
-
-  tasks:
-  - name: Install gdisk
-    yum:
-      name: gdisk
-      state: present
-
-  - name: Create partition from available space
-    shell: /usr/sbin/sgdisk --new 3:$(/usr/sbin/sgdisk -F):$(/usr/sbin/sgdisk -E) --mbrtogpt --typecode 3:8300 --print /dev/xvda
-
-  - name: Re-read partition table
-    shell: /usr/sbin/partprobe
-
-#  - name: Create physical volume and extend volume group from partition
-#    lvg:
-#      pvs: /dev/xvda3
-#      state: present
-#      vg: vgroot
-
-  - name: Extend local volume from added physical volume
-    lvol:
-      vg: vgroot
-      lv: lvvar
-      pvs: /dev/xvda3
-      shrink: no
-      size: +20%FREE
-
-
-
+  roles:
+  - apigee-lvm-increase-volume-size
