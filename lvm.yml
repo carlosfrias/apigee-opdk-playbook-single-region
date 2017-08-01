@@ -14,15 +14,15 @@
     shell: >
       gdisk /dev/xvga <<EOF
       n
-      \n
-      \n
-      \n
-      \n
+
+
+
+
       w
       EOF
 
- - name: Re-read partition table
-   shell: partprobe
+  - name: Re-read partition table
+    shell: partprobe
 
   - name: Create physical volume and extend volume group from partition
     lvg:
