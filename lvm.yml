@@ -16,11 +16,11 @@
   - name: Re-read partition table
     shell: /usr/sbin/partprobe
 
-  - name: Create physical volume and extend volume group from partition
-    lvg:
-      pvs: /dev/xvda3
-      state: present
-      vg: vgroot
+#  - name: Create physical volume and extend volume group from partition
+#    lvg:
+#      pvs: /dev/xvda3
+#      state: present
+#      vg: vgroot
 
   - name: Extend local volume from added physical volume
     lvol:
@@ -28,7 +28,8 @@
       vg: vgroot
       lv: /dev/mapper/vgroot-lvvar
       pvs: /dev/xvda3
-      size: +10G
+      shrink: no
+      size: 20%PVS
 
 
 
