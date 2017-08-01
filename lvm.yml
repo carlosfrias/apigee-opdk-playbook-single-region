@@ -5,15 +5,24 @@
 
 
   tasks:
-#  - name: Install gdisk
-#    yum:
-#      name: gdisk
-#      state: present
-#
-#  - name: Create partition from available space
-#    shell: gdisk /dev/xvga << EOF
-#      n
-#    EOF
+  - name: Install gdisk
+    yum:
+      name: gdisk
+      state: present
+
+  - name: Create partition from available space
+    shell: |
+      gdisk /dev/xvga << EOF
+      n
+
+
+
+
+       w
+       EOF
+
+ - name: Re-read partition table
+   shell: partprobe
 
   - name: Create physical volume and extend volume group from partition
     lvg:
@@ -25,7 +34,7 @@
     lvol:
       state: present
       vg: vgroot
-      lv: /dev/vgroot/lvvar
+      lv: /dev/mapper/vgroot-lvvar
       pvs: /dev/xvga
       size: +10G
 
