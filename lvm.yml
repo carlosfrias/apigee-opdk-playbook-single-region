@@ -1,0 +1,30 @@
+---
+- hosts: "{{ hosts }}"
+
+  tasks:
+#  - name: Install gdisk
+#    yum:
+#      name: gdisk
+#      state: present
+#
+#  - name: Create partition from available space
+#    shell: gdisk /dev/xvga << EOF
+#      n
+#    EOF
+
+#  - name: Create physical volume and extend volume group from partition
+#    lvg:
+#      pvs: /dev/xvga
+#      state: present
+#      vg: vgroot
+
+  - name: Extend local volume from added physical volume
+    lvol:
+      state: present
+      vg: vgroot
+      lv: /dev/vgroot/lvvar
+      pvs: /dev/xvga
+      size: 10G
+
+
+
