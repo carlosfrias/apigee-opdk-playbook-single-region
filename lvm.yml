@@ -22,7 +22,7 @@
       EOF
 
   - name: Re-read partition table
-    shell: partprobe
+    shell: /usr/sbin/partprobe
 
   - name: Create physical volume and extend volume group from partition
     lvg:
