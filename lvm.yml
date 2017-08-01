@@ -1,6 +1,8 @@
 ---
 - name: Added available space to instance
   hosts: planet
+  gather_facts: no
+
 
   tasks:
 #  - name: Install gdisk
