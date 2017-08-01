@@ -18,8 +18,8 @@
 
 
 
-       w
-       EOF
+      w
+      EOF
 
  - name: Re-read partition table
    shell: partprobe
