@@ -11,17 +11,7 @@
       state: present
 
   - name: Create partition from available space
-    shell: |
-      /dev/xvda <<EOF
-      n
-
-
-
-
-      w
-      EOF
-    args:
-      executable: /usr/sbin/gdisk
+    shell: /usr/sbin/sgdisk --new 3:$(/usr/sbin/sgdisk -F):$(/usr/sbin/sgdisk -E) --mbrtogpt --typecode 3:8300 --print
 
   - name: Re-read partition table
     shell: /usr/sbin/partprobe
