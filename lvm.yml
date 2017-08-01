@@ -25,7 +25,7 @@
   - name: Extend local volume from added physical volume
     lvol:
       vg: vgroot
-      lv: /dev/mapper/vgroot-lvvar
+      lv: lvvar
       pvs: /dev/xvda3
       shrink: no
       size: +20%FREE
