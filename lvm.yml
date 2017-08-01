@@ -12,7 +12,7 @@
 
   - name: Create partition from available space
     command: |
-      /usr/sbin/gdisk /dev/xvga <<-EOF
+      /usr/sbin/gdisk /dev/xvda <<-EOF
       n
       \n
       \n
