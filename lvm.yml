@@ -18,7 +18,7 @@
 
   - name: Create physical volume and extend volume group from partition
     lvg:
-      pvs: /dev/xvda
+      pvs: /dev/xvda3
       state: present
       vg: vgroot
 
@@ -27,7 +27,7 @@
       state: present
       vg: vgroot
       lv: /dev/mapper/vgroot-lvvar
-      pvs: /dev/xvda
+      pvs: /dev/xvda3
       size: +10G
 
 
