@@ -11,15 +11,17 @@
       state: present
 
   - name: Create partition from available space
-    cmd: |
-      /usr/sbin/gdisk /dev/xvda <<EOF
+    shell: |
+      /dev/xvda <<EOF
       n
-      \n
-      \n
-      \n
-      \n
+
+
+
+
       w
       EOF
+    args:
+      executable: /usr/sbin/gdisk
 
   - name: Re-read partition table
     shell: /usr/sbin/partprobe
