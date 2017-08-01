@@ -12,7 +12,7 @@
 
   - name: Create partition from available space
     shell: >
-      gdisk /dev/xvga << EOF
+      gdisk /dev/xvga <<EOF
       n
       \n
       \n
