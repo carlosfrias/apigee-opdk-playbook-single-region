@@ -15,11 +15,11 @@
 #      n
 #    EOF
 
-#  - name: Create physical volume and extend volume group from partition
-#    lvg:
-#      pvs: /dev/xvga
-#      state: present
-#      vg: vgroot
+  - name: Create physical volume and extend volume group from partition
+    lvg:
+      pvs: /dev/xvga
+      state: present
+      vg: vgroot
 
   - name: Extend local volume from added physical volume
     lvol:
