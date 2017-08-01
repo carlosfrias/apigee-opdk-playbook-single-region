@@ -24,7 +24,6 @@
 
   - name: Extend local volume from added physical volume
     lvol:
-      state: present
       vg: vgroot
       lv: /dev/mapper/vgroot-lvvar
       pvs: /dev/xvda3
