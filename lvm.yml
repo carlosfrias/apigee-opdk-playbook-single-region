@@ -28,7 +28,7 @@
       lv: /dev/mapper/vgroot-lvvar
       pvs: /dev/xvda3
       shrink: no
-      size: 20%PVS
+      size: +20%FREE
 
 
 
