@@ -11,13 +11,13 @@
       state: present
 
   - name: Create partition from available space
-    shell: >
+    shell: |
       /usr/sbin/gdisk /dev/xvga <<EOF
       n
-
-
-
-
+      \n
+      \n
+      \n
+      \n
       w
       EOF
 
