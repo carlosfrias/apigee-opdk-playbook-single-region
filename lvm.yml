@@ -1,6 +1,6 @@
 ---
 - name: Added available space to instance
-  hosts: "{{ hosts }}"
+  hosts: "{{ target_hosts }}"
   gather_facts: no
 
   roles:
