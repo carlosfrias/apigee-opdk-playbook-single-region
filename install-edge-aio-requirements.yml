@@ -1,6 +1,8 @@
 ---
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-apigee-user.git
 
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-apigee-user-ownership.git
+
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-common.git
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-minimum.git
