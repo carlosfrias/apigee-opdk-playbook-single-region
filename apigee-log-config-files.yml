@@ -4,6 +4,7 @@
   become: true
   strategy: free
   vars:
+    target_logs_folder: "~/.apigee/logs_configs/{{ hosts }}/"
     pattern:
     - { dir: '/etc/', pattern: 'hosts' }
     - { dir: '/etc/', pattern: 'hosts.allow' }
@@ -37,5 +38,12 @@
     - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*yaml' }
     - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*properties' }
     - { dir: '{{ apigee_installation_home }}/apigee-postgresql/', pattern: '*conf' }
+  pre_tasks:
+  - name: Create folder if missing
+    delegate_to: 127.0.0.1
+    file:
+      path: "{{ target_logs_folder }}"
+      state: directory
+
   roles:
-  - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "~/.apigee/logs_configs/{{ hosts }}/" }
+  - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}" }
