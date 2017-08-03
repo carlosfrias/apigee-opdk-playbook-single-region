@@ -83,6 +83,8 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-modules
 
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-ssh-user
+
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-java-home
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cassandra-rebuild
