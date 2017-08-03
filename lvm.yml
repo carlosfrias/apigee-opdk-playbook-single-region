@@ -12,8 +12,9 @@
 #    percent_volume_extend: 20
 
   roles:
+  - apigee-lvm-create-physical-volume
   - apigee-lvm-increase-volume-size
-#
+
 #  tasks:
 #  - name: Install gdisk
 #    yum:
