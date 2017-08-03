@@ -8,7 +8,7 @@
         --become \
         --become-method=pbrun \
         --skip-tags=root,selinux,apigee-user,iptables,ipv6,os-common,remove-targets,restore-targets,pg-swap-file \
-        --tags=os-pre-req
+        --tags=cache,os-pre-req
 
 # Playbook cli for Apigee Pre-Requisites
     ansible-playbook \
