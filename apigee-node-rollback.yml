@@ -1,6 +1,6 @@
 ---
 - name: Rolling back installation and bootstrap
-  hosts: '{{ hosts }}'
+  hosts: '{{ target_hosts }}'
   strategy: free
   vars:
     remove_apigee: false
