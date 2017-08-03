@@ -2,6 +2,35 @@
 - name: Added available space to instance
   hosts: "{{ target_hosts }}"
   gather_facts: no
+#  vars:
+#    partnum: 3
+#    typecode: 8300
+#    device_name: xvda
+#    device_path: "/dev/{{ device_name }}"
+#    volume_name: vgroot
+#    logical_volume_name: lvvar
+#    percent_volume_extend: 20
 
   roles:
   - apigee-lvm-increase-volume-size
+#
+#  tasks:
+#  - name: Install gdisk
+#    yum:
+#      name: gdisk
+#      state: present
+#
+#  - name: Create partition from available space
+#    shell: "/usr/sbin/sgdisk --new {{ partnum }}:$(/usr/sbin/sgdisk -F):$(/usr/sbin/sgdisk -E) --mbrtogpt --typecode {{ partnum }}:{{ typecode }} --print {{ device_path }}"
+#
+#  - name: Re-read partition table
+#    shell: /usr/sbin/partprobe
+#
+#  - name: Add physical volume to volume group
+#    shell: "/usr/sbin/vgextend {{ volume_name }} {{ device_path }}{{ partnum }}"
+#
+#  - name: Lvresize local volume from added physical volume
+#    shell: "/usr/sbin/lvresize -L+{{ percent_volume_extend }}G /dev/{{ volume_name }}/{{ logical_volume_name }}"
+#
+#  - name: resize2fs volume
+#    shell: "/usr/sbin/resize2fs /dev/mapper/{{ volume_name }}-{{ logical_volume_name }}"
