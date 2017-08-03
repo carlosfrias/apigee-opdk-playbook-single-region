@@ -41,6 +41,7 @@
   pre_tasks:
   - name: Create folder if missing
     delegate_to: 127.0.0.1
+    become: no
     file:
       path: "{{ target_logs_folder }}"
       state: directory
