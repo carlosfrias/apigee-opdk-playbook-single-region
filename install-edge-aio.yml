@@ -17,11 +17,10 @@
   - { role: apigee-opdk-setup-component-installer, tags: ['apigee-component', 'installer'] }
   - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets', 'apigee-component', 'installer'], when: temporary_move is defined }
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets', 'apigee-component'], when: temporary_move is defined }
-  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
+  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository', 'apigee-component'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-setup-component, profile: 'aio', tags: ['apigee-component'] }
-  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: false, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets', 'apigee-component'], when: temporary_move is defined }
-  - { role: apigee-opdk-start-components, tags: ['start-component'] }
+  - { role: apigee-opdk-start-components, tags: ['start-component', 'apigee-component'] }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
   - { role: apigee-opdk-setup-org-config, tags: ['org'] }
   - { role: apigee-opdk-setup-org, tags: ['org'] }

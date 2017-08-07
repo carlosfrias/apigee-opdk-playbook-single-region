@@ -9,7 +9,7 @@
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets'], when: temporary_move is defined }
   - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
-  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: false, yum_repo_filename: 'vz-aws-rhel7' }
+  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-yum-repository-proxy-config, when: https_proxy is defined }
   - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['apigee-silent-config'] }
