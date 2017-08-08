@@ -14,7 +14,7 @@
   - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets'], when: temporary_move is defined }
   - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository','vz-aws_rhel7'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
-  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository','artifactory'], yum_repositories_enabled: true, yum_repo_filename: 'artifactory', yum_repositories: "{{ artifactory_repos }}" }
+  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository','artifactory'], yum_repositories_enabled: true, yum_repo_filename: 'artifactory', yum_repositories: "{{ artifactory_repo }}" }
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
   - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-yum-repository-proxy-config, when: https_proxy is defined }
