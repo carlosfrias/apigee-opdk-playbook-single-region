@@ -3,7 +3,6 @@
 # Playbook cli to update the Ansible cache
     ansible-playbook \
             install-edge-aio.yml \
-            -e @~/.apigee/credentials.yml \
             --tags=cache
 
 # Playbook cli for OS Pre-Requisites
