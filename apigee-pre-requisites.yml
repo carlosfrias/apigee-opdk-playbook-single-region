@@ -5,11 +5,11 @@
   strategy: free
   tags: ['apigee-pre-req']
   vars:
-  artifactory_repo:
-  - { name: "Artifactory",
-      baseurl: "https://oneartifactory.verizon.com/artifactory/dl-fedoraproject-org-epel7-x86_64",
-      repo_id: "Artifactory",
-      yum_repo_filename: "artifactory"}
+    artifactory_repo:
+    - { name: "Artifactory",
+        baseurl: "https://oneartifactory.verizon.com/artifactory/dl-fedoraproject-org-epel7-x86_64",
+        repo_id: "Artifactory",
+        yum_repo_filename: "artifactory"}
   roles:
   - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets'], when: temporary_move is defined }
