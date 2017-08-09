@@ -3,10 +3,18 @@
   hosts: planet
   gather_facts: no
   tags: ['os-pre-req']
+  vars:
+    artifactory_repo:
+    - { name: "Artifactory",
+        baseurl: "https://oneartifactory.verizon.com/artifactory/dl-fedoraproject-org-epel7-x86_64/",
+        repo_id: "Artifactory",
+        yum_repo_filename: "artifactory",
+        gpgcheck: 'no'}
   roles:
   - { role: apigee-opdk-ssh-user, tags: ['root'], user: 'root' }
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets','os-minimum'], when: temporary_move is defined }
-  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
+  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository','artifactory'], yum_repositories_enabled: true, yum_repo_filename: 'artifactory', yum_repositories: "{{ artifactory_repo }}" }
+  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository','artifactory'], yum_repositories_enabled: true, yum_repo_filename: 'artifactory', yum_repositories: "{{ artifactory_repo }}" }
   - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
   - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets','os-minimum'], when: temporary_move is defined }
   - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user'] }
