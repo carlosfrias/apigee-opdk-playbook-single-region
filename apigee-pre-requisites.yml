@@ -9,7 +9,8 @@
     - { name: "Artifactory",
         baseurl: "https://oneartifactory.verizon.com/artifactory/dl-fedoraproject-org-epel7-x86_64",
         repo_id: "Artifactory",
-        yum_repo_filename: "artifactory"}
+        yum_repo_filename: "artifactory",
+        gpgcheck: '0'}
   roles:
   - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets'], when: temporary_move is defined }
