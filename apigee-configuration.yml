@@ -1,0 +1,8 @@
+---
+- name: Update apigee-pre-req for the planet
+  hosts: planet
+  gather_facts: no
+  strategy: free
+  tags: ['apigee-config']
+  roles:
+  - { role: apigee-opdk-setup-silent-installation-config, tags: ['apigee-silent-config'] }

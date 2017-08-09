@@ -5,8 +5,11 @@
 - name: Install and configure OS pre-requisites
   include: apigee-os-pre-requisites.yml
 
-- name: Install and configure Apigee pre-requisites
+- name: Install Apigee pre-requisites
   include: apigee-pre-requisites.yml
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
 
 - name: Install and configure Apigee Edge AIO
   hosts: planet
