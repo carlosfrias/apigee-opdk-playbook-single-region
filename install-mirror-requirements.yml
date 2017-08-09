@@ -35,7 +35,13 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-fetch-files
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-postgres
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-config.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-master.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-standby.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-postgres.git
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-status
 
