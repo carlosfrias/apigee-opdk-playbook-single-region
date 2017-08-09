@@ -1,6 +1,6 @@
 ---
 - name: Update apigee-pre-req for the planet
-  hosts: planet
+  hosts: "{{ target_hosts }}"
   gather_facts: no
   strategy: free
   tags: ['apigee-pre-req']

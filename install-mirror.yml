@@ -1,20 +1,24 @@
 ---
 - name: Update planet cache
   include: apigee-planet-cache.yml
+  vars:
+    target_hosts: planet
 
 - name: Install and configure OS pre-requisites
   include: apigee-os-pre-requisites.yml
+  vars:
+    target_hosts: planet
 
-- name: Update apigee-pre-req for the planet
-  hosts: planet
-  gather_facts: no
-  strategy: free
-  tags: ['apigee-pre-req']
+- name: Install Apigee pre-requisites
+  include: apigee-pre-requisites.yml
+  vars:
+    target_hosts: planet
+
+- name: Create apigee mirror
+  hosts: mirror
+  vars_files:
+  - ~/.apigee/credentials.yml
   roles:
-  - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
-  - { role: apigee-opdk-temporary-remove-targets, tags: ['remove-targets'], when: temporary_move is defined }
-  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository','vz-aws_rhel7'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
-  - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
-  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
-  - { role: apigee-opdk-yum-repository-proxy-config, when: https_proxy is defined }
-  - { role: apigee-opdk-temporary-restore-targets, tags: ['restore-targets'], when: temporary_move is defined }
+  - { role: apigee-opdk-setup-bootstrap-create-archive, tags: ['create-archive'] }
+  - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
+

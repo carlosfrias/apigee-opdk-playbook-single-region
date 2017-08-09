@@ -1,15 +1,23 @@
 ---
 - name: Update planet cache
   include: apigee-planet-cache.yml
+  vars:
+    target_hosts: planet
 
 - name: Install and configure OS pre-requisites
   include: apigee-os-pre-requisites.yml
+  vars:
+    target_hosts: planet
 
 - name: Install Apigee pre-requisites
   include: apigee-pre-requisites.yml
+  vars:
+    target_hosts: planet
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
+  vars:
+    target_hosts: planet
 
 - name: Install and configure Apigee Edge AIO
   hosts: planet
