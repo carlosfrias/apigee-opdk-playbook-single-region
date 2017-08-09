@@ -1,0 +1,54 @@
+---
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-apigee-user
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-common
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-limits
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-minimum
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-default-settings
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-time-sync
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-openjdk
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap-create-archive
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap-download-archive
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap-upload-archive
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap-archive-installer
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-set-reachable
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component-installer
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-selinux-disable
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-shutdown-iptables
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-fetch-files
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-postgres
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-status
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap-rollback
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-start-components
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-stop-components
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-backup.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-restore
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-server-self.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-aws-setup.git
