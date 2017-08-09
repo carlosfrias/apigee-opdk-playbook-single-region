@@ -12,7 +12,7 @@
         -e @~/.apigee/custom-properties.yml \
         --become \
         --become-method=pbrun \
-        --skip-tags=root,selinux,iptables,ipv6,pg-swap-file \
+        --skip-tags=root,selinux,iptables,ipv6,remove-targets,restore-targets,pg-swap-file \
         --tags=os-pre-req
 
 # Playbook cli for Apigee Pre-Requisites

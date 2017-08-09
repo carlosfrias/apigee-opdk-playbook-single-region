@@ -93,3 +93,5 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-yum-repository-proxy-config.git
 
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-yum-packages.git
+
