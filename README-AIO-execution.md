@@ -1,5 +1,10 @@
 # Playbook Execution
 
+Custom properties and credentials have been included in the playbook so they do not
+need to be passed in on the command line. Additionally, roles that are not suitable
+for Verizon provisioned instances have been removed so that they no longer need to be
+listed in --skip-tags.
+
 # Playbook cli to update the Ansible cache
     ansible-playbook \
         install-edge-aio.yml \
