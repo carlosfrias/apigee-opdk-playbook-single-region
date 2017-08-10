@@ -83,3 +83,5 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-java-home.git
 
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-mirror-nginx.git
+
