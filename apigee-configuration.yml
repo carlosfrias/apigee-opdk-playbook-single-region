@@ -5,4 +5,4 @@
   strategy: free
   tags: ['apigee-config']
   roles:
-  - { role: apigee-opdk-setup-silent-installation-config, tags: ['apigee-silent-config'] }
+  - { role: apigee-opdk-setup-silent-installation-config }
