@@ -48,7 +48,7 @@
   tags: ['logs']
   include: apigee-log-config-files.yml
   vars:
-    hosts: planet
+    target_hosts: planet
 
 
 
