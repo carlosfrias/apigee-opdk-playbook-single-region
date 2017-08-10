@@ -26,6 +26,7 @@
 - name: Validate internal ports for Management Server
   hosts: ms
   gather_facts: no
+  tags: ['ms']
   roles:
   - apigee-internal-port-connectivity-validator-ms
 
