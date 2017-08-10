@@ -2,34 +2,33 @@
 
 # Playbook cli to update the Ansible cache
     ansible-playbook \
-            install-edge-aio.yml \
-            --tags=cache
+        install-edge-aio.yml \
+        --tags=cache
 
 # Playbook cli for OS Pre-Requisites
     ansible-playbook \
         install-edge-aio.yml \
-        -e @~/.apigee/credentials.yml \
-        -e @~/.apigee/custom-properties.yml \
         --become \
         --become-method=pbrun \
-        --skip-tags=root,remove-targets,restore-targets,pg-swap-file \
         --tags=os-pre-req
 
 # Playbook cli for Apigee Pre-Requisites
     ansible-playbook \
         install-edge-aio.yml \
-        -e @~/.apigee/credentials.yml \
-        -e @~/.apigee/custom-properties.yml \
         --become \
         --become-method=pbrun \
-        --skip-tags=remote-targets,restore-targets \
         --tags=apigee-pre-req
 
-# Playbok cli for Apigee component installation
+# Playbook cli for Apigee Configuration
     ansible-playbook \
         install-edge-aio.yml \
-        -e @~/.apigee/credentials.yml \
-        -e @~/.apigee/custom-properties.yml \
+        --become \
+        --become-method=pbrun \
+        --tags=apigee-config
+
+# Playbok cli for Apigee Component installation
+    ansible-playbook \
+        install-edge-aio.yml \
         --become \
         --become-method=pbrun \
         --skip-tags=cache,os-pre-req,apigee-pre-req
