@@ -24,7 +24,6 @@
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
   - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
   - { role: apigee-server-restart, tags: ['restart-server'], when: (selinux_disabled is defined and not selinux_disabled) or (iptables_disabled is defined and not iptables_disabled) }
-  - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository', 'os-common'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-setup-os-common, tags: ['os-common'] }
   - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository', 'os-common'], yum_repositories_enabled: false, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
@@ -37,7 +36,6 @@
   - ~/.apigee/custom-properties.yml
   tags: ['os-pre-req', 'pg-os-pre-req']
   roles:
-#  - { role: apigee-opdk-enable-swap, tags: ['os-pre-req','pg-swap-file'] }
   - { role: apigee-opdk-setup-os-postgres, tags: ['os-pre-req'] }
   - { role: apigee-opdk-setup-postgres-config, tags: ['os-pre-req'] }
 
@@ -49,6 +47,5 @@
   - ~/.apigee/custom-properties.yml
   tags: ['os-pre-req', 'pg-os-pre-req']
   roles:
-#  - { role: apigee-opdk-enable-swap, tags: ['os-pre-req','pg-swap-file'] }
   - { role: apigee-opdk-setup-os-postgres, tags: ['os-pre-req'] }
   - { role: apigee-opdk-setup-postgres-config, tags: ['os-pre-req'], clear_pgdata: True }
