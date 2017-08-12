@@ -13,6 +13,9 @@
         repo_id: "Artifactory",
         yum_repo_filename: "artifactory",
         gpgcheck: 'no'}
+    - http_proxy: http://proxy.ebiz.verizon.com:80
+    - https_proxy: http://proxy.ebiz.verizon.com:80
+    - no_proxy: "10.118.70.177,oneartifactory.verizon.com,luxfavlpa001.verizon.com,luxsc1lna001.itcent.ebiz.verizon.com,10.118.68.8,localhost,127.0.0.1"
   roles:
   - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository','artifactory'], yum_repositories_enabled: true, yum_repo_filename: 'artifactory', yum_repositories: "{{ artifactory_repo }}" }
@@ -31,6 +34,10 @@
 - name: Update Postgres master nodes with OS pre-requisites
   hosts: pg
   gather_facts: no
+  vars:
+    - http_proxy: http://proxy.ebiz.verizon.com:80
+    - https_proxy: http://proxy.ebiz.verizon.com:80
+    - no_proxy: "10.118.70.177,oneartifactory.verizon.com,luxfavlpa001.verizon.com,luxsc1lna001.itcent.ebiz.verizon.com,10.118.68.8,localhost,127.0.0.1"
   vars_files:
   - ~/.apigee/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -42,6 +49,10 @@
 - name: Update Postgres standby nodes with OS pre-requisites
   hosts: pgstandby
   gather_facts: no
+  vars:
+    - http_proxy: http://proxy.ebiz.verizon.com:80
+    - https_proxy: http://proxy.ebiz.verizon.com:80
+    - no_proxy: "10.118.70.177,oneartifactory.verizon.com,luxfavlpa001.verizon.com,luxsc1lna001.itcent.ebiz.verizon.com,10.118.68.8,localhost,127.0.0.1"
   vars_files:
   - ~/.apigee/credentials.yml
   - ~/.apigee/custom-properties.yml
