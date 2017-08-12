@@ -36,5 +36,5 @@ listed in --skip-tags.
         install-edge-aio.yml \
         --become \
         --become-method=pbrun \
-        --skip-tags=cache,os-pre-req,apigee-pre-req
+        --skip-tags=cache,os-pre-req,apigee-pre-req,apigee-config
 
