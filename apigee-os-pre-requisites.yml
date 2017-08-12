@@ -4,8 +4,8 @@
   gather_facts: no
   tags: ['os-pre-req']
   vars_files:
-  - ~/.apigee/credentials.yml
-  - ~/.apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   vars:
     artifactory_repo:
     - { name: "Artifactory",
@@ -39,8 +39,8 @@
     - https_proxy: http://proxy.ebiz.verizon.com:80
     - no_proxy: "10.118.70.177,oneartifactory.verizon.com,luxfavlpa001.verizon.com,luxsc1lna001.itcent.ebiz.verizon.com,10.118.68.8,localhost,127.0.0.1"
   vars_files:
-  - ~/.apigee/credentials.yml
-  - ~/.apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   tags: ['os-pre-req', 'pg-os-pre-req']
   roles:
   - { role: apigee-opdk-setup-os-postgres, tags: ['os-pre-req'] }
@@ -54,8 +54,8 @@
     - https_proxy: http://proxy.ebiz.verizon.com:80
     - no_proxy: "10.118.70.177,oneartifactory.verizon.com,luxfavlpa001.verizon.com,luxsc1lna001.itcent.ebiz.verizon.com,10.118.68.8,localhost,127.0.0.1"
   vars_files:
-  - ~/.apigee/credentials.yml
-  - ~/.apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   tags: ['os-pre-req', 'pg-os-pre-req']
   roles:
   - { role: apigee-opdk-setup-os-postgres, tags: ['os-pre-req'] }

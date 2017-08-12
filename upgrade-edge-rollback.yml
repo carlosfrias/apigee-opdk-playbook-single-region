@@ -4,7 +4,7 @@
   gather_facts: no
   tags: ['cache']
   vars_files:
-  - ~/.apigee/credentials.yml
+  - ~/.apigee-secure/credentials.yml
   roles:
   - { role: apigee-opdk-setup-default-settings }
 

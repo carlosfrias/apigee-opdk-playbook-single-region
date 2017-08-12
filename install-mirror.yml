@@ -17,7 +17,7 @@
 - name: Create apigee mirror
   hosts: mirror
   vars_files:
-  - ~/.apigee/credentials.yml
+  - ~/.apigee-secure/credentials.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-create-archive, tags: ['create-archive'] }
   - { role: apigee-opdk-setup-mirror-nginx, tags: ['nginx-mirror'] }

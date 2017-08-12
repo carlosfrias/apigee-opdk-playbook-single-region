@@ -3,8 +3,8 @@
   hosts: "{{ target_hosts }}"
   gather_facts: no
   vars_files:
-  - ~/.apigee/credentials.yml
-  - ~/.apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   strategy: free
   tags: ['apigee-pre-req']
   roles:
