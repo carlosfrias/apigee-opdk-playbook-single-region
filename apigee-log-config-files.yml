@@ -5,7 +5,7 @@
   become: true
   strategy: free
   vars:
-    target_logs_folder: "~/.apigee/logs_configs/{{ hosts }}/"
+    target_logs_folder: "~/.apigee/logs_configs/{{ target_hosts }}/"
     pattern:
     - { dir: '/etc/', pattern: 'hosts' }
     - { dir: '/etc/', pattern: 'hosts.allow' }
