@@ -1,0 +1,6 @@
+---
+- name: Install Apigee pre-requisites
+  include: apigee-pre-requisites.yml
+  vars:
+    target_hosts: planet
+
