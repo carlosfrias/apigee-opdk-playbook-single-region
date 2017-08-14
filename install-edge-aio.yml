@@ -38,21 +38,52 @@
   - { role: apigee-opdk-setup-validate, tags: ['validate'] }
   - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate','validate-cleanup'] }
 
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['ds-config']
+  vars:
+    target_hosts: dc-1-ds
+
 - name: Install Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-node.yml
   tags: ['ds']
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['ms-config']
+  vars:
+    target_hosts: dc-1-ms
 
 - name: Install Management Server node
   include: install-edge-management-server-node.yml
   tags: ['ms']
 
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['rmp-config']
+  vars:
+    target_hosts: dc-1-rmp
+
 - name: Install Router & Message Processor node
   include: install-rmp-node.yml
   tags: ['rmp']
 
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['qs-config']
+  vars:
+    target_hosts: dc-1-qpid
+
 - name: Install Qpid node
   include: install-edge-qs-node.yml
   tags: ['qs']
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['ps-config']
+  vars:
+    target_hosts: dc-1-pg
 
 - name: Install Postgres node
   include: install-edge-pgmaster-node.yml
