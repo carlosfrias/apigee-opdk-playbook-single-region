@@ -22,6 +22,7 @@
 - name: Install and configure Apigee Edge AIO
   hosts: planet
   gather_facts: no
+  tags: ['aio']
   serial: 1
   vars:
     yum_manual_os_packages:
@@ -36,6 +37,30 @@
   - { role: apigee-opdk-server-self, server_types: ['mp'] }
   - { role: apigee-opdk-setup-validate, tags: ['validate'] }
   - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate','validate-cleanup'] }
+
+- name: Install Cassandra & Zookeeper node
+  include: install-edge-cassandra-zookeeper-node.yml
+  tags: ['ds']
+
+- name: Install Management Server node
+  include: install-edge-management-server-node.yml
+  tags: ['ms']
+
+- name: Install Router & Message Processor node
+  include: install-rmp-node.yml
+  tags: ['rmp']
+
+- name: Install Qpid node
+  include: install-edge-qs-node.yml
+  tags: ['qs']
+
+- name: Install Postgres node
+  include: install-edge-pgmaster-node.yml
+  tags: ['ps']
+
+- name: Setup org
+  include: install-edge-setup-org.yml
+  tags: ['org']
 
 - name: Download logs and configs
   tags: ['logs']

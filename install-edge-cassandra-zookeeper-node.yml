@@ -1,0 +1,11 @@
+---
+- name: Configure Cassandra & Zookeeper in DC-1
+  hosts: dc-1-ds
+  gather_facts: no
+  serial: 1
+  tags: ['ds']
+  roles:
+  - { role: apigee-opdk-setup-component-installer, tags: ['apigee-component', 'installer'] }
+  - { role: apigee-opdk-setup-component, profile: 'ds', tags: ['apigee-component'] }
+  - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
+  - { role: apigee-opdk-setup-status, tags: ['status'] }
