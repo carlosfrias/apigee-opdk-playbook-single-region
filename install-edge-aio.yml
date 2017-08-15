@@ -37,7 +37,7 @@
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['ds-config']
+  tags: ['ds-config','config']
   vars:
     target_hosts: dc-1-ds
 
@@ -47,7 +47,7 @@
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['ms-config']
+  tags: ['ms-config','config']
   vars:
     target_hosts: dc-1-ms
 
@@ -57,7 +57,7 @@
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['rmp-config']
+  tags: ['rmp-config','config']
   vars:
     target_hosts: dc-1-rmp
 
@@ -67,7 +67,7 @@
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['qs-config']
+  tags: ['qs-config','config']
   vars:
     target_hosts: dc-1-qpid
 
@@ -77,13 +77,21 @@
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['ps-config']
+  tags: ['ps-config','config']
   vars:
     target_hosts: dc-1-pg
 
 - name: Install Postgres node
   include: install-edge-pgmaster-node.yml
   tags: ['ps']
+
+- name: Rolling restart of planet
+  hosts: planet
+  serial: 1
+  tags: ['config']
+  roles:
+  - apigee-opdk-stop-components
+  - apigee-opdk-start-components
 
 - name: Setup org
   include: install-edge-setup-org.yml
