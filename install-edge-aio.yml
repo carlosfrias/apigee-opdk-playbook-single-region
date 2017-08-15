@@ -43,7 +43,7 @@
 
 - name: Install Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-node.yml
-  tags: ['ds']
+  tags: ['ds','config']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
@@ -53,7 +53,7 @@
 
 - name: Install Management Server node
   include: install-edge-management-server-node.yml
-  tags: ['ms']
+  tags: ['ms','config']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
@@ -63,7 +63,7 @@
 
 - name: Install Router & Message Processor node
   include: install-edge-rmp-node.yml
-  tags: ['rmp']
+  tags: ['rmp','config']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
@@ -73,7 +73,7 @@
 
 - name: Install Qpid node
   include: install-edge-qs-node.yml
-  tags: ['qs']
+  tags: ['qs','config']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
@@ -83,7 +83,7 @@
 
 - name: Install Postgres node
   include: install-edge-pgmaster-node.yml
-  tags: ['ps']
+  tags: ['ps','config']
 
 - name: Rolling restart of planet
   hosts: planet
