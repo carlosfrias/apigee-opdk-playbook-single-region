@@ -1,6 +1,6 @@
 ---
-- name: Setup RMP on DC-1
-  hosts: dc-1-rmp
+- name: Setup org on DC-1
+  hosts: dc-1-ms
   gather_facts: no
   roles:
   - { role: apigee-opdk-setup-status, tags: ['status'] }
