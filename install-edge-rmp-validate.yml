@@ -1,0 +1,9 @@
+---
+- name: Validate RMP proxy functionality on DC-1
+  hosts: dc-1-rmp
+  serial: 1
+  gather_facts: no
+  tags: ['validate']
+  roles:
+  - { role: apigee-opdk-setup-validate }
+  - { role: apigee-opdk-setup-validate-cleanup }

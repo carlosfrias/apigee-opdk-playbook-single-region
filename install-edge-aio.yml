@@ -97,6 +97,10 @@
   include: install-edge-setup-org.yml
   tags: ['org']
 
+- name: Validate RMP
+  include: install-edge-rmp-validate.yml
+  tags: ['validate-rmp']
+
 - name: Download logs and configs
   tags: ['logs']
   include: apigee-log-config-files.yml
