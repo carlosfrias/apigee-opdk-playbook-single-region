@@ -88,7 +88,7 @@
 - name: Rolling restart of planet
   hosts: planet
   serial: 1
-  tags: ['config']
+  tags: ['config','restart']
   roles:
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
