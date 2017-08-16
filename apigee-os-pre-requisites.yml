@@ -19,7 +19,8 @@
   roles:
   - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository'], yum_repositories_enabled: true, yum_repo_filename: 'vz-aws-rhel7' }
   - { role: apigee-opdk-yum-repository-enabled, tags: ['yum-repository','artifactory'], yum_repositories_enabled: true, yum_repo_filename: 'artifactory', yum_repositories: "{{ artifactory_repo }}" }
-  - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }  - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
+  - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
+  - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
   - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
   - { role: apigee-server-restart, tags: ['restart-server'], when: (selinux_disabled is defined and not selinux_disabled) or (iptables_disabled is defined and not iptables_disabled) }
