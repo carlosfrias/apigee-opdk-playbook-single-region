@@ -32,7 +32,7 @@
   tags: ['cs-status']
   serial: 1
   tasks:
-  - name: Display Cassandra Ring
+  - name: Display Cassandra Status
     shell: "{{ nodetool }} status"
 
 - name: Show Cassandra Replication Factor
