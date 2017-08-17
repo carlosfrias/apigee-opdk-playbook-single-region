@@ -12,6 +12,7 @@
   - { role: apigee-opdk-setup-target-links, tags: ['links'], when: target_links is defined }
   - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
+  - { role: apigee-opdk-setup-license }
 
 - name: Install common components for the planet
   hosts: "{{ target_hosts }}"
