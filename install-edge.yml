@@ -32,7 +32,7 @@
 
 - name: Install Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-install.yml
-  tags: ['ds','ds-install']
+  tags: ['ds','ds-install', 'ds-ami']
 
 - name: Install Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
@@ -46,7 +46,7 @@
 
 - name: Install Management Server node
   include: install-edge-management-server-component-install.yml
-  tags: ['ms','ms-install']
+  tags: ['ms','ms-install','ms-ami']
 
 - name: Install Management Server node
   include: install-edge-management-server-component-setup.yml
@@ -60,7 +60,7 @@
 
 - name: Install Router & Message Processor node
   include: install-edge-rmp-component-install.yml
-  tags: ['rmp','rmp-install']
+  tags: ['rmp','rmp-install', 'rmp-ami']
 
 - name: Install Router & Message Processor node
   include: install-edge-rmp-component-setup.yml
@@ -74,7 +74,7 @@
 
 - name: Install Qpid node
   include: install-edge-qs-component-install.yml
-  tags: ['qs','qs-install']
+  tags: ['qs','qs-install','qs-ami']
 
 - name: Install Qpid node
   include: install-edge-qs-component-setup.yml
@@ -88,7 +88,7 @@
 
 - name: Install Postgres node
   include: install-edge-pg-component-install.yml
-  tags: ['ps','ps-install']
+  tags: ['ps','ps-install','ps-ami']
 
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
