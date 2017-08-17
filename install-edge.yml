@@ -44,7 +44,7 @@
 
 
 
-- name: Configure Casandra & Zookeeper node
+- name: Configure Cassandra & Zookeeper node
   include: apigee-configuration.yml
   tags: ['ds','ds-config-file']
   vars:
