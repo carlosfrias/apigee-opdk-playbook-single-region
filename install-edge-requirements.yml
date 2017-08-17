@@ -1,25 +1,123 @@
 ---
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-mp
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-apigee-user.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-ldap
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-apigee-user-ownership.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-cassandra
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-common.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-zookeeper
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-minimum.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-ms
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-default-settings.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-postgres
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-java-home.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-router
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-time-sync.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-qpid
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-openjdk.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-ui
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-limits.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cassandra-rebuild
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap.git
 
-- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cassandra-client-update
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-silent-installation-config.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component-installer.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component-install.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-selinux-disable.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-shutdown-iptables.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-org-config.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-org.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-validate.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-validate-cleanup.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-fetch-files.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-enable-swap.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-config.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-master.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-standby.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-os-postgres.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-status.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap-rollback.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-modules.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-target-links.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-temporary-remove-targets.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-temporary-restore-targets.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cache-update.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-ssh-user.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-server-restart.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-server-self.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-start-components.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-stop-components.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-set-reachable.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-backup.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-restore.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-update-component.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-iptables-flush.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-iptables-port-block.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cwc-update.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgres-db-upgrade.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-yum-repository-enabled.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-yum-repository-proxy-config.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-yum-packages.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-mp.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-ldap.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-cassandra.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-zookeeper.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-ms.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-postgres.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-router.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-qpid.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-internal-port-connectivity-validator-ui.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cassandra-rebuild.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-cassandra-client-update.git
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-qpid-add.git
 

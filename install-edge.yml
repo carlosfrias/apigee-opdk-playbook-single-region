@@ -1,0 +1,117 @@
+---
+- name: Update planet cache
+  include: apigee-planet-cache.yml
+  vars:
+    target_hosts: planet
+
+- name: Install and configure OS pre-requisites
+  include: apigee-os-pre-requisites.yml
+  vars:
+    target_hosts: planet
+
+- name: Install Apigee pre-requisites
+  include: apigee-pre-requisites.yml
+  vars:
+    target_hosts: planet
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  vars:
+    target_hosts: planet
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['ds','config-file']
+  vars:
+    target_hosts: dc-1-ds
+
+- name: Install Cassandra & Zookeeper node
+  include: install-edge-cassandra-zookeeper-component-install.yml
+  tags: ['ds','install']
+
+- name: Install Cassandra & Zookeeper node
+  include: install-edge-cassandra-zookeeper-component-setup.yml
+  tags: ['ds','setup']
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['ms','config-file']
+  vars:
+    target_hosts: dc-1-ms
+
+- name: Install Management Server node
+  include: install-edge-management-server-component-install.yml
+  tags: ['ms','install']
+
+- name: Install Management Server node
+  include: install-edge-management-server-component-setup.yml
+  tags: ['ms','setup']
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['rmp','config-file']
+  vars:
+    target_hosts: dc-1-rmp
+
+- name: Install Router & Message Processor node
+  include: install-edge-rmp-component-install.yml
+  tags: ['rmp','install']
+
+- name: Install Router & Message Processor node
+  include: install-edge-rmp-component-setup.yml
+  tags: ['rmp','setup']
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['qs','config-file']
+  vars:
+    target_hosts: dc-1-qpid
+
+- name: Install Qpid node
+  include: install-edge-qs-component-install.yml
+  tags: ['qs','install']
+
+- name: Install Qpid node
+  include: install-edge-qs-component-setup.yml
+  tags: ['qs','setup']
+
+- name: Configure Apigee pre-requisites
+  include: apigee-configuration.yml
+  tags: ['ps','config-file']
+  vars:
+    target_hosts: dc-1-pg
+
+- name: Install Postgres node
+  include: install-edge-pg-component-install.yml
+  tags: ['ps','install']
+
+- name: Install Postgres node
+  include: install-edge-pg-component-setup.yml
+  tags: ['ps','setup']
+
+- name: Rolling restart of planet
+  hosts: planet
+  serial: 1
+  tags: ['restart']
+  roles:
+  - apigee-opdk-stop-components
+  - apigee-opdk-start-components
+
+- name: Setup org
+  include: install-edge-setup-org.yml
+  tags: ['org']
+
+- name: Validate RMP
+  include: install-edge-rmp-validate.yml
+  tags: ['validate-rmp']
+
+- name: Download logs and configs
+  tags: ['logs']
+  include: apigee-log-config-files.yml
+  vars:
+    target_hosts: planet
+
+
+
+
+
