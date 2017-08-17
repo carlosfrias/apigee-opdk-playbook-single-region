@@ -1,4 +1,18 @@
 ---
+- name: Setup bootstrap for the planet
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  strategy: free
+  tags: ['apigee-pre-req', 'bootstrap']
+  roles:
+  - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user'] }
+  - { role: apigee-opdk-setup-target-links, tags: ['links'], when: target_links is defined }
+  - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
+  - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
+
 - name: Update apigee-pre-req for the planet
   hosts: "{{ target_hosts }}"
   gather_facts: no
@@ -6,12 +20,8 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   strategy: free
-  tags: ['apigee-pre-req']
+  tags: ['apigee-pre-req','install']
   roles:
-  - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user'] }
-  - { role: apigee-opdk-setup-target-links, tags: ['links'], when: target_links is defined }
-  - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
-  - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
   - { role: apigee-opdk-setup-component-install, component: 'apigee-setup', tags: ['setup', 'apigee-component-install'] }
   - { role: apigee-opdk-setup-component-install, component: 'apigee-adminapi', tags: ['adminapi', 'apigee-component-install'] }
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user','ownership'] }
