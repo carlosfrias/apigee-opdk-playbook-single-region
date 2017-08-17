@@ -20,7 +20,7 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   strategy: free
-  tags: ['apigee-pre-req','install']
+  tags: ['apigee-pre-req','common-install']
   roles:
   - { role: apigee-opdk-setup-component-install, component: 'apigee-setup', tags: ['setup', 'apigee-component-install'] }
   - { role: apigee-opdk-setup-component-install, component: 'apigee-adminapi', tags: ['adminapi', 'apigee-component-install'] }
