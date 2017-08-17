@@ -25,6 +25,8 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component-installer.git
 
+cd ..- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component-install.git
+
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-selinux-disable.git
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-shutdown-iptables.git
