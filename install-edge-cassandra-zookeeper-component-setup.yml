@@ -6,4 +6,5 @@
   tags: ['ds']
   roles:
   - { role: apigee-opdk-setup-component, profile: 'ds', tags: ['apigee-setup'] }
+  - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
