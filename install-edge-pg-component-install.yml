@@ -10,12 +10,3 @@
   - { role: apigee-opdk-setup-component-install, component: 'edge-gateway', tags: ['apigee-component-install'] }
   - { role: apigee-opdk-setup-component-install, component: 'edge-postgres-server', tags: ['apigee-component-install'] }
 
-- name: Configure Postgres Master on DC-1
-  hosts: dc-1-pgmaster
-  gather_facts: no
-  serial: 1
-  tags: ['pg','pgmaster']
-  roles:
-  - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
-  - { role: apigee-opdk-setup-postgres-master }
-  - { role: apigee-opdk-setup-status, tags: ['status'] }
