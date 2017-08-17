@@ -4,9 +4,8 @@
   gather_facts: no
   tags: ['qpid']
   roles:
-  - { role: apigee-opdk-setup-component-installer, tags: ['apigee-component', 'installer'] }
-  - { role: apigee-opdk-setup-component, profile: 'qs',tags: ['apigee-component']  }
-  - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
-  - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
-  - { role: apigee-opdk-setup-status, tags: ['status'] }
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-qpidd', tags: ['apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-cassandra-client', tags: ['apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'edge-gateway', tags: ['apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'edge-qpid-server', tags: ['apigee-component-install'] }
 

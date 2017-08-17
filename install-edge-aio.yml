@@ -77,7 +77,7 @@
     target_hosts: dc-1-pg
 
 - name: Install Postgres node
-  include: install-edge-pgmaster-node.yml
+  include: install-edge-pg-node.yml
   tags: ['ps','config']
 
 - name: Rolling restart of planet

@@ -4,8 +4,7 @@
   gather_facts: no
   tags: ['rmp']
   roles:
-  - { role: apigee-opdk-setup-component-installer, tags: ['apigee-component', 'installer'] }
-  - { role: apigee-opdk-setup-component, profile: 'rmp',tags: ['apigee-component']  }
-  - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
-  - { role: apigee-opdk-server-self, server_types: ['router', 'mp'], tags: ['self']  }
-  - { role: apigee-opdk-setup-status, tags: ['status'] }
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-validate', tags: ['apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'edge-gateway', tags: ['apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'edge-message-processor', tags: ['apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'edge-router', tags: ['apigee-component-install'] }

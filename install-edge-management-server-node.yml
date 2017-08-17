@@ -8,6 +8,6 @@
   - { role: apigee-opdk-setup-component-install, component: 'apigee-cassandra-client', tags: ['apigee-component-install'] }
   - { role: apigee-opdk-setup-component-install, component: 'apigee-openldap', tags: ['apigee-component-install'] }
   - { role: apigee-opdk-setup-component-install, component: 'edge-gateway', tags: ['apigee-component-install'] }
-  - { role: apigee-opdk-setup-component-install, component: 'edge-management-serer', tags: ['apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'edge-management-server', tags: ['apigee-component-install'] }
   - { role: apigee-opdk-setup-component-install, component: 'edge-ui', tags: ['apigee-component-install'] }
 
