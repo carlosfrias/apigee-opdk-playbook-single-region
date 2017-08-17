@@ -5,5 +5,5 @@
   serial: 1
   tags: ['ds']
   roles:
-  - { role: apigee-opdk-setup-component-install, component: 'apigee-cassandra', tags: ['apigee-component'] }
-  - { role: apigee-opdk-setup-component-install, component: 'apigee-zookeeper', tags: ['apigee-component'] }
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-cassandra', tags: ['apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-zookeeper', tags: ['apigee-component-install'] }
