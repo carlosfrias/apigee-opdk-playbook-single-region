@@ -94,6 +94,10 @@
   include: install-edge-pg-component-setup.yml
   tags: ['ps','ps-setup']
 
+- name: Setup org
+  include: install-edge-setup-org.yml
+  tags: ['org']
+
 - name: Rolling restart of planet
   hosts: planet
   serial: 1
@@ -101,10 +105,6 @@
   roles:
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
-
-- name: Setup org
-  include: install-edge-setup-org.yml
-  tags: ['org']
 
 - name: Validate RMP
   include: install-edge-rmp-validate.yml
