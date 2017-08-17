@@ -12,9 +12,6 @@
   - { role: apigee-opdk-setup-target-links, tags: ['links'], when: target_links is defined }
   - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
-#  - { role: apigee-opdk-setup-component-install, component: 'apigee-attribution', tags: ['apigee-component'] }
-#  - { role: apigee-opdk-setup-component-install, component: 'apigee-lib', tags: ['apigee-component'] }
-#  - { role: apigee-opdk-setup-component-install, component: 'apigee-configutil', tags: ['apigee-component'] }
-  - { role: apigee-opdk-setup-component-install, component: 'apigee-setup', tags: ['apigee-component-install'] }
-  - { role: apigee-opdk-setup-component-install, component: 'apigee-adminapi', tags: ['apigee-component-install'] }
-  - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user','apigee-user-ownership'] }
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-setup', tags: ['setup', 'apigee-component-install'] }
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-adminapi', tags: ['adminapi', 'apigee-component-install'] }
+  - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user','ownership'] }

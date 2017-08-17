@@ -32,73 +32,73 @@
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['ds','config-file']
+  tags: ['ds','ds-config-file']
   vars:
     target_hosts: dc-1-ds
 
 - name: Install Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-install.yml
-  tags: ['ds','install']
+  tags: ['ds','ds-install']
 
 - name: Install Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
-  tags: ['ds','setup']
+  tags: ['ds','ds-setup']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['ms','config-file']
+  tags: ['ms','ms-config-file']
   vars:
     target_hosts: dc-1-ms
 
 - name: Install Management Server node
   include: install-edge-management-server-component-install.yml
-  tags: ['ms','install']
+  tags: ['ms','ms-install']
 
 - name: Install Management Server node
   include: install-edge-management-server-component-setup.yml
-  tags: ['ms','setup']
+  tags: ['ms','ms-setup']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['rmp','config-file']
+  tags: ['rmp','rmp-config-file']
   vars:
     target_hosts: dc-1-rmp
 
 - name: Install Router & Message Processor node
   include: install-edge-rmp-component-install.yml
-  tags: ['rmp','install']
+  tags: ['rmp','rmp-install']
 
 - name: Install Router & Message Processor node
   include: install-edge-rmp-component-setup.yml
-  tags: ['rmp','setup']
+  tags: ['rmp','rmp-setup']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['qs','config-file']
+  tags: ['qs','qs-config-file']
   vars:
     target_hosts: dc-1-qpid
 
 - name: Install Qpid node
   include: install-edge-qs-component-install.yml
-  tags: ['qs','install']
+  tags: ['qs','qs-install']
 
 - name: Install Qpid node
   include: install-edge-qs-component-setup.yml
-  tags: ['qs','setup']
+  tags: ['qs','qs-setup']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['ps','config-file']
+  tags: ['ps','ps-config-file']
   vars:
     target_hosts: dc-1-pg
 
 - name: Install Postgres node
   include: install-edge-pg-component-install.yml
-  tags: ['ps','install']
+  tags: ['ps','ps-install']
 
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
-  tags: ['ps','setup']
+  tags: ['ps','ps-setup']
 
 - name: Rolling restart of planet
   hosts: planet
