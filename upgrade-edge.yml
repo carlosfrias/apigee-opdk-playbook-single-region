@@ -3,7 +3,7 @@
   include: apigee-planet-cache.yml
 
 - name: Install and configure Apigee pre-requisites
-  include: apigee-pre-requisites.yml
+  include: apigee-pre-requisites-bootstrap.yml
   vars:
     opdk_ldap_type: '2'
     upgrade_edge: true
