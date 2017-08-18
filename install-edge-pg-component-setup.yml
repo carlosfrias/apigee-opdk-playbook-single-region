@@ -6,5 +6,6 @@
   tags: ['pg', 'pgcommon']
   roles:
   - { role: apigee-opdk-setup-component, profile: 'ps', tags: ['apigee-component'] }
+  - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
   - { role: apigee-opdk-setup-status, tags: ['status'] }

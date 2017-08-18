@@ -22,77 +22,57 @@
   vars:
     target_hosts: planet
 
-- name: Install Cassandra & Zookeeper node
-  include: install-edge-cassandra-zookeeper-component-install.yml
-  tags: ['ds','ds-install', 'ds-ami']
-
-- name: Install Management Server node
-  include: install-edge-management-server-component-install.yml
-  tags: ['ms','ms-install','ms-ami']
-
-- name: Install Router & Message Processor node
-  include: install-edge-rmp-component-install.yml
-  tags: ['rmp','rmp-install', 'rmp-ami']
-
-- name: Install Qpid node
-  include: install-edge-qs-component-install.yml
-  tags: ['qs','qs-install','qs-ami']
-
-- name: Install Postgres node
-  include: install-edge-pg-component-install.yml
-  tags: ['ps','ps-install','ps-ami']
-
-
-
 - name: Configure Cassandra & Zookeeper node
   include: apigee-configuration.yml
-  tags: ['ds','ds-config-file']
+  tags: ['ds','ds-config-file','config']
   vars:
     target_hosts: dc-1-ds
 
 - name: Apply configuration to Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
-  tags: ['ds','ds-apply-config']
+  tags: ['ds','ds-apply-config','config']
+  vars:
+    target_hosts: dc-1-ds
 
 - name: Configure MS node
   include: apigee-configuration.yml
-  tags: ['ms','ms-config-file']
+  tags: ['ms','ms-config-file','config']
   vars:
     target_hosts: dc-1-ms
 
 - name: Apply configuration to Management Server node
   include: install-edge-management-server-component-setup.yml
-  tags: ['ms','ms-apply-config']
+  tags: ['ms','ms-apply-config','config']
 
 - name: Configure RMP node
   include: apigee-configuration.yml
-  tags: ['rmp','rmp-config-file']
+  tags: ['rmp','rmp-config-file','config']
   vars:
     target_hosts: dc-1-rmp
 
 - name: Apply configuration to Router & Message Processor node
   include: install-edge-rmp-component-setup.yml
-  tags: ['rmp','rmp-apply-config']
+  tags: ['rmp','rmp-apply-config','config']
 
 - name: Configure Qpid node
   include: apigee-configuration.yml
-  tags: ['qs','qs-config-file']
+  tags: ['qs','qs-config-file','config']
   vars:
     target_hosts: dc-1-qpid
 
 - name: Apply configuration to Qpid node
   include: install-edge-qs-component-setup.yml
-  tags: ['qs','qs-apply-config']
+  tags: ['qs','qs-apply-config','config']
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['ps','ps-config-file']
+  tags: ['ps','ps-config-file','config']
   vars:
     target_hosts: dc-1-pg
 
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
-  tags: ['ps','ps-apply-config']
+  tags: ['ps','ps-apply-config','config']
 
 - name: Setup org
   include: install-edge-setup-org.yml
