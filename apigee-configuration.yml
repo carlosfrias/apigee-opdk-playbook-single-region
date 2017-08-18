@@ -2,7 +2,7 @@
 - name: Update apigee-pre-req for the planet
   hosts: "{{ target_hosts }}"
   gather_facts: no
-  strategy: free
+  serial: 1
   tags: ['apigee-config']
   roles:
   - { role: apigee-opdk-setup-silent-installation-config }

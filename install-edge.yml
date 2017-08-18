@@ -42,8 +42,6 @@
   include: install-edge-pg-component-install.yml
   tags: ['ps','ps-install','ps-ami']
 
-
-
 - name: Configure Cassandra & Zookeeper node
   include: apigee-configuration.yml
   tags: ['ds','ds-config-file']
@@ -53,6 +51,8 @@
 - name: Apply configuration to Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
   tags: ['ds','ds-apply-config']
+  vars:
+    target_hosts: dc-1-ds
 
 - name: Configure MS node
   include: apigee-configuration.yml

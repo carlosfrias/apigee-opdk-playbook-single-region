@@ -1,6 +1,6 @@
 ---
 - name: Configure Cassandra & Zookeeper in DC-1
-  hosts: dc-1-ds
+  hosts: "{{ target_hosts }}"
   gather_facts: no
   serial: 1
   tags: ['ds']
