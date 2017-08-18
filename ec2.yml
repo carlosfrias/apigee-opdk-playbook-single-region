@@ -1,0 +1,111 @@
+---
+- hosts: localhost
+  connection: local
+  strategy: debug
+  vars: 
+
+  tasks: 
+  - name: Create an ec2 instance
+    ec2: 
+      assign_public_ip: 'n'
+      image: ami-b40a36cf
+      instance_type: m4.2xlarge
+      region: 'us-east-1' 
+      state: present
+      group: 
+      - ss.nonprod.us-east-1.infrastructure.sg
+      - 000-MASTER-SSH-ALL
+      - 000-MASTER-HTTPS-ALL
+      - 000-MASTER-HTTP-ALL
+      vpc_subnet_id: subnet-0756525c
+      instance_tags: 
+        Name: 'DELETE_ME'
+        Role: 'App'
+        Vsad: 'D0MV'
+        Userid: 'friasca' 
+        nostop: ''
+        Owner: 'nathaly.lozano@one.verizon.com'
+        Portfolio_VP: 'Portfolio=GTS_VP=mahmoud.elassir@one.verizon.com'
+    environment: 
+      http_proxy: http://proxy.ebiz.verizon.com:80
+      https_proxy: http://proxy.ebiz.verizon.com:80
+      no_proxy: 169.254.169.254
+    register: instance
+
+  - name: Wait for SSH to be ready
+    wait_for_connection: 
+      timeout: 600
+      delay: 180
+
+  - name: Ensure Firstboot Completion Verification
+    ignore_errors: yes
+    register: firstboot_result
+    until: firstboot_result.matched
+    retries: 180
+    delay: 120
+    find: 
+       paths: "/var/log/"
+       patterns: "firstboot_verify.log"
+       contains: "Firstboot Operations" 
+       size: 820
+ 
+  - name: Ensure Firstboot Operations Verification
+    ignore_errors: yes
+    register: firstboot
+    find: 
+       paths: "/var/log/"
+       patterns: "firstboot_verify.log"
+       contains: "Firstboot Operations Completed Successfully" 
+       size: 820
+
+  - name: Report Firstboot Operations Success
+    debug: 
+      msg: "Firsboot Operations Succeeded"
+    when: firstboot.matched == 1 
+
+  - name: Report Firstbook Operations Failure
+    fail: 
+      msg: "Firstboot Operations Failed"
+    when: firstboot.matched != 1
+
+  - name: Request AWS Access
+    uri:
+      url: https://vwebsac.verizon.com/OneAccessCloudServices/ITSecurity/AccessServices/RequestAccess 
+      method: POST
+      headers: 
+        'Authorization': 'Basic QVBJR0VFX1VzZXI6IXZ6R0B0M3dheUAxIQ=='
+        'Cache-Control': 'no-cache'
+      body_format: json
+      body: 
+        Users: 
+        - { EID: 'CM10002583' } 
+        Environment: 'NONPROD'
+        Hosts: 
+        -  Name: "{{ instance.instances[0].private_ip | regex_replace('\\.','-') }}.ebiz.verizon.com"
+        VastID: 24824
+        Role: "SRVCACCT"
+        OS: "linux"
+
+  - name: Application Netgroup Verification 
+    find: 
+      paths: "/etc/security"
+      patterns: "access-sshd.conf"
+      contains: "D0MV_SRVACCOUNT_NONPROD_ONSHORE"
+      size: "873"
+    ignore_errors: yes
+    register: app_netgroup
+    until: app_netgroup.matched
+    retries: 16
+    delay: 120
+
+  - name: Verify Netgroup has passed"
+    debug: 
+      msg: "app_netgroup verification successful"
+    when: app_netgroup.matched == 1
+
+  - name: Verify App Netgroup has failed
+    fail: 
+      msg: "Post Boot Process Verification Failed"
+    when: app_netgroup.matched != 1
+
+
