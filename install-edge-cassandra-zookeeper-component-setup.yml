@@ -3,6 +3,7 @@
   hosts: "{{ target_hosts }}"
   gather_facts: no
   serial: 1
+  max_fail_percentage: 33
   tags: ['ds']
   roles:
   - { role: apigee-opdk-setup-component, profile: 'ds', tags: ['apigee-setup'] }

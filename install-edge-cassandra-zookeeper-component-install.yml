@@ -3,6 +3,7 @@
   hosts: dc-1-ds
   gather_facts: no
   serial: 1
+  max_fail_percentage: 33
   tags: ['ds']
   roles:
   - { role: apigee-opdk-setup-component-install, component: 'apigee-cassandra', tags: ['apigee-component-install'] }
