@@ -1,8 +1,7 @@
 ---
 - hosts: localhost
   connection: local
-  strategy: debug
-  vars: 
+  vars:
 
   tasks: 
   - name: Create an ec2 instance
