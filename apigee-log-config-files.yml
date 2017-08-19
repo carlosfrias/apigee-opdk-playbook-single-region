@@ -39,6 +39,7 @@
     - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*yaml' }
     - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*properties' }
     - { dir: '{{ apigee_installation_home }}/apigee-postgresql/', pattern: '*conf' }
+
   pre_tasks:
   - name: Create folder if missing
     delegate_to: 127.0.0.1
