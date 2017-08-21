@@ -46,7 +46,6 @@
   tasks: 
   - name: Create DS EC2 instances
     tags: ['ds']
-    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
@@ -72,7 +71,6 @@
 
   - name: Create MS EC2 instance
     tags: ['ms']
-    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
@@ -98,7 +96,6 @@
 
   - name: Create RMP EC2 instance
     tags: ['rmp']
-    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
@@ -124,7 +121,6 @@
 
   - name: Create QS EC2 instance
     tags: ['qs']
-    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
@@ -150,7 +146,6 @@
 
   - name: Create PS EC2 instance
     tags: ['ps']
-    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
