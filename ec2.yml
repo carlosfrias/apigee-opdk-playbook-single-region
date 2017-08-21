@@ -4,7 +4,7 @@
   vars:
     image_id: 'ami-b40a36c'
     vsad: 'D0MV'
-    region: '{{ region }}'
+    aws_region: 'us-east-1'
     name_prefix: 'GTS-{{ vsad }}-Apigee-Delete'
     vpc_subnet_id: subnet-0756525c
     role: 'App'
@@ -50,7 +50,7 @@
       assign_public_ip: 'n'
       image: '{{ image_id }}'
       instance_type: m4.2xlarge
-      region: '{{ region }}'
+      region: '{{ aws_region }}'
       state: present
       group: '{{ ds_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
@@ -75,7 +75,7 @@
       assign_public_ip: 'n'
       image: '{{ image_id }}'
       instance_type: m4.2xlarge
-      region: '{{ region }}'
+      region: '{{ aws_region }}'
       state: present
       group: '{{ ms_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
@@ -100,7 +100,7 @@
       assign_public_ip: 'n'
       image: '{{ image_id }}'
       instance_type: m4.2xlarge
-      region: '{{ region }}'
+      region: '{{ aws_region }}'
       state: present
       group: '{{ rmp_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
@@ -125,7 +125,7 @@
       assign_public_ip: 'n'
       image: '{{ image_id }}'
       instance_type: m4.2xlarge
-      region: '{{ region }}'
+      region: '{{ aws_region }}'
       state: present
       group: '{{ qs_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
@@ -150,7 +150,7 @@
       assign_public_ip: 'n'
       image: '{{ image_id }}'
       instance_type: m4.2xlarge
-      region: '{{ region }}'
+      region: '{{ aws_region }}'
       state: present
       group: '{{ ps_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
