@@ -206,6 +206,7 @@
     when: firstboot.matched != 1
 
   - name: Request AWS Access
+    tags: ['netgroup']
     uri:
       url: https://vwebsac.verizon.com/OneAccessCloudServices/ITSecurity/AccessServices/RequestAccess 
       method: POST
