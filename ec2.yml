@@ -5,7 +5,7 @@
     image_id: 'ami-b40a36c'
     vsad: 'D0MV'
     region: '{{ region }}'
-    name_prefix: 'GTS-{{ Vsad }}-Apigee-Delete'
+    name_prefix: 'GTS-{{ vsad }}-Apigee-Delete'
     vpc_subnet_id: subnet-0756525c
     role: 'App'
     userid: 'friasca'
