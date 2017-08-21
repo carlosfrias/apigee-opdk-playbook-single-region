@@ -46,7 +46,8 @@
   tasks: 
   - name: Create DS EC2 instances
     tags: ['ds']
-    ec2: 
+    delegate_to: 10.118.71.7
+    ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
       instance_type: m4.2xlarge
@@ -54,7 +55,7 @@
       state: present
       group: '{{ ds_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
-      instance_tags: 
+      instance_tags:
         Name: '{{ name_prefix }}-DS'
         Role: '{{ role }}'
         Vsad: '{{ vsad }}'
@@ -62,7 +63,7 @@
         nostop: '{{ nostop }}'
         Owner: '{{ owner }}'
         Portfolio_VP: '{{ portfolioVp }}'
-    environment: 
+    environment:
       http_proxy: http://proxy.ebiz.verizon.com:80
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
@@ -71,6 +72,7 @@
 
   - name: Create MS EC2 instance
     tags: ['ms']
+    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
@@ -96,6 +98,7 @@
 
   - name: Create RMP EC2 instance
     tags: ['rmp']
+    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
@@ -121,6 +124,7 @@
 
   - name: Create QS EC2 instance
     tags: ['qs']
+    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
@@ -146,6 +150,7 @@
 
   - name: Create PS EC2 instance
     tags: ['ps']
+    delegate_to: 10.118.71.7
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
