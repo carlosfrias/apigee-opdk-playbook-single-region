@@ -2,30 +2,167 @@
 - hosts: localhost
   connection: local
   vars:
+    image_id: 'ami-b40a36c'
+    vsad: 'D0MV'
+    region: '{{ region }}'
+    name_prefix: 'GTS-{{ Vsad }}-Apigee-Delete'
+    vpc_subnet_id: subnet-0756525c
+    role: 'App'
+    userid: 'friasca'
+    nostop: ''
+    owner: 'nathaly.lozano@one.verizon.com'
+    portfolioVp: 'Portfolio=GTS_VP=mahmoud.elassir@one.verizon.com'
+    ds_security_groups:
+    - ss.nonprod.us-east-1.infrastructure.sg
+    - 000-MASTER-SSH-ALL
+    - 000-MASTER-HTTPS-ALL
+    - 000-MASTER-HTTP-ALL
+    ms_security_groups:
+    - ss.nonprod.us-east-1.infrastructure.sg
+    - 000-MASTER-SSH-ALL
+    - 000-MASTER-HTTPS-ALL
+    - 000-MASTER-HTTP-ALL
+    rmp_security_groups:
+    - ss.nonprod.us-east-1.infrastructure.sg
+    - 000-MASTER-SSH-ALL
+    - 000-MASTER-HTTPS-ALL
+    - 000-MASTER-HTTP-ALL
+    qs_security_groups:
+    - ss.nonprod.us-east-1.infrastructure.sg
+    - 000-MASTER-SSH-ALL
+    - 000-MASTER-HTTPS-ALL
+    - 000-MASTER-HTTP-ALL
+    ps_security_groups:
+    - ss.nonprod.us-east-1.infrastructure.sg
+    - 000-MASTER-SSH-ALL
+    - 000-MASTER-HTTPS-ALL
+    - 000-MASTER-HTTP-ALL
 
   tasks: 
-  - name: Create an ec2 instance
+  - name: Create DS EC2 instances
+    tags: ['ds']
     ec2: 
       assign_public_ip: 'n'
-      image: ami-b40a36cf
+      image: '{{ image_id }}'
       instance_type: m4.2xlarge
-      region: 'us-east-1' 
+      region: '{{ region }}'
       state: present
-      group: '{{ security_groups }}'
-      vpc_subnet_id: subnet-0756525c
+      group: '{{ ds_security_groups }}'
+      vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags: 
-        Name: 'DELETE_ME'
-        Role: 'App'
-        Vsad: 'D0MV'
-        Userid: 'friasca' 
-        nostop: ''
-        Owner: 'nathaly.lozano@one.verizon.com'
-        Portfolio_VP: 'Portfolio=GTS_VP=mahmoud.elassir@one.verizon.com'
+        Name: '{{ name_prefix }}-DS'
+        Role: '{{ role }}'
+        Vsad: '{{ vsad }}'
+        Userid: '{{ userid }}'
+        nostop: '{{ nostop }}'
+        Owner: '{{ owner }}'
+        Portfolio_VP: '{{ portfolioVp }}'
     environment: 
       http_proxy: http://proxy.ebiz.verizon.com:80
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
-    register: instance
+    register: ds_instance
+    with_sequence: start={{ start | default(1) }} end={{ end | default(3) }}
+
+  - name: Create MS EC2 instance
+    tags: ['ms']
+    ec2:
+      assign_public_ip: 'n'
+      image: '{{ image_id }}'
+      instance_type: m4.2xlarge
+      region: '{{ region }}'
+      state: present
+      group: '{{ ms_security_groups }}'
+      vpc_subnet_id: '{{ vpc_subnet_id }}'
+      instance_tags:
+        Name: '{{ name_prefix }}-MS'
+        Role: '{{ role }}'
+        Vsad: '{{ vsad }}'
+        Userid: '{{ userid }}'
+        nostop: '{{ nostop }}'
+        Owner: '{{ owner }}'
+        Portfolio_VP: '{{ portfolioVp }}'
+    environment:
+      http_proxy: http://proxy.ebiz.verizon.com:80
+      https_proxy: http://proxy.ebiz.verizon.com:80
+      no_proxy: 169.254.169.254
+    register: ds_instance
+    with_sequence: start={{ start | default(1) }} end={{ end | default(1) }}
+
+  - name: Create RMP EC2 instance
+    tags: ['rmp']
+    ec2:
+      assign_public_ip: 'n'
+      image: '{{ image_id }}'
+      instance_type: m4.2xlarge
+      region: '{{ region }}'
+      state: present
+      group: '{{ rmp_security_groups }}'
+      vpc_subnet_id: '{{ vpc_subnet_id }}'
+      instance_tags:
+        Name: '{{ name_prefix }}-RMP'
+        Role: '{{ role }}'
+        Vsad: '{{ vsad }}'
+        Userid: '{{ userid }}'
+        nostop: '{{ nostop }}'
+        Owner: '{{ owner }}'
+        Portfolio_VP: '{{ portfolioVp }}'
+    environment:
+      http_proxy: http://proxy.ebiz.verizon.com:80
+      https_proxy: http://proxy.ebiz.verizon.com:80
+      no_proxy: 169.254.169.254
+    register: ds_instance
+    with_sequence: start={{ start | default(1) }} end={{ end | default(3) }}
+
+  - name: Create QS EC2 instance
+    tags: ['qs']
+    ec2:
+      assign_public_ip: 'n'
+      image: '{{ image_id }}'
+      instance_type: m4.2xlarge
+      region: '{{ region }}'
+      state: present
+      group: '{{ qs_security_groups }}'
+      vpc_subnet_id: '{{ vpc_subnet_id }}'
+      instance_tags:
+        Name: '{{ name_prefix }}-QS'
+        Role: '{{ role }}'
+        Vsad: '{{ vsad }}'
+        Userid: '{{ userid }}'
+        nostop: '{{ nostop }}'
+        Owner: '{{ owner }}'
+        Portfolio_VP: '{{ portfolioVp }}'
+    environment:
+      http_proxy: http://proxy.ebiz.verizon.com:80
+      https_proxy: http://proxy.ebiz.verizon.com:80
+      no_proxy: 169.254.169.254
+    register: ds_instance
+    with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
+
+  - name: Create PS EC2 instance
+    tags: ['ps']
+    ec2:
+      assign_public_ip: 'n'
+      image: '{{ image_id }}'
+      instance_type: m4.2xlarge
+      region: '{{ region }}'
+      state: present
+      group: '{{ ps_security_groups }}'
+      vpc_subnet_id: '{{ vpc_subnet_id }}'
+      instance_tags:
+        Name: '{{ name_prefix }}-PS'
+        Role: '{{ role }}'
+        Vsad: '{{ vsad }}'
+        Userid: '{{ userid }}'
+        nostop: '{{ nostop }}'
+        Owner: '{{ owner }}'
+        Portfolio_VP: '{{ portfolioVp }}'
+    environment:
+      http_proxy: http://proxy.ebiz.verizon.com:80
+      https_proxy: http://proxy.ebiz.verizon.com:80
+      no_proxy: 169.254.169.254
+    register: ds_instance
+    with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
 
   - name: Wait for SSH to be ready
     wait_for_connection: 
