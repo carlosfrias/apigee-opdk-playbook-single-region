@@ -234,7 +234,7 @@
     register: app_netgroup
     until: app_netgroup.matched
     retries: 16
-    delay: 120
+    delay: 30
 
   - name: Verify Netgroup has passed"
     debug: 

@@ -4,5 +4,7 @@
   gather_facts: no
   serial: 1
   tags: ['apigee-config']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
   roles:
   - { role: apigee-opdk-setup-silent-installation-config }
