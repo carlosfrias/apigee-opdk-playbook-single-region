@@ -17,26 +17,31 @@
     - 000-MASTER-SSH-ALL
     - 000-MASTER-HTTPS-ALL
     - 000-MASTER-HTTP-ALL
+    - GTS-D0MV-Apigee-CSZK-SG
     ms_security_groups:
     - ss.nonprod.us-east-1.infrastructure.sg
     - 000-MASTER-SSH-ALL
     - 000-MASTER-HTTPS-ALL
     - 000-MASTER-HTTP-ALL
+    - GTS-D0MV-Apigee-OPDK-SG
     rmp_security_groups:
     - ss.nonprod.us-east-1.infrastructure.sg
     - 000-MASTER-SSH-ALL
     - 000-MASTER-HTTPS-ALL
     - 000-MASTER-HTTP-ALL
+    - GTS-D0MV-Apigee-RMP-SG
     qs_security_groups:
     - ss.nonprod.us-east-1.infrastructure.sg
     - 000-MASTER-SSH-ALL
     - 000-MASTER-HTTPS-ALL
     - 000-MASTER-HTTP-ALL
+    - GTS-D0MV-Apigee-Qpid-SG
     ps_security_groups:
     - ss.nonprod.us-east-1.infrastructure.sg
     - 000-MASTER-SSH-ALL
     - 000-MASTER-HTTPS-ALL
     - 000-MASTER-HTTP-ALL
+    - GTS-D0MV-Apigee-Postgres-SG
 
   tasks: 
   - name: Create DS EC2 instances
