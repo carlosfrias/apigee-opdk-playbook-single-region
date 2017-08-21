@@ -11,11 +11,7 @@
       instance_type: m4.2xlarge
       region: 'us-east-1' 
       state: present
-      group: 
-      - ss.nonprod.us-east-1.infrastructure.sg
-      - 000-MASTER-SSH-ALL
-      - 000-MASTER-HTTPS-ALL
-      - 000-MASTER-HTTP-ALL
+      group: '{{ security_groups }}'
       vpc_subnet_id: subnet-0756525c
       instance_tags: 
         Name: 'DELETE_ME'
