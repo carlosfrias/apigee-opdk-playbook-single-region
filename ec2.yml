@@ -8,7 +8,7 @@
     name_prefix: 'GTS-{{ vsad }}-Apigee-Delete'
     vpc_subnet_id: subnet-0756525c
     role: 'App'
-    userid: 'friasca'
+    userid: 'v636401'
     nostop: ''
     owner: 'nathaly.lozano@one.verizon.com'
     portfolioVp: 'Portfolio=GTS_VP=mahmoud.elassir@one.verizon.com'
