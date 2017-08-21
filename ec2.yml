@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   vars:
-    image_id: 'ami-b40a36c'
+    image_id: 'ami-b40a36cf'
     vsad: 'D0MV'
     aws_region: 'us-east-1'
     name_prefix: 'GTS-{{ vsad }}-Apigee-Delete'
