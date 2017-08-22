@@ -5,7 +5,7 @@
     image_id: 'ami-b40a36cf'
     vsad: 'D0MV'
     aws_region: 'us-east-1'
-    name_prefix: 'GTS-{{ vsad }}-Apigee-Delete'
+    name_prefix: 'GTS-{{ vsad }}-Apigee'
     vpc_subnet_id: subnet-0756525c
     role: 'App'
     userid: 'v636401'
@@ -180,28 +180,28 @@
     until: firstboot_result.matched
     retries: 180
     delay: 120
-    find: 
+    find:
        paths: "/var/log/"
        patterns: "firstboot_verify.log"
-       contains: "Firstboot Operations" 
+       contains: "Firstboot Operations"
        size: 820
- 
+
   - name: Ensure Firstboot Operations Verification
     ignore_errors: yes
     register: firstboot
-    find: 
+    find:
        paths: "/var/log/"
        patterns: "firstboot_verify.log"
-       contains: "Firstboot Operations Completed Successfully" 
+       contains: "Firstboot Operations Completed Successfully"
        size: 820
 
   - name: Report Firstboot Operations Success
-    debug: 
-      msg: "Firsboot Operations Succeeded"
-    when: firstboot.matched == 1 
+    debug:
+      msg: "Firstboot Operations Succeeded"
+    when: firstboot.matched == 1
 
   - name: Report Firstbook Operations Failure
-    fail: 
+    fail:
       msg: "Firstboot Operations Failed"
     when: firstboot.matched != 1
 
