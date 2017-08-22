@@ -1,0 +1,18 @@
+---
+- name: app netgroup verification
+  hosts: "{{ target_hosts }}"
+
+
+  tasks:
+  - name: Ensure Firstboot Completion Verification
+    ignore_errors: yes
+    register: firstboot_result
+    until: firstboot_result.matched
+    retries: 180
+    delay: 120
+    find:
+       paths: "/var/log/"
+       patterns: "firstboot_verify.log"
+       contains: "Firstboot Operations"
+       size: 820
+
