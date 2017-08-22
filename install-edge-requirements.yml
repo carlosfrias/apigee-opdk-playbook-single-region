@@ -124,3 +124,5 @@
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-postgresql-add.git
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-license.git
+
+- src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-epel.git
