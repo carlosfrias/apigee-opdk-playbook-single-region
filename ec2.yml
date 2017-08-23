@@ -1,7 +1,6 @@
 ---
 - hosts: localhost
   connection: local
-  strategy: free
   vars:
     image_id: 'ami-b40a36cf'
     vsad: 'D0MV'
