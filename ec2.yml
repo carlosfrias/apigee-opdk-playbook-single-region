@@ -69,7 +69,7 @@
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
     register: ds_instance
-    with_sequence: start={{ start | default(1) }} end={{ end | default(3) }}
+    with_sequence: start={{ ds_start | default(1) }} end={{ ds_end | default(3) }}
 
   - name: Show ds_instance
     debug:
@@ -98,7 +98,7 @@
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
     register: ms_instance
-    with_sequence: start={{ start | default(1) }} end={{ end | default(1) }}
+    with_sequence: start={{ ms_start | default(1) }} end={{ ms_end | default(1) }}
 
   - name: Create RMP EC2 instance
     tags: ['rmp']
@@ -123,7 +123,7 @@
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
     register: rmp_instance
-    with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
+    with_sequence: start={{ rpm_start | default(1) }} end={{ rmp_end | default(2) }}
 
   - name: Create QPID EC2 instance
     tags: ['qpid']
@@ -148,7 +148,7 @@
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
     register: qpid_instance
-    with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
+    with_sequence: start={{ qpid_start | default(1) }} end={{ qpid_end | default(2) }}
 
   - name: Create PS EC2 instance
     tags: ['pg']
@@ -173,23 +173,27 @@
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
     register: pg_instance
-    with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
+    with_sequence: start={{ pg_start | default(1) }} end={{ pg_end | default(2) }}
 
 #  - name: Wait for SSH to be ready
 #    wait_for_connection:
 #      timeout: 600
 #      delay: 180
 
+  - name: Pause and do the next step by hand
+    pause:
+
   - name: Ensure Firstboot Completion Verification
+    tags: ['firstboot']
     ignore_errors: yes
     register: firstboot_result
     until: firstboot_result.matched
     retries: 1000
     delay: 360
     find:
-       paths: "/var/log/"
-       patterns: "firstboot_verify.log"
-       contains: "Firstboot Operations Completed Successfully"
+      paths: "/var/log/"
+      patterns: "firstboot_verify.log"
+      contains: "Firstboot Operations Completed Successfully"
 
   - name: Report Firstboot Operations Success
     debug:
