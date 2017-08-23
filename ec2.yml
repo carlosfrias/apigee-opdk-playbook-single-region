@@ -178,10 +178,10 @@
     register: ps_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
 
-  - name: Wait for SSH to be ready
-    wait_for_connection: 
-      timeout: 600
-      delay: 180
+#  - name: Wait for SSH to be ready
+#    wait_for_connection:
+#      timeout: 600
+#      delay: 180
 
   - name: Ensure Firstboot Completion Verification
     ignore_errors: yes
