@@ -4,6 +4,7 @@
   vars:
     image_id: 'ami-b40a36cf'
     vsad: 'D0MV'
+    instance_type: m4.2xlarge
     aws_region: 'us-east-1'
     name_prefix: 'GTS-{{ vsad }}-Apigee-DC-{{ dc | default(1) }}'
     vpc_subnet_id: subnet-0756525c
@@ -49,7 +50,7 @@
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
-      instance_type: m4.2xlarge
+      instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
       state: present
       group: '{{ ds_security_groups }}'
@@ -69,12 +70,19 @@
     register: ds_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(3) }}
 
+  - name: Show ds_instance
+    debug:
+      var: ds_instance
+
+  - name: Pause for a bit...
+    pause:
+
   - name: Create MS EC2 instance
     tags: ['ms']
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
-      instance_type: m4.2xlarge
+      instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
       state: present
       group: '{{ ms_security_groups }}'
@@ -91,7 +99,7 @@
       http_proxy: http://proxy.ebiz.verizon.com:80
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
-    register: ds_instance
+    register: ms_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(1) }}
 
   - name: Create RMP EC2 instance
@@ -99,7 +107,7 @@
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
-      instance_type: m4.2xlarge
+      instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
       state: present
       group: '{{ rmp_security_groups }}'
@@ -116,7 +124,7 @@
       http_proxy: http://proxy.ebiz.verizon.com:80
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
-    register: ds_instance
+    register: rmp_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(3) }}
 
   - name: Create QS EC2 instance
@@ -124,7 +132,7 @@
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
-      instance_type: m4.2xlarge
+      instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
       state: present
       group: '{{ qs_security_groups }}'
@@ -141,7 +149,7 @@
       http_proxy: http://proxy.ebiz.verizon.com:80
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
-    register: ds_instance
+    register: qs_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
 
   - name: Create PS EC2 instance
@@ -149,7 +157,7 @@
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
-      instance_type: m4.2xlarge
+      instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
       state: present
       group: '{{ ps_security_groups }}'
@@ -166,7 +174,7 @@
       http_proxy: http://proxy.ebiz.verizon.com:80
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
-    register: ds_instance
+    register: ps_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
 
   - name: Wait for SSH to be ready
@@ -213,6 +221,12 @@
         VastID: 24824
         Role: "SRVCACCT"
         OS: "linux"
+    with_items:
+    - {{ ds_instance }}
+    - {{ ms_instance }}
+    - {{ rmp_instance }}
+    - {{ qs_instance }}
+    - {{ ps_instance }}
 
   - name: Application Netgroup Verification 
     find: 
