@@ -204,7 +204,7 @@
       msg: "Firstboot Operations Failed"
     when: firstboot_result.matched != 1
 
-  - name: Request AWS Access
+  - name: Request AWS Access for Planet
     include: ec2_request_aws_access.yml
     loop_control:
       loop_var: result

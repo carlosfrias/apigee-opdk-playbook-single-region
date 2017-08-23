@@ -1,6 +1,6 @@
 ---
 
-- name: Request AWS Access
+- name: Request AWS Access for node
   tags: ['netgroup']
   uri:
     url: https://vwebsac.verizon.com/OneAccessCloudServices/ITSecurity/AccessServices/RequestAccess
