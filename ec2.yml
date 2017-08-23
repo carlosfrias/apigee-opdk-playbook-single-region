@@ -5,7 +5,7 @@
     image_id: 'ami-b40a36cf'
     vsad: 'D0MV'
     aws_region: 'us-east-1'
-    name_prefix: 'GTS-{{ vsad }}-Apigee-MRG'
+    name_prefix: 'GTS-{{ vsad }}-Apigee-DC-{{ dc }}'
     vpc_subnet_id: subnet-0756525c
     role: 'App'
     userid: 'v636401'
@@ -55,7 +55,7 @@
       group: '{{ ds_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags:
-        Name: '{{ name_prefix }}-DS'
+        Name: '{{ name_prefix }}-DS{{ item }}'
         Role: '{{ role }}'
         Vsad: '{{ vsad }}'
         Userid: '{{ userid }}'
@@ -80,7 +80,7 @@
       group: '{{ ms_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags:
-        Name: '{{ name_prefix }}-MS'
+        Name: '{{ name_prefix }}-MS{{ item }}'
         Role: '{{ role }}'
         Vsad: '{{ vsad }}'
         Userid: '{{ userid }}'
@@ -105,7 +105,7 @@
       group: '{{ rmp_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags:
-        Name: '{{ name_prefix }}-RMP'
+        Name: '{{ name_prefix }}-RMP{{ item }}'
         Role: '{{ role }}'
         Vsad: '{{ vsad }}'
         Userid: '{{ userid }}'
@@ -130,7 +130,7 @@
       group: '{{ qs_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags:
-        Name: '{{ name_prefix }}-QS'
+        Name: '{{ name_prefix }}-QS{{ item }}'
         Role: '{{ role }}'
         Vsad: '{{ vsad }}'
         Userid: '{{ userid }}'
@@ -155,7 +155,7 @@
       group: '{{ ps_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags:
-        Name: '{{ name_prefix }}-PS'
+        Name: '{{ name_prefix }}-PS{{ item }}'
         Role: '{{ role }}'
         Vsad: '{{ vsad }}'
         Userid: '{{ userid }}'
