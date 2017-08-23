@@ -205,29 +205,15 @@
     when: firstboot_result.matched != 1
 
   - name: Request AWS Access
-    tags: ['netgroup']
-    uri:
-      url: https://vwebsac.verizon.com/OneAccessCloudServices/ITSecurity/AccessServices/RequestAccess 
-      method: POST
-      headers: 
-        'Authorization': 'Basic QVBJR0VFX1VzZXI6IXZ6R0B0M3dheUAxIQ=='
-        'Cache-Control': 'no-cache'
-      body_format: json
-      body: 
-        Users: 
-        - { EID: 'CM10002583' } 
-        Environment: 'NONPROD'
-        Hosts: 
-        -  Name: "{{ item.instances[0].private_ip | regex_replace('\\.','-') }}.ebiz.verizon.com"
-        VastID: 24824
-        Role: "SRVCACCT"
-        OS: "linux"
+    include: ec2_request_aws_access.yml
+    loop_control:
+      loop_var: result
     with_items:
-    - '{{ ds_instance }}'
-    - '{{ ms_instance }}'
-    - '{{ rmp_instance }}'
-    - '{{ qs_instance }}'
-    - '{{ ps_instance }}'
+    - '{{ ds_instance.results }}'
+    - '{{ ms_instance.results }}'
+    - '{{ rmp_instance.results }}'
+    - '{{ qs_instance.results }}'
+    - '{{ ps_instance.results }}'
 
   - name: Application Netgroup Verification 
     find: 
