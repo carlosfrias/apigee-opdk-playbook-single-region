@@ -126,7 +126,7 @@
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
     register: rmp_instance
-    with_sequence: start={{ start | default(1) }} end={{ end | default(3) }}
+    with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
 
   - name: Create QS EC2 instance
     tags: ['qs']
@@ -218,7 +218,7 @@
         - { EID: 'CM10002583' } 
         Environment: 'NONPROD'
         Hosts: 
-        -  Name: "{{ instance.instances[0].private_ip | regex_replace('\\.','-') }}.ebiz.verizon.com"
+        -  Name: "{{ item.instances[0].private_ip | regex_replace('\\.','-') }}.ebiz.verizon.com"
         VastID: 24824
         Role: "SRVCACCT"
         OS: "linux"
