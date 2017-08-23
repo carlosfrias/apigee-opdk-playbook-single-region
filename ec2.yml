@@ -161,7 +161,7 @@
       group: '{{ pg_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags:
-        Name: '{{ name_prefix }}-PS{{ item }}'
+        Name: '{{ name_prefix }}-PG{{ item }}'
         Role: '{{ role }}'
         Vsad: '{{ vsad }}'
         Userid: '{{ userid }}'
