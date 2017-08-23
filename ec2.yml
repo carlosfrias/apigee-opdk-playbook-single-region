@@ -223,11 +223,11 @@
         Role: "SRVCACCT"
         OS: "linux"
     with_items:
-    - {{ ds_instance }}
-    - {{ ms_instance }}
-    - {{ rmp_instance }}
-    - {{ qs_instance }}
-    - {{ ps_instance }}
+    - '{{ ds_instance }}'
+    - '{{ ms_instance }}'
+    - '{{ rmp_instance }}'
+    - '{{ qs_instance }}'
+    - '{{ ps_instance }}'
 
   - name: Application Netgroup Verification 
     find: 
