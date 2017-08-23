@@ -179,12 +179,12 @@
 #      timeout: 600
 #      delay: 180
 
-  - name: Pause and do the next step by hand
-    pause:
+#  - name: Pause and do the next step by hand
+#    pause:
 
   - name: Ensure Firstboot Completion Verification
     tags: ['firstboot']
-    ignore_errors: '{{ firstboot_ignore_errors | default(Yes) }}'
+    ignore_errors: '{{ firstboot_ignore_errors | default(True) }}'
     register: firstboot_result
     until: firstboot_result.matched
     retries: 1000
