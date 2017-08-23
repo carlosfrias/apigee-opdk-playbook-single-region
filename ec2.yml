@@ -185,15 +185,15 @@
 
   - name: Ensure Firstboot Completion Verification
     tags: ['firstboot']
-    ignore_errors: yes
+    ignore_errors: '{{ firstboot_ignore_errors | default(Yes) }}'
     register: firstboot_result
     until: firstboot_result.matched
     retries: 1000
-    delay: 360
+    delay: '{{ firstboot_delay | default(600) }}'
     find:
       paths: "/var/log/"
       patterns: "firstboot_verify.log"
-      contains: "Firstboot Operations Completed Successfully"
+      contains: "Firstboot.*Operations.*Completed.*Successfully"
 
   - name: Report Firstboot Operations Success
     debug:
