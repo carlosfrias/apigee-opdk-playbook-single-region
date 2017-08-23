@@ -5,7 +5,7 @@
   ignore_errors: '{{ firstboot_ignore_errors | default(True) }}'
   register: firstboot_result
   until: firstboot_result.matched
-  retries: 1000
+  retries: 75
   delay: '{{ firstboot_delay | default(30) }}'
   find:
     paths: "/var/log/"
