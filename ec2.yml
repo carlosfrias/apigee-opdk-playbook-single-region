@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   connection: local
+  strategy: debug
   vars:
     image_id: 'ami-b40a36cf'
     vsad: 'D0MV'
