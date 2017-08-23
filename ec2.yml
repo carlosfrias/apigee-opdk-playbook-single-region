@@ -32,13 +32,13 @@
     - 000-MASTER-HTTPS-ALL
     - 000-MASTER-HTTP-ALL
     - GTS-D0MV-Apigee-RMP-SG
-    qs_security_groups:
+    qpid_security_groups:
     - ss.nonprod.us-east-1.infrastructure.sg
     - 000-MASTER-SSH-ALL
     - 000-MASTER-HTTPS-ALL
     - 000-MASTER-HTTP-ALL
     - GTS-D0MV-Apigee-Qpid-SG
-    ps_security_groups:
+    pg_security_groups:
     - ss.nonprod.us-east-1.infrastructure.sg
     - 000-MASTER-SSH-ALL
     - 000-MASTER-HTTPS-ALL
@@ -74,9 +74,6 @@
   - name: Show ds_instance
     debug:
       var: ds_instance
-
-  - name: Pause for a bit...
-    pause:
 
   - name: Create MS EC2 instance
     tags: ['ms']
@@ -128,18 +125,18 @@
     register: rmp_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
 
-  - name: Create QS EC2 instance
-    tags: ['qs']
+  - name: Create QPID EC2 instance
+    tags: ['qpid']
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
       instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
       state: present
-      group: '{{ qs_security_groups }}'
+      group: '{{ qpid_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags:
-        Name: '{{ name_prefix }}-QS{{ item }}'
+        Name: '{{ name_prefix }}-QPID{{ item }}'
         Role: '{{ role }}'
         Vsad: '{{ vsad }}'
         Userid: '{{ userid }}'
@@ -150,18 +147,18 @@
       http_proxy: http://proxy.ebiz.verizon.com:80
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
-    register: qs_instance
+    register: qpid_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
 
   - name: Create PS EC2 instance
-    tags: ['ps']
+    tags: ['pg']
     ec2:
       assign_public_ip: 'n'
       image: '{{ image_id }}'
       instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
       state: present
-      group: '{{ ps_security_groups }}'
+      group: '{{ pg_security_groups }}'
       vpc_subnet_id: '{{ vpc_subnet_id }}'
       instance_tags:
         Name: '{{ name_prefix }}-PS{{ item }}'
@@ -175,7 +172,7 @@
       http_proxy: http://proxy.ebiz.verizon.com:80
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
-    register: ps_instance
+    register: pg_instance
     with_sequence: start={{ start | default(1) }} end={{ end | default(2) }}
 
 #  - name: Wait for SSH to be ready
@@ -212,8 +209,8 @@
     - '{{ ds_instance.results }}'
     - '{{ ms_instance.results }}'
     - '{{ rmp_instance.results }}'
-    - '{{ qs_instance.results }}'
-    - '{{ ps_instance.results }}'
+    - '{{ qpid_instance.results }}'
+    - '{{ pg_instance.results }}'
 
   - name: Application Netgroup Verification 
     find: 
