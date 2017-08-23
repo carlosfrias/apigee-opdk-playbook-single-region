@@ -2,7 +2,7 @@
 
 - name: Firstboot Operation Verification for single node
   include: ec2-firstboot-operation-verification.yml
-    vars:
-      target_host: "{{ item.private_ip }}"
+  vars:
+    target_host: "{{ item.private_ip }}"
   with_items: '{{ result.instances }}'
 
