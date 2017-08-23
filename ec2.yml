@@ -184,8 +184,6 @@
 
   - name: Ensure Firstboot Completion Verification for Planet
     tags: ['firstboot']
-
-  - name: Request AWS Access for Planet
     include: ec2-firstboot-operation-verification-host.yml
     loop_control:
       loop_var: result
