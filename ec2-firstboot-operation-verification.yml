@@ -1,0 +1,14 @@
+---
+- name: Ensure Firstboot Completion Verification
+  delegate_to: "{{ target_host }}"
+  tags: ['firstboot']
+  ignore_errors: '{{ firstboot_ignore_errors | default(True) }}'
+  register: firstboot_result
+  until: firstboot_result.matched
+  retries: 1000
+  delay: '{{ firstboot_delay | default(600) }}'
+  find:
+    paths: "/var/log/"
+    patterns: "firstboot_verify.log"
+    contains: "Firstboot.*Operations.*Completed.*Successfully"
+

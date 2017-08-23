@@ -182,17 +182,19 @@
 #  - name: Pause and do the next step by hand
 #    pause:
 
-  - name: Ensure Firstboot Completion Verification
+  - name: Ensure Firstboot Completion Verification for Planet
     tags: ['firstboot']
-    ignore_errors: '{{ firstboot_ignore_errors | default(True) }}'
-    register: firstboot_result
-    until: firstboot_result.matched
-    retries: 1000
-    delay: '{{ firstboot_delay | default(600) }}'
-    find:
-      paths: "/var/log/"
-      patterns: "firstboot_verify.log"
-      contains: "Firstboot.*Operations.*Completed.*Successfully"
+
+  - name: Request AWS Access for Planet
+    include: ec2-firstboot-operation-verification-host.yml
+    loop_control:
+      loop_var: result
+    with_items:
+    - '{{ ds_instance.results }}'
+    - '{{ ms_instance.results }}'
+    - '{{ rmp_instance.results }}'
+    - '{{ qpid_instance.results }}'
+    - '{{ pg_instance.results }}'
 
   - name: Report Firstboot Operations Success
     debug:
