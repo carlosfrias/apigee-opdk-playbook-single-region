@@ -5,7 +5,7 @@
     image_id: 'ami-b40a36cf'
     vsad: 'D0MV'
     aws_region: 'us-east-1'
-    name_prefix: 'GTS-{{ vsad }}-Apigee-DC-{{ dc }}'
+    name_prefix: 'GTS-{{ vsad }}-Apigee-DC-{{ dc | default(1) }}'
     vpc_subnet_id: subnet-0756525c
     role: 'App'
     userid: 'v636401'
@@ -188,12 +188,12 @@
   - name: Report Firstboot Operations Success
     debug:
       msg: "Firstboot Operations Succeeded"
-    when: firstboot.matched == 1
+    when: firstboot_result.matched == 1
 
   - name: Report Firstbook Operations Failure
     fail:
       msg: "Firstboot Operations Failed"
-    when: firstboot.matched != 1
+    when: firstboot_result.matched != 1
 
   - name: Request AWS Access
     tags: ['netgroup']
