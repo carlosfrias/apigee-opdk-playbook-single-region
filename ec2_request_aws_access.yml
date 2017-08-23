@@ -14,8 +14,9 @@
       - { EID: 'CM10002583' }
       Environment: 'NONPROD'
       Hosts:
-      -  Name: "{{ result.instances[0].private_ip | regex_replace('\\.','-') }}.ebiz.verizon.com"
+      -  Name: "{{ item.private_ip | regex_replace('\\.','-') }}.ebiz.verizon.com"
       VastID: 24824
       Role: "SRVCACCT"
       OS: "linux"
-  with_items: result
+  with_items: '{{ result.instances }}'
+
