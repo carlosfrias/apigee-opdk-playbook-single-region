@@ -179,9 +179,6 @@
 #      timeout: 600
 #      delay: 180
 
-#  - name: Pause and do the next step by hand
-#    pause:
-
   - name: Ensure Firstboot Completion Verification for Planet
     tags: ['firstboot']
     include: ec2-firstboot-operation-verification-host.yml

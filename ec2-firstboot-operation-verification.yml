@@ -6,7 +6,7 @@
   register: firstboot_result
   until: firstboot_result.matched
   retries: 1000
-  delay: '{{ firstboot_delay | default(600) }}'
+  delay: '{{ firstboot_delay | default(30) }}'
   find:
     paths: "/var/log/"
     patterns: "firstboot_verify.log"
