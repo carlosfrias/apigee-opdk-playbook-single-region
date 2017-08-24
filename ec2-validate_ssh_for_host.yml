@@ -1,0 +1,6 @@
+---
+- name: Wait for SSH to be ready
+  delegate_to: "{{ target_host }}"
+  wait_for_connection:
+    timeout: 600
+    delay: 90

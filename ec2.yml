@@ -70,10 +70,6 @@
     register: ds_instance
     with_sequence: start={{ ds_start | default(1) }} end={{ ds_end | default(3) }}
 
-  - name: Show ds_instance
-    debug:
-      var: ds_instance
-
   - name: Create MS EC2 instance
     tags: ['ms']
     ec2:
@@ -184,11 +180,6 @@
     - '{{ rmp_instance.results }}'
     - '{{ qpid_instance.results }}'
     - '{{ pg_instance.results }}'
-
-  - name: Wait for SSH to be ready
-    wait_for_connection:
-      timeout: 600
-      delay: 90
 
   - name: Ensure Firstboot Completion Verification for Planet
     tags: ['firstboot']
