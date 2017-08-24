@@ -3,7 +3,7 @@
   include: ec2-validate_ssh_for_hosts.yml
 
 - name: Request Netgroup Access for Planet Nodes
-  include: ec2-request_aws_access.yml
+  include: ec2-request_aws_access_for_hosts.yml
 
 - name: Ensure Firstboot Completion Verification for Planet
   include: ec2-firstboot-operation-verification-host.yml

@@ -13,13 +13,13 @@
       - { EID: 'CM10002583' }
       Environment: 'NONPROD'
       Hosts:
-      -  Name: "{{ item.private_ip | regex_replace('\\.','-') }}.ebiz.verizon.com"
+      -  Name: "{{ target_host | regex_replace('\\.','-') }}.ebiz.verizon.com"
       VastID: 24824
       Role: "SRVCACCT"
       OS: "linux"
-  with_items: '{{ result.instances }}'
 
 - name: Application Netgroup Verification
+  delegate_to: '{{ target_host }}'
   find:
     paths: "/etc/security"
     patterns: "access-sshd.conf"
@@ -31,6 +31,7 @@
   delay: 30
 
 - name: Verify Netgroup has passed"
+  delegate_to: '{{ target_host }}'
   cache:
     key: "app_netgroup_success"
     value: "{{ app_netgroup.matched == 1 | bool }}"

@@ -1,0 +1,6 @@
+---
+- name: Request Netgroup AWS Access for node with target ip
+  include: ec2-request_aws_access_for_host.yml
+  vars:
+    target_host: "{{ item.private_ip }}"
+  with_items: '{{ result.instances }}'
