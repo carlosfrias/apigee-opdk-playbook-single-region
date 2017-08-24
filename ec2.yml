@@ -170,31 +170,8 @@
     register: pg_instance
     with_sequence: start={{ pg_start | default(1) }} end={{ pg_end | default(2) }}
 
-  - name: Validate SSH is ready on Hosts
-    include: ec2-validate_ssh_for_hosts.yml
-    loop_control:
-      loop_var: result
-    with_items:
-    - '{{ ds_instance.results }}'
-    - '{{ ms_instance.results }}'
-    - '{{ rmp_instance.results }}'
-    - '{{ qpid_instance.results }}'
-    - '{{ pg_instance.results }}'
-
-  - name: Ensure Firstboot Completion Verification for Planet
-    tags: ['firstboot']
-    include: ec2-firstboot-operation-verification-host.yml
-    loop_control:
-      loop_var: result
-    with_items:
-    - '{{ ds_instance.results }}'
-    - '{{ ms_instance.results }}'
-    - '{{ rmp_instance.results }}'
-    - '{{ qpid_instance.results }}'
-    - '{{ pg_instance.results }}'
-
-  - name: Request Netgroup Access for Planet Nodes
-    include: ec2_request_aws_access.yml
+  - name: Verify each hosts
+    include: ec2-verifications-of-hosts.yml
     loop_control:
       loop_var: result
     with_items:

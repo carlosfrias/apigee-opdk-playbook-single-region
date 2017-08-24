@@ -1,0 +1,9 @@
+---
+- name: Validate SSH is ready on Hosts
+  include: ec2-validate_ssh_for_hosts.yml
+
+- name: Request Netgroup Access for Planet Nodes
+  include: ec2-request_aws_access.yml
+
+- name: Ensure Firstboot Completion Verification for Planet
+  include: ec2-firstboot-operation-verification-host.yml
