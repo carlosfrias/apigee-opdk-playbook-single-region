@@ -1,0 +1,7 @@
+---
+- name: Validate SSH for single node
+  include: validate_ssh_for_host.yml
+  vars:
+    target_host: "{{ item.private_ip }}"
+  with_items: '{{ result.instances }}'
+

@@ -12,3 +12,12 @@
     patterns: "firstboot_verify.log"
     contains: "Firstboot.*Operations.*Completed.*Successfully"
 
+- name: Report Firstboot Operations Success
+  debug:
+    msg: "Firstboot Operations Succeeded"
+  when: firstboot_result.matched == 1
+
+- name: Report Firstbook Operations Failure
+  fail:
+    msg: "Firstboot Operations Failed"
+  when: firstboot_result.matched != 1

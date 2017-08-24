@@ -174,10 +174,21 @@
     register: pg_instance
     with_sequence: start={{ pg_start | default(1) }} end={{ pg_end | default(2) }}
 
-#  - name: Wait for SSH to be ready
-#    wait_for_connection:
-#      timeout: 600
-#      delay: 180
+  - name: Validate SSH is ready on Hosts
+    include: validate_ssh_for_hosts.yml
+    loop_control:
+      loop_var: result
+    with_items:
+    - '{{ ds_instance.results }}'
+    - '{{ ms_instance.results }}'
+    - '{{ rmp_instance.results }}'
+    - '{{ qpid_instance.results }}'
+    - '{{ pg_instance.results }}'
+
+  - name: Wait for SSH to be ready
+    wait_for_connection:
+      timeout: 600
+      delay: 90
 
   - name: Ensure Firstboot Completion Verification for Planet
     tags: ['firstboot']
@@ -191,17 +202,7 @@
     - '{{ qpid_instance.results }}'
     - '{{ pg_instance.results }}'
 
-  - name: Report Firstboot Operations Success
-    debug:
-      msg: "Firstboot Operations Succeeded"
-    when: firstboot_result.matched == 1
-
-  - name: Report Firstbook Operations Failure
-    fail:
-      msg: "Firstboot Operations Failed"
-    when: firstboot_result.matched != 1
-
-  - name: Request AWS Access for Planet
+  - name: Request Netgroup Access for Planet Nodes
     include: ec2_request_aws_access.yml
     loop_control:
       loop_var: result
@@ -211,27 +212,4 @@
     - '{{ rmp_instance.results }}'
     - '{{ qpid_instance.results }}'
     - '{{ pg_instance.results }}'
-
-  - name: Application Netgroup Verification 
-    find: 
-      paths: "/etc/security"
-      patterns: "access-sshd.conf"
-      contains: "D0MV_SRVACCOUNT_NONPROD_ONSHORE"
-      size: "873"
-    ignore_errors: yes
-    register: app_netgroup
-    until: app_netgroup.matched
-    retries: 16
-    delay: 30
-
-  - name: Verify Netgroup has passed"
-    debug: 
-      msg: "app_netgroup verification successful"
-    when: app_netgroup.matched == 1
-
-  - name: Verify App Netgroup has failed
-    fail: 
-      msg: "Post Boot Process Verification Failed"
-    when: app_netgroup.matched != 1
-
 
