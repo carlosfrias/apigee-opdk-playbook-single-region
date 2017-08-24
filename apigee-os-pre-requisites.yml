@@ -7,15 +7,15 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   vars:
+    http_proxy: http://proxy.ebiz.verizon.com:80
+    https_proxy: http://proxy.ebiz.verizon.com:80
+    no_proxy: "10.118.70.177,oneartifactory.verizon.com,luxfavlpa001.verizon.com,luxsc1lna001.itcent.ebiz.verizon.com,10.118.68.8,localhost,127.0.0.1"
     artifactory_repo:
     - { name: "Artifactory",
         baseurl: "https://oneartifactory.verizon.com/artifactory/dl-fedoraproject-org-epel7-x86_64/",
         repo_id: "Artifactory",
         yum_repo_filename: "artifactory",
         gpgcheck: 'no'}
-    http_proxy: http://proxy.ebiz.verizon.com:80
-    https_proxy: http://proxy.ebiz.verizon.com:80
-    no_proxy: "10.118.70.177,oneartifactory.verizon.com,luxfavlpa001.verizon.com,luxsc1lna001.itcent.ebiz.verizon.com,10.118.68.8,localhost,127.0.0.1"
     yum_repositories:
     - { name: "Red Hat Enterprise Linux 7 Server (RPMs)",
         baseurl: "http://luxsc1lna001.itcent.ebiz.verizon.com/rhel7/rhel-7-server-rpms/Packages",
