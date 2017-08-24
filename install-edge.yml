@@ -26,7 +26,7 @@
   include: apigee-configuration.yml
   tags: ['ds','ds-config-file','config']
   vars:
-    target_hosts: dc-1-ds,dc-2-ds
+    target_hosts: dc-1-ds
 
 - name: Apply configuration to Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
