@@ -176,6 +176,8 @@
 
   - name: Verify each hosts
     include: ec2-verification-of-hosts.yml
+    async: 1500
+    poll: 10
     loop_control:
       loop_var: result
     with_items:
