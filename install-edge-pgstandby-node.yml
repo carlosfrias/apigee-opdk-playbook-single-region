@@ -1,6 +1,6 @@
 ---
 - name: Configure Postgres Standby on DC-1
-  hosts: dc-1-pgstandby
+  hosts: pgstandby
   gather_facts: no
   serial: 1
   tags: ['pg', 'pgstandby']
