@@ -44,6 +44,9 @@
     - 000-MASTER-HTTP-ALL
     - GTS-D0MV-Apigee-Postgres-SG
 
+  roles:
+  - apigee-opdk-modules
+
   tasks: 
   - name: Create DS EC2 instances
     tags: ['ds']
