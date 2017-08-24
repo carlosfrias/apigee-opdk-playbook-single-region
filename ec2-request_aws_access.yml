@@ -27,7 +27,7 @@
   ignore_errors: yes
   register: app_netgroup
   until: app_netgroup.matched
-  retries: 10
+  retries: 20
   delay: 30
 
 - name: Verify Netgroup has passed"
