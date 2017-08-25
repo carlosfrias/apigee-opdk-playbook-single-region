@@ -9,7 +9,7 @@
   tags: ['ds','ds-config-file','config']
   vars:
     target_hosts: dc-2-ds, dc-1-ds
-    opdk_ldap_type: 2
+    opdk_ldap_type: '2'
 
 - name: Apply configuration to Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
@@ -22,7 +22,7 @@
   tags: ['ms','ms-config-file','config']
   vars:
     target_hosts: dc-1-ms
-    opdk_ldap_type: 2
+    opdk_ldap_type: '2'
 
 - name: Configure Cassandra Client on the Management Server on DC-1
   include: install-edge-cassandra-client.yml
@@ -46,7 +46,7 @@
   tags: ['ms','ms-config-file','config']
   vars:
     target_hosts: dc-2-ms
-    opdk_ldap_type: 2
+    opdk_ldap_type: '2'
 
 - name: Apply configuration to Management Server node
   include: install-edge-management-server-component-setup.yml
@@ -59,7 +59,7 @@
   tags: ['rmp','rmp-config-file','config']
   vars:
     target_hosts: dc-2-rmp,dc-1-rmp
-    opdk_ldap_type: 2
+    opdk_ldap_type: '2'
 
 - name: Apply configuration to Router & Message Processor node
   include: install-edge-rmp-component-setup.yml
@@ -72,7 +72,7 @@
   tags: ['qs','qs-config-file','config']
   vars:
     target_hosts: dc-2-qpid
-    opdk_ldap_type: 2
+    opdk_ldap_type: '2'
 
 - name: Apply configuration to Qpid node
   include: install-edge-qs-component-setup.yml
@@ -91,7 +91,7 @@
   tags: ['ps','ps-apply-config','config']
   vars:
     target_hosts: dc-2-pg
-    opdk_ldap_type: 2
+    opdk_ldap_type: '2'
 
 - name: Install Postgres node
   include: edge-expansion-pgmaster-pgstandby-node-config.yml
