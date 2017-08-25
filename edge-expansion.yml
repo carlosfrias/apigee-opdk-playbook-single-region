@@ -81,7 +81,7 @@
     target_hosts: dc-2-qpid
 
 - name: Register DC-2 Qpids with Management Server
-  include: edge-expansion-register-qpid-expansion.yml
+  include: edge-expansion-register-qpid.yml
   tags: ['qs']
   vars:
     target_hosts: dc-2-qpid
