@@ -36,7 +36,7 @@
     target_hosts: dc-1-ms
 
 - name: Rebuild Cassandra
-  include: install-edge-rebuild-cassandra.yml
+  include: edge-expansion-rebuild-cassandra.yml
   tags: ['ms', 'cass-rebuild']
   vars:
     target_hosts: dc-2-ds
@@ -81,7 +81,7 @@
     target_hosts: dc-2-qpid
 
 - name: Register DC-2 Qpids with Management Server
-  include: install-edge-register-qpid-expansion.yml
+  include: edge-expansion-register-qpid-expansion.yml
   tags: ['qs']
   vars:
     target_hosts: dc-2-qpid
@@ -94,7 +94,7 @@
     opdk_ldap_type: 2
 
 - name: Install Postgres node
-  include: install-edge-pgmaster-pgstandby-node-config.yml
+  include: edge-expansion-pgmaster-pgstandby-node-config.yml
   tags: ['ps','ps-apply-config','config']
 
 - name: Setup org
