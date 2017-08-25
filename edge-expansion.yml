@@ -86,6 +86,13 @@
   vars:
     target_hosts: dc-2-qpid
 
+- name: Configure Qpid node
+  include: apigee-configuration.yml
+  tags: ['ps','ps-config-file','config']
+  vars:
+    target_hosts: pg
+    opdk_ldap_type: '2'
+
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
   tags: ['ps','ps-apply-config','config']
