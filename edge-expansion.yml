@@ -98,7 +98,6 @@
   tags: ['ps','ps-apply-config','config']
   vars:
     target_hosts: dc-2-pg
-    opdk_ldap_type: '2'
 
 - name: Install Postgres node
   include: edge-expansion-pgmaster-pgstandby-node-config.yml
