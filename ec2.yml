@@ -12,6 +12,9 @@
     - name: owner
       prompt: "Who should be listed in the owner tag?"
       default: 'nathaly.lozano@one.verizon.com'
+    - name: vpc_subnet_id
+      prompt: "Enter vpc subnet id (subnet-0756525c, subnet-7C8dea1b):"
+      default: 'subnet-0756525c'
   vars:
     image_id: 'ami-282a2b53'
     vsad: 'D0MV'
