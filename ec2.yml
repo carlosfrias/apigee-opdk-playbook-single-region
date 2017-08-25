@@ -3,7 +3,7 @@
   connection: local
   strategy: free
   vars:
-    image_id: 'ami-b40a36cf'
+    image_id: 'ami-282a2b53'
     vsad: 'D0MV'
     instance_type: m4.2xlarge
     aws_region: 'us-east-1'
