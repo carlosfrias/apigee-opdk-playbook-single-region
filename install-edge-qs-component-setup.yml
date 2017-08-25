@@ -1,6 +1,6 @@
 ---
 - name: Setup Qpid on DC-1
-  hosts: dc-1-qpid
+  hosts: "{{ target_hosts }}"
   gather_facts: no
   tags: ['qpid']
   roles:

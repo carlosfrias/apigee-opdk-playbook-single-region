@@ -1,4 +1,13 @@
 ---
+- name: Configure Postgres Master on DC-2
+  hosts: pgmaster
+  gather_facts: no
+  serial: 1
+  tags: ['pgmaster']
+  roles:
+  - { role: apigee-opdk-setup-postgres-master }
+  - { role: apigee-opdk-setup-status, tags: ['status'] }
+
 - name: Configure Postgres Standby on DC-1
   hosts: pgstandby
   gather_facts: no

@@ -43,6 +43,8 @@
 - name: Apply configuration to Management Server node
   include: install-edge-management-server-component-setup.yml
   tags: ['ms','ms-apply-config','config']
+  vars:
+    target_hosts: dc-1-ms
 
 - name: Configure RMP node
   include: apigee-configuration.yml
@@ -53,6 +55,8 @@
 - name: Apply configuration to Router & Message Processor node
   include: install-edge-rmp-component-setup.yml
   tags: ['rmp','rmp-apply-config','config']
+  vars:
+    target_hosts: dc-1-rmp
 
 - name: Configure Qpid node
   include: apigee-configuration.yml
@@ -63,6 +67,8 @@
 - name: Apply configuration to Qpid node
   include: install-edge-qs-component-setup.yml
   tags: ['qs','qs-apply-config','config']
+  vars:
+    target_hosts: dc-1-qpid
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
@@ -73,6 +79,8 @@
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
   tags: ['ps','ps-apply-config','config']
+  vars:
+    target_hosts: dc-1-pg
 
 - name: Setup org
   include: install-edge-setup-org.yml
