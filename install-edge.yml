@@ -74,7 +74,7 @@
   include: apigee-configuration.yml
   tags: ['ps','ps-config-file','config']
   vars:
-    target_hosts: dc-1-pg
+    target_hosts: pg
 
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
