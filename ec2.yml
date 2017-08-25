@@ -12,54 +12,10 @@
     - name: owner
       prompt: "Who should be listed in the owner tag?"
       default: 'nathaly.lozano@one.verizon.com'
-    - name: vpc_subnet_id
-      prompt: "Enter vpc subnet id (subnet-0756525c, subnet-6a031032):"
-      default: 'subnet-0756525c'
-  vars:
-    image_id: 'ami-282a2b53'
-    vsad: 'D0MV'
-    instance_type: m4.2xlarge
-    name_prefix: 'GTS-{{ vsad }}-Apigee-DC-{{ dc | default(1) }}'
-    vpc_subnet_id: subnet-0756525c
-    role: 'App'
-    nostop: ''
-    portfolioVp: 'Portfolio=GTS_VP=mahmoud.elassir@one.verizon.com'
-    validate_ssh_timeout: 720
-    validate_ssh_delay: 120
-    ds_security_groups:
-    - ss.nonprod.us-east-1.infrastructure.sg
-    - 000-MASTER-SSH-ALL
-    - 000-MASTER-HTTPS-ALL
-    - 000-MASTER-HTTP-ALL
-    - GTS-D0MV-Apigee-CSZK-SG
-    ms_security_groups:
-    - ss.nonprod.us-east-1.infrastructure.sg
-    - 000-MASTER-SSH-ALL
-    - 000-MASTER-HTTPS-ALL
-    - 000-MASTER-HTTP-ALL
-    - GTS-D0MV-Apigee-OPDK-SG
-    rmp_security_groups:
-    - ss.nonprod.us-east-1.infrastructure.sg
-    - 000-MASTER-SSH-ALL
-    - 000-MASTER-HTTPS-ALL
-    - 000-MASTER-HTTP-ALL
-    - GTS-D0MV-Apigee-RMP-SG
-    qpid_security_groups:
-    - ss.nonprod.us-east-1.infrastructure.sg
-    - 000-MASTER-SSH-ALL
-    - 000-MASTER-HTTPS-ALL
-    - 000-MASTER-HTTP-ALL
-    - GTS-D0MV-Apigee-Qpid-SG
-    pg_security_groups:
-    - ss.nonprod.us-east-1.infrastructure.sg
-    - 000-MASTER-SSH-ALL
-    - 000-MASTER-HTTPS-ALL
-    - 000-MASTER-HTTP-ALL
-    - GTS-D0MV-Apigee-Postgres-SG
-
+  vars_files:
+  - "ec2-properties-{{ aws_region }}.yml"
   roles:
   - apigee-opdk-modules
-
   tasks: 
   - name: Create DS EC2 instances
     tags: ['ds']
