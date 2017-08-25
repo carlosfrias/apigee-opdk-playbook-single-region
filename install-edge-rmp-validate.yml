@@ -1,6 +1,6 @@
 ---
 - name: Validate RMP proxy functionality on DC-1
-  hosts: dc-1-rmp
+  hosts: "{{ target_hosts }}"
   serial: 1
   gather_facts: no
   tags: ['validate']

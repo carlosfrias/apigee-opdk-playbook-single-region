@@ -85,6 +85,8 @@
 - name: Setup org
   include: install-edge-setup-org.yml
   tags: ['org']
+  vars:
+    target_hosts: dc-1-ms
 
 - name: Rolling restart of planet
   hosts: planet
@@ -97,6 +99,8 @@
 - name: Validate RMP
   include: install-edge-rmp-validate.yml
   tags: ['validate-rmp']
+  vars:
+    target_hosts: dc-1-rmp
 
 #- name: Download logs and configs
 #  tags: ['logs']
