@@ -2,17 +2,24 @@
 - hosts: localhost
   connection: local
   strategy: free
+  vars_prompt:
+    - name: aws_region
+      prompt: "Which aws region do you want?"
+      default: 'us-east-1'
+    - name: userid
+      prompt: "What is your userid?"
+      default: 'v636401'
+    - name: owner
+      prompt: "Who should be listed in the owner tag?"
+      default: 'nathaly.lozano@one.verizon.com'
   vars:
     image_id: 'ami-282a2b53'
     vsad: 'D0MV'
     instance_type: m4.2xlarge
-    aws_region: 'us-east-1'
     name_prefix: 'GTS-{{ vsad }}-Apigee-DC-{{ dc | default(1) }}'
     vpc_subnet_id: subnet-0756525c
     role: 'App'
-    userid: 'v636401'
     nostop: ''
-    owner: 'nathaly.lozano@one.verizon.com'
     portfolioVp: 'Portfolio=GTS_VP=mahmoud.elassir@one.verizon.com'
     ds_security_groups:
     - ss.nonprod.us-east-1.infrastructure.sg
