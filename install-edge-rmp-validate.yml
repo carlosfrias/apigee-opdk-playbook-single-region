@@ -6,4 +6,4 @@
   tags: ['validate']
   roles:
   - { role: apigee-opdk-setup-validate }
-  - { role: apigee-opdk-setup-validate-cleanup }
+  - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate-rmp-cleanup'] }
