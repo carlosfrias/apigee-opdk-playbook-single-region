@@ -181,32 +181,7 @@
       https_proxy: http://proxy.ebiz.verizon.com:80
       no_proxy: 169.254.169.254
     register: pg_instance
-    with_sequence: start={{ pg_start | default(1) }} end={{ pg_end | default(2) }}
-
-  - name: Create DP EC2 instance
-    tags: ['dp']
-    ec2:
-      assign_public_ip: 'n'
-      image: '{{ image_id }}'
-      instance_type: '{{ instance_type }}'
-      region: '{{ aws_region }}'
-      state: present
-      group: '{{ pg_security_groups }}'
-      vpc_subnet_id: '{{ vpc_subnet_id }}'
-      instance_tags:
-        Name: '{{ name_prefix }}-PG{{ item }}'
-        Role: '{{ role }}'
-        Vsad: '{{ vsad }}'
-        Userid: '{{ userid }}'
-        nostop: '{{ nostop }}'
-        Owner: '{{ owner }}'
-        Portfolio_VP: '{{ portfolioVp }}'
-    environment:
-      http_proxy: http://proxy.ebiz.verizon.com:80
-      https_proxy: http://proxy.ebiz.verizon.com:80
-      no_proxy: 169.254.169.254
-    register: pg_instance
-    with_sequence: start={{ pg_start | default(1) }} end={{ pg_end | default(2) }}
+    with_sequence: start={{ pg_start | default(1) }} end={{ pg_end | default(1) }}
 
   - name: Verify each hosts
     include: ec2-verification-of-hosts.yml
