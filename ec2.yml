@@ -21,6 +21,8 @@
     role: 'App'
     nostop: ''
     portfolioVp: 'Portfolio=GTS_VP=mahmoud.elassir@one.verizon.com'
+    validate_ssh_timeout: 720
+    validate_ssh_delay: 120
     ds_security_groups:
     - ss.nonprod.us-east-1.infrastructure.sg
     - 000-MASTER-SSH-ALL
