@@ -15,6 +15,6 @@
   tags: ['pg', 'pgstandby']
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
-  - { role: apigee-opdk-stop-components }
+  - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
