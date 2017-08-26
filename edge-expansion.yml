@@ -103,13 +103,6 @@
   include: edge-expansion-pgmaster-pgstandby-node-config.yml
   tags: ['ps','ps-apply-config','config']
 
-- name: Setup org
-  include: install-edge-setup-org.yml
-  tags: ['org']
-  vars:
-    target_hosts: dc-2-ms
-    new_user: 'n'
-
 - name: Validate RMP
   include: install-edge-rmp-validate.yml
   tags: ['validate-rmp']
