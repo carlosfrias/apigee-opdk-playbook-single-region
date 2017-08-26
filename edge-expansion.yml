@@ -108,6 +108,7 @@
   tags: ['org']
   vars:
     target_hosts: dc-2-ms
+    new_user: 'n'
 
 - name: Validate RMP
   include: install-edge-rmp-validate.yml
