@@ -177,3 +177,12 @@
   - name: Show local_address
     debug:
       var: local_address
+
+- name: View LDAP system user
+  hosts: ms
+  gather_facts: no
+  tags: ['ldap']
+  tasks:
+  - name: Show LDAP system user
+    shell: "ldapsearch -D 'cn=manager,dc=apigee,dc=com' -b 'dc=apigee,dc=com' -LLL -h 127.0.0.1 -p {{ ldap_data_port }}} -w {{ opdk_ldap_pass }}"
+    ß
