@@ -2,25 +2,27 @@
 - hosts: localhost
   connection: local
   strategy: free
+  vars_files:
+  - "ec2-properties-{{ aws_region }}.yml"
+  - ec2-properties.yml
   vars_prompt:
     - name: aws_region
       prompt: "Which aws region do you want?"
-      default: 'us-east-1'
+      default: '{{ aws_region_default }}'
     - name: userid
       prompt: "What is your userid?"
-      default: 'v636401'
+      default: '{{ userid_default }}'
     - name: owner
       prompt: "Who should be listed in the owner tag?"
-      default: 'nathaly.lozano@one.verizon.com'
-  vars_files:
-  - "ec2-properties-{{ aws_region }}.yml"
+      default: '{{ owner_default }}'
   roles:
   - apigee-opdk-modules
+
   tasks: 
   - name: Create DS EC2 instances
     tags: ['ds']
     ec2:
-      assign_public_ip: 'n'
+      assign_public_ip: '{{ assign_public_id }}'
       image: '{{ image_id }}'
       instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
@@ -36,16 +38,16 @@
         Owner: '{{ owner }}'
         Portfolio_VP: '{{ portfolioVp }}'
     environment:
-      http_proxy: http://proxy.ebiz.verizon.com:80
-      https_proxy: http://proxy.ebiz.verizon.com:80
-      no_proxy: 169.254.169.254
+      http_proxy: '{{ http_proxy }}'
+      https_proxy: '{{ https_proxy }}'
+      no_proxy: '{{ no_proxy }}'
     register: ds_instance
     with_sequence: start={{ ds_start | default(1) }} end={{ ds_end | default(3) }}
 
   - name: Create MS EC2 instance
     tags: ['ms']
     ec2:
-      assign_public_ip: 'n'
+      assign_public_ip: '{{ assign_public_id }}'
       image: '{{ image_id }}'
       instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
@@ -61,16 +63,16 @@
         Owner: '{{ owner }}'
         Portfolio_VP: '{{ portfolioVp }}'
     environment:
-      http_proxy: http://proxy.ebiz.verizon.com:80
-      https_proxy: http://proxy.ebiz.verizon.com:80
-      no_proxy: 169.254.169.254
+      http_proxy: '{{ http_proxy }}'
+      https_proxy: '{{ https_proxy }}'
+      no_proxy: '{{ no_proxy }}'
     register: ms_instance
     with_sequence: start={{ ms_start | default(1) }} end={{ ms_end | default(1) }}
 
   - name: Create RMP EC2 instance
     tags: ['rmp']
     ec2:
-      assign_public_ip: 'n'
+      assign_public_ip: '{{ assign_public_id }}'
       image: '{{ image_id }}'
       instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
@@ -86,16 +88,16 @@
         Owner: '{{ owner }}'
         Portfolio_VP: '{{ portfolioVp }}'
     environment:
-      http_proxy: http://proxy.ebiz.verizon.com:80
-      https_proxy: http://proxy.ebiz.verizon.com:80
-      no_proxy: 169.254.169.254
+      http_proxy: '{{ http_proxy }}'
+      https_proxy: '{{ https_proxy }}'
+      no_proxy: '{{ no_proxy }}'
     register: rmp_instance
     with_sequence: start={{ rpm_start | default(1) }} end={{ rmp_end | default(2) }}
 
   - name: Create QPID EC2 instance
     tags: ['qpid']
     ec2:
-      assign_public_ip: 'n'
+      assign_public_ip: '{{ assign_public_id }}'
       image: '{{ image_id }}'
       instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
@@ -111,16 +113,16 @@
         Owner: '{{ owner }}'
         Portfolio_VP: '{{ portfolioVp }}'
     environment:
-      http_proxy: http://proxy.ebiz.verizon.com:80
-      https_proxy: http://proxy.ebiz.verizon.com:80
-      no_proxy: 169.254.169.254
+      http_proxy: '{{ http_proxy }}'
+      https_proxy: '{{ https_proxy }}'
+      no_proxy: '{{ no_proxy }}'
     register: qpid_instance
     with_sequence: start={{ qpid_start | default(1) }} end={{ qpid_end | default(2) }}
 
   - name: Create PS EC2 instance
     tags: ['pg']
     ec2:
-      assign_public_ip: 'n'
+      assign_public_ip: '{{ assign_public_id }}'
       image: '{{ image_id }}'
       instance_type: '{{ instance_type }}'
       region: '{{ aws_region }}'
@@ -136,9 +138,9 @@
         Owner: '{{ owner }}'
         Portfolio_VP: '{{ portfolioVp }}'
     environment:
-      http_proxy: http://proxy.ebiz.verizon.com:80
-      https_proxy: http://proxy.ebiz.verizon.com:80
-      no_proxy: 169.254.169.254
+      http_proxy: '{{ http_proxy }}'
+      https_proxy: '{{ https_proxy }}'
+      no_proxy: '{{ no_proxy }}'
     register: pg_instance
     with_sequence: start={{ pg_start | default(1) }} end={{ pg_end | default(1) }}
 

@@ -1,0 +1,23 @@
+---
+- name: Obtain Completion Verification
+  delegate_to: "{{ target_host }}"
+  tags: ['completion_verification']
+  ignore_errors: '{{ completion_verification_ignore_errors | default(True) }}'
+  register: verification_result
+  until: verification_result.matched
+  retries: 60
+  delay: '{{ firstboot_delay | default(30) }}'
+  find:
+    paths: "{{ verification_file_path }}"
+    patterns: "{{ verification_file_patterns }}"
+    contains: "{{ verification_file_contains }}"
+
+- name: Report Completion Success
+  debug:
+    msg: '{{ verification_completion_message_success }}'
+  when: verification_result.matched == 1
+
+- name: Report Completion Failure
+  fail:
+    msg: '{{ verification_completion_message_failure }}'
+  when: verification_result.matched != 1

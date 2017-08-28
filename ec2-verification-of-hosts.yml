@@ -6,4 +6,4 @@
   include: ec2-request_aws_access_for_hosts.yml
 
 - name: Ensure Firstboot Completion Verification for Planet
-  include: ec2-firstboot-operation-verification-host.yml
+  include: ec2-operation-verification-host.yml

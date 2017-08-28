@@ -1,5 +1,6 @@
 ---
 image_id: 'ami-282a2b53'
+assign_public_id: 'n'
 vsad: 'D0MV'
 instance_type: m4.2xlarge
 vpc_subnet_id: 'subnet-0756525c'
