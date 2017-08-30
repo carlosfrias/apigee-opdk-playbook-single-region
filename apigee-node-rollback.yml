@@ -2,11 +2,8 @@
 - name: Rolling back installation and bootstrap
   hosts: '{{ target_hosts }}'
   strategy: free
-  vars:
-    remove_apigee: false
   vars_files:
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
-  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-setup-bootstrap-rollback, tags: ['rollback_only'] }
   - { role: apigee-server-restart, tags: ['restart'] }
