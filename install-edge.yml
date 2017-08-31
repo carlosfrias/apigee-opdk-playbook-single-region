@@ -24,61 +24,61 @@
 
 - name: Configure Cassandra & Zookeeper node
   include: apigee-configuration.yml
-  tags: ['ds','ds-config-file','config']
+  tags: ['ds','ds-config-file','config-files']
   vars:
     target_hosts: dc-1-ds
 
 - name: Apply configuration to Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
-  tags: ['ds','ds-apply-config','config']
+  tags: ['ds','ds-apply-config','apply-configs']
   vars:
     target_hosts: dc-1-ds
 
 - name: Configure MS node
   include: apigee-configuration.yml
-  tags: ['ms','ms-config-file','config']
+  tags: ['ms','ms-config-file','config-files']
   vars:
     target_hosts: dc-1-ms
 
 - name: Apply configuration to Management Server node
   include: install-edge-management-server-component-setup.yml
-  tags: ['ms','ms-apply-config','config']
+  tags: ['ms','ms-apply-config','apply-configs']
   vars:
     target_hosts: dc-1-ms
 
 - name: Configure RMP node
   include: apigee-configuration.yml
-  tags: ['rmp','rmp-config-file','config']
+  tags: ['rmp','rmp-config-file','config-files']
   vars:
     target_hosts: dc-1-rmp
 
 - name: Apply configuration to Router & Message Processor node
   include: install-edge-rmp-component-setup.yml
-  tags: ['rmp','rmp-apply-config','config']
+  tags: ['rmp','rmp-apply-config','apply-configs']
   vars:
     target_hosts: dc-1-rmp
 
 - name: Configure Qpid node
   include: apigee-configuration.yml
-  tags: ['qpid','qpid-config-file','config']
+  tags: ['qpid','qpid-config-file','config-files']
   vars:
     target_hosts: dc-1-qpid
 
 - name: Apply configuration to Qpid node
   include: install-edge-qpid-component-setup.yml
-  tags: ['qpid','qpid-apply-config','config']
+  tags: ['qpid','qpid-apply-config','apply-configs']
   vars:
     target_hosts: dc-1-qpid
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
-  tags: ['pg','pg-config-file','config']
+  tags: ['pg','pg-config-file','config-files']
   vars:
     target_hosts: pg
 
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
-  tags: ['pg','pg-apply-config','config']
+  tags: ['pg','pg-apply-config','apply-configs']
   vars:
     target_hosts: dc-1-pg
 
@@ -88,7 +88,7 @@
   vars:
     target_hosts: dc-1-ms
 
-- name: Rolling restart of planet
+- name: Rolling restart of dc-1
   hosts: dc-1
   serial: 1
   tags: ['restart']
