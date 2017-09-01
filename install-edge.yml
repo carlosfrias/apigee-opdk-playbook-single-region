@@ -6,7 +6,7 @@
 
 - name: Install and configure OS pre-requisites
   include: apigee-os-pre-requisites.yml
-  tags: ['os-ami']
+  tags: ['os']
   vars:
     target_hosts: planet
 
@@ -14,61 +14,61 @@
   include: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
   vars:
-    target_hosts: dc-1
+    target_hosts: planet
 
 - name: Install Apigee pre-requisites
   include: apigee-pre-requisites-common-install.yml
   tags: ['common']
   vars:
-    target_hosts: dc-1
+    target_hosts: planet
 
 - name: Configure Cassandra & Zookeeper node
   include: apigee-configuration.yml
   tags: ['ds','ds-config-file','config-files']
   vars:
-    target_hosts: dc-1-ds
+    target_hosts: ds
 
 - name: Apply configuration to Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
   tags: ['ds','ds-apply-config','apply-configs']
   vars:
-    target_hosts: dc-1-ds
+    target_hosts: ds
 
 - name: Configure MS node
   include: apigee-configuration.yml
   tags: ['ms','ms-config-file','config-files']
   vars:
-    target_hosts: dc-1-ms
+    target_hosts: ms
 
 - name: Apply configuration to Management Server node
   include: install-edge-management-server-component-setup.yml
   tags: ['ms','ms-apply-config','apply-configs']
   vars:
-    target_hosts: dc-1-ms
+    target_hosts: ms
 
 - name: Configure RMP node
   include: apigee-configuration.yml
   tags: ['rmp','rmp-config-file','config-files']
   vars:
-    target_hosts: dc-1-rmp
+    target_hosts: rmp
 
 - name: Apply configuration to Router & Message Processor node
   include: install-edge-rmp-component-setup.yml
   tags: ['rmp','rmp-apply-config','apply-configs']
   vars:
-    target_hosts: dc-1-rmp
+    target_hosts: rmp
 
 - name: Configure Qpid node
   include: apigee-configuration.yml
   tags: ['qpid','qpid-config-file','config-files']
   vars:
-    target_hosts: dc-1-qpid
+    target_hosts: qpid
 
 - name: Apply configuration to Qpid node
   include: install-edge-qpid-component-setup.yml
   tags: ['qpid','qpid-apply-config','apply-configs']
   vars:
-    target_hosts: dc-1-qpid
+    target_hosts: qpid
 
 - name: Configure Apigee pre-requisites
   include: apigee-configuration.yml
@@ -80,16 +80,20 @@
   include: install-edge-pg-component-setup.yml
   tags: ['pg','pg-apply-config','apply-configs']
   vars:
-    target_hosts: dc-1-pg
+    target_hosts: pg
+
+- name: Install Postgres node
+  include: edge-expansion-pgmaster-pgstandby-node-config.yml
+  tags: ['pg','pg-apply-config','config']
 
 - name: Setup org
   include: install-edge-setup-org.yml
   tags: ['org']
   vars:
-    target_hosts: dc-1-ms
+    target_hosts: ms
 
 - name: Rolling restart of dc-1
-  hosts: dc-1
+  hosts: planet
   serial: 1
   tags: ['restart']
   roles:

@@ -4,18 +4,36 @@
   vars:
     target_hosts: planet
 
+- name: Install and configure OS pre-requisites
+  include: apigee-os-pre-requisites.yml
+  tags: ['os']
+  vars:
+    target_hosts: planet
+
+- name: Install Apigee pre-requisites
+  include: apigee-pre-requisites-bootstrap.yml
+  tags: ['bootstrap']
+  vars:
+    target_hosts: dc-2
+
+- name: Install Apigee pre-requisites
+  include: apigee-pre-requisites-common-install.yml
+  tags: ['common']
+  vars:
+    target_hosts: dc-2
+
 - name: Configure Cassandra & Zookeeper node
   include: apigee-configuration.yml
   tags: ['ds','ds-config-file','config']
   vars:
-    target_hosts: dc-2-ds, dc-1-ds
+    target_hosts: dc-2-ds,dc-1-ds
     opdk_ldap_type: '2'
 
 - name: Apply configuration to Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
   tags: ['ds','ds-apply-config','config']
   vars:
-    target_hosts: dc-2-ds, dc-1-ds
+    target_hosts: dc-2-ds,dc-1-ds
 
 - name: Configure MS node on DC-1
   include: apigee-configuration.yml
@@ -69,39 +87,39 @@
 
 - name: Configure Qpid node
   include: apigee-configuration.yml
-  tags: ['qs','qs-config-file','config']
+  tags: ['qpid','qs-config-file','config']
   vars:
     target_hosts: dc-2-qpid
     opdk_ldap_type: '2'
 
 - name: Apply configuration to Qpid node
-  include: install-edge-qs-component-setup.yml
-  tags: ['qs','qs-apply-config','config']
+  include: install-edge-qpid-component-setup.yml
+  tags: ['qpid','qpid-apply-config','config']
   vars:
     target_hosts: dc-2-qpid
 
 - name: Register DC-2 Qpids with Management Server
   include: edge-expansion-register-qpid.yml
-  tags: ['qs']
+  tags: ['qpid']
   vars:
     target_hosts: dc-2-qpid
 
 - name: Configure Qpid node
   include: apigee-configuration.yml
-  tags: ['ps','ps-config-file','config']
+  tags: ['pg','pg-config-file','config']
   vars:
     target_hosts: pg
     opdk_ldap_type: '2'
 
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
-  tags: ['ps','ps-apply-config','config']
+  tags: ['pg','pg-apply-config','config']
   vars:
     target_hosts: dc-2-pg
 
 - name: Install Postgres node
   include: edge-expansion-pgmaster-pgstandby-node-config.yml
-  tags: ['ps','ps-apply-config','config']
+  tags: ['pg','pg-apply-config','config']
 
 - name: Validate RMP
   include: install-edge-rmp-validate.yml
@@ -109,8 +127,8 @@
   vars:
     target_hosts: dc-2-rmp
 
-#- name: Download logs and configs
-#  tags: ['logs']
-#  include: apigee-log-config-files.yml
-#  vars:
-#    target_hosts: planet
+- name: Download logs and configs
+  tags: ['logs']
+  include: apigee-log-config-files.yml
+  vars:
+    target_hosts: planet

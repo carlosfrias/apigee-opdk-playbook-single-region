@@ -3,7 +3,7 @@
   hosts: pgmaster
   gather_facts: no
   serial: 1
-  tags: ['pgmaster']
+  tags: ['pg', 'pgmaster']
   roles:
   - { role: apigee-opdk-setup-postgres-master }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
@@ -14,7 +14,6 @@
   serial: 1
   tags: ['pg', 'pgstandby']
   roles:
-  - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
