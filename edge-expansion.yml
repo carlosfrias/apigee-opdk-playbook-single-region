@@ -111,11 +111,11 @@
     target_hosts: pg
     opdk_ldap_type: '2'
 
-- name: Install Postgres node
-  include: install-edge-pg-component-setup.yml
-  tags: ['pg','pg-apply-config','config']
-  vars:
-    target_hosts: dc-2-pg
+#- name: Install Postgres node
+#  include: install-edge-pg-component-setup.yml
+#  tags: ['pg','pg-apply-config','config']
+#  vars:
+#    target_hosts: pg
 
 - name: Install Postgres node
   include: edge-expansion-pgmaster-pgstandby-node-config.yml
@@ -127,8 +127,8 @@
   vars:
     target_hosts: dc-2-rmp
 
-- name: Download logs and configs
-  tags: ['logs']
-  include: apigee-log-config-files.yml
-  vars:
-    target_hosts: planet
+#- name: Download logs and configs
+#  tags: ['logs']
+#  include: apigee-log-config-files.yml
+#  vars:
+#    target_hosts: planet

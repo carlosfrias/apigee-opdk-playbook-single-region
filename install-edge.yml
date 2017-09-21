@@ -104,13 +104,13 @@
   include: install-edge-rmp-validate.yml
   tags: ['validate-rmp']
   vars:
-    target_hosts: dc-1-rmp
+    target_hosts: rmp
 
-- name: Download logs and configs
-  tags: ['logs']
-  include: apigee-log-config-files.yml
-  vars:
-    target_hosts: dc-1
+#- name: Download logs and configs
+#  tags: ['logs']
+#  include: apigee-log-config-files.yml
+#  vars:
+#    target_hosts: dc-1
 
 
 
