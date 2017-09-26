@@ -1,6 +1,6 @@
 ---
 - name: Setup RMP on DC-1
-  hosts: dc-1-rmp
+  hosts: "{{ target_hosts }}"
   gather_facts: no
   tags: ['rmp']
   roles:

@@ -1,0 +1,9 @@
+---
+- name: Register DC-2 Qpids with Management Server
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  tags: ['qs']
+  roles:
+  - { role: apigee-opdk-server-self, server_types: ['qs'] }
+  - { role: apigee-opdk-setup-qpid-add, tags: ['registration'] }
+  - { role: apigee-opdk-setup-status, tags: ['status'] }

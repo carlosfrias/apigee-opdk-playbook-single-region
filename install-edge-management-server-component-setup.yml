@@ -1,6 +1,6 @@
 ---
 - name: Configure Management Server on DC-1
-  hosts: dc-1-ms
+  hosts: "{{ target_hosts }}"
   serial: 1
   gather_facts: no
   tags: ['ms']

@@ -1,6 +1,6 @@
 ---
 - name: Setup org on DC-1
-  hosts: dc-1-ms
+  hosts: "{{ target_hosts }}"
   gather_facts: no
   roles:
   - { role: apigee-opdk-setup-status, tags: ['status'] }

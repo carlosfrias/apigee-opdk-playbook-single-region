@@ -1,0 +1,10 @@
+---
+- name: Configure Cassandra Client on the Management Server on DC-1
+  hosts: "{{ target_hosts }}"
+  serial: 1
+  gather_facts: no
+  tags: ['ms']
+  roles:
+  - { role: apigee-opdk-start-components, tags: ['apigee-component', 'cass-client'] }
+  - { role: apigee-opdk-cassandra-client-update, tags: ['apigee-component', 'cass-client'] }
+
