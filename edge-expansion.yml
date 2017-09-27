@@ -44,6 +44,7 @@
 
 - name: Configure Cassandra Client on the Management Server on DC-1
   include: install-edge-cassandra-client.yml
+  tags: ['ms', 'cass-client']
   vars:
     target_hosts: dc-1-ms
 
