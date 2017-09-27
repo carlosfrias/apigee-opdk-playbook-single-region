@@ -1,0 +1,11 @@
+---
+- name: Update individual cache value
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+
+  tasks:
+  - name: Update individual cache value
+    set_fact:
+      cacheable: true
+      "{{ cache_attr_name }}": "{{ cache_attr_value }}"
+
