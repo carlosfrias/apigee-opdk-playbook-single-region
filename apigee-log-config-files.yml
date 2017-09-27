@@ -7,8 +7,8 @@
   vars:
     target_logs_folder: "~/.apigee/logs_configs/{{ target_hosts }}/"
     pattern:
-    - { dir: '/tmp/apigee', pattern: '*' }
-    - { dir: '/tmp/edge', pattern: '*' }
+#    - { dir: '/tmp/apigee', pattern: '*' }
+#    - { dir: '/tmp/edge', pattern: '*' }
     - { dir: '/tmp', pattern: 'setup*.log' }
 #    - { dir: '/etc/', pattern: 'hosts' }
 #    - { dir: '/etc/', pattern: 'hosts.allow' }
