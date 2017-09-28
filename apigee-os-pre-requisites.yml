@@ -7,7 +7,6 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
-  - { role: apigee-opdk-setup-epel, tags: ['epel'] }
   - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
   - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
