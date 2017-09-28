@@ -9,13 +9,19 @@
   roles:
   - { role: apigee-opdk-setup-epel, tags: ['epel'] }
   - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
-  - { role: apigee-opdk-setup-os-ldap, tags: ['openldap'] }
   - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
   - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
   - { role: apigee-server-restart, tags: ['restart-server'], when: (selinux_disabled.changed is defined and selinux_disabled.changed) or (iptables_disabled is defined and not iptables_disabled) or (force_restart is defined and force_restart)  }
   - { role: apigee-opdk-setup-os-common, tags: ['os-common'] }
   - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
+
+- name: Update openldap node
+  hosts: ldap
+  gather_facts: no
+  tags: ['os-pre-req']
+  roles:
+  - { role: apigee-opdk-setup-os-ldap, tags: ['openldap'] }
 
 - name: Update Postgres master nodes with OS pre-requisites
   hosts: pg
