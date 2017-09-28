@@ -187,3 +187,14 @@
     delegate_to: "{{ inventory_hostname }}"
     shell: "ldapsearch -D 'cn=manager,dc=apigee,dc=com' -b 'dc=apigee,dc=com' -LLL -h 127.0.0.1 -p {{ ldap_data_port }} -w {{ opdk_ldap_pass }}"
 
+- name: Unlock user
+  hosts: ms
+  gather_facts: no
+  tags: ['unlock-user']
+  tasks:
+  - name: Unlock user
+    uri:
+      url: "http://{{ inventory_hostname }}:8080//v1/users/{{ userEmail }}/status?action=unlock"
+      method: POST
+      user: "{{ opdk_user_email }}"
+      password: "{{ opdk_user_pass }}"
