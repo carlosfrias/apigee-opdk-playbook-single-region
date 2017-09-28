@@ -21,7 +21,7 @@
   gather_facts: no
   tags: ['os-pre-req']
   roles:
-  - { role: apigee-opdk-setup-os-ldap, tags: ['openldap'] }
+  - { role: apigee-opdk-setup-os-openldap, tags: ['openldap'] }
 
 - name: Update Postgres master nodes with OS pre-requisites
   hosts: pg
