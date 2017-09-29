@@ -4,8 +4,7 @@
   serial: 1
   gather_facts: no
   tags: ['ms', 'cass-rebuild']
-  tasks:
-  - name: Invoke from target node
-    include_role: apigee-opdk-cassandra-rebuild
-    vars:
-      opdk_region: dc-1
+  vars:
+    opdk_region: dc-1
+  roles:
+  - { role: apigee-opdk-cassandra-rebuild }
