@@ -1,0 +1,17 @@
+---
+- name: Utility script to remove backup files
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  tasks:
+  - name: Find backup files
+    find:
+      paths: "{{ apigee_installation_home }}"
+      recurse: yes
+      patterns: "*~"
+    register: delete
+
+  - name: Delete files
+    file:
+      path: "{{ item.path }}"
+      state: absent
+    with_items: "{{ delete.files }}"
