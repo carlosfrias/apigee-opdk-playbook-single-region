@@ -101,7 +101,7 @@
   tags: ['node-version']
   serial: 1
   tasks:
-  - name: Component versionsecho $ANS
+  - name: Component versions echo $ANS
     shell: "{{ apigee_all }} version"
 
 - name: Management server self report
