@@ -4,7 +4,11 @@
   serial: 1
   gather_facts: no
   tags: ['ms', 'cass-rebuild']
-  vars:
-    opdk_region: dc-1
-  roles:
-  - { role: apigee-opdk-cassandra-rebuild }
+  tasks:
+  - name: Rebuild from the cassandra node
+    delegate_to: "{{ inventory_hostname }}"
+    include_role:
+      name: apigee-opdk-cassandra-rebuild
+    vars:
+      opdk_region: dc-1
+
