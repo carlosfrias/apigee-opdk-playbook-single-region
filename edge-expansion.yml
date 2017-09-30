@@ -112,11 +112,11 @@
     target_hosts: pg
     opdk_ldap_type: '2'
 
-#- name: Install Postgres node
-#  include: install-edge-pg-component-setup.yml
-#  tags: ['pg','pg-apply-config','config']
-#  vars:
-#    target_hosts: pg
+- name: Install Postgres node
+  include: install-edge-pg-component-setup.yml
+  tags: ['pg','pg-apply-config','config']
+  vars:
+    target_hosts: pg
 
 - name: Install Postgres node
   include: edge-expansion-pgmaster-pgstandby-node-config.yml
