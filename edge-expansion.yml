@@ -128,8 +128,8 @@
   vars:
     target_hosts: dc-2-rmp
 
-#- name: Download logs and configs
-#  tags: ['logs']
-#  include: apigee-log-config-files.yml
-#  vars:
-#    target_hosts: planet
+- name: Download logs and configs
+  tags: ['logs']
+  include: apigee-log-config-files.yml
+  vars:
+    target_hosts: planet
