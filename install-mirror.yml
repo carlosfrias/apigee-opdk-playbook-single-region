@@ -1,21 +1,22 @@
 ---
 - name: Update planet cache
-  include: apigee-planet-cache.yml
+  import_playbook: apigee-planet-cache.yml
   vars:
     target_hosts: planet
 
 - name: Install and configure OS pre-requisites
-  include: apigee-os-pre-requisites.yml
+  import_playbook: apigee-os-pre-requisites.yml
   vars:
-    target_hosts: planet
+    target_hosts: mirror
 
 - name: Install Apigee pre-requisites
-  include: apigee-pre-requisites-bootstrap.yml
+  import_playbook: apigee-pre-requisites-bootstrap.yml
   vars:
     target_hosts: mirror
 
 - name: Create apigee mirror
   hosts: mirror
+  tags: ['mirror']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   roles:

@@ -4,6 +4,9 @@
   serial: 1
   gather_facts: no
   tags: ['ms', 'cass-rebuild']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   tasks:
   - name: Rebuild from the cassandra node
     delegate_to: "{{ inventory_hostname }}"

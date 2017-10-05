@@ -8,6 +8,9 @@
     - '~/.ansible/tmp/logs'
     - '~/.apigee/logs_configs'
     - '~/.ansible/roles'
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   tasks:
   - name: Clean folders
     ignore_errors: yes

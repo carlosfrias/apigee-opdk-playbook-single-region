@@ -3,6 +3,9 @@
   hosts: "{{ target_hosts }}"
   gather_facts: no
   become: true
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   vars:
     target_logs_folder: "{{ playbook_dir }}/logs_configs/{{ target_hosts }}/"
     pattern:

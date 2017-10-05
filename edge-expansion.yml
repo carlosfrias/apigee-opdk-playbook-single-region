@@ -60,7 +60,7 @@
   vars:
     target_hosts: dc-2-ds
 
-- name: Configure MS node on DC-1
+- name: Configure MS node on DC-2
   include: apigee-configuration.yml
   tags: ['ms','ms-config']
   vars:
@@ -114,13 +114,13 @@
 
 - name: Install Postgres node
   include: install-edge-pg-component-setup.yml
-  tags: ['pg','pg-apply-config','config']
+  tags: ['pg','pg-config']
   vars:
     target_hosts: pg
 
 - name: Install Postgres node
   include: edge-expansion-pgmaster-pgstandby-node-config.yml
-  tags: ['pg','expand','pg-config']
+  tags: ['pg','pg-expand']
 
 - name: Validate RMP
   include: install-edge-rmp-validate.yml
