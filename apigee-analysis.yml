@@ -41,7 +41,7 @@
   tags: ['cs-replication']
   tasks:
   - name: Display Cassandra Replication Factor
-    shell: "{{ cqlsh }} -e 'select * from system.schema_keyspaces' {{ local_address}}"
+    shell: "{{ cqlsh }} -e 'select * from system.schema_keyspaces' {{ private_address}}"
 
 - name: Show Postgres Master Check
   hosts: pgmaster
@@ -101,7 +101,7 @@
   tags: ['node-version']
   serial: 1
   tasks:
-  - name: Component versions echo $ANS
+  - name: Component versions echo Apigee version
     shell: "{{ apigee_all }} version"
 
 - name: Management server self report
@@ -156,7 +156,7 @@
 - name: Display silent-install.conf
   hosts: planet
   gather_facts: no
-  tags: ['show-silent-install']
+  tags: ['show-silent-install','response-file']
   tasks:
   - name: Display silent-install.conf
     command: "cat {{ opdk_installation_config_file }}"
@@ -169,14 +169,14 @@
   roles:
   - { role: apigee-server-restart }
 
-- name: Show local_address
+- name: Show private_address
   hosts: planet
   gather_facts: no
   tags: ['local-address']
   tasks:
-  - name: Show local_address
+  - name: Show private_address
     debug:
-      var: local_address
+      var: private_address
 
 - name: View LDAP system user
   hosts: ms
@@ -185,3 +185,44 @@
   tasks:
   - name: Show LDAP system user
     shell: "ldapsearch -D 'cn=manager,dc=apigee,dc=com' -b 'dc=apigee,dc=com' -LLL -h {{ inventory_hostname }} -p {{ ldap_data_port }} -w {{ opdk_ldap_pass }}"
+
+- name: List Users
+  hosts: ms
+  gather_facts: no
+  tags: ['users']
+  tasks:
+  - name: List users
+    uri:
+      url: "http://127.0.0.1:8080/v1/users"
+      user: "{{ opdk_user_name }}"
+      password: "{{ opdk_user_pass }}"
+
+- name: List Organizations
+  hosts: ms
+  gather_facts: no
+  tags: ['orgs']
+  tasks:
+  - name: List users
+    uri:
+      url: "http://127.0.0.1:8080/v1/organizations"
+      user: "{{ opdk_user_name }}"
+      password: "{{ opdk_user_pass }}"
+
+- name: Analytics status
+  hosts: ms
+  gather_facts: no
+  tags: ['axstatus']
+  tasks:
+  - name: List users
+    uri:
+      url: "http://127.0.0.1:8080/v1/organizations/{{ org_name }}/environments/{{ env_name }}/provisioning/axstatus"
+      user: "{{ opdk_user_name }}"
+      password: "{{ opdk_user_pass }}"
+
+- name: Describe analytics table
+  hosts: pgmaster
+  gather_facts: no
+  tags: ['axtables']
+  tasks:
+  - name: Describe postgres analytics table
+    shell: "{{ pgsql }} -c \\d analytics.'{{ org_name }}.{{ env_name }}.fact' -h {{ apigee_installation_home }}/var/run/apigee-postgresql -U {{ pg_user }}"
