@@ -1,93 +1,93 @@
 ---
 - name: Update planet cache
-  import_playbooks: apigee-planet-cache.yml
+  import_playbook: apigee-planet-cache.yml
   vars:
     target_hosts: planet
 
 - name: Install and configure OS pre-requisites
-  import_playbooks: apigee-os-pre-requisites.yml
+  import_playbook: apigee-os-pre-requisites.yml
   tags: ['os']
   vars:
     target_hosts: planet
 
 - name: Install Apigee pre-requisites
-  import_playbooks: apigee-pre-requisites-bootstrap.yml
+  import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
   vars:
     target_hosts: planet
 
 - name: Install Apigee pre-requisites
-  import_playbooks: apigee-pre-requisites-common-install.yml
+  import_playbook: apigee-pre-requisites-common-install.yml
   tags: ['common']
   vars:
     target_hosts: planet
 
 - name: Configure Cassandra & Zookeeper node
-  import_playbooks: apigee-configuration.yml
+  import_playbook: apigee-configuration.yml
   tags: ['ds','ds-config-file','config-files']
   vars:
     target_hosts: ds
 
 - name: Apply configuration to Cassandra & Zookeeper node
-  import_playbooks: install-edge-cassandra-zookeeper-component-setup.yml
+  import_playbook: install-edge-cassandra-zookeeper-component-setup.yml
   tags: ['ds','ds-apply-config','apply-configs']
   vars:
     target_hosts: ds
 
 - name: Configure MS node
-  import_playbooks: apigee-configuration.yml
+  import_playbook: apigee-configuration.yml
   tags: ['ms','ms-config-file','config-files']
   vars:
     target_hosts: ms
 
 - name: Apply configuration to Management Server node
-  import_playbooks: install-edge-management-server-component-setup.yml
+  import_playbook: install-edge-management-server-component-setup.yml
   tags: ['ms','ms-apply-config','apply-configs']
   vars:
     target_hosts: ms
 
 - name: Configure RMP node
-  import_playbooks: apigee-configuration.yml
+  import_playbook: apigee-configuration.yml
   tags: ['rmp','rmp-config-file','config-files']
   vars:
     target_hosts: rmp
 
 - name: Apply configuration to Router & Message Processor node
-  import_playbooks: install-edge-rmp-component-setup.yml
+  import_playbook: install-edge-rmp-component-setup.yml
   tags: ['rmp','rmp-apply-config','apply-configs']
   vars:
     target_hosts: rmp
 
 - name: Configure Qpid node
-  import_playbooks: apigee-configuration.yml
+  import_playbook: apigee-configuration.yml
   tags: ['qpid','qpid-config-file','config-files']
   vars:
     target_hosts: qpid
 
 - name: Apply configuration to Qpid node
-  import_playbooks: install-edge-qpid-component-setup.yml
+  import_playbook: install-edge-qpid-component-setup.yml
   tags: ['qpid','qpid-apply-config','apply-configs']
   vars:
     target_hosts: qpid
 
 - name: Configure Apigee pre-requisites
-  import_playbooks: apigee-configuration.yml
+  import_playbook: apigee-configuration.yml
   tags: ['pg','pg-config-file','config-files']
   vars:
     target_hosts: pg
 
 - name: Install Postgres node
-  import_playbooks: install-edge-pg-component-setup.yml
+  import_playbook: install-edge-pg-component-setup.yml
   tags: ['pg','pg-apply-config','apply-configs']
   vars:
     target_hosts: pg
 
 - name: Install Postgres node
-  import_playbooks: edge-expansion-pgmaster-pgstandby-node-config.yml
+  import_playbook: edge-expansion-pgmaster-pgstandby-node-config.yml
   tags: ['pg','pg-apply-config','config']
 
 - name: Setup org
-  import_playbooks: install-edge-setup-org.yml
+  import_playbook: install-edge-setup-org.yml
   tags: ['org']
   vars:
     target_hosts: ms
@@ -101,13 +101,13 @@
   - apigee-opdk-start-components
 
 - name: Validate RMP
-  import_playbooks: install-edge-rmp-validate.yml
+  import_playbook: install-edge-rmp-validate.yml
   tags: ['validate-rmp']
   vars:
     target_hosts: rmp
 
 - name: Download logs and configs
   tags: ['logs']
-  import_playbooks: apigee-log-config-files.yml
+  import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-1
