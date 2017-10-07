@@ -24,67 +24,67 @@
 
 - name: Configure Cassandra & Zookeeper node
   import_playbook: apigee-configuration.yml
-  tags: ['ds','ds-config-file','config-files']
+  tags: ['ds','ds-config']
   vars:
     target_hosts: ds
 
 - name: Apply configuration to Cassandra & Zookeeper node
   import_playbook: install-edge-cassandra-zookeeper-component-setup.yml
-  tags: ['ds','ds-apply-config','apply-configs']
+  tags: ['ds','ds-setup']
   vars:
     target_hosts: ds
 
 - name: Configure MS node
   import_playbook: apigee-configuration.yml
-  tags: ['ms','ms-config-file','config-files']
+  tags: ['ms','ms-config']
   vars:
     target_hosts: ms
 
 - name: Apply configuration to Management Server node
   import_playbook: install-edge-management-server-component-setup.yml
-  tags: ['ms','ms-apply-config','apply-configs']
+  tags: ['ms','ms-setup']
   vars:
     target_hosts: ms
 
 - name: Configure RMP node
   import_playbook: apigee-configuration.yml
-  tags: ['rmp','rmp-config-file','config-files']
+  tags: ['rmp','rmp-config']
   vars:
     target_hosts: rmp
 
 - name: Apply configuration to Router & Message Processor node
   import_playbook: install-edge-rmp-component-setup.yml
-  tags: ['rmp','rmp-apply-config','apply-configs']
+  tags: ['rmp','rmp-setup']
   vars:
     target_hosts: rmp
 
 - name: Configure Qpid node
   import_playbook: apigee-configuration.yml
-  tags: ['qpid','qpid-config-file','config-files']
+  tags: ['qpid','qpid-config']
   vars:
     target_hosts: qpid
 
 - name: Apply configuration to Qpid node
   import_playbook: install-edge-qpid-component-setup.yml
-  tags: ['qpid','qpid-apply-config','apply-configs']
+  tags: ['qpid','qpid-setup']
   vars:
     target_hosts: qpid
 
 - name: Configure Apigee pre-requisites
   import_playbook: apigee-configuration.yml
-  tags: ['pg','pg-config-file','config-files']
+  tags: ['pg','pg-config']
   vars:
     target_hosts: pg
 
 - name: Install Postgres node
   import_playbook: install-edge-pg-component-setup.yml
-  tags: ['pg','pg-apply-config','apply-configs']
+  tags: ['pg','pg-setup']
   vars:
     target_hosts: pg
 
 - name: Install Postgres node
   import_playbook: edge-expansion-pgmaster-pgstandby-node-config.yml
-  tags: ['pg','pg-apply-config','config']
+  tags: ['pg','pg-expand']
 
 - name: Setup org
   import_playbook: install-edge-setup-org.yml
