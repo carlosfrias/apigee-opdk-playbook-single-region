@@ -1,5 +1,5 @@
 ---
-- name: Show Zookeeprer Leader
+- name: Show Zookeeper Leader
   hosts: ds
   gather_facts: no
   tags: ['zk-leader']
@@ -42,6 +42,22 @@
   tasks:
   - name: Display Cassandra Replication Factor
     shell: "{{ cqlsh }} -e 'select * from system.schema_keyspaces' {{ private_address}}"
+
+- name: Show Cassandra Topology Properties
+  hosts: ds
+  gather_facts: no
+  tags: ['cs-topology']
+  tasks:
+  - name: Display cassandra-topology.properties
+    shell: "cat {{ apigee_installation_home }}/apigee-cassandra/conf/cassandra-topology.properties"
+
+- name: Show Cassandra Properties
+  hosts: ds
+  gather_facts: no
+  tags: ['cs-properties']
+  tasks:
+  - name: Display cassandra-topology.properties
+    shell: "cat {{ apigee_installation_home }}/apigee-cassandra/conf/cassandra.yaml"
 
 - name: Show Postgres Master Check
   hosts: pgmaster
