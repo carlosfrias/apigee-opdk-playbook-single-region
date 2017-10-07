@@ -50,6 +50,11 @@
   tasks:
   - name: Display cassandra-topology.properties
     shell: "cat {{ apigee_installation_home }}/apigee-cassandra/conf/cassandra-topology.properties"
+    register: result
+
+  - name: Report Results
+    debug:
+      var: result
 
 - name: Show Cassandra Properties
   hosts: ds
@@ -58,6 +63,11 @@
   tasks:
   - name: Display cassandra-topology.properties
     shell: "cat {{ apigee_installation_home }}/apigee-cassandra/conf/cassandra.yaml"
+    register: result
+
+  - name: Report Results
+    debug:
+      var: result
 
 - name: Show Postgres Master Check
   hosts: pgmaster
