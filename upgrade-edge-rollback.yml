@@ -26,8 +26,8 @@
     upgrade_edge: true
   roles:
   - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
-  - { role: apigee-opdk-setup-silent-installation-config, tags: ['apigee-silent-config'], opdk_ldap_type: '2', when: "{{ groups['dc2'] is defined }}" }
-  - { role: apigee-opdk-setup-silent-installation-config, tags: ['apigee-silent-config'], opdk_ldap_type: '1', when: "{{ groups['dc2'] is not defined }}" }
+  - { role: apigee-opdk-setup-silent-installation-config, tags: ['apigee-silent-config'], opdk_ldap_type: '2', when: "{{ groups['dc-2'] is defined }}" }
+  - { role: apigee-opdk-setup-silent-installation-config, tags: ['apigee-silent-config'], opdk_ldap_type: '1', when: "{{ groups['dc-2'] is not defined }}" }
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
 
 - name: Rolling back installation of {{ component }} on {{ hosts }} to {{ opdk_version }}

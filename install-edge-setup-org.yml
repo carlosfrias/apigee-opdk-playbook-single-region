@@ -1,5 +1,5 @@
 ---
-- name: Setup org on dc1
+- name: Setup org on dc-1
   hosts: "{{ target_hosts }}"
   gather_facts: no
   vars_files:

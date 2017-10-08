@@ -1,5 +1,5 @@
 ---
-- name: Configure Cassandra & Zookeeper in dc1
+- name: Configure Cassandra & Zookeeper in dc-1
   hosts: "{{ target_hosts }}"
   gather_facts: no
   serial: 1

@@ -1,5 +1,5 @@
 ---
-- name: Configure Management Server on dc1
+- name: Configure Management Server on dc-1
   hosts: "{{ target_hosts }}"
   serial: 1
   gather_facts: no

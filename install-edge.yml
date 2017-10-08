@@ -92,7 +92,7 @@
   vars:
     target_hosts: ms
 
-- name: Rolling restart of dc1
+- name: Rolling restart of dc-1
   hosts: planet
   serial: 1
   tags: ['restart']
@@ -110,4 +110,4 @@
   tags: ['logs']
   import_playbook: apigee-log-config-files.yml
   vars:
-    target_hosts: dc1
+    target_hosts: dc-1

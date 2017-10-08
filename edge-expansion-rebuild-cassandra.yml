@@ -13,5 +13,5 @@
     include_role:
       name: apigee-opdk-cassandra-rebuild
     vars:
-      opdk_region: dc1
+      opdk_region: dc-1
 

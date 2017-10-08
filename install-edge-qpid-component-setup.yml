@@ -1,5 +1,5 @@
 ---
-- name: Setup Qpid on dc1
+- name: Setup Qpid on dc-1
   hosts: "{{ target_hosts }}"
   gather_facts: no
   tags: ['qpid']
