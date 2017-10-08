@@ -7,15 +7,15 @@
 - name: Install and configure OS pre-requisites
   import_playbook: apigee-os-pre-requisites.yml
   vars:
-    target_hosts: mirror
+    target_hosts: cf-mirror
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
   vars:
-    target_hosts: mirror
+    target_hosts: cf-mirror
 
 - name: Create apigee mirror
-  hosts: mirror
+  hosts: cf-mirror
   tags: ['mirror']
   vars_files:
   - ~/.apigee-secure/credentials.yml
