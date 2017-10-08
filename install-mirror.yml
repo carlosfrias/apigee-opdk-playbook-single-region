@@ -24,10 +24,10 @@
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
   vars:
-    target_hosts: cf-mirror
+    target_hosts: cfmirror
 
 - name: Create apigee mirror
-  hosts: cf-mirror
+  hosts: cfmirror
   tags: ['mirror']
   vars_files:
   - ~/.apigee-secure/credentials.yml
