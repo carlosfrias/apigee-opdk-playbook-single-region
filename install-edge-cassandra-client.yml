@@ -1,5 +1,5 @@
 ---
-- name: Configure Cassandra Client on the Management Server on DC-1
+- name: Configure Cassandra Client on the Management Server on dc1
   hosts: "{{ target_hosts }}"
   serial: 1
   gather_facts: no

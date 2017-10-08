@@ -26,84 +26,84 @@
   include: apigee-configuration.yml
   tags: ['ds','ds-config']
   vars:
-    target_hosts: dc-2-ds,dc-1-ds
+    target_hosts: dc2-ds,dc1-ds
     opdk_ldap_type: '2'
 
 - name: Apply configuration to Cassandra & Zookeeper node
   include: install-edge-cassandra-zookeeper-component-setup.yml
   tags: ['ds','ds-setup']
   vars:
-    target_hosts: dc-2-ds,dc-1-ds
+    target_hosts: dc2-ds,dc1-ds
 
-- name: Configure MS node on DC-1
+- name: Configure MS node on dc1
   include: apigee-configuration.yml
   tags: ['ms','ms-config']
   vars:
-    target_hosts: dc-1-ms
+    target_hosts: dc1-ms
     opdk_ldap_type: '2'
 
-- name: Configure Cassandra Client on the Management Server on DC-1
+- name: Configure Cassandra Client on the Management Server on dc1
   include: install-edge-cassandra-client.yml
   tags: ['ms', 'ms-cass-client']
   vars:
-    target_hosts: dc-1-ms
+    target_hosts: dc1-ms
 
 - name: Apply configuration to Management Server node
   include: install-edge-management-server-component-setup.yml
   tags: ['ms','ms-setup']
   vars:
-    target_hosts: dc-1-ms
+    target_hosts: dc1-ms
 
 - name: Rebuild Cassandra
   include: edge-expansion-rebuild-cassandra.yml
   tags: ['ms', 'ms-cass-rebuild']
   vars:
-    target_hosts: dc-2-ds
+    target_hosts: dc2-ds
 
-- name: Configure MS node on DC-2
+- name: Configure MS node on dc2
   include: apigee-configuration.yml
   tags: ['ms','ms-config']
   vars:
-    target_hosts: dc-2-ms
+    target_hosts: dc2-ms
     opdk_ldap_type: '2'
 
 - name: Apply configuration to Management Server node
   include: install-edge-management-server-component-setup.yml
   tags: ['ms','ms-setup']
   vars:
-    target_hosts: dc-2-ms
+    target_hosts: dc2-ms
 
 - name: Configure RMP node
   include: apigee-configuration.yml
   tags: ['rmp','rmp-config']
   vars:
-    target_hosts: dc-2-rmp,dc-1-rmp
+    target_hosts: dc2-rmp,dc1-rmp
     opdk_ldap_type: '2'
 
 - name: Apply configuration to Router & Message Processor node
   include: install-edge-rmp-component-setup.yml
   tags: ['rmp','rmp-setup']
   vars:
-    target_hosts: dc-2-rmp,dc-1-rmp
+    target_hosts: dc2-rmp,dc1-rmp
 
 - name: Configure Qpid node
   include: apigee-configuration.yml
   tags: ['qpid','qpid-config']
   vars:
-    target_hosts: dc-2-qpid
+    target_hosts: dc2-qpid
     opdk_ldap_type: '2'
 
 - name: Apply configuration to Qpid node
   include: install-edge-qpid-component-setup.yml
   tags: ['qpid','qpid-setup']
   vars:
-    target_hosts: dc-2-qpid
+    target_hosts: dc2-qpid
 
-- name: Register DC-2 Qpids with Management Server
+- name: Register dc2 Qpids with Management Server
   include: edge-expansion-register-qpid.yml
   tags: ['qpid','qpid-expand']
   vars:
-    target_hosts: dc-2-qpid
+    target_hosts: dc2-qpid
 
 - name: Configure Qpid node
   include: apigee-configuration.yml
@@ -126,7 +126,7 @@
   include: install-edge-rmp-validate.yml
   tags: ['validate-rmp']
   vars:
-    target_hosts: dc-2-rmp
+    target_hosts: dc2-rmp
 
 - name: Download logs and configs
   tags: ['logs']

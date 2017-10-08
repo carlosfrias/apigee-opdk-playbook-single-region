@@ -1,5 +1,5 @@
 ---
-- name: Register DC-2 Qpids with Management Server
+- name: Register dc2 Qpids with Management Server
   hosts: "{{ target_hosts }}"
   gather_facts: no
   tags: ['qs']

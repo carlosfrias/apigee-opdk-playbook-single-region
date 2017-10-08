@@ -148,66 +148,66 @@
   roles:
   - { role: apigee-opdk-update-component,  apigee_component: '{{ upgrade_component }}' }
 
-- name: Upgrade PG in DC-1
+- name: Upgrade PG in dc1
   include: upgrade-edge-postgres.yml
   tags: ['pg']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-ds
+    hosts: dc1-ds
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-ds
+    hosts: dc2-ds
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-ms
+    hosts: dc1-ms
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-ms
+    hosts: dc2-ms
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-rmp
+    hosts: dc1-rmp
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-rmp
+    hosts: dc2-rmp
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-qpid
+    hosts: dc1-qpid
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-qpid
+    hosts: dc2-qpid
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-pgmaster
+    hosts: dc1-pgmaster
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-pgmaster
+    hosts: dc2-pgmaster
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-pgstandby
+    hosts: dc1-pgstandby
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-pgstandby
+    hosts: dc2-pgstandby
   tags: ['logs']

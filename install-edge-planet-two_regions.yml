@@ -35,7 +35,7 @@
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
 - name: Configure Management Server for the Planet
-  hosts: dc-1-ms
+  hosts: dc1-ms
   serial: 1
   gather_facts: no
   tags: ['ms']
@@ -43,12 +43,12 @@
   - { role: apigee-opdk-cassandra-client-update, tags: ['apigee-component', 'client'] }
 
 - name: Rebuild Cassandra
-  hosts: dc-2-ds
+  hosts: dc2-ds
   serial: 1
   gather_facts: no
   tags: ['ms', 'rebuild']
   roles:
-  - { role: apigee-opdk-cassandra-rebuild, opdk_region: 'dc-1' }
+  - { role: apigee-opdk-cassandra-rebuild, opdk_region: 'dc1' }
 
 - name: Setup RMP on Planet
   hosts: rmp
@@ -82,8 +82,8 @@
   - { role: apigee-opdk-setup-component, profile: 'ps', tags: ['apigee-component'] }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
 
-- name: Configure Postgres Master on DC-1
-  hosts: dc-1-pgmaster
+- name: Configure Postgres Master on dc1
+  hosts: dc1-pgmaster
   gather_facts: no
   serial: 1
   tags: ['pg','pgmaster']
@@ -92,8 +92,8 @@
   - { role: apigee-opdk-setup-postgres-master }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
-- name: Configure Postgres Standby on DC-1
-  hosts: dc-1-pgstandby
+- name: Configure Postgres Standby on dc1
+  hosts: dc1-pgstandby
   gather_facts: no
   serial: 1
   tags: ['pg','pgstandby']
@@ -102,8 +102,8 @@
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
-- name: Configure Postgres Master on DC-2
-  hosts: dc-2-pgmaster
+- name: Configure Postgres Master on dc2
+  hosts: dc2-pgmaster
   gather_facts: no
   serial: 1
   tags: ['pg','pgmaster']
@@ -112,8 +112,8 @@
   - { role: apigee-opdk-setup-postgres-master }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
-- name: Configure Postgres Standby on DC-2
-  hosts: dc-2-pgstandby
+- name: Configure Postgres Standby on dc2
+  hosts: dc2-pgstandby
   gather_facts: no
   serial: 1
   tags: ['pg','pgstandby']
@@ -122,18 +122,18 @@
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
-- name: Register Postgres on DC-2
-  hosts: dc-2-pgmaster
+- name: Register Postgres on dc2
+  hosts: dc2-pgmaster
   gather_facts: no
   serial: 1
   tags: ['pg','pgregister']
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ps'] }
-  - { role: apigee-opdk-setup-postgresql-add, pgmaster_group_name: 'dc-2-pgmaster', pgstandby_group_name: 'dc-2-pgstandby' }
+  - { role: apigee-opdk-setup-postgresql-add, pgmaster_group_name: 'dc2-pgmaster', pgstandby_group_name: 'dc2-pgstandby' }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
-- name: Configure org on DC-1
-  hosts: dc-1-ms
+- name: Configure org on dc1
+  hosts: dc1-ms
   gather_facts: no
   tags: ['org']
   serial: 1
@@ -141,8 +141,8 @@
   - apigee-opdk-setup-org-config
   - apigee-opdk-setup-org
 
-- name: Configure org on DC-2
-  hosts: dc-2-ms
+- name: Configure org on dc2
+  hosts: dc2-ms
   gather_facts: no
   tags: ['org']
   serial: 1
@@ -163,74 +163,74 @@
   include: install-edge-region-validate-port-connectivity.yml
   tags: ['port-validator']
 
-- name: Download logs and configs from DC-1-DS
+- name: Download logs and configs from dc1-DS
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-1-ds
+    hosts: dc1-ds
 
-- name: Download logs and configs from DC-1-MS
+- name: Download logs and configs from dc1-MS
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-1-ms
+    hosts: dc1-ms
 
-- name: Download logs and configs from DC-1-RMP
+- name: Download logs and configs from dc1-RMP
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-1-rmp
+    hosts: dc1-rmp
 
-- name: Download logs and configs from DC-1-QPID
+- name: Download logs and configs from dc1-QPID
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-1-qpid
+    hosts: dc1-qpid
 
-- name: Download logs and configs from DC-1-PGMASTER
+- name: Download logs and configs from dc1-PGMASTER
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-1-pgmaster
+    hosts: dc1-pgmaster
 
-- name: Download logs and configs from DC-1-PGSTANDBY
+- name: Download logs and configs from dc1-PGSTANDBY
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-1-pgstandby
+    hosts: dc1-pgstandby
 
-- name: Download logs and configs from DC-2-DS
+- name: Download logs and configs from dc2-DS
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-2-ds
+    hosts: dc2-ds
 
-- name: Download logs and configs from DC-2-MS
+- name: Download logs and configs from dc2-MS
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-2-ms
+    hosts: dc2-ms
 
-- name: Download logs and configs from DC-2-RMP
+- name: Download logs and configs from dc2-RMP
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-2-rmp
+    hosts: dc2-rmp
 
-- name: Download logs and configs from DC-2-QPID
+- name: Download logs and configs from dc2-QPID
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-2-qpid
+    hosts: dc2-qpid
 
-- name: Download logs and configs from DC-2-PGMASTER
+- name: Download logs and configs from dc2-PGMASTER
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-2-pgmaster
+    hosts: dc2-pgmaster
 
-- name: Download logs and configs from DC-2-PGSTANDBY
+- name: Download logs and configs from dc2-PGSTANDBY
   include: apigee-log-config-files.yml
   tags: ['logs']
   vars:
-    hosts: dc-2-pgstandby
+    hosts: dc2-pgstandby
