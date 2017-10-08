@@ -2,7 +2,7 @@
 - name: Update planet cache
   import_playbook: apigee-planet-cache.yml
   vars:
-    target_hosts: planet,cf-mirror
+    target_hosts: planet,cfmirror
 
 - name: Install and configure OS pre-requisites for mirror
   hosts: cf-mirror
