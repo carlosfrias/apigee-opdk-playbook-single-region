@@ -336,7 +336,7 @@
   tags: ['axtables']
   tasks:
   - name: Describe postgres analytics table
-    shell: "{{ pgsql }} -c \\d analytics.'{{ org_name }}.{{ env_name }}.fact' -h {{ apigee_installation_home }}/var/run/apigee-postgresql -U {{ pg_user }}"
+    shell: "{{ psql }} -c \\d analytics.'{{ org_name }}.{{ env_name }}.fact' -h {{ apigee_installation_home }}/var/run/apigee-postgresql -U {{ pg_user }}"
     register: result
 
   - name: Report Results
