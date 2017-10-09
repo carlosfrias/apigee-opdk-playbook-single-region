@@ -3,6 +3,10 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-common
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-os-epel
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-os-openldap
+
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-limits
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-minimum
