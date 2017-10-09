@@ -5,7 +5,7 @@
     target_hosts: planet,cfmirror
 
 - name: Install and configure OS pre-requisites for mirror
-  hosts: cf-mirror
+  hosts: cfmirror
   gather_facts: no
   tags: ['os-pre-req']
   vars_files:
