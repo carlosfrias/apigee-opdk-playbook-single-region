@@ -10,7 +10,7 @@
   tags: ['os-pre-req']
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+#  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-os-epel, tags: ['epel'] }
   - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
