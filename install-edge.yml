@@ -110,4 +110,4 @@
   tags: ['logs']
   import_playbook: apigee-log-config-files.yml
   vars:
-    target_hosts: dc-1
+    target_hosts: planet
