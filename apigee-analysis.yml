@@ -97,7 +97,7 @@
 - name: Show Postgres Master Check
   hosts: pgmaster
   gather_facts: no
-  tags: ['pg-master']
+  tags: ['pgmaster']
   tasks:
   - name: Display Postgres Master Status Check
     shell: "{{ apigee_service }} apigee-postgresql postgres-check-master"
@@ -110,7 +110,7 @@
 - name: Show Postgres Standby Check
   hosts: pgstandby
   gather_facts: no
-  tags: ['pg-standby']
+  tags: ['pgstandby']
   tasks:
   - name: Display Postgres Standby Status Check
     shell: "{{ apigee_service }} apigee-postgresql postgres-check-standby"
