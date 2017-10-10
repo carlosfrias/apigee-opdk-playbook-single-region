@@ -8,7 +8,7 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
-  - { role: apigee-opdk-setup-component, profile: 'sax', tags: ['apigee-component'] }
+  - { role: apigee-opdk-setup-component, profile: 'ps', tags: ['apigee-component'] }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
