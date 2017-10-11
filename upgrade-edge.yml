@@ -1,10 +1,20 @@
 ---
 - name: Update cache for planet
   include: apigee-planet-cache.yml
+  vars:
+    target_hosts: planet
 
-- name: Install and configure Apigee pre-requisites
+- name: Install and configure Apigee bootstrap
   include: apigee-pre-requisites-bootstrap.yml
   vars:
+    target_hosts: planet
+    opdk_ldap_type: '2'
+    upgrade_edge: true
+
+- name: Install and configure Apigee common installation
+  include: apigee-pre-requisites-common-install.yml
+  vars:
+    target_hosts: planet
     opdk_ldap_type: '2'
     upgrade_edge: true
 
