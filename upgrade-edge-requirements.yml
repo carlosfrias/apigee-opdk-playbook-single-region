@@ -23,6 +23,8 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-update-component
 
+- src: https://github.com/carlosfrias/apigee-opdk-update-component-inplace
+
 - src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap
 
 - src: https://github.com/carlosfrias/apigee-opdk-iptables-flush
