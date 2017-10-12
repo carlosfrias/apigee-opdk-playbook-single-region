@@ -1,5 +1,5 @@
 ---
-- name: Install common components for the planet
+- name: Update common components for the planet
   hosts: "{{ target_hosts }}"
   gather_facts: no
   vars_files:
@@ -11,3 +11,15 @@
   - { role: apigee-opdk-update-component-inplace, component: 'apigee-setup', tags: ['setup', 'apigee-component-update'] }
   - { role: apigee-opdk-update-component-inplace, component: 'apigee-adminapi', tags: ['adminapi', 'apigee-component-update'] }
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user','ownership'] }
+
+- name: Update management server components
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  strategy: free
+  tags: ['common-update']
+  roles:
+  - { role: apigee-opdk-update-component-inplace, component: 'apigee-validate', tags: ['validate', 'apigee-component-update'] }
+  - { role: apigee-opdk-update-component-inplace, component: 'apigee-provision', tags: ['provision', 'apigee-component-update'] }
