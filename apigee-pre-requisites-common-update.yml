@@ -8,5 +8,6 @@
   strategy: free
   tags: ['common-update']
   roles:
+  - { role: apigee-opdk-update-component-inplace, component: 'apigee-setup', tags: ['setup', 'apigee-component-update'] }
   - { role: apigee-opdk-update-component, component: 'apigee-adminapi', tags: ['adminapi', 'apigee-component-update'] }
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user','ownership'] }
