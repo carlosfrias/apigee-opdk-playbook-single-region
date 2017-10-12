@@ -46,7 +46,7 @@
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-update-component, apigee_component: '{{ upgrade_component }}', tags: ['apigee-upgrade'] }
+  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['apigee-upgrade'] }
 
 - name: Upgrade Qpid
   hosts: qpid
@@ -64,7 +64,7 @@
   roles:
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
-  - { role: apigee-opdk-update-component,  apigee_component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
   - { role: apigee-opdk-iptables-flush }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
@@ -81,7 +81,7 @@
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-update-component, apigee_component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}' }
 
 - name: Upgrade Qpid Edge Components
   hosts: qpid
@@ -99,7 +99,7 @@
   roles:
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
-  - { role: apigee-opdk-update-component, apigee_component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}' }
   - { role: apigee-opdk-iptables-flush }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
@@ -115,7 +115,7 @@
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-update-component,  apigee_component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
 
 - name: Upgrade Router & Message Processor
   hosts: rmp
@@ -131,7 +131,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
-  - { role: apigee-opdk-update-component,  apigee_component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
 - name: Upgrade UI
@@ -146,7 +146,7 @@
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-update-component,  apigee_component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
 
 - name: Upgrade PG in dc-1
   include: upgrade-edge-postgres.yml
