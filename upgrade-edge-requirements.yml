@@ -57,3 +57,5 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-apigee-user-ownership.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-config.git
+
