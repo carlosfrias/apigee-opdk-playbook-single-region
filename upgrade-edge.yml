@@ -8,14 +8,12 @@
   include: apigee-pre-requisites-bootstrap.yml
   vars:
     target_hosts: planet
-    opdk_ldap_type: '2'
     upgrade_edge: True
 
 - name: Install and configure Apigee common installation
-  include: apigee-pre-requisites-common-install.yml
+  include: apigee-pre-requisites-common-update.yml
   vars:
     target_hosts: planet
-    opdk_ldap_type: '2'
     upgrade_edge: True
 
 - name: Upgrade Edge instance on planet
