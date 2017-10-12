@@ -154,60 +154,60 @@
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-ds
+    target_hosts: dc-1-ds
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-ds
+    target_hosts: dc-2-ds
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-ms
+    target_hosts: dc-1-ms
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-ms
+    target_hosts: dc-2-ms
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-rmp
+    target_hosts: dc-1-rmp
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-rmp
+    target_hosts: dc-2-rmp
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-qpid
+    target_hosts: dc-1-qpid
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-qpid
+    target_hosts: dc-2-qpid
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-pgmaster
+    target_hosts: dc-1-pgmaster
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-pgmaster
+    target_hosts: dc-2-pgmaster
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-1-pgstandby
+    target_hosts: dc-1-pgstandby
   tags: ['logs']
 
 - include: apigee-log-config-files.yml
   vars:
-    hosts: dc-2-pgstandby
+    target_hosts: dc-2-pgstandby
   tags: ['logs']
