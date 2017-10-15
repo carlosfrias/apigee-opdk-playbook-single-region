@@ -19,7 +19,7 @@
 - name: Update openldap node
   hosts: ldap
   gather_facts: no
-  tags: ['os-pre-req']
+  tags: ['os-pre-req','openldap']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
