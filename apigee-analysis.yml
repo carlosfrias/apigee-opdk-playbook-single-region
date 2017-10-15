@@ -229,6 +229,20 @@
     debug:
       var: edge_qs_self
 
+- name: Qpid stats
+  hosts: qpid
+  gather_facts: no
+  tags: ['qpid-stats']
+  serial: 1
+  tasks:
+  - name: Gather qpid stats
+    shell: "qpid-stats"
+    register: results
+
+  - name: Print qpid stats
+    debug:
+      var: results
+
 - name: Postgres server self report
   hosts: pg
   gather_facts: no
