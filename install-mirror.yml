@@ -11,6 +11,7 @@
   tags: ['os-pre-req']
   vars_files:
   - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-os-epel, tags: ['epel'] }
   - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
@@ -33,6 +34,7 @@
   tags: ['create']
   vars_files:
   - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-create-archive, tags: ['create-archive'] }
 
@@ -42,6 +44,7 @@
   tags: ['download']
   vars_files:
   - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
 
@@ -51,8 +54,19 @@
   tags: ['upload']
   vars_files:
   - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-upload-archive, tags: ['upload-archive'] }
+
+- name: Install apigee mirror archive
+  hosts: cfmirror
+  gather_facts: no
+  tags: ['install']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  roles:
+  - { role: apigee-opdk-setup-bootstrap-archive-installer, tags: ['upload-archive'] }
 
 - name: Nginx apigee mirror
   hosts: cfmirror
@@ -60,5 +74,6 @@
   tags: ['nginx']
   vars_files:
   - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-mirror-nginx, tags: ['nginx-mirror'] }
