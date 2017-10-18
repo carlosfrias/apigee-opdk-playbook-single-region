@@ -40,7 +40,6 @@
   - ~/.apigee-secure/credentials.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
-  - { role: apigee-opdk-setup-mirror-nginx, tags: ['nginx-mirror'] }
 
 - name: Upload apigee mirror
   hosts: cfmirror
