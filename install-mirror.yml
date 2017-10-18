@@ -27,10 +27,33 @@
 
 - name: Create apigee mirror
   hosts: cfmirror
-  tags: ['mirror']
+  tags: ['create']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-create-archive, tags: ['create-archive'] }
+
+- name: Download apigee mirror
+  hosts: cfmirror
+  tags: ['download']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  roles:
+  - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
   - { role: apigee-opdk-setup-mirror-nginx, tags: ['nginx-mirror'] }
 
+- name: Upload apigee mirror
+  hosts: cfmirror
+  tags: ['upload']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  roles:
+  - { role: apigee-opdk-setup-bootstrap-upload-archive, tags: ['upload-archive'] }
+
+- name: Nginx apigee mirror
+  hosts: cfmirror
+  tags: ['download']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  roles:
+  - { role: apigee-opdk-setup-mirror-nginx, tags: ['nginx-mirror'] }
