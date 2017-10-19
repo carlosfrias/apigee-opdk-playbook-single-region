@@ -28,7 +28,7 @@
   vars:
     target_hosts: cfmirror
 
-- name: Create apigee mirror
+- name: Create apigee mirror archive
   hosts: cfmirror
   gather_facts: no
   tags: ['create']
@@ -38,7 +38,7 @@
   roles:
   - { role: apigee-opdk-setup-bootstrap-create-archive, tags: ['create-archive'] }
 
-- name: Download apigee mirror
+- name: Download apigee mirror archive
   hosts: cfmirror
   gather_facts: no
   tags: ['download']
@@ -48,7 +48,7 @@
   roles:
   - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
 
-- name: Upload apigee mirror
+- name: Upload apigee mirror archive
   hosts: cfmirror
   gather_facts: no
   tags: ['upload']
@@ -68,7 +68,7 @@
   roles:
   - { role: apigee-opdk-setup-bootstrap-archive-installer, tags: ['install-archive'] }
 
-- name: Nginx apigee mirror
+- name: Expose apigee mirror web server
   hosts: cfmirror
   gather_facts: no
   tags: ['nginx']
