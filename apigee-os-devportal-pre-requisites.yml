@@ -1,0 +1,26 @@
+---
+- name: OS Pre-reqs for Dev Portal
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  vars:
+    php_packages:
+    - php
+    - php-cli
+    - php-common
+    - php-gd
+    - php-mbstring
+    - php-mysql
+    - php-pdo
+    - php-pear
+    - php-pecl-apc
+    - php-process
+    - php-xml
+  tasks:
+  - name: Remove pre-exisiting PHP packages
+    yum:
+      name: "{{ item }}"
+      state: absent
+    with_items: "{{ php_packages }}"

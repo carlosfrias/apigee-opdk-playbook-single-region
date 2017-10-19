@@ -1,0 +1,14 @@
+---
+- name: Configure DevPortal Database
+  hosts: "{{ target_hosts }}"
+  serial: 1
+  gather_facts: no
+  tags: ['pdb']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  roles:
+  - { role: apigee-opdk-devportal-postgres-config, tags: ['apigee-component'] }
+  - { role: apigee-opdk-setup-component, profile: 'pdb',tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_db_config_file }}"  }
+  - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
+  - { role: apigee-opdk-setup-status, tags: ['status'] }
