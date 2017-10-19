@@ -10,6 +10,18 @@
   vars:
     target_hosts: planet
 
+- name: Install and configure Openldap pre-requisites
+  import_playbook: apigee-os-pre-requisites-openldap.yml
+  tags: ['os']
+  vars:
+    target_hosts: planet
+
+- name: Install and configure Postgres pre-requisites
+  import_playbook: apigee-os-pre-requisites-postgres.yml
+  tags: ['os']
+  vars:
+    target_hosts: planet
+
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
