@@ -1,0 +1,16 @@
+---
+- name: Configure Cassandra & Zookeeper in dc-1
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  serial: 1
+  tags: ['ds']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  roles:
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-grafana', tags: ['grafana'] }
+  - { role: apigee-opdk-setup-monitoring-grafana-config, component: 'apigee-grafana', tags: ['grafana'] }
+  - { role: apigee_opdk_setup-component-setup, component: 'apigee-grafana', config: "{{ grafana_response_file }}", tags: ['grafana'] }
+  - { role: apigee-opdk-stop-components, tags: ['apigee-component'] }
+  - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
+  - { role: apigee-opdk-setup-status, tags: ['status'] }

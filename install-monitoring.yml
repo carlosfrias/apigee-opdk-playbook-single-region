@@ -1,0 +1,56 @@
+---
+- name: Update planet cache
+  import_playbook: apigee-planet-cache.yml
+  vars:
+    target_hosts: planet
+
+- name: Install and configure OS pre-requisites
+  import_playbook: apigee-os-pre-requisites.yml
+  tags: ['os']
+  vars:
+    target_hosts: planet
+
+- name: Install and configure Openldap pre-requisites
+  import_playbook: apigee-os-pre-requisites-openldap.yml
+  tags: ['os']
+  vars:
+    target_hosts: planet
+
+- name: Install and configure Postgres pre-requisites
+  import_playbook: apigee-os-pre-requisites-postgres.yml
+  tags: ['os']
+  vars:
+    target_hosts: planet
+
+- name: Install Apigee pre-requisites
+  import_playbook: apigee-pre-requisites-bootstrap.yml
+  tags: ['bootstrap']
+  vars:
+    target_hosts: planet
+
+- name: Install Apigee pre-requisites
+  import_playbook: apigee-pre-requisites-common-install.yml
+  tags: ['common']
+  vars:
+    target_hosts: planet
+
+- name: Install influxdb
+  import_playbook: install-monitoring-influxdb-component-setup.yml
+  tags: ['influxdb']
+  vars:
+    target_hosts: influxdb
+
+- name: Install telegraf
+  import_playbook: install-monitoring-telegraf-component-setup.yml
+  tags: ['telegraf']
+  vars:
+    target_hosts: planet
+
+- name: Install grafana
+  import_playbook: install-monitoring-grafana-component-setup.yml
+  tags: ['grafana']
+  vars:
+    target_hosts: grafana
+
+
+
