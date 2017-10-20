@@ -98,3 +98,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-devportal-config.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-devportal-postgres-config.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-devportal-drupal-updates.git

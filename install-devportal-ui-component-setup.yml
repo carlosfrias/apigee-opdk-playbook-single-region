@@ -12,3 +12,4 @@
   - { role: apigee-opdk-setup-component, profile: 'dp',tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_config_file }}" }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
+  - { role: apigee-opdk-devportal-drupal-updates, tags: ['updates'] }
