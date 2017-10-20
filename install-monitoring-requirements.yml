@@ -27,6 +27,8 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-component-install.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-component-setup.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-setup-selinux-disable.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-shutdown-iptables.git
