@@ -1,8 +1,7 @@
 ---
-- name: Configure Cassandra & Zookeeper in dc-1
+- name: Configure influxdb
   hosts: "{{ target_hosts }}"
   gather_facts: no
-  serial: 1
   tags: ['influxdb']
   vars_files:
   - ~/.apigee-secure/credentials.yml
