@@ -3,7 +3,7 @@
   hosts: "{{ target_hosts }}"
   gather_facts: no
   serial: 1
-  tags: ['ds']
+  tags: ['grafana']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
