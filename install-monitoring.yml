@@ -32,7 +32,7 @@
   import_playbook: install-monitoring-telegraf-component-setup.yml
   tags: ['telegraf']
   vars:
-    target_hosts: planet
+    target_hosts: edge
 
 - name: Install grafana
   import_playbook: install-monitoring-grafana-component-setup.yml
