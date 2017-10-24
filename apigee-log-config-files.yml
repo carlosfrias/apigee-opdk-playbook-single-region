@@ -12,9 +12,7 @@
     - { dir: '/tmp/apigee', pattern: '*' }
     - { dir: '/tmp/edge', pattern: '*' }
     - { dir: '/tmp', pattern: 'setup*.log' }
-    - { dir: '/etc/', pattern: 'hosts' }
-    - { dir: '/etc/', pattern: 'hosts.allow' }
-    - { dir: '/etc/', pattern: 'hosts.deny' }
+    - { dir: '/etc/', pattern: 'hosts*' }
     - { dir: '/etc/', pattern: 'environment' }
     - { dir: '/etc/', pattern: 'profile' }
     - { dir: '/etc/', pattern: 'bashrc' }
