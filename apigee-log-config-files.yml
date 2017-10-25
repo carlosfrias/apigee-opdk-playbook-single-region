@@ -7,7 +7,6 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   vars:
-    target_logs_folder: "{{ playbook_dir }}/logs_configs/{{ target_hosts }}/"
     pattern:
     - { dir: '/tmp/apigee', pattern: '*' }
     - { dir: '/tmp/edge', pattern: '*' }
