@@ -1,13 +1,12 @@
 ---
 - hosts: localhost
   connection: local
-  gather_facts: nos
+  gather_facts: no
   vars:
     clean_dirs:
-    - '~/.ansible/tmp/cache'
-    - '~/.ansible/tmp/logs'
     - '~/.apigee/logs_configs'
     - '~/.ansible/roles'
+    - '~/.ansible/tmp'
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
