@@ -3,7 +3,7 @@
   import_playbook: apigee-planet-cache.yml
   tags: ['cache']
   vars:
-    target_hosts: planet,cfmirror
+    target_hosts: cfmirror
 
 - name: Install and configure OS pre-requisites for mirror
   hosts: cfmirror
@@ -78,3 +78,9 @@
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-mirror-nginx, tags: ['nginx-mirror'] }
+
+- name: Download logs and configs
+  tags: ['logs']
+  import_playbook: apigee-log-config-files.yml
+  vars:
+    target_hosts: cfmirror

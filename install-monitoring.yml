@@ -40,6 +40,11 @@
   vars:
     target_hosts: grafana
 
+- name: Download logs and configs
+  tags: ['logs']
+  import_playbook: apigee-log-config-files.yml
+  vars:
+    target_hosts: grafana,influxdb
 
 
 
