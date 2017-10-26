@@ -32,20 +32,10 @@
   import_playbook: install-monitoring-telegraf-component-setup.yml
   tags: ['telegraf']
   vars:
-    target_hosts: edge
+    target_hosts: telegraf
 
 - name: Install grafana
   import_playbook: install-monitoring-grafana-component-setup.yml
   tags: ['grafana']
   vars:
     target_hosts: grafana
-
-- name: Download logs and configs
-  tags: ['logs']
-  import_playbook: apigee-log-config-files.yml
-  vars:
-    target_hosts: grafana,influxdb
-
-
-
-
