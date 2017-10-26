@@ -23,24 +23,24 @@
     - { dir: '/var/log/', pattern: 'messages' }
     - { dir: '{{ opdk_installer_path }}/', pattern: '*.log' }
     - { dir: '{{ opdk_installer_path }}/', pattern: '*.txt' }
-    - { dir: '{{ apigee_installation_home }}/', pattern: '*.out' }
-    - { dir: '{{ apigee_installation_home }}/var/log', pattern: '*.log' }
+    - { dir: '{{ apigee_home }}/', pattern: '*.out' }
+    - { dir: '{{ apigee_home }}/var/log', pattern: '*.log' }
     - { dir: '{{ opdk_installer_path }}/', pattern: '*.conf' }
     - { dir: '{{ opdk_installer_path }}/', pattern: '*.sh' }
-    - { dir: '{{ apigee_installation_home }}/customer/', pattern: '*' }
-    - { dir: '{{ apigee_installation_home }}/etc/', pattern: 'default*.sh' }
-    - { dir: '{{ apigee_installation_home }}/customer', pattern: '*' }
-    - { dir: '{{ apigee_installation_home }}/apigee-cassandra/', pattern: '*conf' }
-    - { dir: '{{ apigee_installation_home }}/apigee-cassandra/', pattern: '*cfg' }
-    - { dir: '{{ apigee_installation_home }}/apigee-cassandra/', pattern: '*yml' }
-    - { dir: '{{ apigee_installation_home }}/apigee-cassandra/', pattern: '*yaml' }
-    - { dir: '{{ apigee_installation_home }}/apigee-cassandra/', pattern: '*properties' }
-    - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*conf' }
-    - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*cfg' }
-    - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*yml' }
-    - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*yaml' }
-    - { dir: '{{ apigee_installation_home }}/apigee-zookeeper/', pattern: '*properties' }
-    - { dir: '{{ apigee_installation_home }}/apigee-postgresql/', pattern: '*conf' }
+    - { dir: '{{ apigee_home }}/customer/', pattern: '*' }
+    - { dir: '{{ apigee_home }}/etc/', pattern: 'default*.sh' }
+    - { dir: '{{ apigee_home }}/customer', pattern: '*' }
+    - { dir: '{{ apigee_home }}/apigee-cassandra/', pattern: '*conf' }
+    - { dir: '{{ apigee_home }}/apigee-cassandra/', pattern: '*cfg' }
+    - { dir: '{{ apigee_home }}/apigee-cassandra/', pattern: '*yml' }
+    - { dir: '{{ apigee_home }}/apigee-cassandra/', pattern: '*yaml' }
+    - { dir: '{{ apigee_home }}/apigee-cassandra/', pattern: '*properties' }
+    - { dir: '{{ apigee_home }}/apigee-zookeeper/', pattern: '*conf' }
+    - { dir: '{{ apigee_home }}/apigee-zookeeper/', pattern: '*cfg' }
+    - { dir: '{{ apigee_home }}/apigee-zookeeper/', pattern: '*yml' }
+    - { dir: '{{ apigee_home }}/apigee-zookeeper/', pattern: '*yaml' }
+    - { dir: '{{ apigee_home }}/apigee-zookeeper/', pattern: '*properties' }
+    - { dir: '{{ apigee_home }}/apigee-postgresql/', pattern: '*conf' }
 
   pre_tasks:
   - name: Create folder if missing
