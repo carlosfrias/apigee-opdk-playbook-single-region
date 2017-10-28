@@ -195,39 +195,31 @@
   gather_facts: no
   tags: ['ms-self']
   serial: 1
-  tasks:
-  - name: Display self report
-    debug:
-      var: edge_ms_self
+  roles:
+  - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self']  }
 
 - name: Router self report
   hosts: rmp
   gather_facts: no
   tags: ['r-self']
   serial: 1
-  tasks:
-  - name: Display self report
-    debug:
-      var: edge_router_self
+  roles:
+  - { role: apigee-opdk-server-self, server_types: ['r'], tags: ['self']  }
 
 - name: Message Processor self report
   hosts: rmp
   tags: ['mp-self']
   serial: 1
-  tasks:
-  - name: Display self report
-    debug:
-      var: edge_mp_self
+  roles:
+  - { role: apigee-opdk-server-self, server_types: ['mp'], tags: ['self']  }
 
 - name: Qpid self report
   hosts: qpid
   gather_facts: no
   tags: ['qpid-self']
   serial: 1
-  tasks:
-  - name: Display self report
-    debug:
-      var: edge_qs_self
+  roles:
+  - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
 
 - name: Qpid stats
   hosts: qpid
@@ -250,10 +242,6 @@
   serial: 1
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
-#  tasks:
-#  - name: Display self report
-#    debug:
-#      var: edge_ps_self
 
 - name: Display silent-install.conf
   hosts: planet
