@@ -2,7 +2,7 @@
 - name: Show Zookeeper Leader
   hosts: ds
   gather_facts: no
-  tags: ['zk-leader']
+  tags: ['leader']
   serial: 1
   tasks:
   - name: Display Zookeeper Leadership
@@ -16,7 +16,7 @@
 - name: Show Zookeeper Status
   hosts: ds
   gather_facts: no
-  tags: ['zk-status']
+  tags: ['status']
   serial: 1
   tasks:
   - name: Display Zookeeper Leadership
@@ -30,7 +30,7 @@
 - name: Show Cassandra Ring
   hosts: ds
   gather_facts: no
-  tags: ['cs-ring']
+  tags: ['ring']
   serial: 1
   tasks:
   - name: Display Cassandra Ring
@@ -44,7 +44,7 @@
 - name: Show Cassandra Status
   hosts: ds
   gather_facts: no
-  tags: ['cs-status']
+  tags: ['status']
   serial: 1
   tasks:
   - name: Display Cassandra Status
@@ -58,7 +58,7 @@
 - name: Show Cassandra Replication Factor
   hosts: ds
   gather_facts: no
-  tags: ['cs-replication']
+  tags: ['replication']
   tasks:
   - name: Display Cassandra Replication Factor
     shell: "{{ cqlsh }} -e 'select * from system.schema_keyspaces' {{ private_address}}"
@@ -71,7 +71,7 @@
 - name: Show Cassandra Topology Properties
   hosts: ds
   gather_facts: no
-  tags: ['cs-topology']
+  tags: ['topology']
   tasks:
   - name: Display cassandra-topology.properties
     shell: "cat {{ apigee_home }}/apigee-cassandra/conf/cassandra-topology.properties | grep -A100 '^# Cassandra Node IP'"
@@ -84,7 +84,7 @@
 - name: Show Cassandra Properties
   hosts: ds
   gather_facts: no
-  tags: ['cs-properties']
+  tags: ['properties']
   tasks:
   - name: Display cassandra-topology.properties
     shell: "cat {{ apigee_home }}/apigee-cassandra/conf/cassandra.yaml | grep 'seeds:\\|^listen_address:'"
@@ -97,7 +97,7 @@
 - name: Show Postgres Master Check
   hosts: pgmaster
   gather_facts: no
-  tags: ['pgmaster']
+  tags: ['replication']
   tasks:
   - name: Display Postgres Master Status Check
     shell: "{{ apigee_service }} apigee-postgresql postgres-check-master"
@@ -110,7 +110,7 @@
 - name: Show Postgres Standby Check
   hosts: pgstandby
   gather_facts: no
-  tags: ['pgstandby']
+  tags: ['replication']
   tasks:
   - name: Display Postgres Standby Status Check
     shell: "{{ apigee_service }} apigee-postgresql postgres-check-standby"
@@ -123,7 +123,7 @@
 - name: Show Node Status
   hosts: planet
   gather_facts: no
-  tags: ['node-status']
+  tags: ['status']
   serial: 1
   tasks:
   - name: Display Node Status
@@ -137,7 +137,7 @@
 - name: Start Node
   hosts: planet
   gather_facts: no
-  tags: ['node-start']
+  tags: ['start']
   serial: 1
   tasks:
   - name: Start Node
@@ -151,7 +151,7 @@
 - name: Stop Node
   hosts: planet
   gather_facts: no
-  tags: ['node-stop']
+  tags: ['stop']
   serial: 1
   tasks:
   - name: Stop Node
@@ -165,7 +165,7 @@
 - name: Restart Node
   hosts: planet
   gather_facts: no
-  tags: ['node-restart']
+  tags: ['restart']
   serial: 1
   tasks:
   - name: Stop Node
@@ -179,7 +179,7 @@
 - name: Component versions
   hosts: planet
   gather_facts: no
-  tags: ['node-version']
+  tags: ['version']
   serial: 1
   tasks:
   - name: Component versions echo Apigee version
@@ -221,6 +221,42 @@
   roles:
   - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
 
+- name: Postgres server self report
+  hosts: pg
+  gather_facts: no
+  tags: ['ps-self']
+  serial: 1
+  roles:
+  - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
+
+- name: Router Registration Status
+  hosts: rmp
+  gather_facts: no
+  tags: ['r-registration']
+  roles:
+    - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_router_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
+
+- name: Message Processor Registration Status
+  hosts: rmp
+  gather_facts: no
+  tags: ['mp-registration']
+  roles:
+    - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_mp_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
+
+- name: Qpid Registration Status
+  hosts: qpid
+  gather_facts: no
+  tags: ['qpid-registration']
+  roles:
+    - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_qs_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
+
+- name: Postgres Registration Status
+  hosts: pg
+  gather_facts: no
+  tags: ['pg-registration']
+  roles:
+    - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_ps_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
+
 - name: Qpid stats
   hosts: qpid
   gather_facts: no
@@ -234,14 +270,6 @@
   - name: Print qpid stats
     debug:
       var: results
-
-- name: Postgres server self report
-  hosts: pg
-  gather_facts: no
-  tags: ['ps-self']
-  serial: 1
-  roles:
-  - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
 
 - name: Display silent-install.conf
   hosts: planet
