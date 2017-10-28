@@ -199,7 +199,7 @@
 - name: Management server self report
   hosts: ms
   gather_facts: no
-  tags: ['ms-self']
+  tags: ['ms-self', 'self']
   serial: 1
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self']  }
@@ -207,14 +207,14 @@
 - name: Router self report
   hosts: rmp
   gather_facts: no
-  tags: ['r-self']
+  tags: ['r-self', 'self']
   serial: 1
   roles:
   - { role: apigee-opdk-server-self, server_types: ['r'], tags: ['self']  }
 
 - name: Message Processor self report
   hosts: rmp
-  tags: ['mp-self']
+  tags: ['mp-self', 'self']
   serial: 1
   roles:
   - { role: apigee-opdk-server-self, server_types: ['mp'], tags: ['self']  }
@@ -222,7 +222,7 @@
 - name: Qpid self report
   hosts: qpid
   gather_facts: no
-  tags: ['qpid-self']
+  tags: ['qpid-self', 'self']
   serial: 1
   roles:
   - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
@@ -230,7 +230,7 @@
 - name: Postgres server self report
   hosts: pg
   gather_facts: no
-  tags: ['ps-self']
+  tags: ['ps-self', 'self']
   serial: 1
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
