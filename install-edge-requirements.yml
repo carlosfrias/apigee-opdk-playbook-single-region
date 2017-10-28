@@ -71,6 +71,8 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-server-self.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-server-registration-state.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-start-components.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-stop-components.git
