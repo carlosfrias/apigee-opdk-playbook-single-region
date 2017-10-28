@@ -1,4 +1,10 @@
 ---
+- name: Update planet cache
+  import_playbook: apigee-planet-cache.yml
+  tags: ['cache']
+  vars:
+    target_hosts: edge
+
 - name: Show Zookeeper Leader
   hosts: ds
   gather_facts: no
