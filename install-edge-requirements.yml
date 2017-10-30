@@ -49,6 +49,10 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-standby.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-add.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-remove.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-postgres.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-status.git

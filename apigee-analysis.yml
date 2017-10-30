@@ -202,7 +202,7 @@
   tags: ['ms-self', 'self']
   serial: 1
   roles:
-  - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self']  }
+  - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self'] }
 
 - name: Router self report
   hosts: rmp
@@ -210,14 +210,14 @@
   tags: ['r-self', 'self']
   serial: 1
   roles:
-  - { role: apigee-opdk-server-self, server_types: ['r'], tags: ['self']  }
+  - { role: apigee-opdk-server-self, server_types: ['r'], tags: ['self'] }
 
 - name: Message Processor self report
   hosts: rmp
   tags: ['mp-self', 'self']
   serial: 1
   roles:
-  - { role: apigee-opdk-server-self, server_types: ['mp'], tags: ['self']  }
+  - { role: apigee-opdk-server-self, server_types: ['mp'], tags: ['self'] }
 
 - name: Qpid self report
   hosts: qpid
@@ -225,7 +225,7 @@
   tags: ['qpid-self', 'self']
   serial: 1
   roles:
-  - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
+  - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self'] }
 
 - name: Postgres server self report
   hosts: pg
@@ -233,7 +233,7 @@
   tags: ['ps-self', 'self']
   serial: 1
   roles:
-  - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
+  - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self'] }
 
 - name: Router Registration Status
   hosts: rmp
