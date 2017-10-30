@@ -53,6 +53,10 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-remove.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-scopes-add.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-scopes-remove.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-postgres.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-status.git
@@ -126,8 +130,6 @@
 - src: https://github.com/carlosfrias/apigee-opdk-cassandra-client-update.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-qpid-add.git
-
-- src: https://github.com/carlosfrias/apigee-opdk-setup-postgresql-add.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-license.git
 
