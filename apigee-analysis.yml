@@ -266,6 +266,15 @@
   roles:
     - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_ps_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
 
+- name: Analytics group scope state
+  hosts: ms
+  gather_facts: no
+  tags: ['scope']
+  roles:
+  - { role: apigee-opdk-setup-scopes-state,
+      ax_group: "{{ scopes_axgroup | default('axgroup001') }}"
+    }
+
 - name: Qpid stats
   hosts: qpid
   gather_facts: no
