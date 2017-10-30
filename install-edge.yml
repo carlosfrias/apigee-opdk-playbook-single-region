@@ -16,6 +16,12 @@
   vars:
     target_hosts: edge
 
+- name: Install and configure Pip pre-requisites
+  import_playbook: apigee-os-pre-requisites-pip.yml
+  tags: ['os']
+  vars:
+    target_hosts: edge
+
 - name: Install and configure Postgres pre-requisites
   import_playbook: apigee-os-pre-requisites-postgres.yml
   tags: ['os']
