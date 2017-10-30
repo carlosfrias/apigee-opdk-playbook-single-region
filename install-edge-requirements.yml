@@ -133,6 +133,8 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-qpid-add.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-qpid-remove.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-setup-license.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-epel.git
