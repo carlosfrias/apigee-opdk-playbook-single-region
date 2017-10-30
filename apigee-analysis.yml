@@ -273,7 +273,17 @@
   serial: 1
   tasks:
   - name: Gather qpid stats
-    shell: "qpid-stats"
+    shell: "{{ qpid-stat }} -g"
+    register: results
+
+- name: Qpid queue depth
+  hosts: qpid
+  gather_facts: no
+  tags: ['qpid-depth']
+  serial: 1
+  tasks:
+  - name: Gather qpid queue depth
+    shell: "{{ check_queue_depth }}"
     register: results
 
   - name: Print qpid stats
