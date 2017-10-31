@@ -3,6 +3,7 @@
   hosts: "{{ target_hosts }}"
   serial: 1
   gather_facts: no
+  become: yes
   tags: ['pdb']
   vars_files:
   - ~/.apigee-secure/credentials.yml
