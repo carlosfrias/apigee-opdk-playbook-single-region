@@ -18,6 +18,8 @@
     - php-pecl-apc
     - php-process
     - php-xml
+  roles:
+  - { role: apigee-opdk-setup-os-pip, tags: ['pip'] }
   tasks:
   - name: Remove pre-exisiting PHP packages
     yum:
