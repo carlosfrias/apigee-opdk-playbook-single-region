@@ -2,6 +2,7 @@
 - name: OS Pre-reqs for Dev Portal
   hosts: "{{ target_hosts }}"
   gather_facts: no
+  tags: ['os-pre-req']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
@@ -22,6 +23,7 @@
   - { role: apigee-opdk-setup-os-pip, tags: ['pip'] }
   tasks:
   - name: Remove pre-exisiting PHP packages
+    tags: ['devportal']
     yum:
       name: "{{ item }}"
       state: absent

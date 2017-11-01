@@ -11,7 +11,7 @@
     target_hosts: devportal
 
 - name: Install and configure OS pre-requisites for DevPortal
-  import_playbook: apigee-os-devportal-pre-requisites.yml
+  import_playbook: apigee-os-pre-requisites-devportal.yml
   tags: ['os-devportal']
   vars:
     target_hosts: devportal
