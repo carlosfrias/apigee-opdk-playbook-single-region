@@ -12,7 +12,7 @@
 
 - name: Install and configure OS pre-requisites for DevPortal
   import_playbook: apigee-os-pre-requisites-devportal.yml
-  tags: ['os-devportal']
+  tags: ['os']
   vars:
     target_hosts: devportal
 
