@@ -51,7 +51,6 @@
   tags: ['dp']
   vars:
     target_hosts: dp-ui
-    validate_ready: false
 
 - name: Download logs and configs
   tags: ['logs']
