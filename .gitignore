@@ -113,4 +113,5 @@ out
 installations/aio/installation-logs-configs/*
 logs_configs
 *.iml
+jump*
 
