@@ -95,7 +95,7 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-epel.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-yum-packages.git
+- src: https://github.com/carlosfrias/apigee-opdk-yum-packages.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-pip.git
 
