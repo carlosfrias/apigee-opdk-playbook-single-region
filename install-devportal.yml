@@ -12,7 +12,7 @@
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
-  tags: ['os']
+  tags: ['os','epel']
   vars:
     target_hosts: devportal
 
