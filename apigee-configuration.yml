@@ -8,4 +8,5 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config }
