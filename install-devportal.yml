@@ -8,37 +8,37 @@
   import_playbook: apigee-os-pre-requisites.yml
   tags: ['os']
   vars:
-    target_hosts: devportal
+    target_hosts: dp
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
   tags: ['os']
   vars:
-    target_hosts: devportal
+    target_hosts: dp
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-pip.yml
   tags: ['os']
   vars:
-    target_hosts: devportal
+    target_hosts: dp
 
 - name: Install and configure OS pre-requisites for DevPortal
   import_playbook: apigee-os-pre-requisites-devportal.yml
   tags: ['os']
   vars:
-    target_hosts: devportal
+    target_hosts: dp
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
   vars:
-    target_hosts: devportal
+    target_hosts: dp
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-common-install.yml
   tags: ['common']
   vars:
-    target_hosts: devportal
+    target_hosts: dp
 
 - name: Apply configuration to DevPortal Database node
   import_playbook: install-devportal-postgres-component-setup.yml
