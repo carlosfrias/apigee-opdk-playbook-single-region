@@ -102,3 +102,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-monitoring-telegraf-config.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-yum-packages.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-os-pip.git
