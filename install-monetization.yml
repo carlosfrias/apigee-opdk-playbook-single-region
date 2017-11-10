@@ -42,7 +42,7 @@
 
 - name: Apply configuration to Cassandra & Zookeeper node
   import_playbook: install-edge-monetization-component-setup.yml
-  tags: ['ds','ds-setup']
+  tags: ['mo','mo-setup']
   vars:
     target_hosts: ms
 
