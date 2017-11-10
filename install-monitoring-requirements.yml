@@ -100,3 +100,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-monitoring-grafana-config.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-monitoring-telegraf-config.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-yum-packages.git
