@@ -8,19 +8,19 @@
   import_playbook: apigee-os-pre-requisites.yml
   tags: ['os']
   vars:
-    target_hosts: influxdb,monitoring,edge
+    target_hosts: influxdb,grafana,edge
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
   vars:
-    target_hosts: influxdb,monitoring
+    target_hosts: influxdb,grafana,influxdb
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-common-install.yml
   tags: ['common']
   vars:
-    target_hosts: influxdb,monitoring
+    target_hosts: influxdb,grafana
 
 - name: Install influxdb
   import_playbook: install-monitoring-influxdb-component-setup.yml
