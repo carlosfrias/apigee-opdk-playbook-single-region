@@ -34,13 +34,13 @@
   vars:
     target_hosts: ms
 
-- name: Configure Cassandra & Zookeeper node
+- name: Configure Monetization node
   import_playbook: apigee-configuration.yml
   tags: ['mo','mo-config','config']
   vars:
     target_hosts: ms
 
-- name: Apply configuration to Cassandra & Zookeeper node
+- name: Apply configuration to Monetization node
   import_playbook: install-edge-monetization-component-setup.yml
   tags: ['mo','mo-setup']
   vars:
