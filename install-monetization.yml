@@ -45,6 +45,7 @@
   tags: ['mo','mo-setup']
   vars:
     target_hosts: ms
+    opdk_monetization: true
 
 - name: Download logs and configs
   tags: ['logs']
