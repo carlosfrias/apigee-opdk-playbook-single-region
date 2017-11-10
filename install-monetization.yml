@@ -10,14 +10,14 @@
   vars:
     target_hosts: ms
 
-- name: Install and configure Pip pre-requisites
-  import_playbook: apigee-os-pre-requisites-pip.yml
+- name: Install and configure Openldap pre-requisites
+  import_playbook: apigee-os-pre-requisites-epel.yml
   tags: ['os']
   vars:
     target_hosts: ms
 
-- name: Install and configure Openldap pre-requisites
-  import_playbook: apigee-os-pre-requisites-epel.yml
+- name: Install and configure Pip pre-requisites
+  import_playbook: apigee-os-pre-requisites-pip.yml
   tags: ['os']
   vars:
     target_hosts: ms
