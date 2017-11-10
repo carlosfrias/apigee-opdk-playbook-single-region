@@ -39,13 +39,13 @@
   tags: ['mo','mo-config','config']
   vars:
     target_hosts: ms
+    opdk_monetization: true
 
 - name: Apply configuration to Monetization node
   import_playbook: install-edge-monetization-component-setup.yml
   tags: ['mo','mo-setup']
   vars:
     target_hosts: ms
-    opdk_monetization: true
 
 - name: Download logs and configs
   tags: ['logs']
