@@ -17,6 +17,8 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-openjdk
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-openjdk-cache
+
 - src: https://github.com/carlosfrias/apigee-opdk-setup-license
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap
