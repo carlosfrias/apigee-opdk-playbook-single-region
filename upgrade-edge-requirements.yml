@@ -27,6 +27,8 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-cache.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-iptables-flush
 
 - src: https://github.com/carlosfrias/apigee-opdk-iptables-port-block

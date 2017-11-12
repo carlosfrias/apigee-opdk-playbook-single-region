@@ -19,6 +19,8 @@
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-bootstrap.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-cache.git
+
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-silent-installation-config.git
 
 - src: git+ssh://git@onestash.verizon.com:7999/celvw/apigee-opdk-setup-component.git
