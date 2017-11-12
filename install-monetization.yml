@@ -49,7 +49,7 @@
 
 - name: Apply configuration to Monetization node
   import_playbook: install-edge-monetization-component-provisioning.yml
-  tags: ['mo','mo-setup','mo-provisioning']
+  tags: ['mo','mo-setup','mo-provisioning','provisioning']
   vars:
     target_hosts: rmp
 
