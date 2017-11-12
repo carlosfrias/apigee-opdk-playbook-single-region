@@ -8,7 +8,7 @@
   import_playbook: apigee-os-pre-requisites.yml
   tags: ['os']
   vars:
-    target_hosts: ms
+    target_hosts: ms,rmp
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
@@ -20,25 +20,25 @@
   import_playbook: apigee-os-pre-requisites-pip.yml
   tags: ['os']
   vars:
-    target_hosts: ms
+    target_hosts: ms,rmp
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
   vars:
-    target_hosts: ms
+    target_hosts: ms,rmp
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-common-install.yml
   tags: ['common']
   vars:
-    target_hosts: ms
+    target_hosts: ms,rmp
 
 - name: Configure Monetization node
   import_playbook: apigee-configuration.yml
   tags: ['mo','mo-config','config']
   vars:
-    target_hosts: ms
+    target_hosts: ms,rmp
     opdk_monetization: True
 
 - name: Apply configuration to Monetization node
@@ -57,4 +57,4 @@
   tags: ['logs']
   import_playbook: apigee-log-config-files.yml
   vars:
-    target_hosts: ms
+    target_hosts: ms,rmp
