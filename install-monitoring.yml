@@ -8,7 +8,7 @@
   import_playbook: apigee-os-pre-requisites.yml
   tags: ['os']
   vars:
-    target_hosts: influxdb,grafana,edge
+    target_hosts: influxdb,grafana
 
 - name: Install and configure Pip pre-requisites
   import_playbook: apigee-os-pre-requisites-pip.yml
