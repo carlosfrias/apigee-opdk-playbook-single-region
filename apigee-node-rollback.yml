@@ -5,7 +5,7 @@
   strategy: free
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-rollback, tags: ['rollback_only'] }
   - { role: apigee-server-restart, tags: ['restart'] }

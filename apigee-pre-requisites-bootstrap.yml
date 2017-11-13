@@ -4,7 +4,7 @@
   gather_facts: no
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  - ~/.apigee/custom-properties.yml
   strategy: free
   tags: ['bootstrap']
   roles:

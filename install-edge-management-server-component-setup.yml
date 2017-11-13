@@ -6,7 +6,7 @@
   tags: ['ms']
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-component, profile: 'ms',tags: ['apigee-component']  }
   - { role: apigee-opdk-setup-component, profile: 'ui',tags: ['apigee-component']  }

@@ -6,7 +6,7 @@
   tags: ['dp']
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-devportal-config, tags: ['config'] }
   - { role: apigee-opdk-setup-component, profile: 'dp',tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_config_file }}" }

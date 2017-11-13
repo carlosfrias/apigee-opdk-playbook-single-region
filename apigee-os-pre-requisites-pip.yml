@@ -5,6 +5,6 @@
   tags: ['os-pre-req']
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-os-pip, tags: ['pip'] }

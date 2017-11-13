@@ -5,7 +5,7 @@
   gather_facts: no
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-os-postgres, tags: ['pg-os-pre-req'] }
   - { role: apigee-opdk-setup-postgres-config, tags: ['pg-os-pre-req'] }
@@ -16,7 +16,7 @@
   gather_facts: no
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/apigee-opdk-custom-properties/custom-properties.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-os-postgres, tags: ['pg-os-pre-req'] }
   - { role: apigee-opdk-setup-postgres-config, tags: ['pg-os-pre-req'], clear_pgdata: True }
