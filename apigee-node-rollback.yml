@@ -7,5 +7,5 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   roles:
-  - { role: apigee-opdk-setup-bootstrap-rollback, tags: ['rollback_only'] }
+  - { role: apigee-opdk-setup-bootstrap-rollback, tags: ['rollback-only'] }
   - { role: apigee-server-restart, tags: ['restart'] }
