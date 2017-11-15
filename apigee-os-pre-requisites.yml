@@ -13,7 +13,7 @@
   - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
   - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
-  - { role: apigee-server-restart, tags: ['restart-server'], start_check_delay: 30, when: (selinux_disabled.changed is defined and selinux_disabled.changed) or (iptables_disabled is defined and not iptables_disabled) or (force_restart is defined and force_restart)  }
+  - { role: apigee-server-restart, tags: ['restart-server'], start_check_delay: 30, when: (selinux_disabled is defined and selinux_disabled.changed) or (iptables_disabled is defined and not iptables_disabled) or (force_restart is defined and force_restart)  }
   - { role: apigee-opdk-setup-os-common, tags: ['os-common'] }
   - { role: apigee-opdk-setup-openjdk-cache, tags: ['cache','openjdk','openjdk-cache'], jdk_version: '1.8' }
   - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
