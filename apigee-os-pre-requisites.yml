@@ -8,6 +8,7 @@
   - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove']}
+  - { role: apigee-opdk-yum-repository-proxy-config, tags: ['yum-proxy-config']}
   - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
   - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
