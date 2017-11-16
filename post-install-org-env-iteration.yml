@@ -12,17 +12,17 @@
 
 - name: Update Status Attributes
   tags: ['status']
-  import_role:
+  include_role:
     name: apigee-opdk-setup-status
 
 - name: Create provisioning file
   tags: ['org-config']
-  import_role:
+  include_role:
     name: apigee-opdk-setup-org-config
 
 - name: Create Org and Env
   tags: ['org-create']
-  import_role:
+  include_role:
     name: apigee-opdk-setup-org
 
 
