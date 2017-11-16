@@ -1,0 +1,11 @@
+---
+- name: Update ui nodes with keystore and run configure ssl
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  become: yes
+  tags: ['ui']
+  vars_files: 
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  roles: 
+  - { role: apigee-opdk-setup-edge-tls }
