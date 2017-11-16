@@ -4,7 +4,6 @@
     org_name: "{{ orgs_env_setup.org }}"
     env_name: "{{ orgs_env_setup.env }}"
     new_user: 'n'
-    load_balancer:
 
 - name: Report local attributes
   debug:
