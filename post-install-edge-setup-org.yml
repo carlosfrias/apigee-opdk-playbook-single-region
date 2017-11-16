@@ -1,0 +1,23 @@
+---
+- name: Setup Multiple Orgss
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  vars:
+    orgs_env_setups:
+    - { org: rbc-apigee, env: sb }
+    - { org: rbc-apigee, env: prod }
+    - { org: rbc-apigee, env: prod-external }
+#  roles:
+#  - { role: apigee-opdk-setup-status, tags: ['status'] }
+#  - { role: apigee-opdk-setup-org-config, tags: ['org-config'] }
+#  - { role: apigee-opdk-setup-org, tags: ['org-create'] }
+
+  tasks:
+  - name: Iterate over Orgs and Envs
+    include_tasks: org_env_iteration.yml
+    with_items: "{{ orgs_env_setups }}"
+    loop_control:
+      loop_var: orgs_env_setup

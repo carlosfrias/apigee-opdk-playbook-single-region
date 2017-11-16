@@ -1,0 +1,28 @@
+---
+- name: Set local attributes
+  set_fact:
+    org_name: "{{ orgs_env_setup.org }}"
+    env_name: "{{ orgs_env_setup.env }}"
+    new_user: 'n'
+    load_balancer:
+
+- name: Report local attributes
+  debug:
+    msg: "org_name: {{ org_name }}\n env_name: {{ env_name }}"
+
+- name: Update Status Attributes
+  tags: ['status']
+  import_role:
+    name: apigee-opdk-setup-status
+
+- name: Create provisioning file
+  tags: ['org-config']
+  import_role:
+    name: apigee-opdk-setup-org-config
+
+- name: Create Org and Env
+  tags: ['org-create']
+  import_role:
+    name: apigee-opdk-setup-org
+
+
