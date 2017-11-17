@@ -5,10 +5,6 @@
     env_name: "{{ orgs_env_setup.env }}"
     new_user: 'n'
 
-- name: Report local attributes
-  debug:
-    msg: "org_name: {{ org_name }}\n env_name: {{ env_name }}"
-
 - name: Update Status Attributes
   tags: ['status']
   include_role:
