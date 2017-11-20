@@ -38,14 +38,14 @@
   import_playbook: apigee-configuration.yml
   tags: ['mo','mo-config','config']
   vars:
-    target_hosts: ms,rmp
+    target_hosts: ms[0],rmp
     opdk_monetization: True
 
 - name: Apply configuration to Monetization node
   import_playbook: install-edge-monetization-component-setup.yml
   tags: ['mo','mo-setup']
   vars:
-    target_hosts: ms,rmp
+    target_hosts: ms[0],rmp
 
 - name: Apply configuration to Monetization node
   import_playbook: install-edge-monetization-component-provisioning.yml
@@ -57,4 +57,4 @@
   tags: ['logs']
   import_playbook: apigee-log-config-files.yml
   vars:
-    target_hosts: ms,rmp
+    target_hosts: ms[0],rmp
