@@ -46,6 +46,13 @@
   vars:
     target_hosts: dp-db
 
+- name: Install Postgres node
+  import_playbook: edge-expansion-pgmaster-pgstandby-node-config.yml
+  tags: ['pg','pg-expand']
+  vars:
+    pg_master_node: 'dp-db-pgmaster'
+    pg_standby_node: 'dp-db-pgstandby'
+
 - name: Apply configuration to DevPortal UI node
   import_playbook: install-devportal-ui-component-setup.yml
   tags: ['dp']

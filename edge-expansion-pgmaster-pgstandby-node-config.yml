@@ -1,6 +1,6 @@
 ---
 - name: Configure Postgres Master
-  hosts: pgmaster
+  hosts: "{{ pg_master_node }}"
   gather_facts: no
   serial: 1
   tags: ['pg', 'pgmaster']
@@ -9,7 +9,7 @@
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
 - name: Configure Postgres Standby
-  hosts: pgstandby
+  hosts: "{{ pg_standby_node }}"
   gather_facts: no
   serial: 1
   tags: ['pg', 'pgstandby']

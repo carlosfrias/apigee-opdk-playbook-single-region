@@ -109,6 +109,9 @@
 - name: Install Postgres node
   import_playbook: edge-expansion-pgmaster-pgstandby-node-config.yml
   tags: ['pg','pg-expand']
+  vars:
+    pg_master_node: 'pgmaster'
+    pg_standby_node: 'pgstandby'
 
 - name: Setup org
   import_playbook: install-edge-setup-org.yml
