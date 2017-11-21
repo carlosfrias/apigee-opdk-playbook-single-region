@@ -110,3 +110,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-devportal-postgres-config.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-devportal-drupal-updates.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-yum-repository-proxy-config.git
