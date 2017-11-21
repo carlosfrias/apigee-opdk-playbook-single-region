@@ -47,7 +47,7 @@
     target_hosts: dp-db
 
 - name: Install Postgres node
-  import_playbook: edge-expansion-pgmaster-pgstandby-node-config.yml
+  import_playbook: edge-pgmaster-pgstandby-node-config.yml
   tags: ['pg','pg-expand']
   vars:
     pg_master_node: 'dp-db-pgmaster'
