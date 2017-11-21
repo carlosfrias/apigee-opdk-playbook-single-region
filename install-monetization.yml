@@ -57,4 +57,4 @@
   tags: ['logs']
   import_playbook: apigee-log-config-files.yml
   vars:
-    target_hosts: ms[0],rmp
+    target_hosts: ms,rmp
