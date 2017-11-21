@@ -119,7 +119,7 @@
     target_hosts: pg
 
 - name: Install Postgres node
-  include: edge-expansion-pgmaster-pgstandby-node-config.yml
+  include: edge-pgmaster-pgstandby-node-config.yml
   tags: ['pg','pg-expand']
 
 - name: Validate RMP
