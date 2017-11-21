@@ -1,0 +1,12 @@
+---
+- name: Update sudoers file for NOPASSWD
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+
+  tasks:
+  - name: Update user with NOPASSWD
+    lineinfile:
+      state: present
+      line: "{{ user }} ALL = NOPASSWD : ALL"
+      path: /etc/sudoers
+      validate: '/usr/sbin/visudo -cf %s'
