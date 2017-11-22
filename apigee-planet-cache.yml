@@ -1,7 +1,7 @@
 ---
 - name: Update nodes with common OS pre-requisites
   hosts: "{{ target_hosts }}"
-  gather_facts: no
+  gather_facts: yes
   become: no
   tags: ['cache']
   vars_files:
