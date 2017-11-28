@@ -1,20 +1,24 @@
 ---
 - name: Update cache for planet
   include: apigee-planet-cache.yml
+  tags: ['cache']
   vars:
-    target_hosts: planet
+    target_hosts: "{{ target_hosts }}"
 
 - name: Install and configure Apigee bootstrap
-  include: apigee-pre-requisites-bootstrap.yml
+  import_playbook: apigee-pre-requisites-bootstrap.yml
+  tags: ['bootstrap']
   vars:
-    target_hosts: planet
+    target_hosts: "{{ target_hosts }}"
     upgrade_edge: True
 
 - name: Install and configure Apigee common installation
-  include: apigee-pre-requisites-common-update.yml
+  import_playbook: apigee-pre-requisites-common-update.yml
+  tags: ['common']
   vars:
-    target_hosts: planet
+    target_hosts: "{{ target_hosts }}"
     upgrade_edge: True
 
 - name: Upgrade Edge instance on planet
-  include: upgrade-edge-planet.yml
+  tags: ['upgrade']
+  import_playbook: upgrade-edge-planet.yml
