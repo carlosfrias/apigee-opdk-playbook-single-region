@@ -146,3 +146,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-debug-mode.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-provisioning.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-monetization-mgmt-cluster.git
