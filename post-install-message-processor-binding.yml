@@ -11,7 +11,7 @@
 
   tasks:
   - name: Bind message processors to environments
-    include_role:
+    import_role:
       name: apigee-opdk-setup-message-processor-bind-environment
     vars:
       org_name: "{{ item.org }}"
