@@ -1,7 +1,4 @@
 ---
-- name: Load credentials
-  include_vars: ~/.apigee-secure/credentials.yml
-
 - name: Update planet cache
   import_playbook: apigee-planet-cache.yml
   tags: ['cache']
@@ -204,6 +201,10 @@
   gather_facts: no
   tags: ['ms-self', 'self']
   serial: 1
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self'] }
 
@@ -212,6 +213,10 @@
   gather_facts: no
   tags: ['r-self', 'self']
   serial: 1
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
   - { role: apigee-opdk-server-self, server_types: ['r'], tags: ['self'] }
 
@@ -219,6 +224,10 @@
   hosts: rmp
   tags: ['mp-self', 'self']
   serial: 1
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
   - { role: apigee-opdk-server-self, server_types: ['mp'], tags: ['self'] }
 
@@ -227,6 +236,10 @@
   gather_facts: no
   tags: ['qpid-self', 'self']
   serial: 1
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
   - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self'] }
 
@@ -235,6 +248,10 @@
   gather_facts: no
   tags: ['ps-self', 'self']
   serial: 1
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self'] }
 
@@ -242,6 +259,10 @@
   hosts: rmp
   gather_facts: no
   tags: ['r-registration']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
     - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_router_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
 
@@ -249,6 +270,10 @@
   hosts: rmp
   gather_facts: no
   tags: ['mp-registration']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
     - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_mp_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
 
@@ -256,6 +281,10 @@
   hosts: qpid
   gather_facts: no
   tags: ['qpid-registration']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
     - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_qs_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
 
@@ -263,6 +292,10 @@
   hosts: pg
   gather_facts: no
   tags: ['pg-registration']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
     - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_ps_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
 
@@ -270,6 +303,10 @@
   hosts: ms
   gather_facts: no
   tags: ['scope']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   roles:
   - { role: apigee-opdk-setup-scopes-state,
       ax_group: "{{ scopes_axgroup | default('axgroup001') }}"
