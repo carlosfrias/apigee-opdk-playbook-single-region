@@ -2,7 +2,6 @@
 - name: Update apigee-pre-req for the planet
   hosts: "{{ target_hosts }}"
   gather_facts: no
-  serial: 1
   tags: ['apigee-config']
   vars_files:
   - ~/.apigee-secure/credentials.yml
