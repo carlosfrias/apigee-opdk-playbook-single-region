@@ -18,7 +18,7 @@
   hosts: ms
   serial: 1
   gather_facts: no
-  tags: ['ms']
+  tags: ['mint-cluster']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
