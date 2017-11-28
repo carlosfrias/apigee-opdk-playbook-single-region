@@ -1,4 +1,7 @@
 ---
+- name: Load credentials
+  include_vars: ~/.apigee-secure/credentials.yml
+
 - name: Update planet cache
   import_playbook: apigee-planet-cache.yml
   tags: ['cache']
