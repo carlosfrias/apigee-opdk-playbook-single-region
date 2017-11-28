@@ -8,10 +8,3 @@
   - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-provisioning, provisioning_action: 'enable-monetization', provisioning_config_file: '{{ opdk_installation_config_file }}'}
-
-  tasks:
-  - name: Mint configure management cluster
-    shell: "{{ apigee_service }} edge-management-server mint-configure-mgmt-cluster"
-
-  - name: Restart server
-    shell: "{{ apigee_service }} edge-management-server restart"
