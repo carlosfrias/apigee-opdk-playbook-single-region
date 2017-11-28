@@ -51,7 +51,7 @@
   import_playbook: install-edge-monetization-mgmt-cluster.yml
   tags: ['mo','mo-setup','mint-cluster']
   vars:
-    target_hosts: dc-1-ms[0],dc-2-ms[0]
+    target_hosts: ms
 
 - name: Apply configuration to Monetization node
   import_playbook: install-edge-monetization-component-provisioning.yml
