@@ -10,3 +10,18 @@
   - { role: apigee-opdk-setup-component, profile: 'mo',tags: ['apigee-component']  }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
+
+- name: Configure Management Server
+  hosts: ms
+  serial: 1
+  gather_facts: no
+  tags: ['mint-cluster']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  tasks:
+  - name: Mint configure management cluster
+    shell: "{{ apigee_service }} edge-management-server mint-configure-mgmt-cluster"
+
+  - name: Restart server
+    shell: "{{ apigee_service }} edge-management-server restart"
