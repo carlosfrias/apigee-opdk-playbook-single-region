@@ -36,8 +36,21 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
-  roles:
-  - { role: apigee-opdk-setup-bootstrap-create-archive, tags: ['create-archive'] }
+  tasks:
+  - name: Loop over archives needed
+    tags: ['create-archive']
+    include_role:
+      name: apigee-opdk-setup-bootstrap-create-archive
+    vars:
+      apigee_mirror_version: "{{ item }}"
+    with_items:
+#    - 4.16.01
+#    - 4.16.05
+#    - 4.16.09
+    - 4.17.01
+    - 4.17.05
+    - 4.17.09
+
 
 - name: Download apigee mirror archive
   hosts: cfmirror
