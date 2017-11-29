@@ -61,3 +61,5 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-config.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-update-component-inplace.git
+
