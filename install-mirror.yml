@@ -8,7 +8,7 @@
 - name: Install and configure OS pre-requisites for mirror
   hosts: cfmirror
   gather_facts: no
-  tags: ['os-pre-req']
+  tags: ['os']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
