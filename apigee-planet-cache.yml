@@ -1,5 +1,5 @@
 ---
-- name: Update nodes with common OS pre-requisites
+- name: Update cache for nodes
   hosts: "{{ target_hosts }}"
   gather_facts: yes
   become: no
