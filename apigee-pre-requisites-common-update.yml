@@ -6,7 +6,7 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   strategy: free
-  tags: ['common-update']
+  tags: ['common']
   roles:
   - { role: apigee-opdk-update-component-inplace, component: 'apigee-setup', tags: ['setup', 'apigee-component-update'] }
   - { role: apigee-opdk-update-component-inplace, component: 'apigee-adminapi', tags: ['adminapi', 'apigee-component-update'] }
@@ -19,7 +19,7 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   strategy: free
-  tags: ['common-update']
+  tags: ['common']
   roles:
   - { role: apigee-opdk-update-component-inplace, component: 'apigee-validate', tags: ['validate', 'apigee-component-update'] }
   - { role: apigee-opdk-update-component-inplace, component: 'apigee-provision', tags: ['provision', 'apigee-component-update'] }
