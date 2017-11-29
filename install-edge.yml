@@ -20,7 +20,7 @@
   import_playbook: apigee-os-pre-requisites-openldap.yml
   tags: ['os']
   vars:
-    target_hosts: edge
+    target_hosts: ms
 
 - name: Install and configure Pip pre-requisites
   import_playbook: apigee-os-pre-requisites-pip.yml
