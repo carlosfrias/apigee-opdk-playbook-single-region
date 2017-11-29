@@ -3,7 +3,7 @@
   import_playbook: apigee-planet-cache.yml
   tags: ['cache']
   vars:
-    target_hosts: cfmirror
+    target_hosts: cfmirror,ms
 
 - name: Install and configure OS pre-requisites for mirror
   hosts: cfmirror
