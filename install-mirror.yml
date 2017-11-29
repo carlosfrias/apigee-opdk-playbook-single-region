@@ -25,7 +25,7 @@
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
-  tags: ['apigee-pre-req']
+  tags: ['bootstrap']
   vars:
     target_hosts: cfmirror
 
