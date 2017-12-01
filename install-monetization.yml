@@ -57,7 +57,7 @@
   import_playbook: install-edge-monetization-component-provisioning.yml
   tags: ['mo','mo-setup','mo-provisioning','provisioning']
   vars:
-    target_hosts: rmp
+    target_hosts: ms[0]
 
 - name: Download logs and configs
   tags: ['logs']
