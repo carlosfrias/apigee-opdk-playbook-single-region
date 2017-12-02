@@ -13,7 +13,7 @@
       msg: "Please provide the missing attribute"
 
   - name: Decommission cassandra node
-    shell: "{{ nodetool }} -h {{ private_address }} -p {{ cassandra_thrift_client_port }} decommission"
+    shell: "{{ nodetool }} decommission"
 
   - name: Delete the server
     uri:
