@@ -24,7 +24,7 @@
 
   - name: Deregister server's type
     uri:
-      url: http://{{ local_mgmt_ip }}:8080/v1/servers
+      url: "http://{{ local_mgmt_ip }}:8080/v1/servers"
       method: POST
       user: '{{ opdk_user_email }}'
       password: '{{ opdk_user_pass }}'
