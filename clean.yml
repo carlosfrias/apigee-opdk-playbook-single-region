@@ -17,7 +17,7 @@
       path: '{{ item }}'
       state: absent
     with_items: "{{ clean_dirs }}"
-    when: clean_scope | default('all')
+    when: clean_scope is not defined
 
   - name: Clean roles folder only
     tags: ['roles']
