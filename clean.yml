@@ -25,7 +25,7 @@
     file:
       path: '{{ item }}'
       state: absent
-    with_items: "{{ clean_dirs }}"
+    with_items: "{{ clean_dirs[1] }}"
     when: clean_scope is defined and clean_scope | trim == "roles"
 
   - name: Reset folders
