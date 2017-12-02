@@ -11,12 +11,22 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   tasks:
-  - name: Clean folders
+  - name: Clean all folders
     ignore_errors: yes
     file:
       path: '{{ item }}'
       state: absent
     with_items: "{{ clean_dirs }}"
+    when: clean_scope | default('all')
+
+  - name: Clean roles folder only
+    tags: ['roles']
+    ignore_errors: yes
+    file:
+      path: '{{ item }}'
+      state: absent
+    with_items: "{{ clean_dirs }}"
+    when: clean_scope is defined | clean_scope | trim == "roles"
 
   - name: Reset folders
     ignore_errors: yes
