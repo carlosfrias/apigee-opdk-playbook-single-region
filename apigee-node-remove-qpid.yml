@@ -2,8 +2,11 @@
 - name: Playbook to remove a qpid instance
   hosts: "{{ target_hosts }}"
   gather_facts: no
-
+ 
   tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   - name: Set attributes if available
     ignore_errors: true
     set_fact:
