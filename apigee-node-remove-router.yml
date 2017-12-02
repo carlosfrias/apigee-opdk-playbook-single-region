@@ -10,8 +10,8 @@
   - name: Set attributes if available
     ignore_errors: true
     set_fact:
-      uuid: "{{ edge_router_self.uUID }}"
-      server_type: "{{ edge_router_self.type[0] }}"
+      uuid: "{{ edge_r_self.uUID }}"
+      server_type: "{{ edge_r_self.type[0] }}"
 
   - name: Assert variables exist
     assert:
