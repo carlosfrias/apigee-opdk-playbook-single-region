@@ -1,0 +1,41 @@
+---
+- name: Playbook to remove a qpid instance
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+
+  tasks:
+  - name: Set attributes if available
+    ignore_errors: true
+    set_fact:
+      uuid: "{{ edge_qs_self.uUID }}"
+      server_type: "{{ edge_qs_self.type[0] }}"
+
+  - name: Assert variables exist
+    assert:
+      that:
+      - pod_name is defined and pod_name | trim | length > 0
+      - uuid is defined and uuid | trim | length > 0
+      - axgroup is defined and axgroup | trim | length > 0
+      - consumer_group is defined and consumer_group | trim | length > 0
+      msg: "Please provide the missing attribute"
+
+  - name: Remove qpid from consumer group
+    uri:
+      url: http://{{ local_mgmt_ip }}:8080/v1/analytics/groups/ax/{{ axgroup }}/consumer-groups/{{ consumer_group }}/consumers/{{ uuid }}
+      method: DELETE
+      user: '{{ opdk_user_email }}'
+      password: '{{ opdk_user_pass }}'
+
+  - name: Remove qpid from analytics group
+    uri:
+      url: http://{{ local_mgmt_ip }}:8080/v1/analytics/groups/ax/{{ axgroup }}/servers?uuid={{ uuid }}&type={{ server_type }}
+      method: DELETE
+      user: '{{ opdk_user_email }}'
+      password: '{{ opdk_user_pass }}'
+
+  - name: Delete the server
+    uri:
+      url: http://{{ local_mgmt_ip }}:8080/v1/servers/{{ uuid }}
+      method: DELETE
+      user: '{{ opdk_user_email }}'
+      password: '{{ opdk_user_pass }}'

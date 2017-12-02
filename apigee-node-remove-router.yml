@@ -1,0 +1,41 @@
+---
+- name: Playbook to remove an Router
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+
+  tasks:
+  - name: Set attributes if available
+    ignore_errors: true
+    set_fact:
+      uuid: "{{ edge_router_self.uUID }}"
+      server_type: "{{ edge_router_self.type[0] }}"
+
+  - name: Assert variables exist
+    assert:
+      that:
+      - region is defined and region | trim | length > 0
+      - pod_name is defined and pod_name | trim | length > 0
+      - uuid is defined and uuid | trim | length > 0
+      - server_type is defined and server_type | trim | length > 0
+      msg: "Please provide the missing attribute"
+
+  - name: Deregister server's type
+    uri:
+      url: http://{{ local_mgmt_ip }}:8080/v1/servers
+      method: POST
+      user: '{{ opdk_user_email }}'
+      password: '{{ opdk_user_pass }}'
+      HEADER_Content-Type: 'application/x-www-form-urlencoded'
+      body:
+        uuid: '{{ uuid }}'
+        region: '{{ region }}'
+        pod: '{{ pod_name }}'
+        type: '{{ server_type }}'
+        action: remove
+
+  - name: Delete the server
+    uri:
+      url: http://{{ local_mgmt_ip }}:8080/v1/servers/{{ uuid }}
+      method: DELETE
+      user: '{{ opdk_user_email }}'
+      password: '{{ opdk_user_pass }}'
