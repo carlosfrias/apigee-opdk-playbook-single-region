@@ -34,7 +34,7 @@
         region: '{{ region }}'
         pod: '{{ pod_name }}'
         type: '{{ server_type }}'
-        action: remove
+        action: 'remove'
 
   - name: Delete the server
     uri:
