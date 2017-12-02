@@ -370,6 +370,11 @@
   hosts: ms
   gather_facts: no
   tags: ['ldap']
+
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   tasks:
   - name: Show LDAP system user
     shell: "ldapsearch -D 'cn=manager,dc=apigee,dc=com' -b 'dc=apigee,dc=com' -LLL -h {{ inventory_hostname }} -p {{ ldap_data_port }} -w {{ opdk_ldap_pass }}"
@@ -383,6 +388,10 @@
   hosts: ms
   gather_facts: no
   tags: ['users']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   tasks:
   - name: List users
     uri:
@@ -415,6 +424,10 @@
   hosts: ms[0]
   gather_facts: no
   tags: ['axstatus']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   tasks:
   - name: List users
     uri:
@@ -431,6 +444,10 @@
   hosts: ms[0]
   gather_facts: no
   tags: ['axgroups']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   tasks:
   - name: List users
     uri:
@@ -447,6 +464,10 @@
   hosts: pgmaster
   gather_facts: no
   tags: ['axtables']
+  pre_tasks:
+  - name: Load credentials
+    include_vars: '~/.apigee-secure/credentials.yml'
+
   tasks:
   - name: Describe postgres analytics table
     shell: "{{ psql }} -h {{ apigee_home }}/var/run/apigee-postgresql -w {{ pg_pass }} -c \"\\d analytics.'{{ org_name }}.{{ env_name }}.fact'\" -U {{ pg_user }} apigee"
