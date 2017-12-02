@@ -27,7 +27,8 @@
       method: POST
       user: '{{ opdk_user_email }}'
       password: '{{ opdk_user_pass }}'
-      HEADER_Content-Type: 'application/x-www-form-urlencoded'
+      header:
+        Content-Type: 'application/x-www-form-urlencoded'
       body:
         uuid: '{{ uuid }}'
         region: '{{ region }}'
