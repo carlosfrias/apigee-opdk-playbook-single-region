@@ -13,7 +13,6 @@
   - name: Assert variables exist
     assert:
       that:
-      - pod_name is defined and pod_name | trim | length > 0
       - uuid is defined and uuid | trim | length > 0
       - axgroup is defined and axgroup | trim | length > 0
       - consumer_group is defined and consumer_group | trim | length > 0
