@@ -11,6 +11,6 @@
   - { role: apigee-opdk-setup-target-links, tags: ['links'] }
   - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user'] }
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user'] }
-  - { role: apigee-opdk-setup-java-home, tags: ['java_home'] }
+  - { role: apigee-opdk-setup-java-home, tags: ['java-home'] }
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
   - { role: apigee-opdk-setup-license, tags: ['license'] }
