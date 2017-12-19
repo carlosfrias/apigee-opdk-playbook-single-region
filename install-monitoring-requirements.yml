@@ -104,3 +104,7 @@
 - src: https://github.com/carlosfrias/apigee-opdk-yum-packages.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-pip.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-temporary-remove-targets.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-yum-repository-proxy-config.git
