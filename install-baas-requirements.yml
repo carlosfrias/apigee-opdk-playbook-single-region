@@ -148,3 +148,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-setup-message-processor-bind-environment.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-baas-silent-installation-config.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-baas-create-org-and-user.git
