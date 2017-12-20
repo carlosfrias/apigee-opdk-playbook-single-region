@@ -1,0 +1,6 @@
+---
+- name: Setup edge-ui TLS 
+  import_playbook: setup-edge-tls-ui.yml
+  tags: ['ui', 'ui-tls-setup']
+  vars:
+    target_hosts: ms
