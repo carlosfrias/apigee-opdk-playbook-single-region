@@ -15,7 +15,7 @@
     target_hosts: planet
 
 - name: Configure Apigee pre-requisites
-  include: apigee-configuration.yml
+  include: apigee-edge-configuration.yml
   vars:
     target_hosts: planet
 

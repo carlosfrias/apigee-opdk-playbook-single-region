@@ -47,7 +47,7 @@
     target_hosts: edge
 
 - name: Configure Cassandra & Zookeeper node
-  import_playbook: apigee-configuration.yml
+  import_playbook: apigee-edge-configuration.yml
   tags: ['ds','ds-config','config']
   vars:
     target_hosts: ds
@@ -59,7 +59,7 @@
     target_hosts: ds
 
 - name: Configure MS node
-  import_playbook: apigee-configuration.yml
+  import_playbook: apigee-edge-configuration.yml
   tags: ['ms','ms-config','config']
   vars:
     target_hosts: ms
@@ -71,7 +71,7 @@
     target_hosts: ms
 
 - name: Configure RMP node
-  import_playbook: apigee-configuration.yml
+  import_playbook: apigee-edge-configuration.yml
   tags: ['rmp','rmp-config','config']
   vars:
     target_hosts: rmp
@@ -83,7 +83,7 @@
     target_hosts: rmp
 
 - name: Configure Qpid node
-  import_playbook: apigee-configuration.yml
+  import_playbook: apigee-edge-configuration.yml
   tags: ['qpid','qpid-config','config']
   vars:
     target_hosts: qpid
@@ -95,7 +95,7 @@
     target_hosts: qpid
 
 - name: Configure Apigee pre-requisites
-  import_playbook: apigee-configuration.yml
+  import_playbook: apigee-edge-configuration.yml
   tags: ['pg','pg-config','config']
   vars:
     target_hosts: pg

@@ -1,0 +1,11 @@
+---
+- name: Setup org on dc-1
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  roles:
+  - { role: apigee-opdk-setup-status, tags: ['status'] }
+  - { role: apigee-opdk-baas-create-org-and-user, tags: ['org-create'] }
+

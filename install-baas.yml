@@ -1,0 +1,75 @@
+---
+- name: Update planet cache
+  import_playbook: apigee-planet-cache.yml
+  vars:
+    target_hosts: edge
+
+- name: Install and configure OS pre-requisites
+  import_playbook: apigee-os-pre-requisites.yml
+  tags: ['os']
+  vars:
+    target_hosts: edge
+
+- name: Install and configure Openldap pre-requisites
+  import_playbook: apigee-os-pre-requisites-epel.yml
+  tags: ['os']
+  vars:
+    target_hosts: edge
+
+- name: Install and configure Pip pre-requisites
+  import_playbook: apigee-os-pre-requisites-pip.yml
+  tags: ['os']
+  vars:
+    target_hosts: edge
+
+- name: Install Apigee pre-requisites
+  import_playbook: apigee-pre-requisites-bootstrap.yml
+  tags: ['bootstrap']
+  vars:
+    target_hosts: edge
+
+- name: Install Apigee pre-requisites
+  import_playbook: apigee-pre-requisites-common-install.yml
+  tags: ['common']
+  vars:
+    target_hosts: edge
+
+- name: Configure Cassandra & Zookeeper node
+  import_playbook: apigee-baas-configuration.yml
+  tags: ['baas','baas-config','config']
+  vars:
+    target_hosts: dc-1-cassandra
+
+- name: Apply configuration to Cassandra node
+  import_playbook: install-profile-component-setup.yml
+  tags: ['baas','baas-setup']
+  vars:
+    target_hosts: dc-1-cassandra
+    component_profile: c
+
+- name: Apply configuration to Cassandra node
+  import_playbook: install-profile-component-setup.yml
+  tags: ['baas','baas-setup']
+  vars:
+    target_hosts: dc-1-cassandra
+    component_profile: e
+
+- name: Apply configuration to Cassandra node
+  import_playbook: install-profile-component-setup.yml
+  tags: ['baas','baas-setup']
+  vars:
+    target_hosts: dc-1-cassandra
+    component_profile: b
+
+- name: Apply configuration to Cassandra node
+  import_playbook: install-profile-component-setup.yml
+  tags: ['baas','baas-setup']
+  vars:
+    target_hosts: dc-1-cassandra
+    component_profile: p
+
+- name: Setup org
+  import_playbook: install-baas-setup-org.yml
+  tags: ['org']
+  vars:
+    target_hosts: ms[0]

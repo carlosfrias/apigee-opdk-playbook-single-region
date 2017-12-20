@@ -35,7 +35,7 @@
     target_hosts: ms,rmp
 
 - name: Configure Monetization node
-  import_playbook: apigee-configuration.yml
+  import_playbook: apigee-edge-configuration.yml
   tags: ['mo','mo-config','config']
   vars:
     target_hosts: ms,rmp

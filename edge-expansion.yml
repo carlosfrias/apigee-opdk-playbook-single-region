@@ -23,7 +23,7 @@
     target_hosts: planet
 
 - name: Configure Cassandra & Zookeeper node
-  include: apigee-configuration.yml
+  include: apigee-edge-configuration.yml
   tags: ['ds','ds-config']
   vars:
     target_hosts: dc-2-ds,dc-1-ds
@@ -36,7 +36,7 @@
     target_hosts: dc-2-ds,dc-1-ds
 
 - name: Configure MS node on dc-1
-  include: apigee-configuration.yml
+  include: apigee-edge-configuration.yml
   tags: ['ms','ms-config']
   vars:
     target_hosts: dc-1-ms
@@ -61,7 +61,7 @@
     target_hosts: dc-2-ds
 
 - name: Configure MS node on dc-2
-  include: apigee-configuration.yml
+  include: apigee-edge-configuration.yml
   tags: ['ms','ms-config']
   vars:
     target_hosts: dc-2-ms
@@ -74,7 +74,7 @@
     target_hosts: dc-2-ms
 
 - name: Configure RMP node
-  include: apigee-configuration.yml
+  include: apigee-edge-configuration.yml
   tags: ['rmp','rmp-config']
   vars:
     target_hosts: dc-2-rmp,dc-1-rmp
@@ -87,7 +87,7 @@
     target_hosts: dc-2-rmp,dc-1-rmp
 
 - name: Configure Qpid node
-  include: apigee-configuration.yml
+  include: apigee-edge-configuration.yml
   tags: ['qpid','qpid-config']
   vars:
     target_hosts: dc-2-qpid
@@ -106,7 +106,7 @@
     target_hosts: dc-2-qpid
 
 - name: Configure Qpid node
-  include: apigee-configuration.yml
+  include: apigee-edge-configuration.yml
   tags: ['pg','pg-config']
   vars:
     target_hosts: pg
