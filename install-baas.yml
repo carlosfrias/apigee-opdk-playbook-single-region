@@ -34,27 +34,39 @@
   vars:
     target_hosts: planet
 
-- name: Configure Cassandra & Zookeeper node
+- name: Configure Cassandra node
   import_playbook: apigee-baas-configuration.yml
   tags: ['baas','baas-config','config']
   vars:
     target_hosts: dc-1-cassandra
 
-- name: Apply configuration to Cassandra node
+- name: Apply Cassandra node
   import_playbook: install-profile-component-setup.yml
-  tags: ['baas','baas-setup']
+  tags: ['cassandra','cassandra-setup']
   vars:
     target_hosts: dc-1-cassandra
     component_profile: c
 
+- name: Configure elastic node
+  import_playbook: apigee-baas-configuration.yml
+  tags: ['elastic','elastic-config','config']
+  vars:
+    target_hosts: dc-1-elastic
+
 - name: Apply configuration to Cassandra node
   import_playbook: install-profile-component-setup.yml
-  tags: ['baas','baas-setup']
+  tags: ['elastic','elastic-setup']
   vars:
     target_hosts: dc-1-elastic
     component_profile: e
 
-- name: Apply configuration to Cassandra node
+- name: Configure baas node
+  import_playbook: apigee-baas-configuration.yml
+  tags: ['baas','baas-config','config']
+  vars:
+    target_hosts: dc-1-baas
+
+- name: Apply configuration to baas node
   import_playbook: install-profile-component-setup.yml
   tags: ['baas','baas-setup']
   vars:
@@ -63,7 +75,7 @@
 
 - name: Apply configuration to Cassandra node
   import_playbook: install-profile-component-setup.yml
-  tags: ['baas','baas-setup']
+  tags: ['portal','portal-setup']
   vars:
     target_hosts: dc-1-portal
     component_profile: p
