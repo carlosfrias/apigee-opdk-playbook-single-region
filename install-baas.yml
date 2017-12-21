@@ -36,7 +36,7 @@
 
 - name: Configure Cassandra node
   import_playbook: apigee-baas-configuration.yml
-  tags: ['cassandra','baas-config','config']
+  tags: ['cassandra','cassandra-config','config']
   vars:
     target_hosts: dc-1-cassandra
 
