@@ -2,37 +2,37 @@
 - name: Update planet cache
   import_playbook: apigee-planet-cache.yml
   vars:
-    target_hosts: edge,baas,elastic,portal,cassandra
+    target_hosts: baas,elastic,portal,cassandra
 
 - name: Install and configure OS pre-requisites
   import_playbook: apigee-os-pre-requisites.yml
   tags: ['os']
   vars:
-    target_hosts: edge,baas,elastic,portal,cassandra
+    target_hosts: baas,elastic,portal,cassandra
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
   tags: ['os']
   vars:
-    target_hosts: edge,baas,elastic,portal,cassandra
+    target_hosts: baas,elastic,portal,cassandra
 
 - name: Install and configure Pip pre-requisites
   import_playbook: apigee-os-pre-requisites-pip.yml
   tags: ['os']
   vars:
-    target_hosts: edge,baas,elastic,portal,cassandra
+    target_hosts: baas,elastic,portal,cassandra
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
   vars:
-    target_hosts: edge,baas,elastic,portal,cassandra
+    target_hosts: baas,elastic,portal,cassandra
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-common-install.yml
   tags: ['common']
   vars:
-    target_hosts: edge,baas,elastic,portal,cassandra
+    target_hosts: baas,elastic,portal,cassandra
 
 - name: Configure Cassandra node
   import_playbook: apigee-baas-configuration.yml
