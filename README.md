@@ -1,5 +1,11 @@
 # Apigee OPDK Installation of a Single Data Center
 
+This repository contains Ansible playbooks that use roles to install Apigee Edge, Developer Portal, Baas and the 
+Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achieve the following:
+ 
+* [AIO Installation](install-edge-aio.yml) and dependencies with [AIO Installation Requirements](install-edge-aio-requirements.yml).
+
+
 ## Ansible Roles that support Apigee OPDK Installation
 
 The following ansible roles will be installed with the requirements.yml file:
