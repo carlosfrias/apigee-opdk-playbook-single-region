@@ -18,5 +18,6 @@ Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achi
 | [Clean Control Server](clean.yml) | [clean.yml](clean.yml) | NA | 
 | [Hard Remove of Apigee from a Node](apigee-node-rollback.yml) | [apigee-node-rollback.yml](apigee-node-rollback.yml) | NA |
 | [Download Apigee Logs](apigee-log-config-files.yml) | [apigee-log-config-files.yml](apigee-log-config-files.yml) | NA |
+| [Apigee Bash Scripts Debug Mode](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode.yml](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode-requirements.yml](apigee-opdk-debug-mode-requirements.yml) | 
 
 
