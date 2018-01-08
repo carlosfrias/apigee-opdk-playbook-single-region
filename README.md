@@ -15,7 +15,7 @@ Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achi
 | [Install Monetization](install-monetization.yml) | [install-monetization.yml](install-monetization.yml) | [install-monetization-requirements.yml](install-monetization-requirements.yml) |
 | [Add a Data Center to a Planet](edge-expansion.yml) | [edge-expansion.yml](edge-expansion.yml) | [edge-expansion-requirements.yml](edge-expansion-requirements.yml) |
 | [Upgrade Edge](upgrade-edge.yml) | [upgrade-edge.yml](upgrade-edge.yml) | [upgrade-edge-requirements.yml](upgrade-edge-requirements.yml) |
-| [Clean Control Server](clean.yml) | [clean.yml] (clean.yml) | NA | 
+| [Clean Control Server](clean.yml) | [clean.yml](clean.yml) | NA | 
 | [Hard Remove of Apigee from a Node](apigee-node-rollback.yml) | [apigee-node-rollback.yml](apigee-node-rollback.yml) | NA |
 | [Download Apigee Logs](apigee-log-config-files.yml) | [apigee-log-config-files.yml](apigee-log-config-files.yml) | NA |
 
