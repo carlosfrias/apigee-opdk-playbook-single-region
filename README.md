@@ -3,7 +3,7 @@
 This repository contains Ansible playbooks that use roles to install Apigee Edge, Developer Portal, Baas and the 
 Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achieve the following:
  
-## Installing Apigee Components 
+## Installing, Updating and Maintaining Apigee Components and Support Servers 
 | Playbook Description | Playbook Name | Playbook Role Requirements |
 | --- | --- | --- |
 | [Install AIO](install-edge-aio.yml) | [install-edge-aio.yml](install-edge-aio.yml) | [install-edge-aio-requirements.yml](install-edge-aio-requirements.yml) |
@@ -13,12 +13,10 @@ Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achi
 | [Install Monitoring Dashboard](install-monitoring.yml) | [install-monitoring.yml](install-monitoring.yml) | [install-monitoring-requirements.yml](install-monitoring-requirements.yml) |
 | [Install Apigee Mirror](install-mirror.yml) | [install-mirror.ym](install-mirror.yml) | [install-mirror-requirements.yml](install-mirror-requirements.yml) |
 | [Install Monetization](install-monetization.yml) | [install-monetization.yml](install-monetization.yml) | [install-monetization-requirements.yml](install-monetization-requirements.yml) |
+| [Add a Data Center to a Planet](edge-expansion.yml) | [edge-expansion.yml](edge-expansion.yml) | [edge-expansion-requirements.yml](edge-expansion-requirements.yml) |
+| [Upgrade Edge](upgrade-edge.yml) | [upgrade-edge.yml](upgrade-edge.yml) | [upgrade-edge-requirements.yml](upgrade-edge-requirements.yml) |
+| [Clean Control Server](clean.yml) | [clean.yml] (clean.yml) | NA | 
+| [Hard Remove of Apigee from a Node](apigee-node-rollback.yml) | [apigee-node-rollback.yml](apigee-node-rollback.yml) | NA |
+| [Download Apigee Logs](apigee-log-config-files.yml) | [apigee-log-config-files.yml](apigee-log-config-files.yml) | NA |
 
-## Expanding Apigee
-* [Add a Data Center to a Planet](edge-expansion.yml)
-* [Upgrade Edge](upgrade-edge.yml)
 
-## Node Maintenance Tasks
-* [Clean Control Server](clean.yml)
-* [Hard Remove of Apigee from a Node](apigee-node-rollback.yml)
-* [Download Apigee Logs](apigee-log-config-files.yml)
