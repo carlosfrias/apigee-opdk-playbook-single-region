@@ -3,7 +3,8 @@
 This repository contains Ansible playbooks that use roles to install Apigee Edge, Developer Portal, Baas and the 
 Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achieve the following:
  
-* [AIO Installation](install-edge-aio.yml) and dependencies with [AIO Installation Requirements](install-edge-aio-requirements.yml).
+* [AIO Installation](install-edge-aio.yml): Please obtain role dependencies with `ansible-galaxy install -r install-edge-aio-requirements.yml`
+
 
 
 ## Ansible Roles that support Apigee OPDK Installation
