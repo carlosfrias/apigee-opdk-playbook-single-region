@@ -6,7 +6,7 @@ Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achi
 ## Installing Apigee Components 
 | Playbook Description | Playbook Name | Playbook Role Requirements |
 |---|---|---|
-|[Install AIO](install-edge-aio.yml)|[install-edge-aio.yml]| [install-edge-aio-requirements.yml]|
+|[Install AIO](install-edge-aio.yml)|[install-edge-aio.yml](install-edge-aio.yml)| [install-edge-aio-requirements.yml](install-edge-aio-requirements.yml)|
 
 
 * [Install Edge](install-edge.yml)
