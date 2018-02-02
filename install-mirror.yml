@@ -50,7 +50,8 @@
   - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
 
 - name: Upload apigee mirror archive
-  hosts: cfmirror
+  hosts: cf-000,cf-001,cf-002,cf-003,cf-004
+#  hosts: cfmirror
   gather_facts: no
   tags: ['upload']
   vars_files:
@@ -60,7 +61,8 @@
   - { role: apigee-opdk-setup-bootstrap-upload-archive, tags: ['upload-archive'] }
 
 - name: Install apigee mirror archive
-  hosts: cfmirror
+  hosts: cf-000,cf-001,cf-002,cf-003,cf-004
+#  hosts: cfmirror
   gather_facts: no
   tags: ['install']
   vars_files:
