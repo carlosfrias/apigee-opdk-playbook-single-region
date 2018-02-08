@@ -63,9 +63,6 @@
   include: upgrade-edge-postgres-fix-pg_control-file.yml
   vars:
     hosts: pgmaster
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
   tags: ['pg_control']
 
 - name: Upgrade Postgres master
