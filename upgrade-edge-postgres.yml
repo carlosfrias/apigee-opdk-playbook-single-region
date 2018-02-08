@@ -89,15 +89,12 @@
   - ~/.apigee/custom-properties.yml
   tags: ['pgstandby']
   pre_tasks:
-  - name: Upgrade Postgres Standby node
-    import_playbook: apigee-edge-configuration.yml
-    tags: ['pgstandby','pgstandby-config','config']
-    vars:
-      target_hosts: pg
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
+  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, tags: ['os-pre-req'], clear_pgdata: True }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true }
@@ -136,13 +133,9 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
-  pre_tasks:
-  - name: Upgrade Pgstandby node
-    import_playbook: apigee-edge-configuration.yml
-    tags: ['pgstandby','pgstandby-config','config']
-    vars:
-      target_hosts: pg
   roles:
+  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-cwc-update, when: update_max_wal_settings is defined and update_max_wal_settings }
   - { role: apigee-opdk-stop-components, tags: ['stop'], when: update_max_wal_settings is defined and update_max_wal_settings  }
@@ -160,13 +153,10 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
-  - name: Upgrade PG Edge node
-    import_playbook: apigee-edge-configuration.yml
-    tags: ['pg','pg-config','config']
-    vars:
-      target_hosts: pg
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
+  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true  }
