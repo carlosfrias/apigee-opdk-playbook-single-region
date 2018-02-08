@@ -9,7 +9,7 @@
   roles:
   - { role: apigee-opdk-setup-component-install, component: 'apigee-telegraf', tags: ['telegraf'] }
   - { role: apigee-opdk-monitoring-telegraf-config, component: 'apigee-telegraf', tags: ['telegraf'] }
-  - { role: apigee-opdk-setup-component-setup, component: 'apigee-telegraf', config: "{{ telegraf_response_file }}", tags: ['telegraf'] }
+  - { role: apigee-opdk-setup-component, component: 'apigee-telegraf', config: "{{ telegraf_response_file }}", tags: ['telegraf'] }
   - { role: apigee-opdk-stop-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
