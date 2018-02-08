@@ -16,6 +16,12 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
+  pre_tasks:
+  - name: Upgrade managment node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['ms','ms-config','config']
+    vars:
+      target_hosts: ms
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self'] }
 
@@ -26,6 +32,12 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
+  pre_tasks:
+  - name: Upgrade rmp node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['rmp','rmp-config','config']
+    vars:
+      target_hosts: rmp
   roles:
   - { role: apigee-opdk-server-self, server_types: ['router', 'mp'], tags: ['self']  }
 
@@ -36,6 +48,12 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
+  pre_tasks:
+  - name: Upgrade qpid node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['qpid','qpid-config','config']
+    vars:
+      target_hosts: qpid
   roles:
   - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
 
@@ -46,6 +64,12 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
+  pre_tasks:
+  - name: Upgrade postgres node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['pg','pg-config','config']
+    vars:
+      target_hosts: pg
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
 
@@ -60,6 +84,12 @@
   vars:
     upgrade_component: cs,zk
   pre_tasks:
+  - name: Upgrade Cassandra & Zookeepernode
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['ds','ds-config','config']
+    vars:
+      target_hosts: ds
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -79,6 +109,12 @@
     upgrade_component: qpid
     block_port: '{{ qpid_messaging_port }}'
   pre_tasks:
+  - name: Upgrade Qpid node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['qpid','qpid-config','config']
+    vars:
+      target_hosts: qpid
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -101,6 +137,12 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Upgrade Openldap node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['ldap','ldap-config','config']
+    vars:
+      target_hosts: ldap
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -120,6 +162,12 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Upgrade qpid node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['qpid','qpid-config','config']
+    vars:
+      target_hosts: qpid
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -141,6 +189,12 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Upgrade Management Server node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['ms','ms-config','config']
+    vars:
+      target_hosts: ms
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -159,6 +213,11 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Upgrade RMP node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['rmp','rmp-config','config']
+    vars:
+      target_hosts: rmp
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -178,6 +237,11 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Upgrade UI node
+    import_playbook: apigee-edge-configuration.yml
+    tags: ['ui','ui-config','config']
+    vars:
+      target_hosts: ui
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
