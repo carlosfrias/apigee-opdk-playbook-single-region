@@ -1,6 +1,6 @@
 ---
 - name: Apigee components should be running
-  hosts: planet
+  hosts: edge
   strategy: free
   gather_facts: no
   roles:
