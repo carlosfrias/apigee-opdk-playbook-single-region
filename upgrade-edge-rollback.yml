@@ -1,6 +1,6 @@
 ---
 - name: Update the ansible cache
-  hosts: "{{ hosts }}"
+  hosts: "{{ target_hosts }}"
   gather_facts: no
   tags: ['cache']
   vars_files:
@@ -9,7 +9,7 @@
   - { role: apigee-opdk-setup-default-settings }
 
 - name: Rolling back installation of {{ component }} on {{ hosts }} to {{ opdk_version }}
-  hosts: '{{ hosts }}'
+  hosts: '{{ target_hosts }}'
   gather_facts: no
   tags: ['rollback']
   vars:
@@ -19,7 +19,7 @@
   - { role: apigee-server-restart, tags: ['restart-server'] }
 
 - name: Rolling back installation of {{ component }} on {{ hosts }} to {{ opdk_version }}
-  hosts: '{{ hosts }}'
+  hosts: '{{ target_hosts }}'
   gather_facts: no
   tags: ['apigee-pre-req']
   vars:
@@ -31,7 +31,7 @@
   - { role: apigee-opdk-setup-bootstrap, tags: ['apigee-bootstrap'] }
 
 - name: Rolling back installation of {{ component }} on {{ hosts }} to {{ opdk_version }}
-  hosts: '{{ hosts }}'
+  hosts: '{{ target_hosts }}'
   gather_facts: no
   tags: ['apigee-component']
   vars:
