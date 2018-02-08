@@ -3,6 +3,9 @@
   hosts: pg
   gather_facts: no
   tags: ['pgstop']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role:  apigee-opdk-stop-components, component_name: 'edge-postgres-server' }
   - { role:  apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
@@ -11,6 +14,9 @@
   hosts: qpid
   gather_facts: no
   tags: ['pgstop']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role:  apigee-opdk-stop-components, component_name: 'edge-qpid-server' }
 
@@ -22,6 +28,9 @@
   vars:
     server_type_names: ['ps']
     upgrade_component: ps
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   pre_tasks:
   - name: Report current node
     debug:
@@ -38,6 +47,9 @@
   vars:
     server_type_names: ['ps']
     upgrade_component: edge
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   tags: ['pgmaster_edge']
   pre_tasks:
   - name: Report current node
@@ -51,11 +63,17 @@
   include: upgrade-edge-postgres-fix-pg_control-file.yml
   vars:
     hosts: pgmaster
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   tags: ['pg_control']
 
 - name: Upgrade Postgres master
   hosts: pgmaster
   tags: ['db_upgrade']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   gather_facts: no
   serial: 1
   roles:
@@ -69,6 +87,9 @@
     server_type_names: ['ps']
     upgrade_component: ps
     validate_ready: false
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   tags: ['pgstandby']
   pre_tasks:
   - name: Report current node
@@ -83,6 +104,9 @@
 - name: Start Qpid components
   hosts: qpid
   tags: ['pgstart']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role:  apigee-opdk-start-components, component_name: 'edge-qpid-server', component_start_delay: 1 }
 
@@ -90,6 +114,9 @@
   hosts: pgmaster
   tags: ['pgmaster_validate']
   serial: 1
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   gather_facts: no
   tasks:
   - name: Validate this is postgresql master
@@ -104,6 +131,9 @@
     cwc_properties:
     - { key: conf_postgresql_max_wal_senders, value: '3', file_name: 'postgresql' }
     - { key: conf_postgresql_wal_keep_segments, value: '500', file_name: 'postgresql' }
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-cwc-update, when: update_max_wal_settings is defined and update_max_wal_settings }
@@ -118,6 +148,9 @@
   gather_facts: no
   vars:
     upgrade_component: edge
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   pre_tasks:
   - name: Report current node
     debug:

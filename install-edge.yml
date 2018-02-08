@@ -1,5 +1,6 @@
 ---
 - name: Update planet cache
+  tags: ['cache']
   import_playbook: apigee-planet-cache.yml
   vars:
     target_hosts: edge

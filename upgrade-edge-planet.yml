@@ -3,6 +3,9 @@
   hosts: edge
   strategy: free
   gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-start-components, tags: ['start'] }
 
@@ -10,6 +13,9 @@
   hosts: ms
   strategy: free
   gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self'] }
 
@@ -17,6 +23,9 @@
   hosts: rmp
   strategy: free
   gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-server-self, server_types: ['router', 'mp'], tags: ['self']  }
 
@@ -24,6 +33,9 @@
   hosts: qpid
   strategy: free
   gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
 
@@ -31,6 +43,9 @@
   hosts: pg
   strategy: free
   gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
 
@@ -39,6 +54,9 @@
   serial: 1
   tags: ['ds']
   gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   vars:
     upgrade_component: cs,zk
   pre_tasks:
@@ -52,6 +70,9 @@
   hosts: qpid
   serial: 1
   gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   tags: ['qpid']
   vars:
     server_type_names: ['qs']
@@ -76,6 +97,9 @@
   vars:
     hosts: ldap
     upgrade_component: ldap
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   pre_tasks:
   - name: Report current node
     debug:
@@ -92,6 +116,9 @@
     upgrade_component: edge
     block_port: '{{ qpid_messaging_port }}'
     server_type_names: ['qs']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   pre_tasks:
   - name: Report current node
     debug:
@@ -110,6 +137,9 @@
   tags: ['ms_edge']
   vars:
     upgrade_component: edge
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   pre_tasks:
   - name: Report current node
     debug:
@@ -125,6 +155,9 @@
   vars:
     server_type_names: ['router', 'mp']
     upgrade_component: edge
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   pre_tasks:
   - name: Report current node
     debug:
@@ -141,6 +174,9 @@
   tags: ['ui']
   vars:
     upgrade_component: ui
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   pre_tasks:
   - name: Report current node
     debug:
