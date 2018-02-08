@@ -8,6 +8,6 @@
   - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-component-install, component: 'apigee-influxdb', tags: ['influxdb'] }
-  - { role: apigee-opdk-setup-component-setup, component: 'apigee-influxdb', tags: ['influxdb'] }
+  - { role: apigee-opdk-setup-component, component: 'apigee-influxdb', tags: ['influxdb'] }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
