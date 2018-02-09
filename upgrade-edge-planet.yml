@@ -1,15 +1,16 @@
 ---
-- name: Apigee components should be running
-  hosts: edge
-  become: true
-  become_user: "{{ opdk_user_name }}"
-  strategy: free
-  gather_facts: no
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
-  roles:
-  - { role: apigee-opdk-start-components, tags: ['start'] }
+# Commented out in favor of testing if it would work better do this at each component.
+#- name: Apigee components should be running
+#  hosts: edge
+#  become: true
+#  become_user: "{{ opdk_user_name }}"
+#  strategy: free
+#  gather_facts: no
+#  vars_files:
+#  - ~/.apigee-secure/credentials.yml
+#  - ~/.apigee/custom-properties.yml
+#  roles:
+#  - { role: apigee-opdk-start-components, tags: ['start'] }
 
 - name: Validate self MS
   hosts: ms
@@ -77,6 +78,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-start-components, tags: ['ds-start'] }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['apigee-upgrade'] }
 
@@ -100,6 +102,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'] }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
@@ -126,6 +129,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-start-components, tags: ['ldap-start'] }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}' }
 
@@ -149,6 +153,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-start-components, tags: ['qpid-edge-start'] }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
@@ -174,6 +179,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-start-components, tags: ['ms-edge-start'] }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
 
@@ -196,6 +202,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-start-components, tags: ['rmp-edge-start'] }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
@@ -219,6 +226,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-start-components, tags: ['ui-start'] }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
 
