@@ -81,7 +81,7 @@
   - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-cassandra' }
   - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-zookeeper' }
   - { role: apigee-opdk-setup-silent-installation-config }
-  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['apigee-upgrade'] }
+  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['ds-upgrade'] }
 
 - name: Upgrade Qpid
   hosts: qpid
@@ -108,7 +108,7 @@
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
-  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['qpid-upgrade'] }
   - { role: apigee-opdk-iptables-flush }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
@@ -133,7 +133,7 @@
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['ldap-start'], component_name: 'apigee-openldap' }
   - { role: apigee-opdk-setup-silent-installation-config }
-  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['ldap-upgrade'] }
 
 - name: Upgrade Qpid Edge Components
   hosts: qpid
@@ -141,7 +141,7 @@
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
-  tags: ['qpid_edge']
+  tags: ['qpid-edge']
   vars:
     upgrade_component: edge
     block_port: '{{ qpid_messaging_port }}'
@@ -160,7 +160,7 @@
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
-  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['qpid-edge-upgrade'] }
   - { role: apigee-opdk-iptables-flush }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
@@ -170,7 +170,7 @@
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
-  tags: ['ms_edge']
+  tags: ['ms-edge']
   vars:
     upgrade_component: edge
   vars_files:
@@ -185,7 +185,7 @@
   - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-management-server' }
   - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-ui-server' }
   - { role: apigee-opdk-setup-silent-installation-config }
-  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['ms-edge-upgrade'] }
 
 - name: Upgrade Router & Message Processor
   hosts: rmp
@@ -210,7 +210,7 @@
   - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-message-processor' }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
-  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['rmp-upgrade'] }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
 - name: Upgrade UI
@@ -233,7 +233,7 @@
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['ui-start'] }
   - { role: apigee-opdk-setup-silent-installation-config }
-  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['ui-upgrade'] }
 
 - name: Upgrade PG in dc-1
   include: upgrade-edge-postgres.yml

@@ -40,7 +40,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
-  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true, tags: ['pgmaster-upgrade'] }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
 - name: Upgrade PS edge component
@@ -54,25 +54,25 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
-  tags: ['pgmaster_edge']
+  tags: ['pgmaster-edge']
   pre_tasks:
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
-  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true, tags: ['pgmaster-edge-upgrade'] }
 
 - name: Verify and resolve PG issues with upgrade
   include: upgrade-edge-postgres-fix-pg_control-file.yml
   vars:
     hosts: pgmaster
-  tags: ['pg_control']
+  tags: ['pg-control']
 
 - name: Upgrade Postgres master
   hosts: pgmaster
   become_user: apigee
-  tags: ['db_upgrade']
+  tags: ['db-upgrade']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -103,7 +103,7 @@
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, tags: ['os-pre-req'], clear_pgdata: True }
-  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true, tags: ['pgstandby-upgrade'] }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
 - name: Start Qpid components
@@ -119,7 +119,7 @@
 - name: Validate that PG Master is master
   hosts: pgmaster
   become_user: apigee
-  tags: ['pgmaster_validate']
+  tags: ['pgmaster-validate']
   serial: 1
   vars_files:
   - ~/.apigee-secure/credentials.yml
@@ -132,7 +132,7 @@
 - name: Setup and Validate that PG Standby is standby
   hosts: pgstandby
   become_user: apigee
-  tags: ['pgstandby_validate']
+  tags: ['pgstandby-validate']
   gather_facts: no
   serial: 1
   vars:
@@ -154,7 +154,7 @@
 - name: Upgrade PG with edge for remaining components
   hosts: pg
   become_user: apigee
-  tags: ['pg_edge']
+  tags: ['pg-edge']
   serial: 1
   gather_facts: no
   vars:
@@ -169,4 +169,4 @@
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config }
-  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true  }
+  - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true, tags: ['pg-edge-upgrade']  }
