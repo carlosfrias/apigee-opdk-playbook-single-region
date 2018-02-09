@@ -1,6 +1,7 @@
 ---
 - name: Apigee components should be running
   hosts: edge
+  become_user: "{{ opdk_user_name }}"
   strategy: free
   gather_facts: no
   vars_files:
@@ -11,6 +12,7 @@
 
 - name: Validate self MS
   hosts: ms
+  become_user: "{{ opdk_user_name }}"
   strategy: free
   gather_facts: no
   vars_files:
@@ -21,6 +23,7 @@
 
 - name: Validate self RMP
   hosts: rmp
+  become_user: "{{ opdk_user_name }}"
   strategy: free
   gather_facts: no
   vars_files:
@@ -31,6 +34,7 @@
 
 - name: Validate self QS
   hosts: qpid
+  become_user: "{{ opdk_user_name }}"
   strategy: free
   gather_facts: no
   vars_files:
@@ -41,6 +45,7 @@
 
 - name: Validate self PS
   hosts: pg
+  become_user: "{{ opdk_user_name }}"
   strategy: free
   gather_facts: no
   vars_files:
@@ -51,6 +56,7 @@
 
 - name: Upgrade Cassandra
   hosts: ds
+  become_user: "{{ opdk_user_name }}"
   serial: 1
   tags: ['ds']
   gather_facts: no
@@ -70,6 +76,7 @@
 
 - name: Upgrade Qpid
   hosts: qpid
+  become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
   vars_files:
@@ -95,6 +102,7 @@
 
 - name: Upgrade Ldap
   hosts: ldap
+  become_user: "{{ opdk_user_name }}"
   tags: ['ldap']
   serial: 1
   gather_facts: no
@@ -115,6 +123,7 @@
 
 - name: Upgrade Qpid Edge Components
   hosts: qpid
+  become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
   tags: ['qpid_edge']
@@ -140,6 +149,7 @@
 
 - name: Upgrade Management Server Edge Components
   hosts: ms
+  become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
   tags: ['ms_edge']
@@ -159,6 +169,7 @@
 
 - name: Upgrade Router & Message Processor
   hosts: rmp
+  become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
   tags: ['rmp']
@@ -181,6 +192,7 @@
 
 - name: Upgrade UI
   hosts: ui
+  become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
   tags: ['ui']

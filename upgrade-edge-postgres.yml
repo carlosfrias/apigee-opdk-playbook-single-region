@@ -1,6 +1,7 @@
 ---
 - name: Stop Postgres Components
   hosts: pg
+  become_user: apigee
   gather_facts: no
   tags: ['pgstop']
   vars_files:
@@ -12,6 +13,7 @@
 
 - name: Stop Qpid components
   hosts: qpid
+  become_user: apigee
   gather_facts: no
   tags: ['pgstop']
   vars_files:
@@ -22,6 +24,7 @@
 
 - name: Upgrade PS component
   hosts: pgmaster
+  become_user: apigee
   serial: 1
   gather_facts: no
   tags: ['pgmaster']
@@ -42,6 +45,7 @@
 
 - name: Upgrade PS edge component
   hosts: pgmaster
+  become_user: apigee
   serial: 1
   gather_facts: no
   vars:
@@ -67,6 +71,7 @@
 
 - name: Upgrade Postgres master
   hosts: pgmaster
+  become_user: apigee
   tags: ['db_upgrade']
   vars_files:
   - ~/.apigee-secure/credentials.yml
@@ -78,6 +83,7 @@
 
 - name: Upgrade Postgres standby
   hosts: pgstandby
+  become_user: apigee
   serial: 1
   gather_facts: no
   vars:
@@ -102,6 +108,7 @@
 
 - name: Start Qpid components
   hosts: qpid
+  become_user: apigee
   tags: ['pgstart']
   vars_files:
   - ~/.apigee-secure/credentials.yml
@@ -111,6 +118,7 @@
 
 - name: Validate that PG Master is master
   hosts: pgmaster
+  become_user: apigee
   tags: ['pgmaster_validate']
   serial: 1
   vars_files:
@@ -123,6 +131,7 @@
 
 - name: Setup and Validate that PG Standby is standby
   hosts: pgstandby
+  become_user: apigee
   tags: ['pgstandby_validate']
   gather_facts: no
   serial: 1
@@ -144,6 +153,7 @@
 
 - name: Upgrade PG with edge for remaining components
   hosts: pg
+  become_user: apigee
   tags: ['pg_edge']
   serial: 1
   gather_facts: no
