@@ -206,8 +206,8 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['qpid-start'], , component_name: 'edge-router' }
-  - { role: apigee-opdk-start-components, tags: ['qpid-start'], , component_name: 'edge-message-processor' }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-router' }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-message-processor' }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
