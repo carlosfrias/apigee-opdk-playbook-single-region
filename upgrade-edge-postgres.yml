@@ -100,7 +100,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, tags: ['os-pre-req'], clear_pgdata: True }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true, tags: ['pgstandby-upgrade'] }
@@ -144,7 +144,7 @@
   - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-cwc-update, when: update_max_wal_settings is defined and update_max_wal_settings }
   - { role: apigee-opdk-stop-components, tags: ['stop'], when: update_max_wal_settings is defined and update_max_wal_settings  }
@@ -168,5 +168,5 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', validate_ready: false, ignore_errors: true, tags: ['pg-edge-upgrade']  }

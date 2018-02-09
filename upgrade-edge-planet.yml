@@ -80,7 +80,7 @@
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-cassandra' }
   - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-zookeeper' }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['ds-upgrade'] }
 
 - name: Upgrade Qpid
@@ -105,7 +105,7 @@
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'apigee-qpidd' }
   - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-qpid-server' }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['qpid-upgrade'] }
@@ -132,7 +132,7 @@
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['ldap-start'], component_name: 'apigee-openldap' }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['ldap-upgrade'] }
 
 - name: Upgrade Qpid Edge Components
@@ -157,7 +157,7 @@
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'apigee-qpidd' }
   - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-qpid-server' }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
   - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['qpid-edge-upgrade'] }
@@ -184,7 +184,7 @@
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-management-server' }
   - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-ui-server' }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['ms-edge-upgrade'] }
 
 - name: Upgrade Router & Message Processor
@@ -208,7 +208,7 @@
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-router' }
   - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-message-processor' }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['rmp-upgrade'] }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
@@ -232,7 +232,7 @@
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['ui-start'] }
-  - { role: apigee-opdk-setup-silent-installation-config }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['ui-upgrade'] }
 
 - name: Upgrade PG in dc-1
