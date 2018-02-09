@@ -12,53 +12,53 @@
 #  roles:
 #  - { role: apigee-opdk-start-components, tags: ['start'] }
 
-- name: Validate self MS
-  hosts: ms
-  become: true
-  become_user: "{{ opdk_user_name }}"
-  strategy: free
-  gather_facts: no
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
-  roles:
-  - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self'] }
+#- name: Validate self MS
+#  hosts: ms
+#  become: true
+#  become_user: "{{ opdk_user_name }}"
+#  strategy: free
+#  gather_facts: no
+#  vars_files:
+#  - ~/.apigee-secure/credentials.yml
+#  - ~/.apigee/custom-properties.yml
+#  roles:
+#  - { role: apigee-opdk-server-self, server_types: ['ms'], tags: ['self'] }
 
-- name: Validate self RMP
-  hosts: rmp
-  become: true
-  become_user: "{{ opdk_user_name }}"
-  strategy: free
-  gather_facts: no
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
-  roles:
-  - { role: apigee-opdk-server-self, server_types: ['router', 'mp'], tags: ['self']  }
+#- name: Validate self RMP
+#  hosts: rmp
+#  become: true
+#  become_user: "{{ opdk_user_name }}"
+#  strategy: free
+#  gather_facts: no
+#  vars_files:
+#  - ~/.apigee-secure/credentials.yml
+#  - ~/.apigee/custom-properties.yml
+#  roles:
+#  - { role: apigee-opdk-server-self, server_types: ['router', 'mp'], tags: ['self']  }
 
-- name: Validate self QS
-  hosts: qpid
-  become: true
-  become_user: "{{ opdk_user_name }}"
-  strategy: free
-  gather_facts: no
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
-  roles:
-  - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
+#- name: Validate self QS
+#  hosts: qpid
+#  become: true
+#  become_user: "{{ opdk_user_name }}"
+#  strategy: free
+#  gather_facts: no
+#  vars_files:
+#  - ~/.apigee-secure/credentials.yml
+#  - ~/.apigee/custom-properties.yml
+#  roles:
+#  - { role: apigee-opdk-server-self, server_types: ['qs'], tags: ['self']  }
 
-- name: Validate self PS
-  hosts: pg
-  become: true
-  become_user: "{{ opdk_user_name }}"
-  strategy: free
-  gather_facts: no
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
-  roles:
-  - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
+#- name: Validate self PS
+#  hosts: pg
+#  become: true
+#  become_user: "{{ opdk_user_name }}"
+#  strategy: free
+#  gather_facts: no
+#  vars_files:
+#  - ~/.apigee-secure/credentials.yml
+#  - ~/.apigee/custom-properties.yml
+#  roles:
+#  - { role: apigee-opdk-server-self, server_types: ['ps'], tags: ['self']  }
 
 - name: Upgrade Cassandra
   hosts: ds
@@ -78,7 +78,8 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['ds-start'] }
+  - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-cassandra' }
+  - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-zookeeper' }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['apigee-upgrade'] }
 
@@ -102,7 +103,8 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['qpid-start'] }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'apigee-qpidd' }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-qpid-server' }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
@@ -129,7 +131,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['ldap-start'] }
+  - { role: apigee-opdk-start-components, tags: ['ldap-start'], component_name: 'apigee-openldap' }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}' }
 
@@ -153,7 +155,8 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['qpid-edge-start'] }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'apigee-qpidd' }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-qpid-server' }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ block_port }}' }
@@ -179,7 +182,8 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['ms-edge-start'] }
+  - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-management-server' }
+  - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-ui-server' }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
 
@@ -202,7 +206,8 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['rmp-edge-start'] }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'], , component_name: 'edge-router' }
+  - { role: apigee-opdk-start-components, tags: ['qpid-start'], , component_name: 'edge-message-processor' }
   - { role: apigee-opdk-setup-silent-installation-config }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: '{{ server_type_names }}' }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}' }
