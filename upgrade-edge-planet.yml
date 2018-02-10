@@ -78,7 +78,7 @@
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-cassandra' }
+  - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-cassandra', }
   - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-zookeeper' }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['ds-upgrade'] }
