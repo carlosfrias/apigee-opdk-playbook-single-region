@@ -48,13 +48,13 @@
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
+  tags: ['pgmaster-edge']
   vars:
     server_type_names: ['ps']
     upgrade_component: edge
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
-  tags: ['pgmaster-edge']
   pre_tasks:
   - name: Report current node
     debug:
@@ -86,6 +86,7 @@
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
+  tags: ['pgstandby']
   vars:
     server_type_names: ['ps']
     upgrade_component: ps
@@ -93,7 +94,6 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
-  tags: ['pgstandby']
   pre_tasks:
   - name: Report current node
     debug:
