@@ -208,7 +208,7 @@
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-management-server' }
-  - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-ui-server' }
+  - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-ui' }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: '{{ upgrade_component }}', tags: ['ms-edge-upgrade'] }
 
