@@ -1,9 +1,4 @@
 ---
-- name: Assert upgrade_from_opdk_version
-  fail:
-    msg: "Please set the upgrade_from_opdk_version."
-  when: "upgrade_from_opdk_version is not defined"
-
 - name: Update cache for planet
   include: apigee-planet-cache.yml
   tags: ['cache']

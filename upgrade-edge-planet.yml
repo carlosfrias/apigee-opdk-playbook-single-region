@@ -73,6 +73,11 @@
   vars:
     upgrade_component: cs,zk
   pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -98,6 +103,11 @@
     upgrade_component: qpid
     block_port: '{{ qpid_messaging_port }}'
   pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -126,6 +136,11 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -150,6 +165,11 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -177,6 +197,11 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -201,6 +226,11 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
@@ -226,6 +256,11 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
   - name: Report current node
     debug:
       msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
