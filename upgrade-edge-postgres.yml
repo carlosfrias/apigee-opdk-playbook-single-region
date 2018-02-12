@@ -37,6 +37,7 @@
       msg: "Upgrading component ps on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['ps'] }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: 'ps', validate_ready: false, ignore_errors: true, tags: ['pgmaster-upgrade'] }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
 
