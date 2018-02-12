@@ -39,7 +39,7 @@
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['ps'] }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: 'ps', validate_ready: false, ignore_errors: true, tags: ['pgmaster-upgrade'] }
-  - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
+  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'] }
 
 - name: Upgrade PS edge component
   hosts: pgmaster
@@ -82,8 +82,6 @@
   serial: 1
   gather_facts: no
   tags: ['pgstandby']
-  vars:
-    server_type_names: ['ps']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -97,7 +95,7 @@
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, tags: ['os-pre-req'], clear_pgdata: True }
   - { role: apigee-opdk-update-component,  component: 'ps', validate_ready: false, ignore_errors: true, tags: ['pgstandby-upgrade'] }
-  - { role: apigee-opdk-set-reachable, reachability: True, server_types: '{{ server_type_names }}' }
+  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'] }
 
 - name: Start Qpid components
   hosts: qpid
