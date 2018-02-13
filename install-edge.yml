@@ -128,16 +128,16 @@
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
 
-- name: Start validation
+- name: Validate Planet Started
   hosts: ds,ms,rmp,qpid,pg
   serial: 1
-  tags: ['restart']
+  tags: ['validate', 'validate-start']
   roles:
   - apigee-opdk-start-components
 
 - name: Validate RMP
   import_playbook: install-edge-rmp-validate.yml
-  tags: ['validate-rmp']
+  tags: ['validate']
   vars:
     target_hosts: rmp
 
