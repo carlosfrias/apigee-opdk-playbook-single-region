@@ -8,7 +8,7 @@
 - name: Update prequisites
   hosts: ds,ms,rmp,qpid,pg
   serial: 1
-  tags: ['update-prereq']
+  tags: ['update-pre-req']
   gather_facts: no
   vars_files:
     - ~/.apigee-secure/credentials.yml
