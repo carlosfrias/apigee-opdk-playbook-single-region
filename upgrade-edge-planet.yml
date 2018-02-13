@@ -2,7 +2,7 @@
 - name: Upgrade Cassandra
   hosts: ds
   become: true
-  become_user: "{{ opdk_user_name }}"
+  become_user: "apigee"
   serial: 1
   tags: ['ds']
   gather_facts: no
@@ -25,7 +25,7 @@
 - name: Upgrade Qpid
   hosts: qpid
   become: true
-  become_user: "{{ opdk_user_name }}"
+  become_user: "apigee"
   serial: 1
   gather_facts: no
   vars_files:
@@ -52,7 +52,7 @@
 - name: Upgrade Postgres
   hosts: pg
   become: true
-  become_user: "{{ opdk_user_name }}"
+  become_user: "apigee"
   tags: ['upgrade-pg']
   serial: 1
   gather_facts: no
@@ -77,7 +77,7 @@
 - name: Upgrade Ldap
   hosts: ldap
   become: true
-  become_user: "{{ opdk_user_name }}"
+  become_user: "apigee"
   tags: ['upgrade-ldap']
   serial: 1
   gather_facts: no
@@ -100,7 +100,7 @@
 - name: Upgrade Qpid Edge Components
   hosts: qpid
   become: true
-  become_user: "{{ opdk_user_name }}"
+  become_user: "apigee"
   serial: 1
   gather_facts: no
   tags: ['upgrade-qpid-edge']
@@ -122,7 +122,7 @@
 - name: Upgrade Management Server Edge Components
   hosts: ms
   become: true
-  become_user: "{{ opdk_user_name }}"
+  become_user: "apigee"
   serial: 1
   gather_facts: no
   tags: ['upgrade-ms-edge']
@@ -144,7 +144,7 @@
 - name: Upgrade Router & Message Processor
   hosts: rmp
   become: true
-  become_user: "{{ opdk_user_name }}"
+  become_user: "apigee"
   serial: 1
   gather_facts: no
   tags: ['upgrade-rmp']
@@ -178,8 +178,8 @@
       path: '/opt/nginx/config.d'
       state: directory
       mode: 0755
-      owner: "{{ opdk_user_name }}"
-      group: "{{ opdk_group_name }}"
+      owner: "apigee"
+      group: "apigee"
 
   - name: Restart router
     tags: ['rmp-config-refresh']
@@ -188,7 +188,7 @@
 - name: Upgrade UI
   hosts: ui
   become: true
-  become_user: "{{ opdk_user_name }}"
+  become_user: "apigee"
   serial: 1
   gather_facts: no
   tags: ['ui']
