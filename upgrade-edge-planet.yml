@@ -208,6 +208,12 @@
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: 'ui', tags: ['ui-upgrade'] }
 
+- name: Validate RMP
+  import_playbook: install-edge-rmp-validate.yml
+  tags: ['upgrade-validate']
+  vars:
+    target_hosts: rmp
+
 #- name: Upgrade PG in dc-1
 #  include: upgrade-edge-postgres.yml
 #  tags: ['pg']
