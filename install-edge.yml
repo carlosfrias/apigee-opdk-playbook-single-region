@@ -128,6 +128,13 @@
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
 
+- name: Start validation
+  hosts: ds,ms,rmp,qpid,pg
+  serial: 1
+  tags: ['restart']
+  roles:
+  - apigee-opdk-start-components
+
 - name: Validate RMP
   import_playbook: install-edge-rmp-validate.yml
   tags: ['validate-rmp']
