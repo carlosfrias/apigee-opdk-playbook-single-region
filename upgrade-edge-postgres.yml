@@ -1,6 +1,7 @@
 ---
 - name: Upgrade PS component
   hosts: pgmaster
+  become: yes
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
