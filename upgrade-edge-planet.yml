@@ -27,11 +27,11 @@
   become: true
   become_user: "apigee"
   serial: 1
+  tags: ['qpid']
   gather_facts: no
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
-  tags: ['qpid']
   pre_tasks:
   - name: Assert upgrade_from_opdk_version
     fail:
