@@ -66,6 +66,7 @@
 
 - name: Upgrade Postgres master
   hosts: pgmaster
+  become: yes
   become_user: "{{ opdk_user_name }}"
   tags: ['db-upgrade']
   vars_files:
