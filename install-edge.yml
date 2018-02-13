@@ -13,25 +13,25 @@
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
-  tags: ['os']
+  tags: ['os', 'os-epel']
   vars:
     target_hosts: edge
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-openldap.yml
-  tags: ['os']
+  tags: ['os', 'os-openldap']
   vars:
     target_hosts: ms
 
 - name: Install and configure Pip pre-requisites
   import_playbook: apigee-os-pre-requisites-pip.yml
-  tags: ['os']
+  tags: ['os', 'os-pip']
   vars:
     target_hosts: edge
 
 - name: Install and configure Postgres pre-requisites
   import_playbook: apigee-os-pre-requisites-postgres.yml
-  tags: ['os']
+  tags: ['os', 'os-postgres']
   vars:
     target_hosts: edge
 

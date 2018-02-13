@@ -72,6 +72,7 @@
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['ps'], tags: ['ps-reachability-false'] }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['pg-config'] }
   - { role: apigee-opdk-update-component,  component: 'ps', validate_ready: false, ignore_errors: true, tags: ['ps-upgrade'] }
+  - { role: apigee-opdk-start-components }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'], tags: ['ps-reachability-true'] }
 
 - name: Upgrade Ldap
