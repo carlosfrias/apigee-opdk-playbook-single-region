@@ -140,6 +140,7 @@
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
   - { role: apigee-opdk-update-component,  component: 'edge', tags: ['ms-edge-upgrade'] }
+  - { role: apigee-opdk-start-components }
 
 - name: Upgrade Router & Message Processor
   hosts: rmp
