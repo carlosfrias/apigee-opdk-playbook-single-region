@@ -210,7 +210,7 @@
 
 - name: Validate RMP
   import_playbook: install-edge-rmp-validate.yml
-  tags: ['upgrade-validate']
+  tags: ['validate']
   vars:
     target_hosts: rmp
 
