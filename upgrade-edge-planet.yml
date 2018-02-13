@@ -19,11 +19,8 @@
     debug:
       msg: "Upgrading component cs,zk on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-cassandra', }
-  - { role: apigee-opdk-start-components, tags: ['ds-start'], component_name: 'apigee-zookeeper' }
-  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
-  - { role: apigee-opdk-update-component, component: 'cs,zk', tags: ['ds-upgrade'] }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['upgrade-ds-config'] }
+  - { role: apigee-opdk-update-component, component: 'cs,zk', tags: ['upgrade-ds'] }
 
 - name: Upgrade Qpid
   hosts: qpid
@@ -34,7 +31,7 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
-  tags: ['qpid']
+  tags: ['upgrade-qpid']
   pre_tasks:
   - name: Assert upgrade_from_opdk_version
     fail:
@@ -45,26 +42,20 @@
     debug:
       msg: "Upgrading component qpid on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'apigee-qpidd' }
-  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-qpid-server' }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['qpid-config']}
-  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['qs'], tags: ['qpid-reachability'] }
-  - { role: apigee-opdk-iptables-port-block, destination_port: '{{ qpid_messaging_port }}' }
+  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['qs'], tags: ['qpid-reachability-false'] }
+  - { role: apigee-opdk-iptables-port-block, destination_port: '{{ qpid_messaging_port }}', tags: ['qpid-port-block'] }
   - { role: apigee-opdk-update-component,  component: 'qpid', tags: ['qpid-upgrade'] }
-  - { role: apigee-opdk-iptables-flush }
-  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['qs'] }
+  - { role: apigee-opdk-iptables-flush, tags: ['qpid-iptables-flush'] }
+  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['qs'], tags: ['qpid-reachability-true'] }
 
-- name: Upgrade Ldap
-  hosts: ldap
+- name: Upgrade Postgres
+  hosts: pg
   become: true
   become_user: "{{ opdk_user_name }}"
-  tags: ['ldap']
+  tags: ['upgrade-pg']
   serial: 1
   gather_facts: no
-  vars:
-    hosts: ldap
-    upgrade_component: ldap
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -76,12 +67,35 @@
 
   - name: Report current node
     debug:
-      msg: "Upgrading component {{ upgrade_component }} on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
+      msg: "Upgrading component qpid on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['ldap-start'], component_name: 'apigee-openldap' }
-  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
-  - { role: apigee-opdk-update-component, component: '{{ upgrade_component }}', tags: ['ldap-upgrade'] }
+  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['ps'], tags: ['ps-reachability-false'] }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['pg-config'] }
+  - { role: apigee-opdk-update-component,  component: 'ps', validate_ready: false, ignore_errors: true, tags: ['ps-upgrade'] }
+  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'], tags: ['ps-reachability-true'] }
+
+- name: Upgrade Ldap
+  hosts: ldap
+  become: true
+  become_user: "{{ opdk_user_name }}"
+  tags: ['upgrade-ldap']
+  serial: 1
+  gather_facts: no
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
+  - name: Report current node
+    debug:
+      msg: "Upgrading component ldap on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
+  roles:
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['ldap-config'] }
+  - { role: apigee-opdk-update-component, component: 'ldap', tags: ['ldap-upgrade'] }
 
 - name: Upgrade Qpid Edge Components
   hosts: qpid
@@ -89,7 +103,7 @@
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
-  tags: ['qpid-edge']
+  tags: ['upgrade-qpid-edge']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -103,15 +117,7 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'apigee-qpidd' }
-  - { role: apigee-opdk-start-components, tags: ['qpid-start'], component_name: 'edge-qpid-server' }
-  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
-  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['qs'] }
-  - { role: apigee-opdk-iptables-port-block, destination_port: '{{ qpid_messaging_port }}' }
   - { role: apigee-opdk-update-component, component: 'edge', tags: ['qpid-edge-upgrade'] }
-  - { role: apigee-opdk-iptables-flush }
-  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['qs'] }
 
 - name: Upgrade Management Server Edge Components
   hosts: ms
@@ -119,7 +125,7 @@
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
-  tags: ['ms-edge']
+  tags: ['upgrade-ms-edge']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -133,10 +139,6 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-management-server' }
-  - { role: apigee-opdk-start-components, tags: ['ms-edge-start'], component_name: 'edge-ui' }
-  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: 'edge', tags: ['ms-edge-upgrade'] }
 
 - name: Upgrade Router & Message Processor
@@ -145,7 +147,7 @@
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
-  tags: ['rmp']
+  tags: ['upgrade-rmp']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -159,13 +161,29 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['r-start'], component_name: 'edge-router' }
-  - { role: apigee-opdk-start-components, tags: ['mp-start'], component_name: 'edge-message-processor' }
-  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
-  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['router', 'mp'] }
-  - { role: apigee-opdk-update-component,  component: 'edge', tags: ['rmp-upgrade'] }
-  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['router', 'mp'] }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['rmp-config'] }
+  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['router', 'mp'], tags: ['rmp-reachability-false'] }
+  - { role: apigee-opdk-update-component, component: 'edge', tags: ['rmp-upgrade'] }
+  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['router', 'mp'], tags: ['rmp-reachability-true'] }
+  tasks:
+  - name: Remove router configuration directory
+    tags: ['rmp-config-refresh']
+    file:
+      path: '/opt/nginx/config.d'
+      state: absent
+
+  - name: Restore router configuration directory
+    tags: ['rmp-config-refresh']
+    file:
+      path: '/opt/nginx/config.d'
+      state: directory
+      mode: 0755
+      owner: "{{ opdk_user_name }}"
+      group: "{{ opdk_group_name }}"
+
+  - name: Restart router
+    tags: ['rmp-config-refresh']
+    command: "/opt/apigee/apigee-service/bin/apigee-service edge-router restart"
 
 - name: Upgrade UI
   hosts: ui
@@ -187,14 +205,12 @@
     debug:
       msg: "Upgrading component ui on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-start-components, tags: ['ui-start'] }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: 'ui', tags: ['ui-upgrade'] }
 
-- name: Upgrade PG in dc-1
-  include: upgrade-edge-postgres.yml
-  tags: ['pg']
+#- name: Upgrade PG in dc-1
+#  include: upgrade-edge-postgres.yml
+#  tags: ['pg']
 
 - include: apigee-log-config-files.yml
   vars:

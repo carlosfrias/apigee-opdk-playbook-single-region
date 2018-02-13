@@ -5,6 +5,17 @@
   vars:
     target_hosts: edge
 
+- name: Update prequisites
+  hosts: ds,ms,rmp,qpid,pg
+  serial: 1
+  tags: ['update-prereq']
+  gather_facts: no
+  vars_files:
+    - ~/.apigee-secure/credentials.yml
+    - ~/.apigee/custom-properties.yml
+  roles:
+  - { role: apigee-opdk-start-components }
+
 - name: Install and configure Apigee bootstrap
   import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
