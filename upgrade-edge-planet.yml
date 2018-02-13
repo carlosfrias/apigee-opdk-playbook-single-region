@@ -19,6 +19,7 @@
     debug:
       msg: "Upgrading component cs,zk on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
+  - { role: apigee-opdk-start-components }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['upgrade-ds-config'] }
   - { role: apigee-opdk-update-component, component: 'cs,zk', tags: ['upgrade-ds'] }
 
@@ -45,6 +46,7 @@
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['qpid-config']}
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['qs'], tags: ['qpid-reachability-false'] }
   - { role: apigee-opdk-iptables-port-block, destination_port: '{{ qpid_messaging_port }}', tags: ['qpid-port-block'] }
+  - { role: apigee-opdk-start-components }
   - { role: apigee-opdk-update-component,  component: 'qpid', tags: ['qpid-upgrade'] }
   - { role: apigee-opdk-iptables-flush, tags: ['qpid-iptables-flush'] }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['qs'], tags: ['qpid-reachability-true'] }
