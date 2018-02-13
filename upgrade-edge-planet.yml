@@ -31,7 +31,7 @@
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
-  tags: ['upgrade-qpid']
+  tags: ['qpid']
   pre_tasks:
   - name: Assert upgrade_from_opdk_version
     fail:
@@ -53,7 +53,7 @@
   hosts: pg
   become: true
   become_user: "apigee"
-  tags: ['upgrade-pg']
+  tags: ['pg']
   serial: 1
   gather_facts: no
   vars_files:
@@ -78,7 +78,7 @@
   hosts: ldap
   become: true
   become_user: "apigee"
-  tags: ['upgrade-ldap']
+  tags: ['ldap']
   serial: 1
   gather_facts: no
   vars_files:
@@ -103,7 +103,7 @@
   become_user: "apigee"
   serial: 1
   gather_facts: no
-  tags: ['upgrade-qpid-edge']
+  tags: ['qpid-edge']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -117,6 +117,7 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['qpid-edge-config'] }
   - { role: apigee-opdk-start-components }
   - { role: apigee-opdk-update-component, component: 'edge', tags: ['qpid-edge-upgrade'] }
 
@@ -126,7 +127,7 @@
   become_user: "apigee"
   serial: 1
   gather_facts: no
-  tags: ['upgrade-ms-edge']
+  tags: ['ms']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -140,7 +141,8 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-update-component,  component: 'edge', tags: ['ms-edge-upgrade'] }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['ms-config'] }
+  - { role: apigee-opdk-update-component,  component: 'edge', tags: ['ms-upgrade'] }
   - { role: apigee-opdk-start-components }
 
 - name: Upgrade Router & Message Processor
@@ -149,7 +151,7 @@
   become_user: "apigee"
   serial: 1
   gather_facts: no
-  tags: ['upgrade-rmp']
+  tags: ['rmp']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -207,7 +209,7 @@
     debug:
       msg: "Upgrading component ui on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['ui-config'] }
   - { role: apigee-opdk-update-component,  component: 'ui', tags: ['ui-upgrade'] }
 
 - name: Validate RMP
