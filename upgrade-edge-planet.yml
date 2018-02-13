@@ -117,6 +117,7 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
+  - { role: apigee-opdk-start-components }
   - { role: apigee-opdk-update-component, component: 'edge', tags: ['qpid-edge-upgrade'] }
 
 - name: Upgrade Management Server Edge Components
