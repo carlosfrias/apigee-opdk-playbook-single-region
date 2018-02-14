@@ -79,6 +79,8 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   gather_facts: no
+  roles:
+  - { role: apigee-opdk-start-components }
   tasks:
   - name: Validate this is postgresql master
     shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-postgresql postgres-check-master"
@@ -99,6 +101,7 @@
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
+  - { role: apigee-opdk-start-components }
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-cwc-update, when: update_max_wal_settings is defined and update_max_wal_settings }
   - { role: apigee-opdk-stop-components, tags: ['stop'], when: update_max_wal_settings is defined and update_max_wal_settings  }
