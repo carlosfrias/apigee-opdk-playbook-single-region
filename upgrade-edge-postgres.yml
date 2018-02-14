@@ -60,15 +60,15 @@
   - { role: apigee-opdk-update-component,  component: 'ps', validate_ready: false, ignore_errors: true, tags: ['pgstandby-upgrade'] }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'] }
 
-- name: Start Qpid components
-  hosts: qpid
-  become_user: "{{ opdk_user_name }}"
-  tags: ['qpid-start']
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
-  roles:
-  - { role:  apigee-opdk-start-components, component_name: 'edge-qpid-server', component_start_delay: 1 }
+#- name: Start Qpid components
+#  hosts: qpid
+#  become_user: "{{ opdk_user_name }}"
+#  tags: ['qpid-start']
+#  vars_files:
+#  - ~/.apigee-secure/credentials.yml
+#  - ~/.apigee/custom-properties.yml
+#  roles:
+#  - { role:  apigee-opdk-start-components, component_name: 'edge-qpid-server', component_start_delay: 1 }
 
 - name: Validate that PG Master is master
   hosts: pgmaster
