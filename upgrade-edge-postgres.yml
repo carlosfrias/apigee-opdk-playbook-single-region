@@ -59,7 +59,7 @@
   become_user: "{{ opdk_user_name }}"
   serial: 1
   gather_facts: no
-  tags: ['pgstandby-update']
+  tags: ['pgstandby-update', 'pgstandby']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -83,7 +83,7 @@
 - name: Upgrade PG with edge for remaining components
   hosts: pgstandby
   become_user: "{{ opdk_user_name }}"
-  tags: ['pgstandby-edge']
+  tags: ['pgstandby-edge', 'pgstandby']
   serial: 1
   gather_facts: no
   vars_files:
