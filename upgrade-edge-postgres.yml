@@ -94,6 +94,4 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
   - { role: apigee-opdk-update-component,  component: 'edge', validate_ready: false, ignore_errors: true, tags: ['pg-edge-upgrade']  }
