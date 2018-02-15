@@ -2,7 +2,7 @@
 - name: Update planet cache
   import_playbook: apigee-planet-cache.yml
   vars:
-    target_hosts: planet,dp
+    target_hosts: planet,dp-ui,dp-db
 
 - name: Install and configure OS pre-requisites
   import_playbook: apigee-os-pre-requisites.yml
@@ -46,13 +46,13 @@
   vars:
     target_hosts: dp-db
 
-- name: Install Postgres node
-  import_playbook: edge-pgmaster-pgstandby-node-config.yml
-  tags: ['pg','pg-expand']
-  vars:
-    pg_master_node: 'dp-db-pgmaster'
-    pg_standby_node: 'dp-db-pgstandby'
-    opdk_installation_config_file: "{{ opdk_portal_db_config_file }}"
+#- name: Install Postgres node
+#  import_playbook: edge-pgmaster-pgstandby-node-config.yml
+#  tags: ['pg','pg-expand']
+#  vars:
+#    pg_master_node: 'dp-db-pgmaster'
+#    pg_standby_node: 'dp-db-pgstandby'
+#    opdk_installation_config_file: "{{ opdk_portal_db_config_file }}"
 
 - name: Apply configuration to DevPortal UI node
   import_playbook: install-devportal-ui-component-setup.yml
