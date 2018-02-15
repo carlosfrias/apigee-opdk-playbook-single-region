@@ -78,10 +78,6 @@
 #  - { role: apigee-opdk-start-components }
 #  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'], tags: ['ps-reachability-true'] }
 
-- name: Upgrade Postgres
-  include: upgrade-edge-postgres.yml
-  tags: ['pg']
-
 - name: Upgrade Ldap
   hosts: ldap
   become: true
@@ -104,6 +100,10 @@
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['ldap-config'] }
   - { role: apigee-opdk-update-component, component: 'ldap', tags: ['ldap-upgrade'] }
+
+- name: Upgrade Postgres
+  include: upgrade-edge-postgres.yml
+  tags: ['pg']
 
 - name: Upgrade Qpid Edge Components
   hosts: qpid
