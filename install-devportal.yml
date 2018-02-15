@@ -2,7 +2,7 @@
 - name: Update planet cache
   import_playbook: apigee-planet-cache.yml
   vars:
-    target_hosts: planet,dp-ui,dp-db
+    target_hosts: planet,dp
 
 - name: Install and configure OS pre-requisites
   import_playbook: apigee-os-pre-requisites.yml
