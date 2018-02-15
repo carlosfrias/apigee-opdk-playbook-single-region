@@ -22,7 +22,7 @@
   - { role: apigee-opdk-start-components }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'] }
   tasks:
-  - name: Validate this is postgresql master
+  - name: Validate Postgresql master
     shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-postgresql postgres-check-master"
 
 - name: Upgrade Postgres standby
