@@ -21,38 +21,9 @@
   - { role: apigee-opdk-setup-postgres-db-upgrade }
   - { role: apigee-opdk-start-components }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'] }
-
-#- name: Upgrade PS edge component
-#  hosts: pgmaster
-#  become_user: "{{ opdk_user_name }}"
-#  serial: 1
-#  gather_facts: no
-#  tags: ['pgmaster-edge', 'pgmaster']
-#  vars_files:
-#  - ~/.apigee-secure/credentials.yml
-#  - ~/.apigee/custom-properties.yml
-#  pre_tasks:
-#  - name: Report current node
-#    debug:
-#      msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
-#  roles:
-#  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['ps'] }
-
-- name: Validate that PG Master is master
-  hosts: pgmaster
-  become_user: "{{ opdk_user_name }}"
-  tags: ['pgmaster-validate', 'pgmaster']
-  serial: 1
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
-  gather_facts: no
-  roles:
-  - { role: apigee-opdk-start-components }
   tasks:
   - name: Validate this is postgresql master
     shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-postgresql postgres-check-master"
-
 
 - name: Upgrade Postgres standby
   hosts: pgstandby
