@@ -114,5 +114,4 @@ installations/aio/installation-logs-configs/*
 planet_resources
 *.iml
 jump*
-
-tmp
+tmp/*
