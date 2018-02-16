@@ -21,7 +21,7 @@
     - php-xml
   tasks:
   - name: Remove pre-exisiting PHP packages
-    tags: ['devportal']
+    tags: ['dp-os-php-pre-req']
     ignore_errors: yes
     yum:
       name: "{{ item }}"
