@@ -41,7 +41,7 @@
   - { role: apigee-opdk-stop-components, component_name: "apigee-postgresql", when: "opdk_version | version_compare('4.18.01', '==')" }
   - { role: apigee-opdk-update-component,  component: 'ps', validate_ready: false, ignore_errors: true, tags: ['pgmaster-ps-update']}
   - { role: apigee-opdk-update-component,  component: 'edge', validate_ready: false, ignore_errors: true, tags: ['pgmaster-edge-update'] }
-  - { role: apigee-opdk-setup-postgres-db-upgrade, tags: ['pgmaster-db-upgrade'] when: "opdk_version | version_compare('4.18.01', '==')" }
+  - { role: apigee-opdk-setup-postgres-db-upgrade, tags: ['pgmaster-db-upgrade'], when: "opdk_version | version_compare('4.18.01', '==')" }
   - { role: apigee-opdk-start-components, component_name: "edge-postgres-server", when: "opdk_version | version_compare('4.18.01', '==')" }
   - { role: apigee-opdk-start-components, component_name: "apigee-postgresql", when: "opdk_version | version_compare('4.18.01', '==')" }
   - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['ps'] }
