@@ -22,6 +22,7 @@
   tasks:
   - name: Remove pre-exisiting PHP packages
     tags: ['devportal']
+    ignore_errors: yes
     yum:
       name: "{{ item }}"
       state: absent
