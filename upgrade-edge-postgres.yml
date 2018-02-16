@@ -13,6 +13,27 @@
   - name: Report current node
     debug:
       msg: "Upgrading component ps on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
+
+  - name: Work around remove for Qpid upgrade
+    yum:
+      name: "{{ item }}"
+      state: absent
+    with_items:
+    - qpid-cpp-server
+    - qpid-cpp-server-linearstore
+    - qpid-tools qpid-qmf
+    - python-qpid
+    - qpid-cpp-client
+    - qpid-proton-c
+
+  - name: Work around install for Qpid upgrade
+    yum:
+      name: "{{ item }}"
+      state: present
+    with_items:
+    - yum-plugin-priorities
+    - apigee-qpidd
+
   roles:
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['ps'] }
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}" }
