@@ -23,6 +23,6 @@
   - name: Remove pre-exisiting PHP packages
     tags: ['devportal']
     yum:
-      name: "php-*"
+      name: "{{ item }}"
       state: absent
-#    with_items: "{{ php_packages }}"
+    with_items: "{{ php_packages }}"
