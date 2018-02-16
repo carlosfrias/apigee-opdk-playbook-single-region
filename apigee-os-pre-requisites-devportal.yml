@@ -21,7 +21,7 @@
     - php-xml
   roles:
   - { role: apigee-opdk-setup-os-pip, tags: ['pip'] }
-  tasks:
+  pre_tasks:
   - name: Remove pre-exisiting PHP packages
     tags: ['devportal']
     yum:
