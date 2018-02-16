@@ -111,7 +111,7 @@ out
 *iml
 *retry
 installations/aio/installation-logs-configs/*
-logs_configs
+planet_resources
 *.iml
 jump*
 

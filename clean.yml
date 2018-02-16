@@ -4,7 +4,7 @@
   gather_facts: no
   vars:
     clean_dirs:
-    - '~/.apigee/logs_configs'
+    - '~/.apigee/planet_resources'
     - '~/.ansible/roles'
     - '~/.ansible/tmp'
   vars_files:
