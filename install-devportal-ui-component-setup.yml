@@ -1,6 +1,7 @@
 ---
 - name: Configure DevPortal UI
   hosts: "{{ target_hosts }}"
+  become: yes
   serial: 1
   gather_facts: no
   tags: ['dp']
