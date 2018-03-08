@@ -1,45 +1,56 @@
 ---
 
-- hosts: rmp
+- name: "Check message port ports for rmp hosts"
+  hosts: rmp
   roles:
   - apigee-internal-port-connectivity-validator-mp
 
-- hosts: mp
+- name: "Check message port ports for mp hosts"
+  hosts: mp
   roles:
   - apigee-internal-port-connectivity-validator-mp
 
-- hosts: ldap
+- name: "Check ldap ports for ldap hosts"
+  hosts: ldap
   roles:
   - apigee-internal-port-connectivity-validator-ldap
 
-- hosts: ds
+- name: "Check cassandra ports for ds hosts"
+  hosts: ds
   roles:
   - apigee-internal-port-connectivity-validator-cassandra
 
-- hosts: ds
+- name: "Check zookeeper ports for zk hosts"
+  hosts: ds
   roles:
   - apigee-internal-port-connectivity-validator-zookeeper
 
-- hosts: ms
+- name: "Check management server ports for ms hosts"
+  hosts: ms
   roles:
   - apigee-internal-port-connectivity-validator-ms
 
-- hosts: pg
+- name: "Check postgres ports for pg hosts"
+  hosts: pg
   roles:
   - apigee-internal-port-connectivity-validator-postgres
 
-- hosts: rmp
+- name: "Check router ports for rmp hosts"
+  hosts: rmp
   roles:
   - apigee-internal-port-connectivity-validator-router
 
-- hosts: r
+- name: "Check router ports for r hosts"
+ hosts: r
   roles:
   - apigee-internal-port-connectivity-validator-router
 
-- hosts: qpid
+- name: "Check qpid ports for qpid hosts"
+  hosts: qpid
   roles:
   - apigee-internal-port-connectivity-validator-qpid
 
-- hosts: ui
+- name: "Check ui ports for ui hosts"
+  hosts: ui
   roles:
   - apigee-internal-port-connectivity-validator-ui
