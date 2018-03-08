@@ -102,7 +102,7 @@
     target_hosts: mp
 
 - name: Apply configuration to MP node
-  import_playbook: install-edge-mp-component-setup.yml
+  import_playbook: install-edge-message-processor-component-setup.yml
   tags: ['mp','mp-setup']
   vars:
     target_hosts: mp
