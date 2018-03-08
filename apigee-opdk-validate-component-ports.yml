@@ -4,6 +4,10 @@
   roles:
   - apigee-internal-port-connectivity-validator-mp
 
+- hosts: mp
+  roles:
+  - apigee-internal-port-connectivity-validator-mp
+
 - hosts: ldap
   roles:
   - apigee-internal-port-connectivity-validator-ldap
@@ -25,6 +29,10 @@
   - apigee-internal-port-connectivity-validator-postgres
 
 - hosts: rmp
+  roles:
+  - apigee-internal-port-connectivity-validator-router
+
+- hosts: r
   roles:
   - apigee-internal-port-connectivity-validator-router
 
