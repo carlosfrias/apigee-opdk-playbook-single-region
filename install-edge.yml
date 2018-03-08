@@ -77,9 +77,33 @@
   vars:
     target_hosts: rmp
 
-- name: Apply configuration to Router & Message Processor node
+- name: Apply configuration to RMP node
   import_playbook: install-edge-rmp-component-setup.yml
   tags: ['rmp','rmp-setup']
+  vars:
+    target_hosts: rmp
+
+- name: Configure Router node
+  import_playbook: apigee-edge-configuration.yml
+  tags: ['r','r-config','config']
+  vars:
+    target_hosts: rmp
+
+- name: Apply configuration to Router node
+  import_playbook: install-edge-router-component-setup.yml
+  tags: ['r','r-setup']
+  vars:
+    target_hosts: rmp
+
+- name: Configure MP node
+  import_playbook: apigee-edge-configuration.yml
+  tags: ['mp','mp-config','config']
+  vars:
+    target_hosts: rmp
+
+- name: Apply configuration to MP node
+  import_playbook: install-edge-mp-component-setup.yml
+  tags: ['mp','mp-setup']
   vars:
     target_hosts: rmp
 
