@@ -8,11 +8,11 @@
   - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-temporary-remove-targets, tags: ['remove']}
+  - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
   - { role: apigee-opdk-yum-repository-proxy-config, tags: ['yum-proxy-config']}
   - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
   - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
   - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
-  - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
   - { role: apigee-server-restart, tags: ['restart-server'], start_check_delay: 30, when: (selinux_disabled is defined and selinux_disabled.changed) or (iptables_disabled is defined and not iptables_disabled) or (force_restart is defined and force_restart)  }
   - { role: apigee-opdk-setup-os-common, tags: ['os-common'] }
   - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
