@@ -165,6 +165,12 @@
   vars:
     target_hosts: rmp
 
+- name: Validate from separate Router only
+  import_playbook: install-edge-rmp-validate.yml
+  tags: ['validate']
+  vars:
+    target_hosts: r
+
 - name: Download logs and configs
   tags: ['logs']
   import_playbook: apigee-log-config-files.yml
