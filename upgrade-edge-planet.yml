@@ -169,7 +169,7 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
 
-  - name: Upgrade Apigee Nginx
+  - name: Upgrade Apigee Nginx (https://b.corp.google.com/issues/74586724)
     become: yes
     yum:
       name: apigee-nginx
@@ -220,7 +220,7 @@
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
 
-  - name: Upgrade Apigee Nginx
+  - name: Upgrade Apigee Nginx (https://b.corp.google.com/issues/74586724)
     become: yes
     yum:
       name: apigee-nginx
@@ -299,6 +299,14 @@
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['ui-config'] }
   - { role: apigee-opdk-update-component,  component: 'ui', tags: ['ui-upgrade'] }
 
+- name: Rolling restart of dc-1
+  hosts: edge
+  serial: 1
+  tags: ['restart']
+  roles:
+  - apigee-opdk-stop-components
+  - apigee-opdk-start-components
+
 - name: Validate RMP
   import_playbook: install-edge-rmp-validate.yml
   tags: ['validate']
@@ -308,14 +316,6 @@
 #- name: Upgrade PG in dc-1
 #  include: upgrade-edge-postgres.yml
 #  tags: ['pg']
-
-- name: Rolling restart of dc-1
-  hosts: edge
-  serial: 1
-  tags: ['restart']
-  roles:
-  - apigee-opdk-stop-components
-  - apigee-opdk-start-components
 
 - include: apigee-log-config-files.yml
   vars:
