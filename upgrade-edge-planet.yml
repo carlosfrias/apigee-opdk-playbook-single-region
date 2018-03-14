@@ -168,6 +168,13 @@
   - name: Report current node
     debug:
       msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
+
+  - name: Upgrade Apigee Nginx
+    become: yes
+    yum:
+      name: apigee-nginx
+      state: latest
+
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['rmp-config'] }
   - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['router', 'mp'], tags: ['rmp-reachability-false'] }
@@ -192,6 +199,82 @@
   - name: Restart router
     tags: ['rmp-config-refresh']
     command: "/opt/apigee/apigee-service/bin/apigee-service edge-router restart"
+
+- name: Upgrade Router
+  hosts: r
+  become: true
+  become_user: "apigee"
+  serial: 1
+  gather_facts: no
+  tags: ['r']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
+  - name: Report current node
+    debug:
+      msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
+
+  - name: Upgrade Apigee Nginx
+    become: yes
+    yum:
+      name: apigee-nginx
+      state: latest
+
+  roles:
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['r-config'] }
+  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['router'], tags: ['r-reachability-false'] }
+  - { role: apigee-opdk-update-component, component: 'edge', tags: ['r-upgrade'] }
+  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['router'], tags: ['r-reachability-true'] }
+  tasks:
+  - name: Remove router configuration directory
+    tags: ['r-config-refresh']
+    file:
+      path: '/opt/nginx/config.d'
+      state: absent
+
+  - name: Restore router configuration directory
+    tags: ['r-config-refresh']
+    file:
+      path: '/opt/nginx/config.d'
+      state: directory
+      mode: 0755
+      owner: "apigee"
+      group: "apigee"
+
+  - name: Restart router
+    tags: ['r-config-refresh']
+    command: "/opt/apigee/apigee-service/bin/apigee-service edge-router restart"
+
+- name: Upgrade Message Processor
+  hosts: mp
+  become: true
+  become_user: "apigee"
+  serial: 1
+  gather_facts: no
+  tags: ['mp']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  pre_tasks:
+  - name: Assert upgrade_from_opdk_version
+    fail:
+      msg: "Please set the upgrade_from_opdk_version."
+    when: "upgrade_from_opdk_version is not defined"
+
+  - name: Report current node
+    debug:
+      msg: "Upgrading component edge on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
+  roles:
+  - { role: apigee-opdk-setup-silent-installation-config, opdk_version: "{{ upgrade_from_opdk_version }}", tags: ['mp-config'] }
+  - { role: apigee-opdk-set-reachable, reachability: False, server_types: ['mp'], tags: ['mp-reachability-false'] }
+  - { role: apigee-opdk-update-component, component: 'edge', tags: ['mp-upgrade'] }
+  - { role: apigee-opdk-set-reachable, reachability: True, server_types: ['mp'], tags: ['mp-reachability-true'] }
 
 - name: Upgrade UI
   hosts: ui
@@ -225,6 +308,14 @@
 #- name: Upgrade PG in dc-1
 #  include: upgrade-edge-postgres.yml
 #  tags: ['pg']
+
+- name: Rolling restart of dc-1
+  hosts: edge
+  serial: 1
+  tags: ['restart']
+  roles:
+  - apigee-opdk-stop-components
+  - apigee-opdk-start-components
 
 - include: apigee-log-config-files.yml
   vars:
