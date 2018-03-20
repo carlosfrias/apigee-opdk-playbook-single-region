@@ -11,13 +11,13 @@
     cwc_properties:
     - { key: 'conf_virtualhost_virtual.host.properties.names', value: 'proxy_read_timeout,keepalive_timeout,ssl_ciphers,ssl_protocols,proxy_request_buffering,proxy_buffering,listen', file_name: 'management-server' }
   roles:
-  - { role: apigee-opdk-setup-default-settings, tags:['cache'] }
-  - apigee-opdk-cwc-update
-  - apigee-opdk-stop-components
-  - apigee-opdk-start-components
+  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
+  - { role: apigee-opdk-cwc-update, tags: ['update'] }
+  - { role: apigee-opdk-stop-components, tags: ['restart'] }
+  - { role: apigee-opdk-start-components, tags: ['restart'] }
 
 - name: Configure Each Router for TLS
-  hosts: r
+  hosts: rmp
   become: yes
   become_user: apigee
   tags: ['router']
@@ -28,10 +28,10 @@
     cwc_properties:
     - { key: 'conf_virtualhost_virtual.host.properties.names', value: 'proxy_read_timeout,keepalive_timeout,ssl_ciphers,ssl_protocols,proxy_request_buffering,proxy_buffering,listen', file_name: 'management-server' }
   roles:
-  - apigee-opdk-setup-default-settings
-  - apigee-opdk-cwc-update
-  - apigee-opdk-stop-components
-  - apigee-opdk-start-components
+  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
+  - { role: apigee-opdk-cwc-update, tags: ['update'] }
+  - { role: apigee-opdk-stop-components, tags: ['restart'] }
+  - { role: apigee-opdk-start-components, tags: ['restart'] }
 
 - name: Update VHOST Configuration
   hosts: ms
