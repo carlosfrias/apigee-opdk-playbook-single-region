@@ -49,7 +49,7 @@
   tasks:
   - name: Update VHOST Configuration
     uri:
-      url: "http://{{ local_mgmt_ip }}:8080/v1/o/{{ org_name }}/environments/{{ env_name }}/virtualhosts/{{ vhost_name }}"
+      url: "http://{{ local_mgmt_ip }}:8080/v1/organizations/{{ org_name }}/environments/{{ env_name }}/virtualhosts/{{ vhost_name }}"
       method: POST
       user: "{{ opdk_user_email }}"
       password: "{{ opdk_user_password }}"
