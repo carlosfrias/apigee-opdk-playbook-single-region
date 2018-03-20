@@ -10,7 +10,7 @@
     - { key: 'conf_virtualhost_virtual.host.properties.names', value: 'proxy_read_timeout,keepalive_timeout,ssl_ciphers,ssl_protocols,proxy_request_buffering,proxy_buffering,listen', file_name: 'management-server' }
   roles:
   - apigee-opdk-setup-default-settings
-  - apigee-opdk-cwc-updates
+  - apigee-opdk-cwc-update
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
 
@@ -25,10 +25,9 @@
     - { key: 'conf_virtualhost_virtual.host.properties.names', value: 'proxy_read_timeout,keepalive_timeout,ssl_ciphers,ssl_protocols,proxy_request_buffering,proxy_buffering,listen', file_name: 'management-server' }
   roles:
   - apigee-opdk-setup-default-settings
-  - apigee-opdk-cwc-updates
+  - apigee-opdk-cwc-update
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
-
 
 - name: Update VHOST Configuration
   hosts: ms
