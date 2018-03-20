@@ -63,7 +63,7 @@
                  <HostAlias>'{{ vhost_alias }}'</HostAlias>
              </HostAliases>
              <Properties>
-                 <Property name='listen'>{{vhost_alias }}</Property>
+                 <Property name='listen'>{{ private_address }}:{{ vhost_port }}</Property>
              </Properties>
          </VirtualHost>
 
