@@ -21,3 +21,9 @@ Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achi
 | [Apigee Bash Scripts Debug Mode](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode.yml](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode-requirements.yml](apigee-opdk-debug-mode-requirements.yml) | 
 
 
+<!-- BEGIN Google Required Disclaimer -->
+
+# Required Disclaimer
+
+This is not an officially supported Google product.
+<!-- END Google Required Disclaimer -->
