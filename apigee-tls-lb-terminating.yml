@@ -13,8 +13,8 @@
   roles:
   - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-cwc-update, tags: ['update'] }
-  - { role: apigee-opdk-stop-components, tags: ['restart'] }
-  - { role: apigee-opdk-start-components, tags: ['restart'] }
+  - { role: apigee-opdk-stop-components, tags: ['restart','ms-restart'] }
+  - { role: apigee-opdk-start-components, tags: ['restart','ms-restart'] }
 
 - name: Configure Each Router for TLS
   hosts: rmp
@@ -30,8 +30,8 @@
   roles:
   - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-cwc-update, tags: ['update'] }
-  - { role: apigee-opdk-stop-components, tags: ['restart'] }
-  - { role: apigee-opdk-start-components, tags: ['restart'] }
+  - { role: apigee-opdk-stop-components, tags: ['restart','r-restart'] }
+  - { role: apigee-opdk-start-components, tags: ['restart','r-restart'] }
 
 - name: Update VHOST Configuration
   hosts: ms
