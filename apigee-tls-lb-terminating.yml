@@ -58,12 +58,10 @@
         Content-Type: "application/xml"
       body: |
         <VirtualHost name='{{ vhost_name }}'>
-             <Port>'{{ vhost_port }}'</Port>
              <HostAliases>
-                 <HostAlias>'{{ vhost_alias }}'</HostAlias>
+                 <HostAlias>{{ vhost_alias }}</HostAlias>
              </HostAliases>
-             <Properties>
-                 <Property name='listen'>{{ private_address }}:{{ vhost_port }}</Property>
-             </Properties>
+             <Interfaces/>
+             <Port>{{ vhost_port }}</Port>
          </VirtualHost>
 
