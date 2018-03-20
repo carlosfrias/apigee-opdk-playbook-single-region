@@ -1,6 +1,8 @@
 ---
 - name: Configure Management Server for TLS
   hosts: ms
+  become: yes
+  become_user: apigee
   tags: ['ms']
   vars_files:
   - ~/.apigee-secure/credentials.yml
@@ -9,13 +11,15 @@
     cwc_properties:
     - { key: 'conf_virtualhost_virtual.host.properties.names', value: 'proxy_read_timeout,keepalive_timeout,ssl_ciphers,ssl_protocols,proxy_request_buffering,proxy_buffering,listen', file_name: 'management-server' }
   roles:
-  - apigee-opdk-setup-default-settings
+  - { role: apigee-opdk-setup-default-settings, tags:['cache'] }
   - apigee-opdk-cwc-update
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
 
 - name: Configure Each Router for TLS
   hosts: r
+  become: yes
+  become_user: apigee
   tags: ['router']
   vars_files:
   - ~/.apigee-secure/credentials.yml
