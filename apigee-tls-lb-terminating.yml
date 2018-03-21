@@ -1,4 +1,12 @@
 ---
+- name: Update cache for target servers
+  hosts: ms,rmp
+  tags: ['cache']
+  vars_files:
+  - ~/.apigee/custom-properties.yml
+  roles:
+  - { role: apigee-opdk-setup-default-settings }
+
 - name: Configure Management Server for TLS
   hosts: ms
   become: yes
@@ -6,12 +14,10 @@
   tags: ['ms']
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
   vars:
     cwc_properties:
     - { key: 'conf_virtualhost_virtual.host.properties.names', value: 'proxy_read_timeout,keepalive_timeout,ssl_ciphers,ssl_protocols,proxy_request_buffering,proxy_buffering,listen', file_name: 'management-server' }
   roles:
-  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-cwc-update, tags: ['update'] }
   - { role: apigee-opdk-stop-components, tags: ['restart','ms-restart'] }
   - { role: apigee-opdk-start-components, tags: ['restart','ms-restart'] }
@@ -23,12 +29,10 @@
   tags: ['router']
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
   vars:
     cwc_properties:
     - { key: 'conf_virtualhost_virtual.host.properties.names', value: 'proxy_read_timeout,keepalive_timeout,ssl_ciphers,ssl_protocols,proxy_request_buffering,proxy_buffering,listen', file_name: 'management-server' }
   roles:
-  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-cwc-update, tags: ['update'] }
   - { role: apigee-opdk-stop-components, tags: ['restart','r-restart'] }
   - { role: apigee-opdk-start-components, tags: ['restart','r-restart'] }
@@ -38,30 +42,34 @@
   tags: ['vhost']
   vars_files:
   - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
   vars:
-    org_name: opdk
-    env_name: test
-    vhost_name: secure
-    vhost_port: 9001
-    vhost_alias: "10.142.0.11:9443 10.142.0.13:9443"
+    keystore: testKeystore
+    clientAuthEnabled: False
+    sslinfo_enabled: true
 
   tasks:
+#  - name: Upload Keystore
+
   - name: Update VHOST Configuration
     uri:
       url: "http://{{ local_mgmt_ip }}:8080/v1/organizations/{{ org_name }}/environments/{{ env_name }}/virtualhosts/{{ vhost_name }}"
       method: POST
       user: "{{ opdk_user_email }}"
-      password: "{{ opdk_user_password }}"
+      password: "{{ opdk_user_pass }}"
       force_basic_auth: yes
       headers:
         Content-Type: "application/xml"
       body: |
-        <VirtualHost name='{{ vhost_name }}'>
-             <HostAliases>
-                 <HostAlias>{{ vhost_alias }}</HostAlias>
-             </HostAliases>
-             <Interfaces/>
-             <Port>{{ vhost_port }}</Port>
+        <VirtualHost name='{{ virtual_host_name }}'>
+          <HostAliases>
+            <HostAlias>{{ virtual_host_alias }}</HostAlias>
+          </HostAliases>
+          <Interfaces/>
+          <Port>{{ virtual_host_port }}</Port>
+          <SSLInfo>
+            <Enabled>{{ sslinfo_enabled }}</Enabled>
+            <ClientAuthEnabled>{{ clientAuthEnabled }}</ClientAuthEnabled>
+            <KeyStore>{{ keystore }}</KeyStore>
+            <KeyAlias>{{ virtual_host_alias }}</KeyAlias>
+          </SSLInfo>
          </VirtualHost>
-
