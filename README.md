@@ -23,7 +23,7 @@ Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achi
 
 <!-- BEGIN Google Required Disclaimer -->
 
-# Required Disclaimer
+# Not Google Product Clause
 
 This is not an officially supported Google product.
 <!-- END Google Required Disclaimer -->
