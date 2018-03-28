@@ -8,4 +8,6 @@ The upgrade process will be looking for two variables.
 | Variable Name | Value | Description |
 | --- | --- | --- |
 | opdk_version | 4.18.01 | This indicates the target opdk version to be installed. This is also set during a clean installation of OPDK. | 
-| upgrade_from_opdk_version | 4.16.01, 4.16.05, 4.16.09, 4.17.01, 4.17.05, 4.17.09 | This is the version of opdk that you would be upgrading from | 
+| upgrade_from_opdk_version | 4.16.01, 4.16.05, 4.16.09, 4.17.01, 4.17.05, 4.17.09 | This is the version of opdk that you would be upgrading from |
+
+ 
