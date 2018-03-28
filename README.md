@@ -1,7 +1,8 @@
 # Apigee OPDK Installation of a Single Data Center
 
 This repository contains Ansible playbooks that use roles to install Apigee Edge, Developer Portal, Baas and the 
-Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achieve the following:
+Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achieve the installation, upgrade and maintenance 
+of the Edge platform. Please see the links below for descriptions and usage instructions. 
  
 ## Installing, Updating and Maintaining Apigee Components and Support Servers 
 | Playbook Description | Playbook Name | Playbook Role Requirements |
