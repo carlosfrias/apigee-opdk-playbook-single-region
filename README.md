@@ -1,8 +1,11 @@
-# Apigee OPDK Installation of a Single Data Center
+# Apigee OPDK Installation and Maintenance
 
-This repository contains Ansible playbooks that use roles to install Apigee Edge, Developer Portal, Baas and the 
+This repository contains Ansible playbooks that use roles to install, configure and maintain Apigee Edge, Developer Portal and the 
 Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achieve the installation, upgrade and maintenance 
-of the Edge platform. Please see the links below for descriptions and instructions specific to your activity. 
+of the Edge platform. The roles perform functionally discrete activities. This is important because many installation, 
+configuration and maintenance activities are multiple invocations of the same scripts or commands except for changes in
+either the parameters used, the sequence of the invocations or both. Please see the links below for descriptions and 
+instructions specific to your activity.  
 
 ## General Usage Instructions
 
@@ -12,6 +15,25 @@ quickly.
 ### Ansible Playbooks
 Ansible playbooks are always invoked using `ansible-playbook`. Please 
 refer to [Ansible Documentation](http://docs.ansible.com/ansible/latest) for details on installing and running Ansible.
+
+### Ansible Tags
+These playbooks use [Ansible tags](http://docs.ansible.com/ansible/latest/cli/ansible-playbook.html#cmdoption-ansible-playbook-tags) 
+extensively to execute functionally significant portions of the installation. These tags have been used consistently across all
+the playbooks. In some cases, the tags perform slightly different tasks but achieve the semantic functionality ascribed by the name. 
+
+| Tag Name | Description |
+| --- | --- |
+| cache | Updates the local Ansible cache with OPDK variables that are used for the generation of configuration files. |
+| os | Prepares the operating system for the installation of OPDK |
+| bootstrap | Install the Apigee bootstrap |
+| common | Install common Apigee components used on all nodes |
+| ds | Install the [ds](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
+| ms | Install the [ms](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
+| rmp | Install the [rmp](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
+| r | Install the [r](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
+| mp | Install the [mp](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
+| qpid | Install the [qs](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
+| pg | Install the [ps](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
  
 ## Installing, Updating and Maintaining Apigee Components and Support Servers 
 | Playbook Description | Playbook Name | Playbook Role Requirements |
