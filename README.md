@@ -40,11 +40,17 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | logs | Download the configuration files and logs on a node that contains an Apigee component | 
  
 ## Installing, Updating and Maintaining Apigee Components and Support Servers 
-| Playbook Description | Playbook Name | Playbook Role Requirements |
+| Playbook Description (README's Available) | Playbook Name | Playbook Role Requirements |
 | --- | --- | --- |
 | [Install AIO](README-AIO-execution.md) | [install-edge-aio.yml](install-edge-aio.yml) | [install-edge-aio-requirements.yml](install-edge-aio-requirements.yml) |
 | [Install Edge](README-install-edge.md) | [install-edge.yml](install-edge.yml) | [install-edge-requirements.yml](install-edge-requirements.yml) |
 | [Upgrade Edge](README-upgrade.md) | [upgrade-edge.yml](upgrade-edge.yml) | [upgrade-edge-requirements.yml](upgrade-edge-requirements.yml) |
+| [Apigee Bash Scripts Debug Mode](README-apigee-opdk-debug-mode.md) | [apigee-opdk-debug-mode.yml](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode-requirements.yml](apigee-opdk-debug-mode-requirements.yml) | 
+
+
+##  Installing, Updating and Maintaining Apigee Components and Support Servers 
+| Playbook Description (README's under construction) | Playbook Name | Playbook Role Requirements |
+| --- | --- | --- |
 | [Install Developer Portal](install-devportal.yml) | [install-devportal.yml](install-devportal.yml) | [install-devportal-requirements.yml](install-devportal-requirements.yml) |
 | [Install Baas](install-baas.yml) | [install-baas.yml](install-baas.yml) | [install-baas-requirements.yml](install-baas-requirements.yml) |
 | [Install Monitoring Dashboard](install-monitoring.yml) | [install-monitoring.yml](install-monitoring.yml) | [install-monitoring-requirements.yml](install-monitoring-requirements.yml) |
@@ -54,7 +60,6 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | [Clean Control Server](clean.yml) | [clean.yml](clean.yml) | NA | 
 | [Hard Remove of Apigee from a Node](apigee-node-rollback.yml) | [apigee-node-rollback.yml](apigee-node-rollback.yml) | NA |
 | [Download Apigee Logs](apigee-log-config-files.yml) | [apigee-log-config-files.yml](apigee-log-config-files.yml) | NA |
-| [Apigee Bash Scripts Debug Mode](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode.yml](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode-requirements.yml](apigee-opdk-debug-mode-requirements.yml) | 
 
 
 <!-- BEGIN Google Required Disclaimer -->
