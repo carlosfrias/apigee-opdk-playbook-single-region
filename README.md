@@ -17,7 +17,7 @@ refer to [Ansible Documentation](http://docs.ansible.com/ansible/latest) for det
 | Playbook Description | Playbook Name | Playbook Role Requirements |
 | --- | --- | --- |
 | [Install AIO](README-AIO-execution.md) | [install-edge-aio.yml](install-edge-aio.yml) | [install-edge-aio-requirements.yml](install-edge-aio-requirements.yml) |
-| [Install Edge](install-edge.yml) | [install-edge.yml](install-edge.yml) | [install-edge-requirements.yml](install-edge-requirements.yml) |
+| [Install Edge](README-install-edge.yml) | [install-edge.yml](install-edge.yml) | [install-edge-requirements.yml](install-edge-requirements.yml) |
 | [Upgrade Edge](README-upgrade.md) | [upgrade-edge.yml](upgrade-edge.yml) | [upgrade-edge-requirements.yml](upgrade-edge-requirements.yml) |
 | [Install Developer Portal](install-devportal.yml) | [install-devportal.yml](install-devportal.yml) | [install-devportal-requirements.yml](install-devportal-requirements.yml) |
 | [Install Baas](install-baas.yml) | [install-baas.yml](install-baas.yml) | [install-baas-requirements.yml](install-baas-requirements.yml) |
