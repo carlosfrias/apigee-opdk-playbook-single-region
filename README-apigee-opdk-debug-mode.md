@@ -15,7 +15,6 @@ To set debug mode on the scripts for an Edge component then use the `-e componen
  
     ansible-playbook apigee-opdk-debug-mode.yml -e opdk_debug_mode='on' -e component_name='message-processor'
     
-    
 ## Dependencies
 
 This playbook assumes that you followed the instructions for setting up [Ansible](https://github.com/carlosfrias/apigee-opdk-playbook-setup-ansible).    
