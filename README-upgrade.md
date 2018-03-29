@@ -14,6 +14,6 @@ Please note that the variables below need to be set either upon invocation of th
 | Variable Name | Value | Description |
 | --- | --- | --- |
 | opdk_version | 4.18.01 | This indicates the target opdk version to be installed. This is also set during a clean installation of OPDK. | 
-| upgrade_from_opdk_version | 4.16.01, 4.16.05, 4.16.09, 4.17.01, 4.17.05, 4.17.09 | This is the version of opdk that you would be upgrading from |
+| upgrade_from_opdk_version | 4.16.01, 4.16.05, 4.16.09, 4.17.01, 4.17.05, 4.17.09 | This variable should be set to one of the values listed. This indicates the version of opdk that you would be upgrading from |
 
  
