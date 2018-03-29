@@ -2,7 +2,16 @@
 
 This repository contains Ansible playbooks that use roles to install Apigee Edge, Developer Portal, Baas and the 
 Monitoring Dashboard. These playbooks orchestrate the usage of the roles to achieve the installation, upgrade and maintenance 
-of the Edge platform. Please see the links below for descriptions and usage instructions. 
+of the Edge platform. Please see the links below for descriptions and instructions specific to your activity. 
+
+## General Usage Instructions
+
+Ansible playbooks are invoked at the command line. The assumption is that you know Ansible or are capable of learning Ansible 
+quickly. 
+
+### Ansible Playbooks
+Ansible playbooks are always invoked using `ansible-playbook`. Please 
+refer to [Ansible Documentation](http://docs.ansible.com/ansible/latest) for details on installing and running Ansible.
  
 ## Installing, Updating and Maintaining Apigee Components and Support Servers 
 | Playbook Description | Playbook Name | Playbook Role Requirements |
