@@ -32,7 +32,6 @@
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-postgres.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-status.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-rollback.git
-- src: https://github.com/carlosfrias/apigee-opdk-modules.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-target-links.git
 - src: https://github.com/carlosfrias/apigee-opdk-temporary-remove-targets.git
 - src: https://github.com/carlosfrias/apigee-opdk-temporary-restore-targets.git
