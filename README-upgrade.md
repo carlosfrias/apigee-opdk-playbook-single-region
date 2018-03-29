@@ -7,6 +7,10 @@ through Edge 4.18.01.
 The upgrade process will be engaged when you invoke the playbook like this: 
 
     ansible-playbook update-edge.yml
+    
+## Dependencies
+
+This playbook assumes that you followed the instructions for setting up (Ansible)[https://github.com/carlosfrias/apigee-opdk-playbook-setup-ansible].    
      
 Please note that the variables below need to be set either upon invocation of the playbook or by updating your custom-properties.yml 
 
