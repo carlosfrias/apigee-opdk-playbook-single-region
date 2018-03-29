@@ -25,7 +25,7 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | --- | --- |
 | cache | Updates the local Ansible cache with OPDK variables that are used for the generation of configuration files. |
 | os | Prepares the operating system for the installation of OPDK |
-| bootstrap | Install the Apigee bootstrap |
+| bootstrap | Install the Apigee bootstrap. This adapts to either [online](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-apigee-setup-utility#installedgeapigeesetuputilityonanodewithanexternalinternetconnection) or [offline](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-apigee-setup-utility#installedgeapigeesetuputilityonanodewithnoexternalinternetconnection) |
 | common | Install common Apigee components used on all nodes |
 | ds | Install the [ds](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
 | ms | Install the [ms](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
@@ -33,7 +33,10 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | r | Install the [r](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
 | mp | Install the [mp](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
 | qpid | Install the [qs](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
-| pg | Install the [ps](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
+| pg | Install the [ps](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile |
+| org | Configure the organization, environment and virtual hosts
+| validate | Validate the installation |
+| logs | Download the configuration files and logs on a node that contains an Apigee component | 
  
 ## Installing, Updating and Maintaining Apigee Components and Support Servers 
 | Playbook Description | Playbook Name | Playbook Role Requirements |

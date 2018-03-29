@@ -22,6 +22,8 @@ Please note that the variables below need to be set either upon invocation of th
 
  ## Upgrading Using an Apigee Mirror
  
- If you are using locally accessed Apigee Mirror it will be necessary to upgrade the Apigee Mirror to your target `opdk_version`. 
- Once you have upgraded your mirror you would be able to use this script to upgrade edge.
+ If you are using locally accessed [Apigee Mirror](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-apigee-setup-utility#installedgeapigeesetuputilityonanodewithnoexternalinternetconnection-createalocalapigeerepository)
+ it will be necessary to upgrade the [Apigee Mirror](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-apigee-setup-utility#installedgeapigeesetuputilityonanodewithnoexternalinternetconnection-createalocalapigeerepository)
+ to your target `opdk_version`. Once you have upgraded your [Apigee Mirror](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-apigee-setup-utility#installedgeapigeesetuputilityonanodewithnoexternalinternetconnection-createalocalapigeerepository)
+ you would be able to use this script to upgrade edge.
  
