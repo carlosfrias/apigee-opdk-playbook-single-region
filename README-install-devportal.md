@@ -1,12 +1,11 @@
-# Install Apigee Edge
+# Install Apigee Devportal
 
-The playbook `install-edge.yml` will perform an installation of Apigee Edge. Version 4.16.xx through 4.18.01 can be installed
-from this playbook. 
+The playbook `install-devportal.yml` will perform an installation of Apigee Devportal. 
 
 ## Usage 
 The install process will be engaged when you invoke the playbook like this: 
 
-    ansible-playbook install-edge.yml
+    ansible-playbook install-devportal.yml
     
 ## Dependencies
 
