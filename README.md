@@ -27,6 +27,7 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | os | Prepares the operating system for the installation of OPDK |
 | bootstrap | Install the Apigee bootstrap. This adapts to either [online](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-apigee-setup-utility#installedgeapigeesetuputilityonanodewithanexternalinternetconnection) or [offline](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-apigee-setup-utility#installedgeapigeesetuputilityonanodewithnoexternalinternetconnection) |
 | common | Install common Apigee components used on all nodes |
+| config | Generate the [Edge Configuration File](https://docs.apigee.com/private-cloud/v4.18.01/edge-configuration-file-reference) |
 | ds | Install the [ds](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
 | ms | Install the [ms](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
 | rmp | Install the [rmp](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
@@ -34,8 +35,8 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | mp | Install the [mp](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
 | qpid | Install the [qs](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile | 
 | pg | Install the [ps](https://docs.apigee.com/private-cloud/v4.18.01/install-edge-components-node#specifyingthecomponentstoinstall) profile |
-| org | Configure the organization, environment and virtual hosts
-| validate | Validate the installation |
+| org | [Onboard an organization](https://docs.apigee.com/private-cloud/v4.18.01/onboard-organization) |
+| validate | [Validate](https://docs.apigee.com/private-cloud/v4.18.01/test-install) the installation |
 | logs | Download the configuration files and logs on a node that contains an Apigee component | 
  
 ## Installing, Updating and Maintaining Apigee Components and Support Servers 
