@@ -62,7 +62,7 @@
     yum_manual_os_packages:
     - openldap-servers
   roles:
-  - { role: apigee-opdk-setup-component, profile: 'aio', tags: ['aio']}
+  - { role: apigee-opdk-setup-component, profile: 'aio' }
 
 - name: Setup org
   include: install-edge-setup-org.yml
