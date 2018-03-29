@@ -1,8 +1,14 @@
 # Upgrading Apigee Edge
 
-The upgrade-edge.yml will perform an upgrade of Apigee Edge. Edge 4.16.xx is supported for upgrade
-through Edge 4.18.01. The upgrade process will be engaged when you invoke `ansible-playbook update-edge.yml`. 
-The upgrade process will be looking for two variables. 
+The playbook `upgrade-edge.yml` will perform an upgrade of Apigee Edge. Edge 4.16.xx is supported for upgrade
+through Edge 4.18.01. 
+
+## Usage 
+The upgrade process will be engaged when you invoke the playbook like this: 
+
+    ansible-playbook update-edge.yml
+     
+Please note that the variables below need to be set either upon invocation of the playbook or by updating your custom-properties.yml 
 
 ## Variables Used
 | Variable Name | Value | Description |
