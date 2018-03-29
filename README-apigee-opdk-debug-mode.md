@@ -18,5 +18,5 @@ To set debug mode on the scripts for an Edge component then use the `-e componen
     
 ## Dependencies
 
-This playbook assumes that you followed the instructions for setting up (Ansible)[https://github.com/carlosfrias/apigee-opdk-playbook-setup-ansible].    
+This playbook assumes that you followed the instructions for setting up [Ansible](https://github.com/carlosfrias/apigee-opdk-playbook-setup-ansible).    
 Please refer to the documentation for [apigee-opdk-debug-mode](https://github.com/carlosfrias/apigee-opdk-debug-mode). 
