@@ -46,6 +46,7 @@
 
   - name: Work around remove for Qpid upgrade
     ignore_errors: yes
+    become: true
     yum:
       name: "{{ item }}"
       state: absent
