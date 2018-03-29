@@ -45,11 +45,11 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | [Install AIO](README-install-edge-aio.md) | [install-edge-aio.yml](install-edge-aio.yml) | [install-edge-aio-requirements.yml](install-edge-aio-requirements.yml) |
 | [Install Edge](README-install-edge.md) | [install-edge.yml](install-edge.yml) | [install-edge-requirements.yml](install-edge-requirements.yml) |
 | [Upgrade Edge](README-upgrade.md) | [upgrade-edge.yml](upgrade-edge.yml) | [upgrade-edge-requirements.yml](upgrade-edge-requirements.yml) |
+| [Apigee Bash Scripts Debug Mode](README-apigee-opdk-debug-mode.md) | [apigee-opdk-debug-mode.yml](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode-requirements.yml](apigee-opdk-debug-mode-requirements.yml) | 
 
 ## Installation, Configuration and Maintenance Scripts 
 | Playbook Description (README's under construction) | Playbook Name | Playbook Role Requirements |
 | --- | --- | --- |
-| [Apigee Bash Scripts Debug Mode](README-apigee-opdk-debug-mode.md) | [apigee-opdk-debug-mode.yml](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode-requirements.yml](apigee-opdk-debug-mode-requirements.yml) | 
 | [Install Developer Portal](install-devportal.yml) | [install-devportal.yml](install-devportal.yml) | [install-devportal-requirements.yml](install-devportal-requirements.yml) |
 | [Install Baas](install-baas.yml) | [install-baas.yml](install-baas.yml) | [install-baas-requirements.yml](install-baas-requirements.yml) |
 | [Install Monitoring Dashboard](install-monitoring.yml) | [install-monitoring.yml](install-monitoring.yml) | [install-monitoring-requirements.yml](install-monitoring-requirements.yml) |
