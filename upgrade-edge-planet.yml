@@ -43,7 +43,6 @@
     debug:
       msg: "Upgrading component qpid on {{ inventory_hostname }} ( {{ ansible_hostname }} )"
 
-
   - name: Work around remove for Qpid upgrade
     ignore_errors: yes
     become: true

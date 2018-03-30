@@ -1,9 +1,13 @@
 ---
+# Updated Readme's
+- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
+- src: https://github.com/carlosfrias/apigee-opdk-temporary-remove-targets.git
+
+# Constructing Readme's
 - src: https://github.com/carlosfrias/apigee-opdk-setup-apigee-user.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-common.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-minimum.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-apigee-user-ownership.git
-- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-java-home.git
 - src: https://github.com/carlosfrias/apigee-opdk-time-sync.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-openjdk.git
@@ -34,7 +38,6 @@
 - src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-rollback.git
 - src: https://github.com/carlosfrias/apigee-opdk-modules.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-target-links.git
-- src: https://github.com/carlosfrias/apigee-opdk-temporary-remove-targets.git
 - src: https://github.com/carlosfrias/apigee-opdk-temporary-restore-targets.git
 - src: https://github.com/carlosfrias/apigee-opdk-ssh-user.git
 - src: https://github.com/carlosfrias/apigee-server-restart.git
