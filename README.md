@@ -12,11 +12,42 @@ instructions specific to your activity.
 Ansible playbooks are invoked at the command line. The assumption is that you know Ansible or are capable of learning Ansible 
 quickly. 
 
-### Ansible Playbooks
-Ansible playbooks are always invoked using `ansible-playbook`. Please 
-refer to [Ansible Documentation](http://docs.ansible.com/ansible/latest) for details on installing and running Ansible.
+### Playbook Usage
+Usage involves the following steps:
+1. Configure Ansible so that the location of configurations, inventories, logs, cache and roles is known and accessible.
+1. Use `ansible-galaxy` to download roles
+1. Use `ansible-playbook` to execute the tasks.
 
-### Ansible Tags
+### Configuring Ansible
+An [Apigee OPDK Ansible Configuration Accelerator](https://github.com/carlosfrias/apigee-opdk-playbook-setup-ansible) 
+is available to get you going quickly. Please refer to the accelerator to understand how to configure the following:
+* Ansible
+* Inventory of servers
+* SSH access
+* Assignment of OPDK roles to servers
+* Configuration of `custom-properties.yml`
+* Configuration of `credentials.yml`
+* Location of your `license.txt`
+
+### Installing Ansible
+Please refer to [Ansible Documentation](http://docs.ansible.com/ansible/latest) for details on installing, configuring 
+and running Ansible. 
+
+### Ansible Galaxy
+We are using [Ansible Galaxy](http://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html) to distribute 
+playbook role dependencies. The basic usage pattern we follow is:
+
+    ansible-galaxy install -r { galaxy-formatted-requirements-file.yml } -f
+    
+A [table](#installation-configuration-and-maintenance-scripts) has been provided that maps Ansible Galaxy dependency files to Ansible Playbooks.    
+
+### Ansible Playbooks
+Ansible playbooks are invoked at the command line as:
+ 
+     ansible-playbook { playbook-file.yml }
+
+
+#### Ansible Tags
 These playbooks use [Ansible tags](http://docs.ansible.com/ansible/latest/cli/ansible-playbook.html#cmdoption-ansible-playbook-tags) 
 extensively to execute functionally significant portions of the installation. These tags have been used consistently across all
 the playbooks. In some cases, the tags perform slightly different tasks but achieve the semantic functionality ascribed by the name. 
@@ -47,12 +78,12 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | [Upgrade Edge](README-upgrade-edge.md) | [upgrade-edge.yml](upgrade-edge.yml) | [upgrade-edge-requirements.yml](upgrade-edge-requirements.yml) |
 | [Apigee Bash Scripts Debug Mode](README-apigee-opdk-debug-mode.md) | [apigee-opdk-debug-mode.yml](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode-requirements.yml](apigee-opdk-debug-mode-requirements.yml) | 
 | [Install Developer Portal](README-install-devportal.md) | [install-devportal.yml](install-devportal.yml) | [install-devportal-requirements.yml](install-devportal-requirements.yml) |
+| [Install Monitoring Dashboard](README-install-monitoring.md) | [install-monitoring.yml](install-monitoring.yml) | [install-monitoring-requirements.yml](install-monitoring-requirements.yml) |
 
-## Installation, Configuration and Maintenance Scripts 
+## Installation, Configuration and Maintenance Scripts (Under Construction)
 | Playbook Description (README's under construction) | Playbook Name | Playbook Role Requirements |
 | --- | --- | --- |
 | [Install Baas](install-baas.yml) | [install-baas.yml](install-baas.yml) | [install-baas-requirements.yml](install-baas-requirements.yml) |
-| [Install Monitoring Dashboard](install-monitoring.yml) | [install-monitoring.yml](install-monitoring.yml) | [install-monitoring-requirements.yml](install-monitoring-requirements.yml) |
 | [Install Apigee Mirror](install-mirror.yml) | [install-mirror.yml](install-mirror.yml) | [install-mirror-requirements.yml](install-mirror-requirements.yml) |
 | [Install Monetization](install-monetization.yml) | [install-monetization.yml](install-monetization.yml) | [install-monetization-requirements.yml](install-monetization-requirements.yml) |
 | [Add a Data Center to a Planet](edge-expansion.yml) | [edge-expansion.yml](edge-expansion.yml) | [edge-expansion-requirements.yml](edge-expansion-requirements.yml) |
