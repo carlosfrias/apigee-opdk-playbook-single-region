@@ -115,3 +115,5 @@ planet_resources
 *.iml
 jump*
 tmp/*
+*.swp
+
