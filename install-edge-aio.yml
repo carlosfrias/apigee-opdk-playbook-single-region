@@ -11,12 +11,6 @@
   vars:
     target_hosts: edge
 
-- name: Install Apigee pre-requisites
-  import_playbook: apigee-pre-requisites-common-install.yml
-  tags: ['common']
-  vars:
-    target_hosts: edge
-
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
   tags: ['os', 'os-epel']
@@ -54,7 +48,7 @@
     target_hosts: edge
 
 - name: Install and configure Apigee Edge AIO
-  hosts: planet
+  hosts: edge
   gather_facts: no
   tags: ['aio']
   serial: 1
@@ -67,6 +61,8 @@
 - name: Setup org
   include: install-edge-setup-org.yml
   tags: ['org']
+  vars: 
+    target_hosts: ms[0]
 
 - name: Validate RMP
   include: install-edge-rmp-validate.yml
@@ -76,7 +72,7 @@
   tags: ['logs']
   include: apigee-log-config-files.yml
   vars:
-    target_hosts: planet
+    target_hosts: edge
 
 
 
