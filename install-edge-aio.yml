@@ -67,6 +67,8 @@
 - name: Validate RMP
   include: install-edge-rmp-validate.yml
   tags: ['validate-rmp']
+  vars:
+    target_hosts: rmp
 
 - name: Download logs and configs
   tags: ['logs']
