@@ -7,7 +7,7 @@ We have created `ansible-galaxy` requirement file `install-monitoring-requiremen
 used by this playbook and install them for usage according to your configuration. You can download and install the 
 required roles like this: 
 
-    ansible-playbook install -r install-monitoring-requirements.yml -f
+    ansible-galaxy install -r install-monitoring-requirements.yml -f
     
 The install process will be engaged when you invoke the playbook like this:
 
