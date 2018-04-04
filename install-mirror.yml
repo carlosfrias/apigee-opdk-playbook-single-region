@@ -5,23 +5,23 @@
   vars:
     target_hosts: mirror,ms
 
-- name: Install and configure OS pre-requisites for mirror
-  hosts: mirror
-  gather_facts: no
+- name: Install and configure OS pre-requisites
+  import_playbook: apigee-os-pre-requisites.yml
   tags: ['os']
-  vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
-  roles:
-  - { role: apigee-opdk-setup-os-epel, tags: ['epel'] }
-  - { role: apigee-opdk-setup-os-minimum, tags: ['os-minimum'] }
-  - { role: apigee-opdk-setup-os-limits, tags: ['apigee-tuning'] }
-  - { role: apigee-opdk-setup-selinux-disable, tags: ['selinux'] }
-  - { role: apigee-opdk-shutdown-iptables, tags: ['iptables'] }
-  - { role: apigee-server-restart, tags: ['restart-server'], when: (selinux_disabled.changed is defined and selinux_disabled.changed) or (iptables_disabled is defined and not iptables_disabled) or (force_restart is defined and force_restart)  }
-  - { role: apigee-opdk-setup-os-common, tags: ['os-common'] }
-  - { role: apigee-opdk-setup-openjdk, tags: ['openjdk'], jdk_version: '1.8' }
-  - { role: apigee-opdk-ssh-user, tags: ['ssh-root'] }
+  vars:
+    target_hosts: mirror
+
+- name: Install and configure Openldap pre-requisites
+  import_playbook: apigee-os-pre-requisites-epel.yml
+  tags: ['os', 'os-epel']
+  vars:
+    target_hosts: mirror
+
+- name: Install and configure Pip pre-requisites
+  import_playbook: apigee-os-pre-requisites-pip.yml
+  tags: ['os', 'os-pip']
+  vars:
+    target_hosts: mirror
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml

@@ -33,7 +33,7 @@
   import_playbook: apigee-os-pre-requisites-postgres.yml
   tags: ['os', 'os-postgres']
   vars:
-    target_hosts: edge
+    target_hosts: pg
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
