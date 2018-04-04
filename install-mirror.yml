@@ -3,10 +3,10 @@
   import_playbook: apigee-planet-cache.yml
   tags: ['cache']
   vars:
-    target_hosts: cfmirror,ms
+    target_hosts: mirror,ms
 
 - name: Install and configure OS pre-requisites for mirror
-  hosts: cfmirror
+  hosts: mirror
   gather_facts: no
   tags: ['os']
   vars_files:
@@ -27,10 +27,16 @@
   import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
   vars:
-    target_hosts: cfmirror
+    target_hosts: mirror
+
+- name: Install Apigee pre-requisites
+  import_playbook: apigee-pre-requisites-common-install.yml
+  tags: ['common']
+  vars:
+    target_hosts: mirror
 
 - name: Create apigee mirror archive
-  hosts: cfmirror
+  hosts: mirror
   gather_facts: no
   tags: ['create']
   vars_files:
@@ -40,7 +46,7 @@
   - { role: apigee-opdk-setup-bootstrap-create-archive, tags: ['create-archive'] }
 
 - name: Download apigee mirror archive
-  hosts: cfmirror
+  hosts: mirror
   gather_facts: no
   tags: ['download']
   vars_files:
@@ -51,7 +57,7 @@
 
 - name: Upload apigee mirror archive
   hosts: cf-000,cf-001,cf-002,cf-003,cf-004
-#  hosts: cfmirror
+#  hosts: mirror
   gather_facts: no
   tags: ['upload']
   vars_files:
@@ -62,7 +68,7 @@
 
 - name: Install apigee mirror archive
   hosts: cf-000,cf-001,cf-002,cf-003,cf-004
-#  hosts: cfmirror
+#  hosts: mirror
   gather_facts: no
   tags: ['install']
   vars_files:
@@ -72,7 +78,7 @@
   - { role: apigee-opdk-setup-bootstrap-archive-installer, tags: ['install-archive'] }
 
 - name: Expose apigee mirror web server
-  hosts: cfmirror
+  hosts: mirror
   gather_facts: no
   tags: ['nginx']
   vars_files:
@@ -85,4 +91,4 @@
   tags: ['logs']
   import_playbook: apigee-log-config-files.yml
   vars:
-    target_hosts: cfmirror
+    target_hosts: mirror
