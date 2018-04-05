@@ -17,3 +17,8 @@ The install process will be engaged when you invoke the playbook like this:
 ## Dependencies
 
 Dependencies are managed as described in the [README](README.md).
+
+## Inventory
+
+Configure the [inventory](https://github.com/carlosfrias/apigee-opdk-playbook-setup-ansible#inventory-file-semantics)
+ 

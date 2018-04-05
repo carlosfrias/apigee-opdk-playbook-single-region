@@ -16,13 +16,14 @@ quickly.
 Usage involves the following steps:
 1. Configure Ansible so that the location of configurations, inventories, logs, cache and roles is known and accessible.
 1. Use `ansible-galaxy` to download roles
+1. Use an [inventory](README-INVENTORY-FILE.md) template to configure your actual [inventory](README-INVENTORY-FILE.md). 
 1. Use `ansible-playbook` to execute the tasks.
 
 ### Configuring Ansible
 An [Apigee OPDK Ansible Configuration Accelerator](https://github.com/carlosfrias/apigee-opdk-playbook-setup-ansible) 
 is available to get you going quickly. Please refer to the accelerator to understand how to configure the following:
-* Ansible
-* Inventory of servers
+* Setup Ansible configuration files to indicate 
+* [Inventory](https://github.com/carlosfrias/apigee-opdk-playbook-setup-ansible#inventory-file-semantics) of servers
 * SSH access
 * Assignment of OPDK roles to servers
 * Configuration of `custom-properties.yml`
