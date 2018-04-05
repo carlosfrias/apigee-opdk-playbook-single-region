@@ -95,3 +95,6 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-ssh-user.git
 
+- src: - src: https://github.com/carlosfrias/apigee-opdk-setup-os-pip.git
+
+
