@@ -1,7 +1,6 @@
 ---
-- name: Update cache for planet
-  include: apigee-planet-cache.yml
-  tags: ['cache']
+- name: Update planet cache
+  import_playbook: apigee-planet-cache.yml
   vars:
     target_hosts: planet
 
