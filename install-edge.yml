@@ -32,8 +32,6 @@
 - name: Install and configure Postgres pre-requisites
   import_playbook: apigee-os-pre-requisites-postgres.yml
   tags: ['os', 'os-postgres']
-  vars:
-    target_hosts: edge
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
