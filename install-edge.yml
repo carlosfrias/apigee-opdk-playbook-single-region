@@ -5,15 +5,15 @@
   vars:
     target_hosts: edge
 
-- name: Install and configure OS pre-requisites
-  import_playbook: apigee-os-pre-requisites.yml
-  tags: ['os']
-  vars:
-    target_hosts: edge
-
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
   tags: ['os', 'os-epel']
+  vars:
+    target_hosts: edge
+
+- name: Install and configure OS pre-requisites
+  import_playbook: apigee-os-pre-requisites.yml
+  tags: ['os']
   vars:
     target_hosts: edge
 
