@@ -58,6 +58,7 @@
     - qpid-proton-c
 
   - name: Work around install for Qpid upgrade
+    become: true
     yum:
       name: "{{ item }}"
       state: present
