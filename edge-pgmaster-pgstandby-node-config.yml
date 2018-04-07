@@ -5,6 +5,7 @@
   serial: 1
   tags: ['pg', 'pgmaster']
   roles:
+  - { role: apigee-opdk-setup-postgres-config, tags: ['pg-os-pre-req'] }
   - { role: apigee-opdk-setup-postgres-master }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
@@ -15,5 +16,6 @@
   tags: ['pg', 'pgstandby']
   roles:
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
+  - { role: apigee-opdk-setup-postgres-config, tags: ['pg-os-pre-req'], clear_pgdata: True }
   - { role: apigee-opdk-setup-postgres-standby }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
