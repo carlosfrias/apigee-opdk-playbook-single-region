@@ -77,7 +77,7 @@
   - { role: apigee-opdk-update-component, component: 'ldap', tags: ['ldap-upgrade'] }
 
 - name: Upgrade Postgres
-  include: upgrade-edge-postgres.yml
+  import_playbook: upgrade-edge-postgres.yml
   tags: ['pg']
 
 - name: Upgrade Qpid Edge Components
@@ -293,65 +293,65 @@
     target_hosts: rmp
 
 #- name: Upgrade PG in dc-1
-#  include: upgrade-edge-postgres.yml
+#  import_playbook: upgrade-edge-postgres.yml
 #  tags: ['pg']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-1-ds
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-2-ds
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-1-ms
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-2-ms
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-1-rmp
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-2-rmp
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-1-qpid
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-2-qpid
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-1-pgmaster
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-2-pgmaster
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-1-pgstandby
   tags: ['logs']
 
-- include: apigee-log-config-files.yml
+- import_playbook: apigee-log-config-files.yml
   vars:
     target_hosts: dc-2-pgstandby
   tags: ['logs']
