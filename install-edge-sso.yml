@@ -1,0 +1,50 @@
+---
+- name: Update planet cache
+  tags: ['cache']
+  import_playbook: apigee-planet-cache.yml
+  vars:
+    target_hosts: edge
+
+- name: Install and configure Openldap pre-requisites
+  import_playbook: apigee-os-pre-requisites-epel.yml
+  tags: ['os', 'os-epel']
+  vars:
+    target_hosts: edge
+
+- name: Install and configure OS pre-requisites
+  import_playbook: apigee-os-pre-requisites.yml
+  tags: ['os']
+  vars:
+    target_hosts: edge
+
+- name: Install and configure Pip pre-requisites
+  import_playbook: apigee-os-pre-requisites-pip.yml
+  tags: ['os', 'os-pip']
+  vars:
+    target_hosts: edge
+
+- name: Install Apigee pre-requisites
+  import_playbook: apigee-pre-requisites-bootstrap.yml
+  tags: ['bootstrap']
+  vars:
+    target_hosts: edge
+
+- name: Install Apigee pre-requisites
+  import_playbook: apigee-pre-requisites-common-install.yml
+  tags: ['common']
+  vars:
+    target_hosts: edge
+
+- name: Install Edge SSO
+  hosts: edge-sso
+  gather_facts: no
+  tags: ['sso']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  roles:
+  - { role: apigee-opdk-setup-edge-sso-config }
+  - { role: apigee-opdk-setup-component, profile: 'sso', config: "{{ edge_sso_installation_config_file }}" ,tags: ['sso-config'] }
+
+
+
