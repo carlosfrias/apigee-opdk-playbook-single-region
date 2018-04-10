@@ -9,34 +9,34 @@
   import_playbook: apigee-os-pre-requisites-epel.yml
   tags: ['os', 'os-epel']
   vars:
-    target_hosts: edge
+    target_hosts: sso
 
 - name: Install and configure OS pre-requisites
   import_playbook: apigee-os-pre-requisites.yml
   tags: ['os']
   vars:
-    target_hosts: edge
+    target_hosts: sso
 
 - name: Install and configure Pip pre-requisites
   import_playbook: apigee-os-pre-requisites-pip.yml
   tags: ['os', 'os-pip']
   vars:
-    target_hosts: edge
+    target_hosts: sso
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-bootstrap.yml
   tags: ['bootstrap']
   vars:
-    target_hosts: edge
+    target_hosts: sso
 
 - name: Install Apigee pre-requisites
   import_playbook: apigee-pre-requisites-common-install.yml
   tags: ['common']
   vars:
-    target_hosts: edge
+    target_hosts: sso
 
 - name: Install Edge SSO
-  hosts: edge-sso
+  hosts: sso
   gather_facts: no
   tags: ['sso']
   vars_files:
