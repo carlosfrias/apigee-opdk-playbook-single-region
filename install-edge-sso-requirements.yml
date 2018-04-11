@@ -1,6 +1,4 @@
 ---
 - src: https://github.com/carlosfrias/apigee-opdk-setup-edge-sso-config.git
-- src: https://github.com/carlosfrias/apigee-opdk-setup-install.git
 
-
-
+- src: https://github.com/carlosfrias/apigee-opdk-setup-component-install.git
