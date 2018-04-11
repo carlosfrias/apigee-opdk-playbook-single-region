@@ -35,6 +35,18 @@
   vars:
     target_hosts: sso
 
+- name: Configure Apigee pre-requisites
+  import_playbook: apigee-edge-configuration.yml
+  tags: ['pg','pg-config','config']
+  vars:
+    target_hosts: sso-pg
+
+- name: Install Postgres node
+  import_playbook: install-edge-pg-component-setup.yml
+  tags: ['pg','pg-setup']
+  vars:
+    target_hosts: sso-pg
+
 - name: Install Edge SSO
   hosts: sso
   gather_facts: no
