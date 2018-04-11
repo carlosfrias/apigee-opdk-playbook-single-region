@@ -36,7 +36,7 @@
     target_hosts: sso
 
 - name: Install Edge SSO
-  hosts: sso
+  hosts: sso,ms
   gather_facts: no
   tags: ['sso-config']
   vars_files:
