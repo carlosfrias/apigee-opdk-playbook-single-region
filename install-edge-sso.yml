@@ -44,6 +44,7 @@
   - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-edge-sso-config, tags: ['sso-config'] }
+  - { role: apigee-opdk-setup-install, component: 'apigee-ssoadminapi' }
   - { role: apigee-opdk-setup-component, profile: 'sso', opdk_installation_config_file: "{{ edge_sso_installation_config_file }}", tags: ['sso-setup']  }
 
 
