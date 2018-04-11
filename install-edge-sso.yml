@@ -52,6 +52,7 @@
   tags: ['pg','pg-setup']
   vars:
     target_hosts: sso-pg
+    opdk_installation_config_file: "{{ edge_sso_installation_config_file }}"
 
 - name: Install Edge SSO
   hosts: sso
