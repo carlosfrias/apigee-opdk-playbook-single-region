@@ -65,6 +65,8 @@
 
 - name: Install Edge SSO
   hosts: sso,ms
+  become: true
+  become_user: "{{ opdk_user_name }}"
   gather_facts: no
   tags: ['sso']
   vars_files:
