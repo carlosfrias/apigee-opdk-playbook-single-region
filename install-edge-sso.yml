@@ -36,7 +36,7 @@
     target_hosts: sso
 
 - name: Install Edge SSO
-  hosts: sso,ms
+  hosts: sso
   gather_facts: no
   tags: ['sso-config']
   vars_files:
@@ -64,7 +64,7 @@
 
 
 - name: Install Edge SSO
-  hosts: sso,ms
+  hosts: sso
   become: true
   become_user: "{{ opdk_user_name }}"
   gather_facts: no
