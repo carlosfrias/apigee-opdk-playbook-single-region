@@ -38,7 +38,7 @@
 - name: Install Edge SSO
   hosts: sso
   gather_facts: no
-  tags: ['sso']
+  tags: ['sso-config']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
