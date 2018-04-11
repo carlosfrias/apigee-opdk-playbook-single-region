@@ -35,11 +35,17 @@
   vars:
     target_hosts: sso
 
-- name: Configure Apigee pre-requisites
-  import_playbook: apigee-edge-configuration.yml
-  tags: ['pg','pg-config','config']
-  vars:
-    target_hosts: sso-pg
+- name: Install Edge SSO
+  hosts: sso
+  gather_facts: no
+  tags: ['sso']
+  vars_files:
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
+  roles:
+  - { role: apigee-opdk-setup-component-install, component: 'apigee-ssoadminapi' }
+  - { role: apigee-opdk-setup-edge-sso-config, tags: ['sso-config'] }
+  - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user'] }
 
 - name: Install Postgres node
   import_playbook: install-edge-pg-component-setup.yml
@@ -55,10 +61,5 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   roles:
-  - { role: apigee-opdk-setup-component-install, component: 'apigee-ssoadminapi' }
-  - { role: apigee-opdk-setup-edge-sso-config, tags: ['sso-config'] }
-  - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user'] }
   - { role: apigee-opdk-setup-component, profile: 'sso', opdk_installation_config_file: "{{ edge_sso_installation_config_file }}", tags: ['sso-setup']  }
-
-
 
