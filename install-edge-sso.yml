@@ -64,7 +64,7 @@
 
 
 - name: Install Edge SSO
-  hosts: sso
+  hosts: sso,ms
   gather_facts: no
   tags: ['sso']
   vars_files:
