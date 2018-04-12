@@ -47,11 +47,11 @@
   - { role: apigee-opdk-setup-edge-sso-config, tags: ['sso-config'] }
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user'] }
 
-- name: Install Postgres node
-  import_playbook: install-edge-pg-component-setup.yml
-  tags: ['pg','pg-setup']
-  vars:
-    target_hosts: sso-pg
+#- name: Install Postgres node
+#  import_playbook: install-edge-pg-component-setup.yml
+#  tags: ['pg','pg-setup']
+#  vars:
+#    target_hosts: sso-pg
 
 #- name: Install Postgres
 #  hosts: sso-pg
@@ -69,7 +69,7 @@
 
 
 - name: Install Edge SSO
-  hosts: sso
+  hosts: sso-pg
   gather_facts: no
   tags: ['sso']
   vars_files:
