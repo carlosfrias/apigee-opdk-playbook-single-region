@@ -3,7 +3,7 @@
   tags: ['cache']
   import_playbook: apigee-planet-cache.yml
   vars:
-    target_hosts: ms,sso
+    target_hosts: sso
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
@@ -74,9 +74,9 @@
 #  - { role: apigee-opdk-setup-status, tags: ['status'] }
 
 - name: Install Edge SSO
-  hosts: sso
+  hosts: sso-ui
   gather_facts: no
-  tags: ['sso']
+  tags: ['sso-ui']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
