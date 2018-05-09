@@ -20,7 +20,7 @@
     rescue:
       - name: Use Apigee Qpid Work Around
         become: true
-        shell: yum --setopt=obsoletes=0 install apigee-qpidd
+        shell: yum --setopt=obsoletes=0 install apigee-qpidd -y
 
       - name: Install Apigee Qpid Component
         tags: ['apigee-component']
