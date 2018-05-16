@@ -3,7 +3,7 @@
   tags: ['cache']
   import_playbook: apigee-planet-cache.yml
   vars:
-    target_hosts: planet
+    target_hosts: ms,pg,sso
 
 - name: Install and configure Openldap pre-requisites
   import_playbook: apigee-os-pre-requisites-epel.yml
