@@ -4,3 +4,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-setup-edge-saml-config.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-component-install.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
