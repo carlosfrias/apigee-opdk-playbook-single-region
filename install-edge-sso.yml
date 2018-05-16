@@ -58,6 +58,6 @@
   - { role: apigee-opdk-setup-component-install, component: 'apigee-ssoadminapi' }
   - { role: apigee-opdk-setup-edge-sso-config, tags: ['sso-config'] }
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user'] }
-  - { role: apigee-opdk-setup-component, profile: 'sso', opdk_installation_config_file: "{{ edge_sso_installation_config_file }}", tags: ['sso-setup']  }
+  - { role: apigee-opdk-setup-component, profile: 'sso', opdk_installation_config_file: "{{ edge_sso_installation_config_file_path }}", tags: ['sso-setup']  }
   - { role: apigee-opdk-setup-edge-saml-config, tags: ['saml-config'] }
 
