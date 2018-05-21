@@ -9,5 +9,5 @@
 
   roles:
   - { role: apigee-opdk-setup-component, profile: 'qs', tags: ['apigee-component'] }
-  - { role: apigee-opdk-update-component-qpidd, tags: ['apigee-component'] }
+  - { role: apigee-opdk-update-component-qpidd, tags: ['apigee-component-update'] }
   - { role: apigee-opdk-start-components, server_types: ['qs'], tags: ['self'] }
