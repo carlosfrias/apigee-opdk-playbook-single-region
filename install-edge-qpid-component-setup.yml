@@ -13,6 +13,7 @@
 #  - { role: apigee-opdk-start-components, server_types: ['qs'], tags: ['self'] }
 
   tasks:
+#  TODO Move these tasks into apigee-opdk-update-component-qpidd
   - block:
 
     - name: Install Apigee Qpid Component
