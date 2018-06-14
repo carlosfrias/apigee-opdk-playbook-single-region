@@ -38,7 +38,7 @@ and running Ansible.
 We are using [Ansible Galaxy](http://docs.ansible.com/ansible/latest/reference_appendices/galaxy.html) to distribute 
 playbook role dependencies. The basic usage pattern we follow is:
 
-    ansible-galaxy install -r { galaxy-formatted-requirements-file.yml } -f
+    ansible-galaxy install -r { galaxy-formatted-requirements.yml } -f
     
 A [table](#installation-configuration-and-maintenance-scripts) has been provided that maps Ansible Galaxy dependency files to Ansible Playbooks.    
 
