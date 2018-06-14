@@ -23,6 +23,14 @@
         profile: 'qs'
 
     rescue:
+      - name: Ensure that yum support is installed
+        yum:
+          name: "{{ item }}}
+          state: present
+        with_items:
+        - yum-utils
+        - yum-plugin-priorities
+
       - name: Use Apigee Qpid Work Around
         become: true
         shell: yum --setopt=obsoletes=0 install apigee-qpidd -y
