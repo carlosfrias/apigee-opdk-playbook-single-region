@@ -25,7 +25,7 @@
     rescue:
       - name: Ensure that yum support is installed
         yum:
-          name: "{{ item }}}
+          name: "{{ item }}"
           state: present
         with_items:
         - yum-utils
