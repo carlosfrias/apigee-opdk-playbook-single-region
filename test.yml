@@ -11,6 +11,11 @@
   - { role: apigee-opdk-setup-os-openldap, tags: ['openldap'] }
   - { role: apigee-opdk-pre-requisites, tags: ['bootstrap'] }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config']}
-
-
-
+  - { role: apigee-opdk-setup-os-postgres, tags: ['pg-os-pre-req'] }
+  - { role: apigee-opdk-setup-component, profile: 'aio' }
+  - { role: apigee-opdk-setup-status, tags: ['status'] }
+  - { role: apigee-opdk-setup-org-config, tags: ['org-config'] }
+  - { role: apigee-opdk-setup-org, tags: ['org-create'] }
+  - { role: apigee-opdk-setup-validate, tags: ['validate'] }
+  - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate', 'validate-cleanup'] }
+  - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}", tags: ['logs'] }
