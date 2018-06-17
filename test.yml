@@ -8,5 +8,9 @@
   roles:
   - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
+  - { role: apigee-opdk-setup-os-openldap, tags: ['openldap'] }
+  - { role: apigee-opdk-pre-requisites, tags: ['bootstrap'] }
+
+
 
 
