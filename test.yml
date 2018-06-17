@@ -6,6 +6,7 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
   roles:
+  - apigee-opdk-setup-default-settings
   - apigee-opdk-os-pre-requisites
 
 
