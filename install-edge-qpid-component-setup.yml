@@ -7,7 +7,13 @@
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
 
+#  roles:
+#  - { role: apigee-opdk-setup-component, profile: 'qs', tags: ['apigee-component'] }
+#  - { role: apigee-opdk-update-component-qpidd, tags: ['apigee-component-update'] }
+#  - { role: apigee-opdk-start-components, server_types: ['qs'], tags: ['self'] }
+
   tasks:
+#  TODO Move these tasks into apigee-opdk-update-component-qpidd
   - block:
 
     - name: Install Apigee Qpid Component
@@ -18,6 +24,14 @@
         profile: 'qs'
 
     rescue:
+      - name: Ensure that yum support is installed
+        yum:
+          name: "{{ item }}"
+          state: present
+        with_items:
+        - yum-utils
+        - yum-plugin-priorities
+
       - name: Use Apigee Qpid Work Around
         become: true
         shell: yum --setopt=obsoletes=0 install apigee-qpidd -y
@@ -29,14 +43,12 @@
         vars:
           profile: 'qs'
 
-
   - name: Start Apigee Qpid Component
     tags: ['self']
     import_role:
       name: apigee-opdk-start-components
     vars:
       server_types: ['qs']
-
 
   - name: Collect Self Report for Apigee Qpid
     tags: ['self']
