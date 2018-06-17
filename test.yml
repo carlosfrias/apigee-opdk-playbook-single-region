@@ -1,6 +1,6 @@
 ---
 - name: Test Apigee OPDK OS Pre-Requisites Role
-  hosts: planet
+  hosts: aio
   gather_facts: yes
   vars_files:
   - ~/.apigee-secure/credentials.yml
