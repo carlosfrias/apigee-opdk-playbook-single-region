@@ -10,7 +10,7 @@
   - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
   - { role: apigee-opdk-setup-os-openldap, tags: ['openldap'] }
   - { role: apigee-opdk-pre-requisites, tags: ['bootstrap'] }
-
+  - { role: apigee-opdk-setup-silent-installation-config, tags: ['config']}
 
 
 
