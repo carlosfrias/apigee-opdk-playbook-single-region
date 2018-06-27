@@ -109,3 +109,5 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-sysctl.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-os-pip.git
+
