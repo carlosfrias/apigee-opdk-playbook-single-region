@@ -101,3 +101,5 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-yum-packages.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-os-pre-requisites.git
+
