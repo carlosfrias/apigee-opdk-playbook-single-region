@@ -108,3 +108,7 @@
 - src: https://github.com/carlosfrias/apigee-opdk-devportal-drupal-updates.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-yum-repository-proxy-config.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-os-pre-requisites.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-os-sysctl.git
