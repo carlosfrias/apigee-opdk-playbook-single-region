@@ -8,3 +8,15 @@
     template:
       src: resources/ansible-template.cfg.j2
       dest: "{{ playbook_dir }}/ansible.cfg"
+
+  - name: Create ansible folders defined in ansible.cfg
+    file:
+      path: "{{ item }}"
+      state: directory
+    with_items:
+    - ansible/inventory
+    - ansible/cache
+    - ansible/logs
+    - ansible/roles
+    - ansible/tmp
+    - ansible/library
