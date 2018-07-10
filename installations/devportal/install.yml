@@ -61,12 +61,17 @@
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
   - { role: apigee-opdk-setup-status, tags: ['status'] }
 
-- name: Download Apigee logs
+- name: Download log files
   hosts: dp
-  become: yes
+  become: true
   gather_facts: no
+  tags: ['logs']
+  roles:
+  - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}" }
   vars:
-    target_logs_folder: "~/apigee-workspace/apigee/planet_resources"
+    opdk_installer_path: /tmp/edge
+    apigee_home: /opt/apigee
+    target_logs_folder: "{{ playbook_dir }}/planet_logs"
     pattern:
     - { dir: '/etc/', pattern: 'hosts*' }
     - { dir: '/etc/', pattern: 'environment' }
@@ -96,6 +101,4 @@
     - { dir: '{{ apigee_home }}/apigee-zookeeper/', pattern: '*yaml' }
     - { dir: '{{ apigee_home }}/apigee-zookeeper/', pattern: '*properties' }
     - { dir: '{{ apigee_home }}/apigee-postgresql/', pattern: '*conf' }
-  roles:
-    - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}", tags: ['logs'] }
 
