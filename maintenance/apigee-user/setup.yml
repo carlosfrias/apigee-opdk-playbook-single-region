@@ -1,0 +1,25 @@
+---
+- name: Setup within the Ansible environment on this box
+  hosts: localhosts
+  connection: local
+  gather_facts: no
+
+  tasks:
+  - block:
+    - name: Install Ansible roles
+      shell: "ansible-galaxy install -r requirements -f"
+
+    rescue:
+      - name: Retry installation of Ansible roles with escalated privilege
+        become: true
+        shell: "ansible-galaxy install -r requirements -f"
+
+  - name: Assert that target_hosts have been indicated
+    assert:
+      that:
+      - target_hosts is defined
+      msg: "Please indicate `target_hosts`: -e target_hosts=<IP, Hostname or Group Name>"
+
+- name: Update Apigee User
+  import_playbook: update-apigee-user.yml
+
