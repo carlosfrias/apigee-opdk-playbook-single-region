@@ -31,6 +31,6 @@
       dest: "{{ item.dest }}"
       force: yes
     with_items:
-    - { src: "resources/ansible-template.cfg.j2", dest: "ansible.cfg" }
+    - { src: "resources/ansible-template.cfg.j2", dest: "./ansible.cfg" }
     - { src: "resources/aio-template.j2", dest: "ansible/inventory/aio" }
 
