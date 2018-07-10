@@ -1,28 +1,4 @@
 ---
-- name: Generate inventory template for AIO
-  hosts: localhost
-  gather_facts: no
-
-  vars:
-    opdk_user_name: 'apigee'
-    opdk_group_name: 'apigee'
-
-  vars_prompt:
-    - name: "target_host"
-      prompt: "Please provide the IP address of the target host"
-      default: "localhost"
-
-  tasks:
-  - name: Create inventory folder
-    file:
-      path: inventory
-      state: directory
-
-  - name: Generate inventory file
-    template:
-      dest: inventory/aio
-      src: resources/aio-template.j2
-
 - name: Install AIO
   hosts: edge
 
