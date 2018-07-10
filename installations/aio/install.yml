@@ -1,6 +1,10 @@
 ---
 - name: Install AIO
   hosts: edge
+  gather_facts: no
+  vars:
+    opdk_user_name: 'apigee'
+    opdk_group_name: 'apigee'
 
   roles:
   - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }

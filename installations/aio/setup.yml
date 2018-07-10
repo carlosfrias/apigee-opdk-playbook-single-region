@@ -2,11 +2,6 @@
 - name: Setup local Ansible configuration
   hosts: localhost
   gather_facts: no
-
-  vars:
-    opdk_user_name: 'apigee'
-    opdk_group_name: 'apigee'
-
   vars_prompt:
     - name: "target_host"
       prompt: "Please provide the IP address of the target host"
