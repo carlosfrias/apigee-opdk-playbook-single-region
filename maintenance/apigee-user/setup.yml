@@ -1,6 +1,6 @@
 ---
 - name: Setup within the Ansible environment on this box
-  hosts: localhosts
+  hosts: localhost
   connection: local
   gather_facts: no
 
