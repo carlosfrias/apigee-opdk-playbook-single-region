@@ -46,6 +46,12 @@
   - { role: apigee-opdk-setup-org, tags: ['org-create'] }
   - { role: apigee-opdk-setup-validate, tags: ['validate'] }
   - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate', 'validate-rmp-cleanup'] }
+
+- name: Download log files
+  hosts: edge
+  gather_facts: no
+  become: true
+  roles:
   - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}" }
 
   vars:
