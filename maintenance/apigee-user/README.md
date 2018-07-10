@@ -1,7 +1,7 @@
-* Simplified Apigee User Setup
+# Simplified Apigee User Setup
 This script will setup the `apigee` user on the apigee instances.
 
-** Usage: 
+## Usage: 
 This is an Ansible script. This requires Ansible to be installed. 
 
     ansible-galaxy install -r requirements -f
