@@ -6,6 +6,7 @@
     - name: "target_host"
       prompt: "Please provide the IP address of the target host"
       default: "localhost"
+      private: no
 
   tasks:
   - name: Create ansible folders defined in ansible.cfg
