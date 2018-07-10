@@ -51,6 +51,7 @@
   hosts: edge
   gather_facts: no
   become: true
+  tags: ['logs']
   roles:
   - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}" }
 
