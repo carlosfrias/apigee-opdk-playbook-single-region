@@ -28,5 +28,5 @@
       force: yes
     with_items:
     - { src: "resources/ansible-template.cfg.j2", dest: "./ansible.cfg" }
-    - { src: "resources/inventory-template.j2", dest: "ansible/inventory/aio" }
+    - { src: "resources/inventory-template.j2", dest: "ansible/inventory/devportal" }
 
