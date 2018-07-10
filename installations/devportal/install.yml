@@ -3,7 +3,6 @@
   hosts: planet
   gather_facts: no
   roles:
-#  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
   - { role: apigee-opdk-setup-target-links, tags: ['links', 'bootstrap'] }
   - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user', 'bootstrap'] }
