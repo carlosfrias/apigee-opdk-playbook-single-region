@@ -1,0 +1,10 @@
+---
+- name: Setup local Ansible configuration
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+  - name: Generate ansible.cfg file
+    template:
+      src: resources/ansible-template.cfg.j2
+      path: ansible.cfg
