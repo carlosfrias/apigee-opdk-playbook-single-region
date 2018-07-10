@@ -78,7 +78,7 @@ the playbooks. In some cases, the tags perform slightly different tasks but achi
 | [Install Edge](README-install-edge.md) | [install-edge.yml](install-edge.yml) | [install-edge-requirements.yml](install-edge-requirements.yml) |
 | [Upgrade Edge](README-upgrade-edge.md) | [upgrade-edge.yml](upgrade-edge.yml) | [upgrade-edge-requirements.yml](upgrade-edge-requirements.yml) |
 | [Apigee Bash Scripts Debug Mode](README-apigee-opdk-debug-mode.md) | [apigee-opdk-debug-mode.yml](apigee-opdk-debug-mode.yml) | [apigee-opdk-debug-mode-requirements.yml](apigee-opdk-debug-mode-requirements.yml) | 
-| [Install Developer Portal](README-install-devportal.md) | [install-devportal.yml](install-devportal.yml) | [install-devportal-requirements.yml](install-devportal-requirements.yml) |
+| [Install Developer Portal](README-install-devportal.md) | [install-devportal.yml](install-devportal-DEPRECATE.yml) | [install-devportal-requirements.yml](install-devportal-requirements-DEPRECATE.yml) |
 | [Install Monitoring Dashboard](README-install-monitoring.md) | [install-monitoring.yml](install-monitoring.yml) | [install-monitoring-requirements.yml](install-monitoring-requirements.yml) |
 
 ## Installation, Configuration and Maintenance Scripts (Under Construction)

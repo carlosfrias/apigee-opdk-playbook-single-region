@@ -41,7 +41,7 @@
     target_hosts: dp
 
 - name: Apply configuration to DevPortal Database node
-  import_playbook: install-devportal-postgres-component-setup.yml
+  import_playbook: install-devportal-postgres-component-setup-DEPRECATE.yml
   tags: ['pdb']
   vars:
     target_hosts: dp-db
@@ -55,7 +55,7 @@
     opdk_installation_config_file: "{{ opdk_portal_db_config_file }}"
 
 - name: Apply configuration to DevPortal UI node
-  import_playbook: install-devportal-ui-component-setup.yml
+  import_playbook: install-devportal-ui-component-setup-DEPRECATE.yml
   tags: ['dp']
   vars:
     target_hosts: dp-ui
