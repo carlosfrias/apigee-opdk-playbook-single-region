@@ -32,11 +32,11 @@
   become: true
   tags: ['logs']
   roles:
-  - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}" }
+  - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ playbook_dir }}/{{ target_logs_folder }}" }
   vars:
     opdk_installer_path: /tmp/edge
     apigee_home: /opt/apigee
-    target_logs_folder: "{{ playbook_dir }}/planet_logs"
+    target_logs_folder: planet_logs
     pattern:
     - { dir: '/etc/', pattern: 'hosts*' }
     - { dir: '/etc/', pattern: 'environment' }
