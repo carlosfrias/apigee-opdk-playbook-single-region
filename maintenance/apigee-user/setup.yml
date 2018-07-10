@@ -7,7 +7,7 @@
   tasks:
   - block:
     - name: Install Ansible roles
-      shell: "ansible-galaxy install -r requirements -f"
+      shell: "ansible-galaxy install -r ./requirements -f"
 
     rescue:
       - name: Retry installation of Ansible roles with escalated privilege
