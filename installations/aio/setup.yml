@@ -13,11 +13,6 @@
       default: "localhost"
 
   tasks:
-  - name: Generate ansible.cfg file
-    template:
-      src: resources/ansible-template.cfg.j2
-      dest: "{{ playbook_dir }}/ansible.cfg"
-
   - name: Create ansible folders defined in ansible.cfg
     file:
       path: "{{ item }}"
@@ -30,7 +25,12 @@
     - ansible/tmp
     - ansible/library
 
-  - name: Generate inventory file
+  - name: Generate configuration files
     template:
-      dest: ansible/inventory/aio
-      src: resources/aio-template.j2
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      force: yes
+    with_items:
+    - { src: "resources/ansible-template.cfg.j2", dest: "ansible.cfg" }
+    - { src: "resources/aio-template.j2", dest: "ansible/inventory/aio" }
+
