@@ -1,8 +1,8 @@
 [dc-1-dp-ui]
-{{ target_hosts }}
+{{ target_dp_host }}
 
 [dc-1-dp-db]
-{{ target_hosts }}
+{{ target_dp_host }}
 
 [dc-1-dp:children]
 dc-1-dp-ui
@@ -23,3 +23,10 @@ dc-1-dp-db
 
 [dc-1:children]
 dp
+ms
+
+[ms:children]
+dc-1-ms
+
+[dc-1-ms:children]
+{{ target_ms_host }}

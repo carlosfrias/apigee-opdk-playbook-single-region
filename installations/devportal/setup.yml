@@ -3,8 +3,13 @@
   hosts: localhost
   gather_facts: no
   vars_prompt:
-    - name: "target_host"
-      prompt: "Please provide the IP address of the target host"
+    - name: "target_dp_host"
+      prompt: "Please provide the IP address of the target Devportal host"
+      default: "localhost"
+      private: no
+
+    - name: "target_ms_host"
+      prompt: "Please provide the IP address of the target Management Server host"
       default: "localhost"
       private: no
 
