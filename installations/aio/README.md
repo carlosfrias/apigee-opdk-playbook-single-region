@@ -11,7 +11,7 @@ configuration files. Expects you to provide the address to the node for the inst
     ansible-playbook setup.yml
     
 ### Dependencies
-Use `ansible-galaxy` to download and install Ansible roles. This is best to perform after [Setup](setup)
+Use `ansible-galaxy` to download and install Ansible roles. This is best to perform after [Setup](#setup)
 above. 
     
     ansible-galaxy install -r requirements -f
