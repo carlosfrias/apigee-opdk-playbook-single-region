@@ -33,6 +33,7 @@
   become: true
   tags: ['logs']
   roles:
+  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}" }
 
   vars:
