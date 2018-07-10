@@ -56,6 +56,7 @@
   - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ target_logs_folder }}" }
 
   vars:
+    target_logs_folder: planet_logs
     pattern:
     - { dir: '/etc/', pattern: 'hosts*' }
     - { dir: '/etc/', pattern: 'environment' }
