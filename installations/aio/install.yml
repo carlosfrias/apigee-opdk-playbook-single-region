@@ -3,8 +3,14 @@
   hosts: edge
   gather_facts: no
   vars:
-    opdk_user_name: 'apigee'
-    opdk_group_name: 'apigee'
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
+
+  vars_file:
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
 
   roles:
   - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
