@@ -23,7 +23,7 @@
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user','ownership', 'apigee-pre-req','common-install', 'common'] }
 
 - name: Install Apigee Devportal Database
-  hosts: pdb
+  hosts: dp-db
   gather_facts: no
   become: yes
   tags: ['pdb']
