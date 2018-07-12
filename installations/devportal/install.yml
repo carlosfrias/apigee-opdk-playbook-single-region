@@ -2,6 +2,14 @@
 - name: Apigee Pre-Requisites for Planet
   hosts: planet
   gather_facts: no
+  vars:
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
+  vars_files:
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
   - { role: apigee-opdk-setup-target-links, tags: ['links', 'bootstrap'] }
@@ -14,36 +22,19 @@
   - { role: apigee-opdk-setup-component-install, component: 'apigee-adminapi', tags: ['adminapi', 'apigee-component-install', 'apigee-pre-req','common-install', 'common'] }
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user','ownership', 'apigee-pre-req','common-install', 'common'] }
 
-- name: Apigee Devportal Pre-Requisites
-  hosts: dp
-  gather_facts: no
-  vars:
-    php_packages:
-    - php
-    - php-cli
-    - php-common
-    - php-gd
-    - php-mbstring
-    - php-mysql
-    - php-pdo
-    - php-pear
-    - php-pecl-apc
-    - php-process
-    - php-xml
-  pre_tasks:
-  - name: Remove pre-exisiting PHP packages
-    tags: ['os', 'php']
-    ignore_errors: yes
-    yum:
-      name: "{{ item }}"
-      state: absent
-    with_items: "{{ php_packages }}"
-
 - name: Install Apigee Devportal Database
   hosts: pdb
   gather_facts: no
   become: yes
   tags: ['pdb']
+  vars:
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
+  vars_files:
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - { role: apigee-opdk-devportal-postgres-config, tags: ['config'] }
   - { role: apigee-opdk-setup-component, profile: 'pdb', tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_db_config_file }}"  }
@@ -55,6 +46,14 @@
   become: yes
   gather_facts: no
   tags: ['dp']
+  vars:
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
+  vars_files:
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - { role: apigee-opdk-devportal-config, tags: ['config'] }
   - { role: apigee-opdk-setup-component, profile: 'dp',tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_config_file }}" }
