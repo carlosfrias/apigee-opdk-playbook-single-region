@@ -13,7 +13,6 @@
   - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
 
   roles:
-#  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
   - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user', 'bootstrap'] }
   - { role: apigee-opdk-setup-apigee-user-ownership, tags: ['apigee-user', 'bootstrap'] }
