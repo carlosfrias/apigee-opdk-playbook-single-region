@@ -8,7 +8,7 @@
     apigee_secure_folder: "~/.apigee-secure"
     apigee_custom_properties_folder: "~/.apigee"
 
-  pretask:
+  pretasks:
   - name: Load attributes from files
     include_vars:
       dir: "{{ item }}"
