@@ -161,11 +161,16 @@
   gather_facts: no
   serial: 1
   tags: ['pgmaster']
+  vars:
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
   vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
-  - { role: apigee-opdk-setup-postgres-config }
+  - { role: apigee-opdk-setup-postgres-config, tags: ['config', 'pgmaster-config'] }
   - { role: apigee-opdk-setup-postgres-master }
   - { role: apigee-opdk-setup-status }
 
@@ -174,9 +179,14 @@
   gather_facts: no
   serial: 1
   tags: ['pgstandby']
+  vars:
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
   vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, clear_pgdata: True }
