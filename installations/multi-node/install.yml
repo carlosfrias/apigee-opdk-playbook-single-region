@@ -160,7 +160,7 @@
   hosts: pgmaster
   gather_facts: no
   serial: 1
-  tags: ['pg', 'pgmaster']
+  tags: ['pgmaster']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
@@ -173,7 +173,7 @@
   hosts: pgstandby
   gather_facts: no
   serial: 1
-  tags: ['pg', 'pgstandby']
+  tags: ['pgstandby']
   vars_files:
   - ~/.apigee-secure/credentials.yml
   - ~/.apigee/custom-properties.yml
