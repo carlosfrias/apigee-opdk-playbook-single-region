@@ -4,7 +4,11 @@
   gather_facts: no
   vars:
     apigee_secure_folder: "~/.apigee-secure"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
+    ax_group: "axgroup001"
+    scope_org: "<Organization Name>"
+    scope_env: "<Environment Name>"
+    local_mgmt_ip: "<Management Server IP Address>"
+    opdk_user_email: "<OPDK Admin Email>"
+    opdk_user_pass: "<OPDK Admin Password>"
   roles:
   - apigee-opdk-setup-scopes-add
