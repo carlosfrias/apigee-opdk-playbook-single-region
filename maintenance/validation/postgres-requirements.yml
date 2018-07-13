@@ -1,5 +1,7 @@
 ---
 - src: https://github.com/carlosfrias/apigee-opdk-setup-scopes-state.git
+- src: https://github.com/carlosfrias/apigee-opdk-server-self.git
+- src: https://github.com/carlosfrias/apigee-opdk-server-registration-state.git
 
 # Updated Readme's
 #- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
@@ -46,8 +48,6 @@
 #- src: https://github.com/carlosfrias/apigee-opdk-temporary-restore-targets.git
 #- src: https://github.com/carlosfrias/apigee-opdk-ssh-user.git
 #- src: https://github.com/carlosfrias/apigee-server-restart.git
-#- src: https://github.com/carlosfrias/apigee-opdk-server-self.git
-#- src: https://github.com/carlosfrias/apigee-opdk-server-registration-state.git
 #- src: https://github.com/carlosfrias/apigee-opdk-start-components.git
 #- src: https://github.com/carlosfrias/apigee-opdk-stop-components.git
 #- src: https://github.com/carlosfrias/apigee-opdk-set-reachable.git
