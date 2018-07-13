@@ -74,11 +74,6 @@
       url: "http://127.0.0.1:8080/v1/organizations/{{ org_name }}/environments/{{ env_name }}/provisioning/axstatus"
       user: "{{ opdk_user_email }}"
       password: "{{ opdk_user_pass }}"
-    register: result
-
-  - name: Report Results
-    debug:
-      var: result
 
 - name: Analytics groups
   hosts: ms[0]

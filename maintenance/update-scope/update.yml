@@ -1,0 +1,6 @@
+---
+- name: Update scopes settings
+  hosts: ms[0]
+  gather_facts: no
+  roles:
+  - apigee-opdk-setup-scopes-add
