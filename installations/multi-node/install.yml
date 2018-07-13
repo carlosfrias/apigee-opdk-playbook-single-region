@@ -213,6 +213,14 @@
   hosts: edge
   serial: 1
   tags: ['restart']
+  vars:
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
+  vars_files:
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
@@ -220,6 +228,14 @@
 - name: Validate Routers & Message Processors
   hosts: rmp
   serial: 1
+  vars:
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
+  vars_files:
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - { role: apigee-opdk-setup-validate, tags: ['validate'] }
   - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate-cleanup'] }
@@ -227,6 +243,14 @@
 - name: Validate Routers
   hosts: r
   serial: 1
+  vars:
+    ansible_workspace: "~/.ansible"
+    apigee_workspace: "~/apigee-workspace"
+    apigee_secure_folder: "~/.apigee-secure"
+    apigee_custom_properties_folder: "~/.apigee"
+  vars_files:
+  - "{{ apigee_secure_folder }}/credentials.yml"
+  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - { role: apigee-opdk-setup-validate, tags: ['validate'] }
   - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate-cleanup'] }
