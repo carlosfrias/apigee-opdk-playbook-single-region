@@ -3,6 +3,10 @@
   hosts: ms
   gather_facts: no
   tags: ['unlock-user']
+  vars:
+    apigee_secure_folder: "~/.apigee-secure"
+  vars_files:
+  - "{{ apigee_secure_folder }}/credentials.yml"
   tasks:
   - name: Unlock user
     uri:

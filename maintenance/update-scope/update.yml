@@ -2,5 +2,9 @@
 - name: Update scopes settings
   hosts: ms[0]
   gather_facts: no
+  vars:
+    apigee_secure_folder: "~/.apigee-secure"
+  vars_files:
+  - "{{ apigee_secure_folder }}/credentials.yml"
   roles:
   - apigee-opdk-setup-scopes-add
