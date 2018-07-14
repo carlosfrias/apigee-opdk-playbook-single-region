@@ -5,12 +5,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
 
   roles:
   - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }

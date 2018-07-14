@@ -4,9 +4,10 @@
   gather_facts: no
   tags: ['unlock-user']
   vars:
-    apigee_secure_folder: "~/.apigee-secure"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
+    attribute_folders:
+    - "~/.apigee-secure"
+  roles:
+  - apigee-opdk-modules
   tasks:
   - name: Unlock user
     uri:

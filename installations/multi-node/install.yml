@@ -5,11 +5,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
   - { role: apigee-opdk-setup-apigee-user, tags: ['apigee-user', 'bootstrap'] }
@@ -31,11 +29,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'ds-config']  }
   - { role: apigee-opdk-setup-component, profile: 'ds', tags: ['ds-setup'] }
@@ -50,11 +46,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'ms-config']  }
   - { role: apigee-opdk-setup-component, profile: 'ms', tags: ['ms-setup'] }
@@ -70,11 +64,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'rmp-config']  }
   - { role: apigee-opdk-setup-component, profile: 'rmp', tags: ['rmp-setup'] }
@@ -89,11 +81,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'r-config']  }
   - { role: apigee-opdk-setup-component, profile: 'r', tags: ['r-setup'] }
@@ -108,11 +98,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'mp-config']  }
   - { role: apigee-opdk-setup-component, profile: 'mp', tags: ['mp-setup'] }
@@ -127,11 +115,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'qs-config']  }
   - { role: apigee-opdk-setup-component, profile: 'qs', tags: ['qs-setup'] }
@@ -145,11 +131,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'pg-config']  }
   - { role: apigee-opdk-setup-component, profile: 'ps', tags: ['pg-setup'] }
@@ -164,11 +148,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-postgres-config, tags: ['config', 'pgmaster-config'] }
   - { role: apigee-opdk-setup-postgres-master }
@@ -182,11 +164,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, clear_pgdata: True }
@@ -200,11 +180,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-org-config, tags: ['config','org-config'] }
   - { role: apigee-opdk-setup-org, tags: ['org', 'org-setup'] }
@@ -216,11 +194,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - apigee-opdk-stop-components
   - apigee-opdk-start-components
@@ -231,11 +207,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-validate, tags: ['validate'] }
   - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate-cleanup'] }
@@ -246,11 +220,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-validate, tags: ['validate'] }
   - { role: apigee-opdk-setup-validate-cleanup, tags: ['validate-cleanup'] }

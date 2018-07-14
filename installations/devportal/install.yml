@@ -5,11 +5,9 @@
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
-    apigee_secure_folder: "~/.apigee-secure"
-    apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
   - { role: apigee-opdk-setup-target-links, tags: ['links', 'bootstrap'] }
@@ -32,9 +30,6 @@
     apigee_workspace: "~/apigee-workspace"
     apigee_secure_folder: "~/.apigee-secure"
     apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - { role: apigee-opdk-devportal-postgres-config, tags: ['config'] }
   - { role: apigee-opdk-setup-component, profile: 'pdb', tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_db_config_file }}"  }
@@ -51,9 +46,6 @@
     apigee_workspace: "~/apigee-workspace"
     apigee_secure_folder: "~/.apigee-secure"
     apigee_custom_properties_folder: "~/.apigee"
-  vars_files:
-  - "{{ apigee_secure_folder }}/credentials.yml"
-  - "{{ apigee_custom_properties_folder }}/custom-properties.yml"
   roles:
   - { role: apigee-opdk-devportal-config, tags: ['config'] }
   - { role: apigee-opdk-setup-component, profile: 'dp',tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_config_file }}" }
