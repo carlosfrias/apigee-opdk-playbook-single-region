@@ -3,12 +3,10 @@
   hosts: ms[0]
   gather_facts: no
   vars:
-    apigee_secure_folder: "~/.apigee-secure"
+    property_folders:
+      - "~/.apigee-secure"
     ax_group: "axgroup001"
-    scope_org: "<Organization Name>"
-    scope_env: "<Environment Name>"
-    local_mgmt_ip: "<Management Server IP Address>"
-    opdk_user_email: "<OPDK Admin Email>"
-    opdk_user_pass: "<OPDK Admin Password>"
+    scope_org: "{{ org_name }}"
+    scope_env: "{{ env_name }}"
   roles:
   - apigee-opdk-setup-scopes-add
