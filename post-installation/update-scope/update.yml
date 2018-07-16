@@ -5,6 +5,7 @@
   vars:
     property_folders:
       - "~/.apigee-secure"
+      - "~/.apigee"
     ax_group: "axgroup001"
     scope_org: "{{ org_name }}"
     scope_env: "{{ env_name }}"
