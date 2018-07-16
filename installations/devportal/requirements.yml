@@ -7,8 +7,6 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-apigee-user-ownership.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
-
 - src: https://github.com/carlosfrias/apigee-opdk-setup-java-home.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-time-sync.git
@@ -112,3 +110,13 @@
 - src: https://github.com/carlosfrias/apigee-opdk-os-pre-requisites.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-sysctl.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-settings-ldap.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-settings-management-server.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-settings-network-ip.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-settings-postgres.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-settings-region.git
