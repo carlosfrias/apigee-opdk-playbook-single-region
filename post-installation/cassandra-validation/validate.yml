@@ -23,7 +23,16 @@
   tasks:
   - name: Show private_address
     debug:
-      var: private_address
+      msg: "Private IP: {{ private_address }}"
+
+- name: Apigee Node public IP Address
+  hosts: ds
+  gather_facts: no
+  tags: ['public-address']
+  tasks:
+  - name: Show public_address
+    debug:
+      msg: "Public IP: {{ public_address }}"
 
 - name: Apigee Status
   hosts: ds
