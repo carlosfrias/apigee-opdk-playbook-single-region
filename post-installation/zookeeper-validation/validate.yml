@@ -89,7 +89,7 @@
 - name: Apigee Zookeeper Status
   hosts: ds
   gather_facts: no
-  tags: ['status']
+  tags: ['zk-status']
   serial: 1
   tasks:
   - name: Display Zookeeper Leadership
