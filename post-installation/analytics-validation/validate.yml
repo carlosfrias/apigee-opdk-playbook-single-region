@@ -142,7 +142,7 @@
   roles:
   - apigee-opdk-modules
   tasks:
-  - name: List users
+  - name: List org and env provisioning axstatus
     uri:
       url: "http://127.0.0.1:8080/v1/organizations/{{ org_name }}/environments/{{ env_name }}/provisioning/axstatus"
       user: "{{ opdk_user_email }}"
@@ -159,7 +159,7 @@
   roles:
   - apigee-opdk-modules
   tasks:
-  - name: List users
+  - name: List analytics groups
     uri:
       url: "http://127.0.0.1:8080/v1/analytics/groups/ax"
       user: "{{ opdk_user_email }}"
