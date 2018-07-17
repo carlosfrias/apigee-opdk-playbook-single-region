@@ -2,4 +2,4 @@
 - name: Keycloak Installer
   hosts: sso-test
   roles:
-  -
+  - ansible-keycloak
