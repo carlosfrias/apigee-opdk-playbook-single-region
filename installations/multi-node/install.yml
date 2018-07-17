@@ -108,10 +108,10 @@
   - { role: apigee-opdk-setup-status, tags: ['mp-status'] }
 
 - name: Configure & Install Qpid
-  hosts: qs
+  hosts: qpid
   gather_facts: no
   serial: 1
-  tags: ['qs']
+  tags: ['qpid']
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
