@@ -139,6 +139,8 @@
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee/custom-properties.yml"
+  roles:
+  - apigee-opdk-modules
   tasks:
   - name: List users
     uri:
@@ -154,6 +156,8 @@
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee/custom-properties.yml"
+  roles:
+  - apigee-opdk-modules
   tasks:
   - name: List users
     uri:
@@ -169,6 +173,8 @@
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee/custom-properties.yml"
+  roles:
+  - apigee-opdk-modules
   tasks:
   - name: Describe postgres analytics table
     shell: "{{ psql }} -h {{ apigee_home }}/var/run/apigee-postgresql -w {{ pg_pass }} -c \"\\d analytics.'{{ org_name }}.{{ env_name }}.fact'\" -U {{ pg_user }} apigee"
