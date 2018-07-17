@@ -81,10 +81,10 @@
   - name: Display Cassandra Ring
     shell: "{{ nodetool }} ring"
 
-- name: Apigee Cassandra Status
+- name: Apigee Cassandra Ring Status
   hosts: ds
   gather_facts: no
-  tags: ['status']
+  tags: ['ring-status']
   serial: 1
   tasks:
   - name: Display Cassandra Status
