@@ -184,7 +184,6 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-setup-org-config, tags: ['config','org-config'] }
   - { role: apigee-opdk-setup-org, tags: ['org', 'org-setup'] }
 
 - name: Restart of Planet
