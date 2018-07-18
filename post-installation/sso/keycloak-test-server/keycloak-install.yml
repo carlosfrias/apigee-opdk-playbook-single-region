@@ -46,9 +46,10 @@
   - name: Start Keycloak server
     tags: ['start']
     become: true
-    shell: /usr/local/keycloak/bin/standalone.sh
+    shell: /usr/local/keycloak/bin/standalone.sh -b 0.0.0.0
     async: 45
     poll: 0
 
-
+  - name: Create Keycloak User
+    shell: /usr/local/keycloak/bin/add-user-keycloak.sh -u opdk -p Apigee123\!
 
