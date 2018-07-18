@@ -14,7 +14,7 @@
       # https://downloads.jboss.org/keycloak/3.4.3.Final/keycloak-3.4.3.Final.tar.gz.sha1
       '3.4.3.Final': sha1:f2b1272ab8d4413f408b444bc2108740845bc976
 
-  pre_task:
+  pre_tasks:
   - name: Update system packages
     yum:
       name: "{{ item }}"
