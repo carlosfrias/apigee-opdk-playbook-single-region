@@ -1,0 +1,23 @@
+---
+- name: Keycloak Installer
+  hosts: sso-test
+  become: true
+  vars:
+    username: 'keycloak'
+    password: 'keycloak'
+    keycloak_ver: '4.1.0.Final'
+
+  pre_tasks:
+  - name: Update system packages
+    yum:
+      name: "{{ item }}"
+      state: latest
+    with_items:
+    - mod_ssl
+    - openssl
+    - libcurl
+    - tree
+    - java-1.8.0-openjdk-devel
+
+  roles:
+  - ansible-keycloak
