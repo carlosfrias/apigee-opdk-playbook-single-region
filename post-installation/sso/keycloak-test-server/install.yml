@@ -5,6 +5,8 @@
   vars:
     user: 'keycloak'
     password: 'keycloak'
+    admin_user: friasc
+    admin_group: friasc
     keycloak_ver: '4.1.0.Final'
 
   pre_tasks:
