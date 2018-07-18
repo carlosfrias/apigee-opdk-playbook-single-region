@@ -1,6 +1,7 @@
 ---
 - name: Keycloak Installer
   hosts: sso-test
+  become: true
   vars:
     keycloak_ver: '4.1.0.Final'
     keycloak_mirror: https://downloads.jboss.org/keycloak
@@ -15,7 +16,6 @@
 
   pre_task:
   - name: Update system packages
-    become: true
     yum:
       name: "{{ item }}"
       state: latest
@@ -29,13 +29,11 @@
 
   tasks:
   - name: Restarting node now
-    become: yes
     shell: sleep 2 && reboot now
     async: 1
     poll: 0
 
   - name: Waiting for server to complete restarting
-    become: no
     local_action:
       module: wait_for
       host: '{{ inventory_hostname }}'
