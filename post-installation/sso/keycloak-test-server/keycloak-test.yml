@@ -12,18 +12,37 @@
       '3.2.1.Final': sha1:de6d7ac62e2a82c7ecdfcf04c9970163415d9b75
       # https://downloads.jboss.org/keycloak/3.4.3.Final/keycloak-3.4.3.Final.tar.gz.sha1
       '3.4.3.Final': sha1:f2b1272ab8d4413f408b444bc2108740845bc976
+
   pre_task:
   - name: Update system packages
     become: true
     yum:
       name: "{{ item }}"
-      state: present
+      state: latest
     with_items:
     - mod_ssl
+    - openssl
+    - libcurl
 
   roles:
   - ansible-keycloak
+
   tasks:
+  - name: Restarting node now
+    become: yes
+    shell: sleep 2 && reboot now
+    async: 1
+    poll: 0
+
+  - name: Waiting for server to complete restarting
+    become: no
+    local_action:
+      module: wait_for
+      host: '{{ inventory_hostname }}'
+      state: started
+      delay: "{{ start_check_delay | d(15) }}"
+      timeout: '{{ server_restart_timeout | d(60) }}'
+
   - name: Start Keycloak server
     tags: ['start']
     become: true
