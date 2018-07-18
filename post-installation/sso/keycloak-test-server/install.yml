@@ -20,4 +20,4 @@
     - java-1.8.0-openjdk-devel
 
   roles:
-  - ansible-keycloak
+  - keycloak-installation
