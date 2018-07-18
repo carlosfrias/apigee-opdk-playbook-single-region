@@ -3,6 +3,8 @@
   hosts: sso-test
   become: true
   vars:
+    username: 'keycloak'
+    password: 'keycloak'
     keycloak_ver: '4.1.0.Final'
     keycloak_mirror: https://downloads.jboss.org/keycloak
     keycloak_parent_install_dir: /usr/local
@@ -28,6 +30,7 @@
 
   roles:
   - ansible-keycloak
+  - apigee-server-restart
 
   tasks:
   - name: Restarting node now
@@ -42,14 +45,3 @@
       state: started
       delay: "{{ start_check_delay | d(15) }}"
       timeout: '{{ server_restart_timeout | d(60) }}'
-
-  - name: Start Keycloak server
-    tags: ['start']
-    become: true
-    shell: /usr/local/keycloak/bin/standalone.sh -b 0.0.0.0
-    async: 45
-    poll: 0
-
-  - name: Create Keycloak User
-    shell: /usr/local/keycloak/bin/add-user-keycloak.sh -u opdk -p Apigee123\!
-

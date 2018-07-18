@@ -1,2 +1,3 @@
 ---
-- src: https://github.com/andrewrothstein/ansible-keycloak.git
+- src: https://github.com/carlosfrias/keycloak-installation.git
+- src: https://github.com/carlosfrias/apigee-server-restart.git
