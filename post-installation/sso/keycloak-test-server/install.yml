@@ -3,7 +3,7 @@
   hosts: sso-test
   become: true
   vars:
-    username: 'keycloak'
+    user: 'keycloak'
     password: 'keycloak'
     keycloak_ver: '4.1.0.Final'
 
