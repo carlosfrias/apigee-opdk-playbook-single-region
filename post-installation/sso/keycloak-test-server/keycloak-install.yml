@@ -23,6 +23,7 @@
     - mod_ssl
     - openssl
     - libcurl
+    - tree
 
   roles:
   - ansible-keycloak
