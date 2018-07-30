@@ -1,6 +1,6 @@
 ---
 - name: Install Edge
-  hosts: ms,pg,sso
+  hosts: planet,sso
   gather_facts: no
   vars:
     ansible_workspace: "~/.ansible"
