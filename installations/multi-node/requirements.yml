@@ -120,3 +120,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-settings-region.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-scopes-add.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
