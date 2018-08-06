@@ -1,7 +1,6 @@
 ---
 - name: Install Edge
   hosts: edge
-  gather_facts: no
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
