@@ -13,11 +13,6 @@
   tasks:
   - name: Show LDAP system user
     shell: "ldapsearch -D 'cn=manager,dc=apigee,dc=com' -b 'dc=apigee,dc=com' -LLL -h {{ inventory_hostname }} -p {{ ldap_data_port }} -w {{ opdk_ldap_pass }}"
-    register: result
-
-  - name: Report Results
-    debug:
-      var: result
 
 - name: List Users
   hosts: ms
@@ -33,8 +28,3 @@
       url: "http://127.0.0.1:8080/v1/users"
       user: "{{ opdk_user_name }}"
       password: "{{ opdk_user_pass }}"
-    register: result
-
-  - name: Report Results
-    debug:
-      var: result
