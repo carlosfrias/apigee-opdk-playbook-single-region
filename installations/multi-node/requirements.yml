@@ -124,3 +124,5 @@
 - src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-env-vars.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-settings-cassandra.git
