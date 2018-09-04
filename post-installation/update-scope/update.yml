@@ -7,5 +7,7 @@
       - "~/.apigee-secure"
       - "~/.apigee"
     ax_group: "axgroup001"
+    org_name: opdk
+    env_name: test
   roles:
   - apigee-opdk-setup-scopes-add
