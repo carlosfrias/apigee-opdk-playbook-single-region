@@ -31,6 +31,7 @@
     apigee_secure_folder: "~/.apigee-secure"
     apigee_custom_properties_folder: "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-devportal-postgres-config, tags: ['config'] }
   - { role: apigee-opdk-setup-component, profile: 'pdb', tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_db_config_file }}"  }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
@@ -47,6 +48,7 @@
     apigee_secure_folder: "~/.apigee-secure"
     apigee_custom_properties_folder: "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-devportal-config, tags: ['config'] }
   - { role: apigee-opdk-setup-component, profile: 'dp',tags: ['apigee-component'], opdk_installation_config_file: "{{ opdk_portal_config_file }}" }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
@@ -58,6 +60,7 @@
   gather_facts: no
   tags: ['logs']
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-fetch-files, download_pattern: '{{ pattern }}', download_folder: "{{ playbook_dir }}/{{ target_logs_folder }}" }
   vars:
     opdk_installer_path: /tmp/edge
