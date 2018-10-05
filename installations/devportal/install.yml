@@ -30,6 +30,9 @@
     apigee_workspace: "~/apigee-workspace"
     apigee_secure_folder: "~/.apigee-secure"
     apigee_custom_properties_folder: "~/.apigee"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-devportal-postgres-config, tags: ['config'] }
@@ -47,6 +50,9 @@
     apigee_workspace: "~/apigee-workspace"
     apigee_secure_folder: "~/.apigee-secure"
     apigee_custom_properties_folder: "~/.apigee"
+    property_folders:
+    - "~/.apigee-secure"
+    - "~/.apigee"
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-devportal-config, tags: ['config'] }
