@@ -17,7 +17,7 @@
     shell: "{{ nodetool }} decommission"
 
   - name: Remove node from inventory
-    debug:
-       msg: "Please remove this node from the inventory file and re-run setup"
+    pause:
+       prompt: "Please remove this node from the inventory file and re-run setup"
 
 
