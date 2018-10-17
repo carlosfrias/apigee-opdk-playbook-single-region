@@ -2,7 +2,8 @@
 - name: Playbook to remove a cassandra
   hosts: "{{ target_hosts }}"
   gather_facts: no
-
+  vars:
+    cassandra_thrift_client_port: 9160
   tasks:
   - name: Assert variables exist
     assert:
