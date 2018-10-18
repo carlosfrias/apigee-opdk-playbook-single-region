@@ -1,0 +1,58 @@
+---
+- name: Playbook to remove a cassandra
+  hosts: "{{ target_hosts }}"
+  gather_facts: no
+
+  vars:
+    nodetool: /opt/apigee/apigee-cassandra/bin/nodetool
+    property_folders:
+    - '~/.apigee'
+    - '~/.apigee-secure'
+
+  tasks:
+  - name: Assert variables exist
+    assert:
+      that:
+      - private_address is defined and private_address | trim | length > 0
+      - nodetool is defined and nodetool | trim | length > 0
+      msg: "Please provide the missing attribute"
+
+  - name: Start zookeeper
+    tags: ['start']
+    import_role:
+      name: apigee-opdk-start-components
+    vars:
+      component_name: "apigee-zookeeper"
+
+  - name: Backup zookeeper
+    tags: ['backup']
+    import_role:
+      name: apigee-opdk-backup
+    vars:
+      component_name: "apigee-zookeeper"
+
+  - name: Stop zookeeper
+    import_role:
+      name: apigee-opdk-stop-components
+    vars:
+      component_name: "apigee-zookeeper"
+
+  - name: Apigee-zookeeper uninstall
+    tags: ['uninstall']
+    ignore_errors: yes
+    shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-zookeeper uninstall"
+    when: apigee_service is defined and apigee_service | trim | length > 0
+
+  - name: Remove files
+    tags: ['remove']
+    become: yes
+    file:
+      path: '{{ apigee_home }}/data/apigee-zookeeper'
+      state: absent
+      follow: yes
+
+  - name: Remove node from inventory message
+    pause:
+       prompt: "Please remove this node from the inventory file and re-run setup"
+
+
