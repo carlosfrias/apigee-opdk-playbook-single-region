@@ -24,8 +24,13 @@
     vars:
       component_name: "apigee-cassandra"
 
-  - name: Decommission cassandra node
-    command: "{{ nodetool }} decommission"
+  - block:
+    - name: Decommission cassandra node
+      command: "{{ nodetool }} decommission"
+
+    rescue:
+      - name: Remove node that is not a part of the ring
+        command: "{{ nodetool }} removenode"
 
   - name: Stop Cassandra
     import_role:
