@@ -23,11 +23,11 @@
     vars:
       component_name: "apigee-cassandra"
 
-  - name: Backup Cassandra
-    import_role:
-      name: apigee-opdk-backup
-    vars:
-      component_name: "apigee-cassandra"
+#  - name: Backup Cassandra
+#    import_role:
+#      name: apigee-opdk-backup
+#    vars:
+#      component_name: "apigee-cassandra"
 
   - block:
     - name: Decommission cassandra node
