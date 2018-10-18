@@ -3,7 +3,7 @@
   hosts: "{{ target_hosts }}"
   gather_facts: no
   vars:
-    cassandra_thrift_client_port: 9160
+#    cassandra_thrift_client_port: 9160
     nodetool: /opt/apigee/apigee-cassandra/bin/nodetool
   tasks:
   - name: Assert variables exist
@@ -11,7 +11,7 @@
       that:
       - private_address is defined and private_address | trim | length > 0
       - nodetool is defined and nodetool | trim | length > 0
-      - cassandra_thrift_client_port is defined and cassandra_thrift_client_port | trim | length > 0
+#      - cassandra_thrift_client_port is defined and cassandra_thrift_client_port | trim | length > 0
       msg: "Please provide the missing attribute"
 
   - name: Backup Cassandra
@@ -27,7 +27,7 @@
       component_name: "apigee-cassandra"
 
   - name: Decommission cassandra node
-    shell: "{{ nodetool }} -h 127.0.0.1 -p {{ cassandra_thrift_client_port }} decommission"
+    shell: "{{ nodetool }} decommission"
 
   - name: Stop Cassandra
     import_role:
