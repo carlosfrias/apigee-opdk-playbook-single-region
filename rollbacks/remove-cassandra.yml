@@ -16,6 +16,23 @@
   - name: Decommission cassandra node
     shell: "{{ nodetool }} decommission"
 
+  - name: Stop Cassandra
+    import_role:
+      name: apigee-opdk-stop-components
+    vars:
+      component_name: "apigee-cassandra"
+
+  - name: Apigee uninstall
+    ignore_errors: yes
+    shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-service apigee-cassandra uninstall"
+    when: apigee_service is defined and apigee_service | trim | length > 0
+
+  - name: Remove files
+    file:
+      path: '{{ apigee_home }}/data/apigee-cassandra'
+      state: absent
+      follow: yes
+
   - name: Remove node from inventory
     pause:
        prompt: "Please remove this node from the inventory file and re-run setup"
