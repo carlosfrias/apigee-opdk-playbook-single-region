@@ -18,12 +18,14 @@
       msg: "Please provide the missing attribute"
 
   - name: Start Cassandra
+    tags: ['start']
     import_role:
       name: apigee-opdk-start-components
     vars:
       component_name: "apigee-cassandra"
 
   - name: Backup Cassandra
+    tags: ['backup']
     import_role:
       name: apigee-opdk-backup
     vars:
@@ -44,18 +46,20 @@
       component_name: "apigee-cassandra"
 
   - name: Apigee uninstall
+    tags: ['uninstall']
     ignore_errors: yes
     shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-cassandra uninstall"
     when: apigee_service is defined and apigee_service | trim | length > 0
 
   - name: Remove files
+    tags: ['remove']
     become: yes
     file:
       path: '{{ apigee_home }}/data/apigee-cassandra'
       state: absent
       follow: yes
 
-  - name: Remove node from inventory
+  - name: Remove node from inventory message
     pause:
        prompt: "Please remove this node from the inventory file and re-run setup"
 
