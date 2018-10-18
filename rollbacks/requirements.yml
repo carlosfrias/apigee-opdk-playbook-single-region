@@ -4,3 +4,6 @@
 - src: https://github.com/carlosfrias/apigee-opdk-start-components.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-stop-components.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-rollback.git
+
