@@ -4,6 +4,7 @@
   gather_facts: no
   vars:
     cassandra_thrift_client_port: 9160
+    nodetool: /opt/apigee/apigee-cassandra/bin/nodetool
   tasks:
   - name: Assert variables exist
     assert:
