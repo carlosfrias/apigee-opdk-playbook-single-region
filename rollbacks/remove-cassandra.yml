@@ -6,8 +6,8 @@
   vars:
     nodetool: /opt/apigee/apigee-cassandra/bin/nodetool
     property_folders:
-    - ~/.apigee
-    - ~/.apigee-secure
+    - '~/.apigee'
+    - '~/.apigee-secure'
 
   tasks:
   - name: Assert variables exist
