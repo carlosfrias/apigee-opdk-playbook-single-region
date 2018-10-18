@@ -27,6 +27,7 @@
       component_name: "apigee-cassandra"
 
   - name: Decommission cassandra node
+    become: yes
     shell: "{{ nodetool }} decommission"
 
   - name: Stop Cassandra
