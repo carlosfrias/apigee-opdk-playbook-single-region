@@ -27,7 +27,7 @@
       component_name: "apigee-cassandra"
 
   - name: Decommission cassandra node
-    shell: "{{ nodetool }} decommission"
+    shell: "{{ nodetool }} -h {{ inventory_hostname }} decommission"
 
   - name: Stop Cassandra
     import_role:
