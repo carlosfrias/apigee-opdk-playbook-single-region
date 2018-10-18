@@ -1,29 +1,14 @@
 ---
-- name: Playbook to remove a cassandra
+- name: Playbook to remove zookeeper
   hosts: "{{ target_hosts }}"
   gather_facts: no
 
   vars:
-    nodetool: /opt/apigee/apigee-cassandra/bin/nodetool
     property_folders:
     - '~/.apigee'
     - '~/.apigee-secure'
 
   tasks:
-  - name: Assert variables exist
-    assert:
-      that:
-      - private_address is defined and private_address | trim | length > 0
-      - nodetool is defined and nodetool | trim | length > 0
-      msg: "Please provide the missing attribute"
-
-  - name: Start zookeeper
-    tags: ['start']
-    import_role:
-      name: apigee-opdk-start-components
-    vars:
-      component_name: "apigee-zookeeper"
-
   - name: Backup zookeeper
     tags: ['backup']
     import_role:

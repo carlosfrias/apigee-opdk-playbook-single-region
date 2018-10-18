@@ -17,13 +17,6 @@
       - nodetool is defined and nodetool | trim | length > 0
       msg: "Please provide the missing attribute"
 
-  - name: Start Cassandra
-    tags: ['start']
-    import_role:
-      name: apigee-opdk-start-components
-    vars:
-      component_name: "apigee-cassandra"
-
   - name: Backup Cassandra
     tags: ['backup']
     import_role:
