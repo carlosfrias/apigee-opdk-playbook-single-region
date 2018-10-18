@@ -28,6 +28,7 @@
     when: apigee_service is defined and apigee_service | trim | length > 0
 
   - name: Remove files
+    become: yes
     file:
       path: '{{ apigee_home }}/data/apigee-cassandra'
       state: absent
