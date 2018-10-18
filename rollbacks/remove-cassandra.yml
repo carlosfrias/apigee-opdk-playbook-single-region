@@ -45,7 +45,7 @@
 
   - name: Apigee uninstall
     ignore_errors: yes
-    shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-service apigee-cassandra uninstall"
+    shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-cassandra uninstall"
     when: apigee_service is defined and apigee_service | trim | length > 0
 
   - name: Remove files
