@@ -14,15 +14,15 @@
 #      - cassandra_thrift_client_port is defined and cassandra_thrift_client_port | trim | length > 0
       msg: "Please provide the missing attribute"
 
-  - name: Backup Cassandra
-    import_role:
-      name: apigee-opdk-backup
-    vars:
-      component_name: "apigee-cassandra"
-
   - name: Start Cassandra
     import_role:
       name: apigee-opdk-start-components
+    vars:
+      component_name: "apigee-cassandra"
+
+  - name: Backup Cassandra
+    import_role:
+      name: apigee-opdk-backup
     vars:
       component_name: "apigee-cassandra"
 
