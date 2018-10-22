@@ -32,28 +32,36 @@
       - name: Remove node that is not a part of the ring
         command: "{{ nodetool }} removenode"
 
-  - name: Stop Cassandra
-    import_role:
-      name: apigee-opdk-stop-components
-    vars:
-      component_name: "apigee-cassandra"
+  - name: Stop Remove Cassandra
+    include_tasks:
+      file: remove-component.yml
+      vars:
+        component_name: "apigee-assandra"
 
-  - name: Apigee uninstall
-    tags: ['uninstall']
-    ignore_errors: yes
-    shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-cassandra uninstall"
-    when: apigee_service is defined and apigee_service | trim | length > 0
 
-  - name: Remove files
-    tags: ['remove']
-    become: yes
-    file:
-      path: '{{ apigee_home }}/data/apigee-cassandra'
-      state: absent
-      follow: yes
 
-  - name: Remove node from inventory message
-    pause:
-       prompt: "Please remove this node from the inventory file and re-run setup"
-
+#  - name: Stop Cassandra
+#    import_role:
+#      name: apigee-opdk-stop-components
+#    vars:
+#      component_name: "apigee-cassandra"
+#
+#  - name: Apigee uninstall
+#    tags: ['uninstall']
+#    ignore_errors: yes
+#    shell: "/opt/apigee/apigee-service/bin/apigee-service apigee-cassandra uninstall"
+#    when: apigee_service is defined and apigee_service | trim | length > 0
+#
+#  - name: Remove files
+#    tags: ['remove']
+#    become: yes
+#    file:
+#      path: '{{ apigee_home }}/data/apigee-cassandra'
+#      state: absent
+#      follow: yes
+#
+#  - name: Remove node from inventory message
+#    pause:
+#       prompt: "Please remove this node from the inventory file and re-run setup"
+#
 
