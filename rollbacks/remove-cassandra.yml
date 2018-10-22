@@ -32,7 +32,7 @@
       - name: Remove node that is not a part of the ring
         command: "{{ nodetool }} removenode"
 
-  - name: Stop Remove Cassandra
+  - name: Remove Cassandra
     include_tasks: remove-component.yml
     vars:
       component_name: "apigee-cassandra"
