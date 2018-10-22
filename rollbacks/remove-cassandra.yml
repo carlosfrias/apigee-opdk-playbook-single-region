@@ -37,8 +37,6 @@
     vars:
       component_name: "apigee-assandra"
 
-
-
 #  - name: Stop Cassandra
 #    import_role:
 #      name: apigee-opdk-stop-components
