@@ -7,13 +7,12 @@
     property_folders:
     - '~/.apigee'
     - '~/.apigee-secure'
+    component_name: "apigee-zookeeper"
 
   tasks:
 
   - name: Remove Zookeeper
     include_tasks: remove-component.yml
-    vars:
-      component_name: "apigee-zookeeper"
 
 #  - name: Backup zookeeper
 #    tags: ['backup']

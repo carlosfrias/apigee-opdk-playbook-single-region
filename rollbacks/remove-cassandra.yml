@@ -8,6 +8,7 @@
     property_folders:
     - '~/.apigee'
     - '~/.apigee-secure'
+    component_name: "apigee-cassandra"
 
   tasks:
   - name: Assert variables exist
@@ -34,8 +35,6 @@
 
   - name: Remove Cassandra
     include_tasks: remove-component.yml
-    vars:
-      component_name: "apigee-cassandra"
 
 #  - name: Stop Cassandra
 #    import_role:
