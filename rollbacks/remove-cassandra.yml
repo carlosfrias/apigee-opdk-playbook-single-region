@@ -17,12 +17,12 @@
       - nodetool is defined and nodetool | trim | length > 0
       msg: "Please provide the missing attribute"
 
-  - name: Backup Cassandra
-    tags: ['backup']
-    import_role:
-      name: apigee-opdk-backup
-    vars:
-      component_name: "apigee-cassandra"
+#  - name: Backup Cassandra
+#    tags: ['backup']
+#    import_role:
+#      name: apigee-opdk-backup
+#    vars:
+#      component_name: "apigee-cassandra"
 
   - block:
     - name: Decommission cassandra node
