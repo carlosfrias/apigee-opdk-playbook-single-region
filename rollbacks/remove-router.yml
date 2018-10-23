@@ -19,7 +19,7 @@
     ignore_errors: true
     set_fact:
       uuid: "{{ edge_r_self.uUID }}"
-      server_type: "{{ edge_r_self.type[0] }}"
+      server_type: "router"
       pod: "{{ edge_r_self.pod }}"
 
   - name: Assert variables exist
