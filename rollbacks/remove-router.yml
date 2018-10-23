@@ -8,7 +8,7 @@
     property_folders:
     - '~/.apigee'
     - '~/.apigee-secure'
-    component_name: "apigee-router"
+    component_name: "edge-router"
     server_type: 'r'
 
   roles:
