@@ -5,11 +5,6 @@
     - component_name is defined
     msg: "Please provide the component_name"
 
-- name: Backup component
-  tags: ['backup']
-  import_role:
-    name: apigee-opdk-backup
-
 - name: Stop component
   import_role:
     name: apigee-opdk-stop-components

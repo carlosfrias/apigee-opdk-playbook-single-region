@@ -11,6 +11,11 @@
     component_name: "apigee-cassandra"
 
   tasks:
+  - name: Backup component
+    tags: ['backup']
+    import_role:
+      name: apigee-opdk-backup
+
   - name: Assert variables exist
     assert:
       that:
