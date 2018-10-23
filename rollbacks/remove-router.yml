@@ -25,7 +25,7 @@
     assert:
       that:
       - region is defined and region | trim | length > 0
-      - pod_name is defined and pod_name | trim | length > 0
+      - pod is defined and pod_name | trim | length > 0
       - uuid is defined and uuid | trim | length > 0
       msg: "Please provide the missing attribute"
 
