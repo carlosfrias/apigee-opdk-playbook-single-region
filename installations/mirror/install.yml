@@ -1,6 +1,6 @@
 ---
 - name: Install Edge Mirror
-  hosts: mirror
+  hosts: "{{ target_hosts }}"
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
