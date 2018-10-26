@@ -1,6 +1,6 @@
 ---
 - name: Download apigee mirror archive
-  hosts: mirror
+  hosts: "{{ target_hosts }}"
   gather_facts: no
   tags: ['download']
   vars:
