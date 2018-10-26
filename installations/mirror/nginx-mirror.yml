@@ -1,8 +1,7 @@
 ---
-- name: Download apigee mirror archive
-  tags: ['download']
+- name: Expose apigee mirror web server
+  tags: ['nginx']
   hosts: "{{ target_hosts }}"
-  gather_facts: no
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
@@ -10,4 +9,4 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
+  - { role: apigee-opdk-setup-mirror-nginx, tags: ['nginx-mirror'] }

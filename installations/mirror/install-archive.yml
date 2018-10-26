@@ -1,8 +1,7 @@
 ---
-- name: Download apigee mirror archive
-  tags: ['download']
+- name: Install apigee mirror archive
   hosts: "{{ target_hosts }}"
-  gather_facts: no
+  tags: ['install']
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
@@ -10,4 +9,5 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
+  - { role: apigee-opdk-setup-bootstrap-archive-installer, tags: ['install-archive'] }
+
