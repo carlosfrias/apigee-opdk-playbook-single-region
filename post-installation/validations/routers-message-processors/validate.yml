@@ -1,43 +1,18 @@
 ---
-- name: Router self report
-  hosts: rmp
-  gather_facts: no
-  tags: ['r-self', 'self']
-  serial: 1
-  pre_tasks:
-  - name: Load credentials
-    include_vars: '~/.apigee-secure/credentials.yml'
-  roles:
-  - { role: apigee-opdk-server-self, server_types: ['r'], tags: ['self'] }
-
-- name: Message Processor self report
-  hosts: rmp
-  tags: ['mp-self', 'self']
-  serial: 1
-  pre_tasks:
-  - name: Load credentials
-    include_vars: '~/.apigee-secure/credentials.yml'
-  roles:
-  - { role: apigee-opdk-server-self, server_types: ['mp'], tags: ['self'] }
-
 - name: Router Registration Status
   hosts: rmp
   gather_facts: no
-  tags: ['r-registration']
-  pre_tasks:
-  - name: Load credentials
-    include_vars: '~/.apigee-secure/credentials.yml'
+  tags: ['router']
   roles:
+    - { role: apigee-opdk-server-self, server_types: ['router'], tags: ['self'] }
     - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_router_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
 
 - name: Message Processor Registration Status
   hosts: rmp
   gather_facts: no
-  tags: ['mp-registration']
-  pre_tasks:
-  - name: Load credentials
-    include_vars: '~/.apigee-secure/credentials.yml'
+  tags: ['mp']
   roles:
+    - { role: apigee-opdk-server-self, server_types: ['mp'], tags: ['self'] }
     - { role: apigee-opdk-server-registration-state, username: "{{ opdk_user_email }}", password: "{{ opdk_user_pass }}", server_self: "{{ edge_mp_self }}", mgmt_server_ip: "{{ local_mgmt_ip }}" }
 
 
