@@ -26,7 +26,7 @@
       - uuid is defined and uuid | trim | length > 0
       - opdk_user_email is defined
       - opdk_user_pass is defined
-      - org is defined
+      - org_name is defined
       msg: "Please provide the missing attribute"
 
   - name: Deregister Message Processor from the organization's environments
