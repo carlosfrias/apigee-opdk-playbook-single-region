@@ -39,8 +39,6 @@
       body_format: 'form-urlencoded'
       body:
         uuid: '{{ uuid }}'
-        region: '{{ region }}'
-        pod: '{{ pod }}'
         action: 'remove'
 
   - name: Deregister server's type
