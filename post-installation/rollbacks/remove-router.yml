@@ -8,6 +8,7 @@
     - '~/.apigee'
     - '~/.apigee-secure'
     component_name: "edge-router"
+    uuid: "7152cbb9-5cb4-438a-9b89-3c92548518c8"
 
   roles:
   - { role: apigee-opdk-server-self, server_types: ['router'] }
@@ -26,19 +27,19 @@
       - uuid is defined and uuid | trim | length > 0
       msg: "Please provide the missing attribute"
 
-#  - name: Deregister server's type
-#    uri:
-#      url: "http://{{ local_mgmt_ip }}:8080/v1/servers"
-#      method: POST
-#      user: '{{ opdk_user_email }}'
-#      password: '{{ opdk_user_pass }}'
-#      body_format: 'form-urlencoded'
-#      body:
-#        uuid: '{{ uuid }}'
-#        region: '{{ region }}'
-#        pod: '{{ pod }}'
-#        type: 'router'
-#        action: 'remove'
+  - name: Deregister server's type
+    uri:
+      url: "http://{{ local_mgmt_ip }}:8080/v1/servers"
+      method: POST
+      user: '{{ opdk_user_email }}'
+      password: '{{ opdk_user_pass }}'
+      body_format: 'form-urlencoded'
+      body:
+        uuid: '{{ uuid }}'
+        region: '{{ region }}'
+        pod: '{{ pod }}'
+        type: 'router'
+        action: 'remove'
 
   - name: Delete the server
     uri:
