@@ -70,5 +70,5 @@
       user: '{{ opdk_user_email }}'
       password: '{{ opdk_user_pass }}'
 
-  - name: Remove Router
+  - name: Remove message processor
     include_tasks: remove-component.yml

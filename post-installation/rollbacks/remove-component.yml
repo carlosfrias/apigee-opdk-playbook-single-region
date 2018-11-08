@@ -14,7 +14,7 @@
   ignore_errors: yes
   shell: "/opt/apigee/apigee-service/bin/apigee-service {{ component_name  }} uninstall"
   args:
-    remove: "{{ apigee_home }}/{{ component_name }}"
+    removes: "{{ apigee_home }}/{{ component_name }}"
   when: apigee_service is defined and apigee_service | trim | length > 0
 
 - name: Remove component files
