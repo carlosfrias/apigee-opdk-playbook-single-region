@@ -41,7 +41,6 @@
         uuid: '{{ uuid }}'
         region: '{{ region }}'
         pod: '{{ pod }}'
-        type: 'router'
         action: 'remove'
 
   - name: Deregister server's type
