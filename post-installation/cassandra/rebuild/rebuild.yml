@@ -1,6 +1,6 @@
 ---
 - name: Rebuild Cassandra Ring
-  hosts: ds
+  hosts: dc-1-ds
   gather_facts: no
   serial: 1
 
