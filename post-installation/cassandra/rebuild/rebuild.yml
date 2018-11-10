@@ -12,9 +12,6 @@
     - dc-4
     - dc-5
 
-    roles:
-    - { role: apigee-opdk-cassandra-rebuild }
-
     tasks:
     - name: Rebuild Cassandra for each Region
       import_role:
