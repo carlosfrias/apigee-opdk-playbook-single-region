@@ -12,5 +12,5 @@
     - dc-4
     - dc-5
 
-    roles:
+  roles:
     - apigee-opdk-cassandra-rebuild
