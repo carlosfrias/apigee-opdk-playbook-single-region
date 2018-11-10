@@ -3,14 +3,5 @@
   hosts: ds
   gather_facts: no
   serial: 1
-
-  vars:
-    region_list:
-    - dc-1
-    - dc-2
-    - dc-3
-    - dc-4
-    - dc-5
-
   roles:
     - apigee-opdk-cassandra-rebuild
