@@ -1,0 +1,25 @@
+---
+- name: Rebuild Cassandra Ring
+  hosts: ds
+  gather_facts: no
+  serial: 1
+
+  vars:
+    regions:
+    - dc-1
+    - dc-2
+    - dc-3
+    - dc-4
+    - dc-5
+
+    roles:
+    - { role: apigee-opdk-cassandra-rebuild }
+
+    tasks:
+    - name: Rebuild Cassandra for each Region
+      import_role:
+        name: apigee-opdk-cassandra-rebuild
+      vars:
+          opdk_region: "{{ item }}"
+      with_items: "{{ regions }}"
+

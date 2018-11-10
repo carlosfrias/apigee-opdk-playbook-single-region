@@ -25,7 +25,7 @@
 
   - block:
     - name: Decommission cassandra node
-      command: "{{ nodetool }} decommission"
+      command: "{{ apigee_service }} apigee-cassandra decommission"
 
     rescue:
       - name: Remove node that is not a part of the ring
