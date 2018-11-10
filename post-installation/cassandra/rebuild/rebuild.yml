@@ -5,18 +5,12 @@
   serial: 1
 
   vars:
-    regions:
+    region_list:
     - dc-1
     - dc-2
     - dc-3
     - dc-4
     - dc-5
 
-    tasks:
-    - name: Rebuild Cassandra for each Region
-      import_role:
-        name: apigee-opdk-cassandra-rebuild
-      vars:
-          opdk_region: "{{ item }}"
-      with_items: "{{ regions }}"
-
+    roles :
+    - apigee-opdk-cassandra-rebuild
