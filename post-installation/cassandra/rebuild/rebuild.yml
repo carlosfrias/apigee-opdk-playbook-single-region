@@ -1,6 +1,6 @@
 ---
 - name: Rebuild Cassandra Ring
-  hosts: dc-1-ds
+  hosts: ds
   gather_facts: no
   serial: 1
 
@@ -12,5 +12,5 @@
     - dc-4
     - dc-5
 
-    roles :
+    roles:
     - apigee-opdk-cassandra-rebuild
