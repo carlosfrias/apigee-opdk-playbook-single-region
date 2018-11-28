@@ -1,4 +1,12 @@
 ---
+- name: Gathering Setup for Planet
+  hosts: planet
+
+  tasks:
+  - name: Gather setup
+    setup:
+
+
 - name: Install Edge Mirror
   hosts: "{{ target_hosts }}"
   tags: ['install']
