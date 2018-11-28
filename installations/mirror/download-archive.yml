@@ -11,6 +11,6 @@
     - "~/.apigee"
   roles:
   - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
-    #  - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
+#  - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
