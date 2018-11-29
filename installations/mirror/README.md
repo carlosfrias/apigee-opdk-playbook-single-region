@@ -1,14 +1,15 @@
 Apigee Mirror Playbooks
 =============================
 
-These playbooks are designed to work with an Apigee mirror in preparation for performing offline
- installations of Apigee Edge Private Cloud. These playbooks perform the following functions:
+These playbooks work with an Apigee Mirror in preparation for performing offline
+ installations of the Apigee Edge Private Cloud. These playbooks perform the following functions:
  
- * Create an Apigee Mirror on a designated server.
- * Download an Apigee Mirror from a designated server
- * Upload an Apigee Mirror to a designated server
- * Install an Apigee Mirror to a designated server
- * Setup the Apigee Nginx Web server as a yum repository for Apigee Edge Private Cloud installation
+* Create an Apigee Mirror 
+* Download an Apigee Mirror 
+* Upload an Apigee Mirror
+* Install an Apigee Mirror
+* Setup the Apigee Nginx Web server as a yum repository for an offline Apigee Edge Private Cloud 
+installation
  
 # Assumptions
 
@@ -18,29 +19,39 @@ inventory and Ansible roles.
  
 # Creating an Apigee Mirror
 You can create an Apigee Mirror with the `create-archive.yml` playbook. You will need to indicate the 
-target host that should be used to create the playbook. The target host is optimally a machine with
+target host that should be used to create the mirror. The target host is optimally a machine with
 internet access. You indicate the target host by passing `target_host` during the invocation of this
 script.
 
-## Usage to Create an Apigee Mirror
+## Usage of Create an Apigee Mirror
 
     ansible-playbook create-archive.yml -e target_hosts=mirror
          
 # Download an Apigee Mirror
-Assuming you have created an Apigee OPDK mirror with the default settings and you need to download an Apigee mirror, 
-then you can use the following playbook: 
- 
-    ansible-playbook download-archive.yml - -e target_hosts=mirror
+You can download an Apigee Mirror that was created with the `create-archive.yml` playbook. You will 
+need to indicate the target host from which to download the mirror. You indicate the target host by 
+passing `target_host` during the invocation of this script.
 
-# Uploading and Installing an Apigee Mirror
-Assuming you need to upload and install an Apigee mirror with the playbook default settings, then you can use the 
-following:
+## Usage of Download an Apigee Mirror
+ 
+    ansible-playbook download-archive.yml -e target_hosts=mirror
+
+# Upload an Apigee Mirror
+You can upload an Apigee Mirror that is available on the local host. You will need to indicate the 
+target host to which the mirror will be uploaded. You indicate the target host by passing 
+`target_host` during the invocation of this script.
+
+## Usage of Upload an Apigee Mirror
    
     ansible-playbook upload-mirror.yml -e target_hosts=mirror
     
 # Install an Apigee Mirror
-Assuming you have an Apigee OPDK mirror already uploaded to the location set by the playbook default settings and you 
-need to install that Apigee mirror, then you can use the following:
+You can install an Apigee Mirror that has been placed on a target host. You will need to indicate the 
+target host where the mirror will be installed. You indicate the target host by passing 
+`target_host` during the invocation of this script.
+
+
+## Usage of Install an Apigee Mirror
 
     ansible-playbook install-archive.yml -e target_hosts=mirror
     
