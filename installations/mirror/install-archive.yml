@@ -2,6 +2,7 @@
 - name: Install apigee mirror archive
   hosts: "{{ target_hosts }}"
   tags: ['install']
+  become: true
   vars:
 
     ansible_workspace: "~/.ansible"
