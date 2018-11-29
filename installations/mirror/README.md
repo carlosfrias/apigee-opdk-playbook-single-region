@@ -30,25 +30,20 @@ script.
 Assuming you have created an Apigee OPDK mirror with the default settings and you need to download an Apigee mirror, 
 then you can use the following playbook: 
  
-    ansible-playbook create_download_apigee_mirror.yml -vv -b --tags=download
+    ansible-playbook download-archive.yml - -e target_hosts=mirror
 
 # Uploading and Installing an Apigee Mirror
 Assuming you need to upload and install an Apigee mirror with the playbook default settings, then you can use the 
 following:
    
-    ansible-playbook upload_install_apigee_mirror.yml -vv -b
+    ansible-playbook upload-mirror.yml -e target_hosts=mirror
     
-## Upload an Apigee Mirror
-Assuming you have an Apigee OPDK mirror in the location set by the playbook default settings and you need to upload the
-mirror to a server, then you can use the following:
-
-    ansible-playbook upload_install_apigee_mirror.yml -vv -b --tags=upload
-
-## Install an Apigee Mirror
+# Install an Apigee Mirror
 Assuming you have an Apigee OPDK mirror already uploaded to the location set by the playbook default settings and you 
 need to install that Apigee mirror, then you can use the following:
 
-    ansible-playbook upload_install_apigee_mirror.yml -vv -b --tags=install
+    ansible-playbook install-archive.yml -e target_hosts=mirror
+    
 <!-- BEGIN Google Required Disclaimer -->
 
 # Not Google Product Clause
