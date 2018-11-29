@@ -2,9 +2,7 @@
 - name: Install apigee mirror archive
   hosts: "{{ target_hosts }}"
   tags: ['install']
-  become: true
   vars:
-
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
