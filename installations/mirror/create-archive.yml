@@ -8,7 +8,7 @@
   hosts: "{{ target_hosts }}"
   tags: ['install']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
