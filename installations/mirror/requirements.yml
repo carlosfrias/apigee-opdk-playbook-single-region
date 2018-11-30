@@ -79,6 +79,8 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-yum-repository-proxy-config.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-os-sysctl.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-yum-packages.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-target-links.git
