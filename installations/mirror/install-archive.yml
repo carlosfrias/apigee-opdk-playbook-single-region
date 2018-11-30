@@ -8,6 +8,7 @@
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
+    apigeerepobasepath: '/opt/apigee/data/apigee-mirror'
   roles:
   - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   #  - { role: apigee-opdk-os-pre-requisites, tags: ['os'] }
