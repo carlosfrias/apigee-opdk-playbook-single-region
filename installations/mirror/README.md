@@ -5,9 +5,9 @@ These playbooks work with an Apigee Mirror in preparation for performing offline
  installations of the Apigee Edge Private Cloud. These playbooks perform the following functions:
  
 * [Create an Apigee Mirror](https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-create-archive.git)
-* Download an Apigee Mirror 
-* Upload an Apigee Mirror
-* Install an Apigee Mirror
+* [Download an Apigee Mirror](https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-download-archive.git) 
+* [Upload an Apigee Mirror]((https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-upload-archive.git))
+* [Install an Apigee Mirror]((https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-install-archive.git))
 * Setup the Apigee Nginx Web server as a yum repository for an offline Apigee Edge Private Cloud 
 installation
  
