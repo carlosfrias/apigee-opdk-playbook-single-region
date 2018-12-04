@@ -39,7 +39,7 @@ passing `target_host` during the invocation of this script.
 # Upload an Apigee Mirror
 You can upload an Apigee Mirror that is available on the local host. You will need to indicate the 
 target host to which the mirror will be uploaded. You indicate the target host by passing 
-`target_host` during the invocation of this script.
+`target_hosts` during the invocation of this script.
 
 ## Usage of Upload an Apigee Mirror
    
