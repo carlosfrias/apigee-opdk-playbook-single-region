@@ -1,8 +1,10 @@
 Apigee Mirror Playbooks
 =============================
 
-These playbooks work with an Apigee Mirror in preparation for performing offline
- installations of the Apigee Edge Private Cloud. These playbooks perform the following functions:
+These playbooks work with an Apigee Mirror in preparation for performing offline installations of 
+the Apigee Edge Private Cloud. These playbook support the Apigee Mirror creation process discussed 
+in detail [here](https://docs.apigee.com/private-cloud/v4.17.01/install-edge-apigee-setup-utility).
+These playbooks perform the following functions:
  
 * [Create an Apigee Mirror](https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-create-archive.git)
 * [Download an Apigee Mirror](https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-download-archive.git) 
