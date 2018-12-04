@@ -9,13 +9,22 @@ These playbooks work with an Apigee Mirror in preparation for performing offline
 * [Upload an Apigee Mirror](https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-upload-archive.git)
 * [Install an Apigee Mirror](https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-archive-installer.git)
 * Setup the Apigee Nginx Web server as a yum repository for an offline Apigee Edge Private Cloud 
-installation
+installation.
  
 # Assumptions
 
 * These playbooks assume that you have configured an `ansible.cfg` that indicates the location of the 
 inventory and Ansible roles.
 * This playbook assumes you have invoked `ansible-galaxy install -r requirements.yml -f`
+
+# Usage
+
+We recommend that you invoke these playbooks in the following sequence:
+
+1. [create-archive.yml](#creating-an-apigee-mirror) 
+1. [download-archive.yml](#download-an-apigee-mirror)
+1. [upload-archive.yml](#upload-an-apigee-mirror)
+1. [install-archive.yml](#install-an-apigee-mirror)
  
 # Creating an Apigee Mirror
 You can create an Apigee Mirror with the `create-archive.yml` playbook. You will need to indicate the 
@@ -37,7 +46,8 @@ passing `target_host` during the invocation of this script.
     ansible-playbook download-archive.yml -e target_hosts=mirror
 
 # Upload an Apigee Mirror
-You can upload an Apigee Mirror that is available on the local host. You will need to indicate the 
+You can upload an Apigee Mirror that is available on the local host after it was downloaded with
+`download-archive.yml`. You will need to indicate the 
 target host to which the mirror will be uploaded. You indicate the target host by passing 
 `target_hosts` during the invocation of this script.
 
@@ -46,7 +56,8 @@ target host to which the mirror will be uploaded. You indicate the target host b
     ansible-playbook upload-mirror.yml -e target_hosts=mirror
     
 # Install an Apigee Mirror
-You can install an Apigee Mirror that has been placed on a target host. You will need to indicate the 
+You can install an Apigee Mirror that has been placed on a target host after it was downloaded with 
+`upload-mirror.yml`. You will need to indicate the 
 target host where the mirror will be installed. You indicate the target host by passing 
 `target_host` during the invocation of this script.
 
