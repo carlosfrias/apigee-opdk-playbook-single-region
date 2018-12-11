@@ -40,6 +40,7 @@
 - src: https://github.com/carlosfrias/apigee-opdk-setup-scopes-state.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-status.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-rollback.git
+- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-archive-installer
 - src: https://github.com/carlosfrias/apigee-opdk-modules.git
 - src: https://github.com/carlosfrias/apigee-opdk-setup-target-links.git
 - src: https://github.com/carlosfrias/apigee-opdk-temporary-restore-targets.git
