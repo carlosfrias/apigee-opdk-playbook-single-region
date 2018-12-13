@@ -15,8 +15,8 @@
   #    ansible_workspace: "~/.ansible"
   #    apigee_workspace: "~/apigee-workspace"
 
-  # Use this virtual host with all MPs
-  use_all_mps: true
+    # Use this virtual host with all MPs
+    use_all_mps: true
 
     # Default for first_name in creating new user
     first_name: Carlos
