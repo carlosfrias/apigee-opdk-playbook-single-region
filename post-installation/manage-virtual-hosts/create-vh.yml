@@ -39,9 +39,9 @@
 
     # Orgs and environments to define and associate with this virtual host
     tenants:
-    - { org: opdk, env: dev, new_user: 'y' }
-    - { org: opdk, env: test, new_user: 'n' }
-    - { org: opdk, env: prod, new_user: 'n' }
+    - { org: opdk, env: dev, new_user: 'n' }
+#    - { org: opdk, env: test, new_user: 'n' }
+#    - { org: opdk, env: prod, new_user: 'n' }
 
   roles:
   - { role: apigee-opdk-modules }
