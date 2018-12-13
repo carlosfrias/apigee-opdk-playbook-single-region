@@ -1,4 +1,12 @@
 ---
+- name: Collect server info into cache
+  hosts: ms,rmp
+  gather_facts: no
+  roles:
+  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-settings-region }
+  - { role: apigee-opdk-settings-private-address }
+
 - name: Configure Organizations, Environments and Virtual Hosts
   hosts: ms[0]
   gather_facts: no
@@ -44,8 +52,4 @@
 #    - { org: opdk, env: prod, new_user: 'n' }
 
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-settings-region }
-  - { role: apigee-opdk-settings-private-address }
-  - { role: apigee-opdk-settings-management-server }
   - { role: apigee-opdk-setup-org, tags: ['org', 'org-setup'] }
