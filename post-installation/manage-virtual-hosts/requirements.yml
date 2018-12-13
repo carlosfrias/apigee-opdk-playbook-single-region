@@ -5,5 +5,7 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-settings-management-server.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-server-org.git
+- src: https://github.com/carlosfrias/apigee-opdk-setup-org.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-org-config.git
 
