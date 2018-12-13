@@ -39,7 +39,7 @@
 
     # Orgs and environments to define and associate with this virtual host
     tenants:
-    - { org: opdk, env: dev, new_user: 'n' }
+    - { org: VALIDATE, env: dev, new_user: 'n' }
 #    - { org: opdk, env: test, new_user: 'n' }
 #    - { org: opdk, env: prod, new_user: 'n' }
 
