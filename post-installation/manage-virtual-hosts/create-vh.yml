@@ -6,16 +6,17 @@
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-settings-region }
   - { role: apigee-opdk-settings-private-address }
+  - { role: apigee-opdk-settings-management-server }
 
 - name: Configure Organizations, Environments and Virtual Hosts
   hosts: ms[0]
   gather_facts: no
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
+  #    ansible_workspace: "~/.ansible"
+  #    apigee_workspace: "~/apigee-workspace"
 
-    # Use this virtual host with all MPs
-    use_all_mps: true
+  # Use this virtual host with all MPs
+  use_all_mps: true
 
     # Default for first_name in creating new user
     first_name: Carlos
@@ -36,7 +37,7 @@
     virtual_host_name: vh-2
 
     # Load balancer fqdn or IP if available, if not available the RMP addresses will be used
-#    load_balancer:
+    #    load_balancer:
 
     # Analytics group to use with this virtual host
     ax_group: axgroup001
@@ -48,8 +49,8 @@
     # Orgs and environments to define and associate with this virtual host
     tenants:
     - { org: VALIDATE, env: dev, new_user: 'n' }
-#    - { org: opdk, env: test, new_user: 'n' }
-#    - { org: opdk, env: prod, new_user: 'n' }
+  #    - { org: opdk, env: test, new_user: 'n' }
+  #    - { org: opdk, env: prod, new_user: 'n' }
 
   roles:
   - { role: apigee-opdk-setup-org, tags: ['org', 'org-setup'] }
