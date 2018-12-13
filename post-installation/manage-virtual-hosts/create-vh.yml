@@ -1,0 +1,50 @@
+---
+- name: Configure Organizations, Environments and Virtual Hosts
+  hosts: ms[0]
+  gather_facts: no
+  vars:
+#    ansible_workspace: "~/.ansible"
+#    apigee_workspace: "~/apigee-workspace"
+
+    # Use this virtual host with all MPs
+    use_all_mps: true
+
+    # Default for first_name in creating new user
+    first_name: Opdk
+
+    # Default for last_name in creating new user
+    last_name: User
+
+    # Path where to place the apigee-provision.conf file
+    opdk_installer_path: /tmp/edge
+
+    # Version of OPDK to work with
+    opdk_version: 4.18.05
+
+    # Virtual Host Port
+    virtual_host_port: 9001
+
+    # Virtual Host Name to use inside of Edge
+    virtual_host_name: default
+
+    # Load balancer fqdn or IP if available, if not available the RMP addresses will be used
+#    load_balancer:
+
+    # Analytics group to use with this virtual host
+    ax_group: axgroup001
+
+    # Folder containing credentials
+    property_folders:
+    - "~/.apigee-secure"
+
+    # Orgs and environments to define and associate with this virtual host
+    tenants:
+    - { org: rbc-apigee, env: sb, new_user: 'y' }
+    - { org: rbc-apigee, env: prod, new_user: 'y' }
+    - { org: rbc-apigee, env: prod-external, new_user: 'y' }
+    - { org: opdk, env: test, new_user: 'n' }
+
+  roles:
+  - { role: apigee-opdk-settings-region }
+  - { role: apigee-opdk-settings-management-server }
+  - { role: apigee-opdk-setup-org, tags: ['org', 'org-setup'] }
