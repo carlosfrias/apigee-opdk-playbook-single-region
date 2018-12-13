@@ -10,10 +10,10 @@
     use_all_mps: true
 
     # Default for first_name in creating new user
-    first_name: Opdk
+    first_name: Carlos
 
     # Default for last_name in creating new user
-    last_name: User
+    last_name: Frias
 
     # Path where to place the apigee-provision.conf file
     opdk_installer_path: /tmp/edge
@@ -22,10 +22,10 @@
     opdk_version: 4.18.05
 
     # Virtual Host Port
-    virtual_host_port: 9001
+    virtual_host_port: 9002
 
     # Virtual Host Name to use inside of Edge
-    virtual_host_name: default
+    virtual_host_name: vh-2
 
     # Load balancer fqdn or IP if available, if not available the RMP addresses will be used
 #    load_balancer:
@@ -39,12 +39,12 @@
 
     # Orgs and environments to define and associate with this virtual host
     tenants:
-    - { org: rbc-apigee, env: sb, new_user: 'y' }
-    - { org: rbc-apigee, env: prod, new_user: 'y' }
-    - { org: rbc-apigee, env: prod-external, new_user: 'y' }
+    - { org: opdk, env: dev, new_user: 'y' }
     - { org: opdk, env: test, new_user: 'n' }
+    - { org: opdk, env: prod, new_user: 'n' }
 
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-settings-region }
   - { role: apigee-opdk-settings-management-server }
   - { role: apigee-opdk-setup-org, tags: ['org', 'org-setup'] }
