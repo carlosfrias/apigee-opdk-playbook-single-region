@@ -22,13 +22,10 @@
       password: "{{ opdk_user_pass }}"
     register: vh_list
 
-  - name: vh_list
-    debug:
-      var: vh_list
-
-#  - name: Delete virtual hosts
-#    uri:
-#      url: "http://{{ local_mgmt_ip }}:{{ ms_port }}/v1/o/{{ org }}/e/{{ env }}/virtualhosts"
-#      username: "{{ opdk_user_email }}"
-#      password: "{{ opdk_user_pass }}"
-#      method: POST
+  - name: Delete virtual hosts
+    uri:
+      url: "http://{{ local_mgmt_ip }}:{{ ms_port }}/v1/o/{{ org }}/e/{{ env }}/virtualhosts/{{ item }}"
+      user: "{{ opdk_user_email }}"
+      password: "{{ opdk_user_pass }}"
+      method: DELETE
+    with_items: "{{ vh_list.json }}"
