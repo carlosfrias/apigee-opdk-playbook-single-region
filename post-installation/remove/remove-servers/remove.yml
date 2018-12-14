@@ -23,8 +23,8 @@
     register: env_list
 
   - name: Obtain list of servers by environment
-    include_tasks: list-servers-by-environment.yml
+    include_tasks: delete-servers-by-environment.yml
     with_items: "{{ env_list.json }}"
     loop_control:
-      loop_var: environment
+      loop_var: each_env
 
