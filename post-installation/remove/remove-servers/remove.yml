@@ -32,7 +32,7 @@
 
   - name: Delete servers from environment
     uri:
-      url: "http://{{ local_mgmt_ip }}:{{ ms_port }}/v1/organizations/{{ org }}/environments/{{ env_list.json.name }}/servers"
+      url: "http://{{ local_mgmt_ip }}:{{ ms_port }}/v1/organizations/{{ org }}/environments/{{ env_list.json[0].name }}/servers"
       user: "{{ opdk_user_email }}"
       password: "{{ opdk_user_pass }}"
       method: POST
