@@ -5,6 +5,7 @@
   vars:
     org: VALIDATE
     env: dev
+    pod: gateway
     property_folders:
     - "~/.apigee-secure"
   roles:
