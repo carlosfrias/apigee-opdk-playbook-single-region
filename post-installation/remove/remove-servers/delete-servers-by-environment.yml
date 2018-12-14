@@ -6,6 +6,8 @@
     password: "{{ opdk_user_pass }}"
   register: server_uuids
 
+- pause:
+
 - name: Delete servers from environment
   uri:
     url: "http://{{ local_mgmt_ip }}:{{ ms_port }}/v1/organizations/{{ org }}/environments/{{ each_env }}/servers"
