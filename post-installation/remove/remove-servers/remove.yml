@@ -22,24 +22,9 @@
       password: "{{ opdk_user_pass }}"
     register: env_list
 
-  - name: Obtain list of servers for environment
-    uri:
-      url: "http://{{ local_mgmt_ip }}:{{ ms_port }}/v1/o/{{ org }}/e/{{ item }}"
-      user: "{{ opdk_user_email }}"
-      password: "{{ opdk_user_pass }}"
+  - name: Obtain list of servers by environment
+    include_tasks: list-servers-by-environment.yml
     with_items: "{{ env_list.json }}"
-    register: server_uuids
+    loop_control:
+      loop_var: environment
 
-  - name: Delete servers from environment
-    uri:
-      url: "http://{{ local_mgmt_ip }}:{{ ms_port }}/v1/organizations/{{ org }}/environments/{{ env_list.json.name }}/servers"
-      user: "{{ opdk_user_email }}"
-      password: "{{ opdk_user_pass }}"
-      method: POST
-      body_format: form-urlencoded
-      body:
-        action: remove
-        uuid: "{{ item }}"
-        region: "{{ region }}"
-        pod: "{{ pod }}"
-    with_items: "{{ server_uuids }}"
