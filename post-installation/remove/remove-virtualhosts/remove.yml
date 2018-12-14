@@ -2,13 +2,16 @@
 - name: Remove virtual hosts
   hosts: ms[0]
   gather_facts: no
-
   vars:
     org: VALIDATE
     env: dev
+  roles:
+  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-settings-region }
+  - { role: apigee-opdk-settings-private-address }
+  - { role: apigee-opdk-settings-management-server }
 
   tasks:
-
   - name: Obtain list of virtual hosts
     uri:
       url: "http://{{ local_mgmt_ip }}:{{ mp_port }}/v1/o/{{ org }}/e/{{ env }}/virtualhosts"
