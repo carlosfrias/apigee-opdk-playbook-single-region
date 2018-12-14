@@ -5,6 +5,7 @@
   vars:
     org: VALIDATE
     env: dev
+    ms_port: 8080
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-settings-region }
