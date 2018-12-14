@@ -19,3 +19,16 @@
       user: "{{ opdk_user_email }}"
       password: "{{ opdk_user_pass }}"
     register: pod_list
+
+  - name: Delete pods
+    uri:
+      url: "http://{{ local_mgmt_ip }}:{{ ms_port }}/v1/o/{{ org }}/pods"
+      user: "{{ opdk_user_email }}"
+      password: "{{ opdk_user_pass }}"
+      method: DELETE
+      body_format: form-urlencoded
+      body:
+        action: "remove"
+        region: "{{ region }}"
+        pod: "{{ item.name }}"
+    with_items: "{{ pod_list.json }}"

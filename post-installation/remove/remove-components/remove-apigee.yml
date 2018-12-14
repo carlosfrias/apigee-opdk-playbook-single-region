@@ -6,6 +6,8 @@
   gather_facts: no
 
   vars:
+    remove_apigee: true
+    clear_logs: true
     property_folders:
     - '~/.apigee'
     - '~/.apigee-secure'
