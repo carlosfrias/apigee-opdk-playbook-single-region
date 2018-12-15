@@ -8,6 +8,12 @@
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
+  pre_tasks:
+  - name: Record target opdk_version
+    cache:
+      key: 'opdk_version'
+      value: "{{ opdk_version }}"
+
   roles:
 #  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
   - { role: apigee-opdk-setup-os-epel, tags: ['os','epel'] }
