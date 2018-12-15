@@ -55,6 +55,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'ds-config']  }
   - { role: apigee-opdk-setup-component, profile: 'ds', tags: ['ds-setup'] }
   - { role: apigee-opdk-start-components, tags: ['ds-start'] }
