@@ -2,8 +2,6 @@
 - name: Install Edge
   hosts: edge
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -42,8 +40,6 @@
   serial: 1
   tags: ['ds']
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -60,8 +56,6 @@
   serial: 1
   tags: ['ms']
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -79,8 +73,6 @@
   serial: 1
   tags: ['rmp']
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -101,8 +93,6 @@
   serial: 1
   tags: ['r']
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -121,8 +111,6 @@
   serial: 1
   tags: ['mp']
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -193,8 +181,6 @@
   serial: 1
   tags: ['pgstandby']
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -210,8 +196,6 @@
   gather_facts: no
   tags: ['org']
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -224,8 +208,6 @@
   serial: 1
   tags: ['restart']
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -237,8 +219,6 @@
   hosts: rmp
   serial: 1
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
@@ -250,8 +230,6 @@
   hosts: r
   serial: 1
   vars:
-#    ansible_workspace: "~/.ansible"
-#    apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
