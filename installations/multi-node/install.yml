@@ -2,6 +2,7 @@
 - name: Install Edge
   hosts: edge
   vars:
+    opdk_version: "4.18.05"
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
