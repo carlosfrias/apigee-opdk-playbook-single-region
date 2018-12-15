@@ -10,6 +10,7 @@
     - "~/.apigee"
   pre_tasks:
   - name: Record target opdk_version
+    tags: ['cache', 'ds', 'ms', 'rmp', 'r', 'mp', 'qpid', 'pg', 'pgmaster', 'pgstandby', 'org', 'validate', 'validate-cleanup']
     cache:
       key: 'opdk_version'
       value: "{{ opdk_version }}"
