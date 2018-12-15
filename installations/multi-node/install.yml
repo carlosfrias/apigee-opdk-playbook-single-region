@@ -12,11 +12,12 @@
   - name: Record target opdk_version
     tags: ['cache', 'ds', 'ms', 'rmp', 'r', 'mp', 'qpid', 'pg', 'pgmaster', 'pgstandby', 'org', 'validate', 'validate-cleanup']
     cache:
-      key: 'opdk_version'
-      value: "{{ opdk_version }}"
+    key: 'opdk_version'
+    value: "{{ opdk_version }}"
 
   roles:
-#  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
+  #  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-os-epel, tags: ['os','epel'] }
   - { role: apigee-opdk-shutdown-iptables, tags: ['os','iptables'] }
   - { role: apigee-opdk-yum-repository-proxy-config, tags: ['os','yum-proxy-config']}
@@ -49,7 +50,7 @@
   serial: 1
   tags: ['ds']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -67,12 +68,13 @@
   serial: 1
   tags: ['ms']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'ms-config']  }
   - { role: apigee-opdk-setup-component, profile: 'ms', tags: ['ms-setup'] }
   - { role: apigee-opdk-setup-component, profile: 'ui', tags: ['ms-setup'] }
@@ -85,12 +87,13 @@
   serial: 1
   tags: ['rmp']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'rmp-config']  }
   - { role: apigee-opdk-setup-component, profile: 'rmp', tags: ['rmp-setup'] }
   - { role: apigee-opdk-start-components, tags: ['rmp-start'] }
@@ -106,12 +109,13 @@
   serial: 1
   tags: ['r']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'r-config']  }
   - { role: apigee-opdk-setup-component, profile: 'r', tags: ['r-setup'] }
   - { role: apigee-opdk-start-components, tags: ['r-start'] }
@@ -125,12 +129,13 @@
   serial: 1
   tags: ['mp']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'mp-config']  }
   - { role: apigee-opdk-setup-component, profile: 'mp', tags: ['mp-setup'] }
   - { role: apigee-opdk-start-components, tags: ['mp-start'] }
@@ -144,12 +149,13 @@
   serial: 1
   tags: ['qpid']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'qs-config']  }
   - { role: apigee-opdk-setup-component, profile: 'qs', tags: ['qs-setup'] }
   - { role: apigee-opdk-start-components, tags: ['qs-start'] }
@@ -160,12 +166,13 @@
   gather_facts: no
   tags: ['pg']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'pg-config']  }
   - { role: apigee-opdk-setup-component, profile: 'ps', tags: ['pg-setup'] }
   - { role: apigee-opdk-start-components, tags: ['pg-start'] }
@@ -177,12 +184,13 @@
   serial: 1
   tags: ['pgmaster']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-postgres-config, tags: ['config', 'pgmaster-config'] }
   - { role: apigee-opdk-setup-postgres-master }
   - { role: apigee-opdk-setup-status }
@@ -193,12 +201,13 @@
   serial: 1
   tags: ['pgstandby']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, clear_pgdata: True }
   - { role: apigee-opdk-setup-postgres-standby }
@@ -209,12 +218,13 @@
   gather_facts: no
   tags: ['org']
   vars:
-    ansible_workspace: "~/.ansible"
+  ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
+  - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-org, tags: ['org', 'org-setup'] }
 
 - name: Restart of Planet
