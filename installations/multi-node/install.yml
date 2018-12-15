@@ -2,18 +2,18 @@
 - name: Install Edge
   hosts: edge
   vars:
-    opdk_version: "4.18.05"
+#    opdk_version: "4.18.05"
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
-  pre_tasks:
-  - name: Record target opdk_version
-    tags: ['cache', 'ds', 'ms', 'rmp', 'r', 'mp', 'qpid', 'pg', 'pgmaster', 'pgstandby', 'org', 'validate', 'validate-cleanup']
-    cache:
-    key: 'opdk_version'
-    value: "{{ opdk_version }}"
+#  pre_tasks:
+#  - name: Record target opdk_version
+#    tags: ['cache', 'ds', 'ms', 'rmp', 'r', 'mp', 'qpid', 'pg', 'pgmaster', 'pgstandby', 'org', 'validate', 'validate-cleanup']
+#    cache:
+#    key: 'opdk_version'
+#    value: "{{ opdk_version }}"
 
   roles:
   #  - { role: apigee-opdk-setup-default-settings, tags: ['cache'] }
@@ -50,7 +50,7 @@
   serial: 1
   tags: ['ds']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -68,7 +68,7 @@
   serial: 1
   tags: ['ms']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -87,7 +87,7 @@
   serial: 1
   tags: ['rmp']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -109,7 +109,7 @@
   serial: 1
   tags: ['r']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -129,7 +129,7 @@
   serial: 1
   tags: ['mp']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -149,7 +149,7 @@
   serial: 1
   tags: ['qpid']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -166,7 +166,7 @@
   gather_facts: no
   tags: ['pg']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -184,7 +184,7 @@
   serial: 1
   tags: ['pgmaster']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -201,7 +201,7 @@
   serial: 1
   tags: ['pgstandby']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
@@ -218,7 +218,7 @@
   gather_facts: no
   tags: ['org']
   vars:
-  ansible_workspace: "~/.ansible"
+    ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
     property_folders:
     - "~/.apigee-secure"
