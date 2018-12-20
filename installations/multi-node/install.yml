@@ -5,7 +5,6 @@
     property_folders:
     - "~/.apigee-secure"
     - "~/.apigee"
-
   roles:
   - { role: apigee-opdk-modules, tags: ['cache', 'ds', 'ms', 'rmp', 'r', 'mp', 'qpid', 'pg', 'pgmaster', 'pgstandby', 'org', 'validate', 'validate-cleanup'] }
   - { role: apigee-opdk-setup-os-epel, tags: ['os','epel'] }
@@ -32,7 +31,6 @@
   - { role: apigee-opdk-settings-region, tags: ['cache', 'ds', 'ms', 'rmp', 'r', 'mp', 'qpid', 'pg', 'pgmaster', 'pgstandby', 'org', 'validate', 'validate-cleanup']  }
   - { role: apigee-opdk-settings-cassandra, tags: ['cache', 'ds', 'ms', 'rmp', 'r', 'mp', 'qpid', 'pg', 'pgmaster', 'pgstandby', 'org', 'validate', 'validate-cleanup']  }
   - { role: apigee-opdk-settings-postgres, tags: ['cache', 'ds', 'ms', 'rmp', 'r', 'mp', 'qpid', 'pg', 'pgmaster', 'pgstandby', 'org', 'validate', 'validate-cleanup']  }
-
 
 - name: Configure & Install Cassandra & Zookeeper
   hosts: ds
