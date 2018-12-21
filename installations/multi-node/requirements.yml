@@ -21,7 +21,7 @@
 
 #- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-cache.git
 
-#- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-archive-installer.git
+- src: https://github.com/carlosfrias/apigee-opdk-setup-bootstrap-archive-installer.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-silent-installation-config.git
 
@@ -29,7 +29,7 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-component-installer.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-component-install.git
+#- src: https://github.com/carlosfrias/apigee-opdk-setup-component-install.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-selinux-disable.git
 
