@@ -14,13 +14,13 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-os-sysctl.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-setup-os-postgres.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-setup-openjdk.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-selinux-disable.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-shutdown-iptables.git
-
-- src: https://github.com/carlosfrias/apigee-opdk-setup-os-postgres.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-yum-repository-proxy-config.git
 
@@ -42,9 +42,9 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-component.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-java-home.git
-
 - src: https://github.com/carlosfrias/apigee-opdk-setup-component-installer.git
+
+- src: https://github.com/carlosfrias/apigee-opdk-setup-java-home.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-postgres-config.git
 
@@ -72,13 +72,13 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-settings-private-address.git
 
+- src: https://github.com/carlosfrias/apigee-opdk-settings-cassandra.git
+
 - src: https://github.com/carlosfrias/apigee-opdk-settings-region.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-scopes-add.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-env-vars.git
-
-- src: https://github.com/carlosfrias/apigee-opdk-settings-cassandra.git
+#- src: https://github.com/carlosfrias/apigee-opdk-setup-env-vars.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-server-registration-state.git
 
