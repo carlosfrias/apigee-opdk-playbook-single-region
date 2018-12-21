@@ -21,7 +21,7 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-component.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-component-installer.git
+#- src: https://github.com/carlosfrias/apigee-opdk-setup-component-installer.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-component-install.git
 
@@ -59,9 +59,9 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-stop-components.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-iptables-flush.git
+#- src: https://github.com/carlosfrias/apigee-opdk-iptables-flush.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-iptables-port-block.git
+#- src: https://github.com/carlosfrias/apigee-opdk-iptables-port-block.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-yum-repository-proxy-config.git
 
@@ -87,7 +87,7 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-scopes-add.git
 
-- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
+#- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-env-vars.git
 
