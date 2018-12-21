@@ -1,5 +1,5 @@
 ---
-# Ansible Roles for Operating System Conditioning
+# Ansible Roles for Setting Operating System Requirements
 - src: https://github.com/carlosfrias/apigee-opdk-setup-apigee-user.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-apigee-user-ownership.git
@@ -62,10 +62,6 @@
 
 - src: https://github.com/carlosfrias/apigee-opdk-stop-components.git
 
-#- src: https://github.com/carlosfrias/apigee-opdk-iptables-flush.git
-
-#- src: https://github.com/carlosfrias/apigee-opdk-iptables-port-block.git
-
 - src: https://github.com/carlosfrias/apigee-opdk-setup-license.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-settings-ldap.git
@@ -79,8 +75,6 @@
 - src: https://github.com/carlosfrias/apigee-opdk-settings-region.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-scopes-add.git
-
-#- src: https://github.com/carlosfrias/apigee-opdk-setup-default-settings.git
 
 - src: https://github.com/carlosfrias/apigee-opdk-setup-env-vars.git
 
