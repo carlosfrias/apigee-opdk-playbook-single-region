@@ -172,8 +172,8 @@
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-setup-postgres-config, tags: ['config', 'pgmaster-config'] }
-  - { role: apigee-opdk-setup-postgres-master }
-  - { role: apigee-opdk-setup-status }
+  - { role: apigee-opdk-setup-postgres-master, tags: ['pgmaster-setup']  }
+  - { role: apigee-opdk-setup-status, tags: ['pgmaster-status']  }
 
 - name: Configure Postgres Standby
   hosts: pgstandby
@@ -187,9 +187,9 @@
   roles:
   - { role: apigee-opdk-modules }
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
-  - { role: apigee-opdk-setup-postgres-config, clear_pgdata: True }
-  - { role: apigee-opdk-setup-postgres-standby }
-  - { role: apigee-opdk-setup-status }
+  - { role: apigee-opdk-setup-postgres-config, clear_pgdata: True, tags: ['pgstandby-config'] }
+  - { role: apigee-opdk-setup-postgres-standby, tags: ['pgstandby-setup'] }
+  - { role: apigee-opdk-setup-status, tags: ['pgstandby-status']  }
 
 - name: Configure Organization and Environments
   hosts: ms[0]
