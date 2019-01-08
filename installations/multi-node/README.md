@@ -1,6 +1,6 @@
-# Install Apigee Developer Portal
+# Install Apigee Edge
 
-The playbook `install.yml` will perform an installation of Apigee Developer Edge. Version 4.16.xx through 4.18.05 can be installed
+The playbook `install.yml` will perform an installation of Apigee Edge. Version 4.16.xx through 4.18.05 can be installed
 from this playbook. Please see the [Setup](https://github.com/apigee/ansible-opdk-accelerator/blob/master/setup/README.md) 
 for guidance on configuring your local environment.
 

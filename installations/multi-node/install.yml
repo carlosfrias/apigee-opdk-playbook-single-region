@@ -52,7 +52,7 @@
 - name: Configure & Install Management Server
   hosts: ms
   gather_facts: no
-  serial: 1
+  strategy: free
   tags: ['ms']
   vars:
     property_folders:
@@ -69,7 +69,7 @@
 - name: Configure & Install Router & Message Processor
   hosts: rmp
   gather_facts: no
-  serial: 1
+  strategy: free
   tags: ['rmp']
   vars:
     property_folders:
@@ -89,7 +89,7 @@
 - name: Configure & Install Router
   hosts: router
   gather_facts: no
-  serial: 1
+  strategy: free
   tags: ['r']
   vars:
     property_folders:
@@ -107,7 +107,7 @@
 - name: Configure & Install Message Processor
   hosts: mp
   gather_facts: no
-  serial: 1
+  strategy: free
   tags: ['mp']
   vars:
     property_folders:
@@ -125,7 +125,7 @@
 - name: Configure & Install Qpid
   hosts: qpid
   gather_facts: no
-  serial: 1
+  strategy: free
   tags: ['qpid']
   vars:
     ansible_workspace: "~/.ansible"
@@ -143,6 +143,7 @@
 - name: Configure & Install Postgres
   hosts: pg
   gather_facts: no
+  strategy: free
   tags: ['pg']
   vars:
     ansible_workspace: "~/.ansible"
