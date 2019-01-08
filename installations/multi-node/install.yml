@@ -1,6 +1,7 @@
 ---
 - name: Install Edge
   hosts: edge
+  strategy: free
   vars:
     property_folders:
     - "~/.apigee-secure"
