@@ -48,7 +48,7 @@
   hosts: ds
   gather_facts: no
   serial: 1
-  tags: ['ds']
+  tags: ['ds','edge']
   vars:
     property_folders:
     - "~/.apigee-secure"
@@ -64,7 +64,7 @@
   hosts: ms
   gather_facts: no
   strategy: free
-  tags: ['ms']
+  tags: ['ms','edge']
   vars:
     property_folders:
     - "~/.apigee-secure"
@@ -81,7 +81,7 @@
   hosts: rmp
   gather_facts: no
   strategy: free
-  tags: ['rmp']
+  tags: ['rmp','edge']
   vars:
     property_folders:
     - "~/.apigee-secure"
@@ -101,7 +101,7 @@
   hosts: router
   gather_facts: no
   strategy: free
-  tags: ['r']
+  tags: ['r','edge']
   vars:
     property_folders:
     - "~/.apigee-secure"
@@ -119,7 +119,7 @@
   hosts: mp
   gather_facts: no
   strategy: free
-  tags: ['mp']
+  tags: ['mp','edge']
   vars:
     property_folders:
     - "~/.apigee-secure"
@@ -137,7 +137,7 @@
   hosts: qpid
   gather_facts: no
   strategy: free
-  tags: ['qpid']
+  tags: ['qpid','edge']
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
@@ -155,7 +155,7 @@
   hosts: pg
   gather_facts: no
   strategy: free
-  tags: ['pg']
+  tags: ['pg','edge']
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
@@ -173,7 +173,7 @@
   hosts: pgmaster
   gather_facts: no
   serial: 1
-  tags: ['pgmaster']
+  tags: ['pgmaster','edge']
   vars:
     ansible_workspace: "~/.ansible"
     apigee_workspace: "~/apigee-workspace"
@@ -190,7 +190,7 @@
   hosts: pgstandby
   gather_facts: no
   serial: 1
-  tags: ['pgstandby']
+  tags: ['pgstandby','edge']
   vars:
     property_folders:
     - "~/.apigee-secure"
@@ -216,7 +216,7 @@
 
 - name: Restart of Planet
   hosts: edge
-  serial: 1
+  strategy: free
   tags: ['restart']
   vars:
     property_folders:
@@ -228,6 +228,7 @@
 
 - name: Validate Routers & Message Processors
   hosts: rmp
+  tags: ['validate']
   serial: 1
   vars:
     property_folders:
@@ -239,6 +240,7 @@
 
 - name: Validate Routers
   hosts: r
+  tags: ['validate']
   serial: 1
   vars:
     property_folders:
