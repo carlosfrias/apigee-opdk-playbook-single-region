@@ -54,8 +54,8 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
-  - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'ds-config']  }
+  - { role: apigee-opdk-modules, tags: ['config', 'ds-config']  }
+  - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'ds-config'] }
   - { role: apigee-opdk-setup-component, profile: 'ds', tags: ['ds-setup'] }
   - { role: apigee-opdk-start-components, tags: ['ds-start'] }
   - { role: apigee-opdk-setup-status, tags: ['ds-status'] }
@@ -70,7 +70,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'ms-config'] }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'ms-config']  }
   - { role: apigee-opdk-setup-component, profile: 'ms', tags: ['ms-setup'] }
   - { role: apigee-opdk-setup-component, profile: 'ui', tags: ['ms-setup'] }
@@ -87,7 +87,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'ds-config'] }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'rmp-config']  }
   - { role: apigee-opdk-setup-component, profile: 'rmp', tags: ['rmp-setup'] }
   - { role: apigee-opdk-start-components, tags: ['rmp-start'] }
@@ -107,7 +107,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'r-config'] }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'r-config']  }
   - { role: apigee-opdk-setup-component, profile: 'r', tags: ['r-setup'] }
   - { role: apigee-opdk-start-components, tags: ['r-start'] }
@@ -125,7 +125,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'mp-config'] }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'mp-config']  }
   - { role: apigee-opdk-setup-component, profile: 'mp', tags: ['mp-setup'] }
   - { role: apigee-opdk-start-components, tags: ['mp-start'] }
@@ -145,7 +145,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'qs-config'] }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'qs-config']  }
   - { role: apigee-opdk-setup-component, profile: 'qs', tags: ['qs-setup'] }
   - { role: apigee-opdk-start-components, tags: ['qs-start'] }
@@ -163,7 +163,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'pg-config'] }
   - { role: apigee-opdk-setup-silent-installation-config, tags: ['config', 'pg-config']  }
   - { role: apigee-opdk-setup-component, profile: 'ps', tags: ['pg-setup'] }
   - { role: apigee-opdk-start-components, tags: ['pg-start'] }
@@ -181,7 +181,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'pgmaster-config'] }
   - { role: apigee-opdk-setup-postgres-config, tags: ['config', 'pgmaster-config'] }
   - { role: apigee-opdk-setup-postgres-master, tags: ['pgmaster-setup']  }
   - { role: apigee-opdk-setup-status, tags: ['pgmaster-status']  }
@@ -196,7 +196,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'pgstandby-config'] }
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, clear_pgdata: True, tags: ['pgstandby-config'] }
   - { role: apigee-opdk-setup-postgres-standby, tags: ['pgstandby-setup'] }
@@ -211,7 +211,7 @@
     - "~/.apigee-secure"
     - "~/.apigee"
   roles:
-  - { role: apigee-opdk-modules }
+  - { role: apigee-opdk-modules, tags: ['config', 'org-config'] }
   - { role: apigee-opdk-setup-org, tags: ['org', 'org-setup'] }
 
 - name: Restart of Planet
