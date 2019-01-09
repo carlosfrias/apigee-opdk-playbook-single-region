@@ -5,7 +5,7 @@
 
   tasks:
   - name: Load credentials
-    include_vars: '~/.apigee-secure/credentials.yml'
+    include_vars: '~/apigee-secure/credentials.yml'
 
   - name: Set attributes if available
     ignore_errors: true

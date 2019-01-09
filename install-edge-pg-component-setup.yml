@@ -5,8 +5,8 @@
   serial: 1
   tags: ['pg', 'pgcommon']
   vars_files:
-  - ~/.apigee-secure/credentials.yml
-  - ~/.apigee/custom-properties.yml
+  - ~/apigee-secure/credentials.yml
+  - ~/apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-component, profile: 'ps', tags: ['apigee-component'] }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }
