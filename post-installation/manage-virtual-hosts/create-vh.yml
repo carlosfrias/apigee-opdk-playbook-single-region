@@ -13,7 +13,7 @@
   gather_facts: no
   vars:
   #    ansible_workspace: "~/.ansible"
-  #    apigee_workspace: "~/apigee-workspace"
+  #    apigee_workspace: "~/.apigee-workspace"
 
     # Use this virtual host with all MPs
     use_all_mps: true

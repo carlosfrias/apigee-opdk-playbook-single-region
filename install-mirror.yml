@@ -40,8 +40,8 @@
   gather_facts: no
   tags: ['create']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-create-archive, tags: ['create-archive'] }
 
@@ -50,8 +50,8 @@
   gather_facts: no
   tags: ['download']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-download-archive, tags: ['download-archive'] }
 
@@ -61,8 +61,8 @@
   gather_facts: no
   tags: ['upload']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-upload-archive, tags: ['upload-archive'] }
 
@@ -72,8 +72,8 @@
   gather_facts: no
   tags: ['install']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-bootstrap-archive-installer, tags: ['install-archive'] }
 
@@ -82,8 +82,8 @@
   gather_facts: no
   tags: ['nginx']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-mirror-nginx, tags: ['nginx-mirror'] }
 

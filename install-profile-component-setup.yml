@@ -5,8 +5,8 @@
   serial: 1
   tags: ['baas-cs']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-component, profile: '{{ component_profile }}', opdk_installation_config_file: '{{ opdk_baas_silent_install_file_path }}' }
   - { role: apigee-opdk-start-components, tags: ['apigee-component'] }

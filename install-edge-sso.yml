@@ -52,8 +52,8 @@
   gather_facts: no
   tags: ['sso']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-component-install, component: 'apigee-ssoadminapi' }
   - { role: apigee-opdk-setup-edge-sso-config, tags: ['sso-config'] }

@@ -5,8 +5,8 @@
   serial: 1
   tags: ['pg', 'pgmaster']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-setup-postgres-config, tags: ['pg-os-pre-req'] }
   - { role: apigee-opdk-setup-postgres-master }
@@ -18,8 +18,8 @@
   serial: 1
   tags: ['pg', 'pgstandby']
   vars_files:
-  - ~/apigee-secure/credentials.yml
-  - ~/apigee/custom-properties.yml
+  - ~/.apigee-secure/credentials.yml
+  - ~/.apigee/custom-properties.yml
   roles:
   - { role: apigee-opdk-stop-components, component_name: 'apigee-postgresql' }
   - { role: apigee-opdk-setup-postgres-config, tags: ['pg-os-pre-req'], clear_pgdata: True }
