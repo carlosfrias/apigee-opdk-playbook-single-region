@@ -14,7 +14,7 @@
   tags: ['install-config']
   tasks:
   - name: Display silent-install.conf
-    command: "cat {{ opdk_installation_config_file }}"
+    command: "cat {{ target_response_file_path }}"
 
 - name: Apigee Node Private IP Address
   hosts: pg

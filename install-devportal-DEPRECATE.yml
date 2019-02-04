@@ -52,7 +52,7 @@
   vars:
     pg_master_node: 'dp-db-pgmaster'
     pg_standby_node: 'dp-db-pgstandby'
-    opdk_installation_config_file: "{{ opdk_portal_db_config_file }}"
+    target_response_file_path: "{{ opdk_portal_db_config_file }}"
 
 - name: Apply configuration to DevPortal UI node
   import_playbook: install-devportal-ui-component-setup-DEPRECATE.yml
